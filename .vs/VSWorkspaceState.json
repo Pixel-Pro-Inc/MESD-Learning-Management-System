@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\data"
+    "\\local",
+    "\\local\\greetings",
+    "\\local\\greetings\\lang",
+    "\\local\\greetings\\lang\\en"
   ],
-  "SelectedNode": "\\data",
+  "SelectedNode": "\\local\\greetings\\lang\\en\\local_greetings.php",
   "PreviewInSolutionExplorer": false
 }
