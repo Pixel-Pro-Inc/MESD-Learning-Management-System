@@ -12,3 +12,5 @@ Creating a Course event
 1. Created a Course titled "Algorithms". Enrolled a bunch of users including Abel
 2. Created an Exam event.
 3. It's visible to all students
+
+Make sure to delete all events, courses and categories when you're done with review. ESPECIALLY THE SITE EVENT 
