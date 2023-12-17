@@ -59,3 +59,5 @@ jsconfig.json
 
 .vs/
 config.php
+data
+data/*
