@@ -237,7 +237,7 @@ if (!$step) {
                     'value' => get_string('back', 'local_course_templates'),
                     'onclick' => 'javascript :history.back(-1)',
                     'class' => 'btn btn-primary',
-                    'style' => 'margin-right:20px;'
+                    'style' => 'margin-right:20px;',
                 )
             ) . html_writer::empty_tag(
                 'input',
@@ -245,7 +245,7 @@ if (!$step) {
                     'type' => 'button',
                     'value' => get_string('continue', 'local_course_templates'),
                     'onclick' => 'window.location.href="' . $redirecturl . '"',
-                    'class' => 'btn btn-primary'
+                    'class' => 'btn btn-primary',
                 )
             )
         );
@@ -315,14 +315,14 @@ if (!$step) {
                     'value' => get_string('back', 'local_course_templates'),
                     'onclick' => 'javascript :history.back(-1)',
                     'class' => 'btn btn-secondary',
-                    'style' => 'margin-right:20px;'
+                    'style' => 'margin-right:20px;',
                 )
             ) . html_writer::empty_tag(
                 'input',
                 array('type' => 'button',
                     'value' => get_string('continue', 'local_course_templates'),
                     'onclick' => 'window.location.href="' . $redirecturl . '?step=2&cid=' . $cid . '"',
-                    'class' => 'btn btn-primary'
+                    'class' => 'btn btn-primary',
                 )
             )
         );
@@ -347,7 +347,7 @@ if (!$step) {
                     'value' => get_string('back', 'local_course_templates'),
                     'onclick' => 'javascript :history.back(-1)',
                     'class' => 'btn btn-secondary',
-                    'style' => 'margin-right:20px;'
+                    'style' => 'margin-right:20px;',
                 )
             ) . html_writer::empty_tag(
                 'input',
@@ -355,7 +355,7 @@ if (!$step) {
                     'type' => 'button',
                     'value' => get_string('continue', 'local_course_templates'),
                     'onclick' => 'window.location.href="' . $redirecturl . '"',
-                    'class' => 'btn btn-primary'
+                    'class' => 'btn btn-primary',
                 )
             )
         );
@@ -370,7 +370,7 @@ if (!$step) {
                     'value' => get_string('back', 'local_course_templates'),
                     'onclick' => 'javascript :history.back(-1)',
                     'class' => 'btn btn-secondary',
-                    'style' => 'margin-right:20px;'
+                    'style' => 'margin-right:20px;',
                 )
             ) . html_writer::empty_tag(
                 'input',
@@ -383,7 +383,7 @@ if (!$step) {
                         . '&sel_cate='
                         . $cateid
                         . '"',
-                    'class' => 'btn btn-primary'
+                    'class' => 'btn btn-primary',
                 )
             )
         );
@@ -398,14 +398,14 @@ if (!$step) {
                     'value' => get_string('back', 'local_course_templates'),
                     'onclick' => 'javascript :history.back(-1)',
                     'class' => 'btn btn-secondary',
-                    'style' => 'margin-right:20px;'
+                    'style' => 'margin-right:20px;',
                 )
             ) . html_writer::empty_tag(
                 'input',
                 array('type' => 'button',
                     'value' => get_string('continue', 'local_course_templates'),
                     'onclick' => 'window.location.href="' . $redirecturl . '"',
-                    'class' => 'btn btn-primary'
+                    'class' => 'btn btn-primary',
                 )
             )
         );

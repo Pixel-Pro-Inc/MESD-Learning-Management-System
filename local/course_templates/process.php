@@ -70,7 +70,7 @@ $options = array(
     array('name' => 'blocks', 'value' => 1),
     array('name' => 'activities', 'value' => 1),
     array('name' => 'filters', 'value' => 1),
-    array('name' => 'users', 'value' => 1)
+    array('name' => 'users', 'value' => 1),
 );
 $visible = 1;
 
@@ -132,8 +132,8 @@ if (@isset($res['id'])) {
                 array(
                     'courseid' => $course->id,
                     'format' => 'event',
-                    'name' => 'location'
-                )
+                    'name' => 'location',
+                ),
             );
             $eventoption->value = $location;
             $DB->update_record('course_format_options', $eventoption);

@@ -230,7 +230,7 @@ function get_template_setting_form($cid, $categoryid, $cateid = null) {
             get_string('coursename', 'local_course_templates'),
             array(
                 'for' => 'course_name',
-                'id' => 'course_name_label'
+                'id' => 'course_name_label',
             )
         ),
         $OUTPUT->pix_icon('req', get_string('requiredelement', 'form')),
@@ -239,9 +239,9 @@ function get_template_setting_form($cid, $categoryid, $cateid = null) {
            array(
                'type' => 'text',
                'id' => 'course_name',
-               'required' => 'required'
+               'required' => 'required',
            )
-        )
+        ),
     );
     $table->data[] = array(
         html_writer::nonempty_tag(
@@ -249,7 +249,7 @@ function get_template_setting_form($cid, $categoryid, $cateid = null) {
             get_string('courseshortname', 'local_course_templates'),
             array(
                 'for' => 'course_short_name',
-                'id' => 'course_short_name_label'
+                'id' => 'course_short_name_label',
             )
         ),
         $OUTPUT->pix_icon('req', get_string('requiredelement', 'form')),
@@ -258,9 +258,9 @@ function get_template_setting_form($cid, $categoryid, $cateid = null) {
             array(
                'type' => 'text',
                'id' => 'course_short_name',
-               'required' => 'required'
+               'required' => 'required',
             )
-        )
+        ),
     );
 
     $table->data[] = array(
@@ -268,7 +268,7 @@ function get_template_setting_form($cid, $categoryid, $cateid = null) {
         '',
         '<div class="fdescription required">'
         . get_string('somefieldsrequired', 'form', $OUTPUT->pix_icon('req', get_string('requiredelement', 'form')))
-        . '</div>'
+        . '</div>',
     );
 
     if ($course->format == 'event') {
@@ -315,7 +315,7 @@ function get_template_setting_form($cid, $categoryid, $cateid = null) {
                     'type' => 'text',
                     'id' => 'course_date',
                     'class' => "form_datetime",
-                    'style' => 'margin-right:10px;'
+                    'style' => 'margin-right:10px;',
                 )
             ) . $startdatetimeh . ":" . $startdatetimem . $enddatetimeh . ":" . $enddatetimem);
 
@@ -343,7 +343,7 @@ function get_template_setting_form($cid, $categoryid, $cateid = null) {
                 'value' => get_string('back', 'local_course_templates'),
                 'onclick' => 'javascript :history.back(-1)',
                 'class' => 'btn btn-secondary',
-                'style' => 'margin-right:20px;'
+                'style' => 'margin-right:20px;',
             )
         ) . html_writer::empty_tag(
             'input',
@@ -351,7 +351,7 @@ function get_template_setting_form($cid, $categoryid, $cateid = null) {
                 'type' => 'button',
                 'value' => get_string('continue', 'local_course_templates'),
                 'id' => 'btnProcess',
-                'class' => 'btn btn-primary'
+                'class' => 'btn btn-primary',
             )
         )
     );
