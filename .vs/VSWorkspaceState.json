@@ -1,7 +1,17 @@
+<<<<<<< HEAD
 {
   "ExpandedNodes": [
     ""
   ],
   "SelectedNode": "\\enrol",
   "PreviewInSolutionExplorer": false
+=======
+{
+  "ExpandedNodes": [
+    "",
+    "\\Documentation"
+  ],
+  "SelectedNode": "\\Documentation\\View Classes Module Documentation.docx",
+  "PreviewInSolutionExplorer": false
+>>>>>>> origin/LMS-2-Course-Management-Module
 }
