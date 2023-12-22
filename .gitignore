@@ -57,6 +57,7 @@ moodle-plugin-ci.phar
 phpcs.xml
 jsconfig.json
 /Documentation
+.vs/slnx.sqlite
 
 .vs/
 config.php
