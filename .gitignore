@@ -59,3 +59,6 @@ jsconfig.json
 /Documentation
 
 .vs/
+config.php
+data
+data/*
