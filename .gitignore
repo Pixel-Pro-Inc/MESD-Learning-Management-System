@@ -56,6 +56,8 @@ moodle-plugin-ci.phar
 .hugo_build.lock
 phpcs.xml
 jsconfig.json
+/Documentation
+.vs/slnx.sqlite
 
 .vs/
 config.php
