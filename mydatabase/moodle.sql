@@ -12649,7 +12649,7 @@ CREATE TABLE `mdl_sessions` (
 
 LOCK TABLES `mdl_sessions` WRITE;
 /*!40000 ALTER TABLE `mdl_sessions` DISABLE KEYS */;
-INSERT INTO `mdl_sessions` VALUES (2,0,'92usqtk86q14sjhiqtn2a7c0b4',2,NULL,1702838108,1702838863,'127.0.0.1','127.0.0.1'),(6,0,'1ge40t2q939cb0j6l341gg2eap',0,NULL,1702889204,1702889204,'127.0.0.1','127.0.0.1'),(7,0,'cb0o3bqc214oahcvm0jql9glo5',0,NULL,1702889205,1702889205,'127.0.0.1','127.0.0.1'),(8,0,'ngj6cdgjkffnng7tkob89qvsl0',2,NULL,1702889210,1702889280,'127.0.0.1','127.0.0.1'),(10,0,'iomsngprpkm93297g8rj7gfitf',2,NULL,1702890343,1702890542,'127.0.0.1','127.0.0.1'),(12,0,'5ev5ebbh395qdrmgbfajdo1lag',2,NULL,1702896901,1702900231,'127.0.0.1','127.0.0.1'),(13,0,'6o416r05dv3q2tau7u2g4jvc75',0,NULL,1703004548,1703004560,'127.0.0.1','127.0.0.1'),(14,0,'h8se7bdh7mibi1s1423tsrh7hk',0,NULL,1703004750,1703006848,'127.0.0.1','127.0.0.1'),(16,0,'nipm9uokk65iko6e6ien4giiuh',2,NULL,1703011380,1703014381,'127.0.0.1','127.0.0.1'),(18,0,'j6g064ne3n65fup4if7kadncub',2,NULL,1703052970,1703053128,'127.0.0.1','127.0.0.1');
+INSERT INTO `mdl_sessions` VALUES (2,0,'92usqtk86q14sjhiqtn2a7c0b4',2,NULL,1702838108,1702838863,'127.0.0.1','127.0.0.1'),(6,0,'1ge40t2q939cb0j6l341gg2eap',0,NULL,1702889204,1702889204,'127.0.0.1','127.0.0.1'),(7,0,'cb0o3bqc214oahcvm0jql9glo5',0,NULL,1702889205,1702889205,'127.0.0.1','127.0.0.1'),(8,0,'ngj6cdgjkffnng7tkob89qvsl0',2,NULL,1702889210,1702889280,'127.0.0.1','127.0.0.1'),(10,0,'iomsngprpkm93297g8rj7gfitf',2,NULL,1702890343,1702890542,'127.0.0.1','127.0.0.1'),(12,0,'5ev5ebbh395qdrmgbfajdo1lag',2,NULL,1702896901,1702900231,'127.0.0.1','127.0.0.1'),(13,0,'6o416r05dv3q2tau7u2g4jvc75',0,NULL,1703004548,1703004560,'127.0.0.1','127.0.0.1'),(14,0,'h8se7bdh7mibi1s1423tsrh7hk',0,NULL,1703004750,1703006848,'127.0.0.1','127.0.0.1'),(16,0,'nipm9uokk65iko6e6ien4giiuh',2,NULL,1703011380,1703014381,'127.0.0.1','127.0.0.1'),(18,0,'j6g064ne3n65fup4if7kadncub',2,NULL,1703052970,1703053764,'127.0.0.1','127.0.0.1');
 /*!40000 ALTER TABLE `mdl_sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -14407,7 +14407,7 @@ CREATE TABLE `mdl_user` (
 
 LOCK TABLES `mdl_user` WRITE;
 /*!40000 ALTER TABLE `mdl_user` DISABLE KEYS */;
-INSERT INTO `mdl_user` VALUES (1,'manual',1,0,0,0,1,'guest','$2y$10$u9AA/V2o7gFbfkaL9rOw0etm9mtGnawGginfRxGenllF0mePf1Iee','','Guest user',' ','root@localhost',0,'','','','','','','','en','gregorian','','99',0,0,0,0,'','',0,'This user is a special user that allows read-only access to some courses.',1,1,0,2,1,0,0,1702837440,0,NULL,NULL,NULL,NULL,NULL,NULL),(2,'manual',1,0,0,0,1,'admin','$2y$10$GjmdZA89gxBXoUNW9qUwnuZLdqAvMFSO7nCFRdxg4RhWhVUTGUE8C','','Admin','User','apexmachine2@gmail.com',0,'','','','','','','','en','gregorian','','99',1702838108,1703053121,1703011380,1703052970,'127.0.0.1','',0,'',1,1,0,1,1,0,0,1702838185,0,NULL,'','','','',NULL);
+INSERT INTO `mdl_user` VALUES (1,'manual',1,0,0,0,1,'guest','$2y$10$u9AA/V2o7gFbfkaL9rOw0etm9mtGnawGginfRxGenllF0mePf1Iee','','Guest user',' ','root@localhost',0,'','','','','','','','en','gregorian','','99',0,0,0,0,'','',0,'This user is a special user that allows read-only access to some courses.',1,1,0,2,1,0,0,1702837440,0,NULL,NULL,NULL,NULL,NULL,NULL),(2,'manual',1,0,0,0,1,'admin','$2y$10$GjmdZA89gxBXoUNW9qUwnuZLdqAvMFSO7nCFRdxg4RhWhVUTGUE8C','','Admin','User','apexmachine2@gmail.com',0,'','','','','','','','en','gregorian','','99',1702838108,1703053764,1703011380,1703052970,'127.0.0.1','',0,'',1,1,0,1,1,0,0,1702838185,0,NULL,'','','','',NULL);
 /*!40000 ALTER TABLE `mdl_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -15375,4 +15375,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-20  8:19:32
+-- Dump completed on 2023-12-20  8:30:42
