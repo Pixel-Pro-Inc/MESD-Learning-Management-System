@@ -58,6 +58,7 @@ phpcs.xml
 jsconfig.json
 /data
 /data
+/Documentation
 .vs/slnx.sqlite
 
 .vs/
