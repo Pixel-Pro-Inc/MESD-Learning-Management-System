@@ -1,0 +1,8 @@
+MESD Documentation LMS-30-View-all-enrolled-subjects
+Moodle provides students with a user-friendly interface to access and manage their enrolled courses.
+Usage
+1.	Login to Moodle:
+•	Open your web browser and go to your institution's Moodle site.
+•	Enter your username and password to log in.
+2.	Navigate to Course or My Courses:
+•	Check the main site navigation menu for a link named "Courses" or "My Courses." This may lead you to a page displaying all the courses you are enrolled in.
