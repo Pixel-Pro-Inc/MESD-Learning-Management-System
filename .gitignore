@@ -63,3 +63,5 @@ jsconfig.json
 config.php
 data
 data/*
+/RedirectModule/node_modules
+/.vs/slnx.sqlite
