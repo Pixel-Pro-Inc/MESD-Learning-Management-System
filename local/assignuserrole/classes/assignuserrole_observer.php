@@ -23,7 +23,39 @@ class assignuserrole_observer {
     // Convert the object to a string representation
     profile_load_data($user);
 
-    $roleid = 1;
+    $roleid = 5;
+
+    switch($user->profile_field_userrole){
+      case 'MESD Executive':
+        $roleid = 9;
+        break;
+      case 'Director':
+        $roleid = 10;
+        break;
+      case 'Super Administrator':
+        $roleid = 11;
+        break;
+      case 'Administrator':
+        $roleid = 12;
+        break;
+      case 'School Head':
+        $roleid = 13;
+        break;
+      case 'Head of Department':
+        $roleid = 14;
+        break;
+      case 'Senior Educator':
+        $roleid = 3;
+        break;
+      case 'Educator':
+        $roleid = 4;
+        break;
+      case 'Learner':
+        $roleid = 5;
+        break;
+      default:
+        return;
+    }
 
     $logMessage = print_r($user, true);
 
