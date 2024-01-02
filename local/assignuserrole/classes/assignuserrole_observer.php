@@ -28,7 +28,7 @@ class assignuserrole_observer {
     $userid = $user->id;
 
     // Get the user context
-    $usercontext = context_user::instance($userid);
+    $usercontext = \context_user::instance($userid);
 
     //$context = get_context_instance(CONTEXT_USER);
 
