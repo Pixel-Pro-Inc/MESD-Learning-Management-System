@@ -19,12 +19,13 @@
 # Temporary files including undo
 *~
 #
-/config.php
+/lib/editor/tinymce/extra/tools/temp/
 /tags
 /TAGS
 /cscope.*
 /.patches/
 /.idea/
+/.vs
 .phpstorm.*
 /nbproject/
 CVS
@@ -53,7 +54,8 @@ moodle-plugin-ci.phar
 /admin/tool/componentlibrary/docs
 /admin/tool/componentlibrary/hugo/site/data/my-index.json
 .hugo_build.lock
-/.vs
 phpcs.xml
 jsconfig.json
+
+.vs/
 /RedirectModule/node_modules
