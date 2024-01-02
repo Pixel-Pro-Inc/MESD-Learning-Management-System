@@ -2,6 +2,8 @@
 
 namespace local_assignuserrole;
 
+require_once($CFG->dirroot.'/user/profile/lib.php');
+
 class assignuserrole_observer {
   public static function usercreated(\core\event\user_created $event) {
     // Get the user information from the event
@@ -19,8 +21,6 @@ class assignuserrole_observer {
 
   public static function assignrole($user){
     // Convert the object to a string representation
-    require_once($CFG->dirroot.'/user/profile/lib.php');
-
     profile_load_data($user);
 
     $roleid = 1;
