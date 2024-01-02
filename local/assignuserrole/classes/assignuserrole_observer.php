@@ -20,6 +20,7 @@ class assignuserrole_observer {
   public static function assignrole($user){
     // Convert the object to a string representation
     $logMessage = print_r($user, true);
+    $roleid = 1;
 
     // Log the string to the error log
     error_log($logMessage);
