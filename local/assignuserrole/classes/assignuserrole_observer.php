@@ -19,8 +19,13 @@ class assignuserrole_observer {
 
   public static function assignrole($user){
     // Convert the object to a string representation
-    $logMessage = print_r($user, true);
+    require_once($CFG->dirroot.'/user/profile/lib.php');
+
+    profile_load_data($user);
+
     $roleid = 1;
+
+    $logMessage = print_r($user, true);
 
     // Log the string to the error log
     error_log($logMessage);
