@@ -1,0 +1,75 @@
+<?php
+
+namespace local_assignuserrole;
+
+require_once($CFG->dirroot.'/user/profile/lib.php');
+
+class assignuserrole_observer {
+  public static function usercreated(\core\event\user_created $event) {
+    // Get the user information from the event
+    $user = $event->get_record_snapshot('user', $event->objectid);
+
+    self::assignrole($user);
+  }
+
+  public static function userupdated(\core\event\user_updated $event) {
+    // Get the user information from the event
+    $user = $event->get_record_snapshot('user', $event->objectid);
+
+    self::assignrole($user);
+  }
+
+  public static function assignrole($user){
+    // Convert the object to a string representation
+    profile_load_data($user);
+
+    $roleid = 5;
+
+    switch($user->profile_field_userrole){
+      case 'MESD Executive':
+        $roleid = 9;
+        break;
+      case 'Director':
+        $roleid = 10;
+        break;
+      case 'Super Administrator':
+        $roleid = 11;
+        break;
+      case 'Administrator':
+        $roleid = 12;
+        break;
+      case 'School Head':
+        $roleid = 13;
+        break;
+      case 'Head of Department':
+        $roleid = 14;
+        break;
+      case 'Senior Educator':
+        $roleid = 3;
+        break;
+      case 'Educator':
+        $roleid = 4;
+        break;
+      case 'Learner':
+        $roleid = 5;
+        break;
+      default:
+        return;
+    }
+
+    $logMessage = print_r($user, true);
+
+    // Log the string to the error log
+    error_log($logMessage);
+
+    $userid = $user->id;
+
+    // Get the user context
+    $usercontext = \context_user::instance($userid);
+
+    //$context = get_context_instance(CONTEXT_USER);
+
+    // Assign the role
+    role_assign($roleid, $userid, $usercontext->id);
+  }
+}
