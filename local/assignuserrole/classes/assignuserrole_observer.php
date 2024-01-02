@@ -25,7 +25,14 @@ class assignuserrole_observer {
     // Log the string to the error log
     error_log($logMessage);
 
-    $context = context_system::instance();
-    role_assign($roleid, $user->id, $context->id);
+    $userid = $user->id;
+
+    // Get the user context
+    $usercontext = context_user::instance($userid);
+
+    //$context = get_context_instance(CONTEXT_USER);
+
+    // Assign the role
+    role_assign($roleid, $userid, $usercontext->id);
   }
 }
