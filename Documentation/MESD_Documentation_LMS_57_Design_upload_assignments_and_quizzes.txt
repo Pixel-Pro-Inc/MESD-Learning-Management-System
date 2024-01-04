@@ -1,0 +1,40 @@
+MESD Documentation LMS-57-Design-upload-assignments-and-quizzes
+Designing and uploading assignments and quizzes in Moodle involves several steps. Here is a guide on how to create and upload assignments and quizzes in Moodle:
+Creating Assignments:
+1.	Log in to Moodle:
+•	Go to your Moodle site and log in with your credentials.
+2.	Navigate to the Course:
+•	Find and enter the course where you want to create the assignment.
+3.	Turn Editing On:
+•	Click the "Turn editing on" button (usually found in the top-right corner). This enables the editing mode for your course.
+ 
+4.	Add an Assignment:
+•	In the section where you want to add the assignment, click the "Add an activity or resource" link.
+ 
+5.	Select Assignment:
+•	Choose "Assignment" from the list of activities and resources.
+6.	Configure Assignment Settings:
+•	Enter the assignment name, description, and any other settings as needed. Set the due date, maximum grade, and other relevant parameters.
+7.	Set Submission Type:
+•	Choose the submission type (e.g., File submissions, Online text, etc.) based on your requirements.
+8.	Save and Return to Course:
+•	Click the "Save and return to course" button to save and upload your assignment.
+Creating Quizzes:
+1.	Log in to Moodle:
+•	Log in to your Moodle site.
+2.	Navigate to the Course:
+•	Enter the course where you want to create the quiz.
+3.	Turn Editing On:
+•	Click the "Turn editing on" button.
+4.	Add a Quiz:
+•	In the section where you want to add the quiz, click the "Add an activity or resource" link.
+5.	Select Quiz:
+•	Choose "Quiz" from the list of activities and resources.
+ 
+6.	Configure Quiz Settings:
+•	Enter the quiz name, description, and any other settings. Adjust the timing, attempt settings, and grading options.
+7.	Add Questions:
+•	Click on the recently added quiz. Click ‘Add questions’ then ‘Add’ and then add your preferred question type to your quiz. Moodle supports various question types, including multiple-choice, true/false, short answer, etc.
+ 
+8.	Save and Return to Course:
+•	Click the "Save and return to course" button to save your quiz.
