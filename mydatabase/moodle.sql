@@ -13379,7 +13379,7 @@ CREATE TABLE `mdl_sessions` (
 
 LOCK TABLES `mdl_sessions` WRITE;
 /*!40000 ALTER TABLE `mdl_sessions` DISABLE KEYS */;
-INSERT INTO `mdl_sessions` VALUES (34,0,'gt9iq2v7fgf7faueat19vstuiv',2,NULL,1703622733,1703623583,'127.0.0.1','127.0.0.1'),(52,0,'obce5t0ukb6bt54qa89aslrdff',2,NULL,1703633349,1703633395,'127.0.0.1','127.0.0.1'),(56,0,'i7a2clojdu7feednv6ie1fkc6n',4,NULL,1704205864,1704205978,'127.0.0.1','127.0.0.1'),(58,0,'alse90c3micc6akef99nsv2fta',2,NULL,1704377935,1704392542,'127.0.0.1','127.0.0.1');
+INSERT INTO `mdl_sessions` VALUES (34,0,'gt9iq2v7fgf7faueat19vstuiv',2,NULL,1703622733,1703623583,'127.0.0.1','127.0.0.1'),(52,0,'obce5t0ukb6bt54qa89aslrdff',2,NULL,1703633349,1703633395,'127.0.0.1','127.0.0.1'),(56,0,'i7a2clojdu7feednv6ie1fkc6n',4,NULL,1704205864,1704205978,'127.0.0.1','127.0.0.1'),(58,0,'alse90c3micc6akef99nsv2fta',2,NULL,1704377935,1704392731,'127.0.0.1','127.0.0.1');
 /*!40000 ALTER TABLE `mdl_sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -15310,7 +15310,7 @@ CREATE TABLE `mdl_user` (
 
 LOCK TABLES `mdl_user` WRITE;
 /*!40000 ALTER TABLE `mdl_user` DISABLE KEYS */;
-INSERT INTO `mdl_user` VALUES (1,'manual',1,0,0,0,1,'guest','$2y$10$u9AA/V2o7gFbfkaL9rOw0etm9mtGnawGginfRxGenllF0mePf1Iee','','Guest user',' ','root@localhost',0,'','','','','','','','en','gregorian','','99',0,0,0,0,'','',0,'This user is a special user that allows read-only access to some courses.',1,1,0,2,1,0,0,1702837440,0,NULL,NULL,NULL,NULL,NULL,NULL),(2,'manual',1,0,0,0,1,'admin','$6$rounds=10000$Ygd5Dd/xtOi8mQ5A$bMiaoE0EGx8j.wZq1UbvGEloZU4j57ruvUJxSBo1ksSdYsMqfSeaWSz.UbSfL8au2BOpsuVmA6HfXAHi1Ju8f/','','Admin','User','apexmachine2@gmail.com',0,'','','','','','','','en','gregorian','','99',1702838108,1704392536,1704204236,1704377935,'127.0.0.1','',0,'',1,1,0,1,1,0,0,1702838185,0,NULL,'','','','',NULL),(3,'manual',1,0,0,0,1,'student1','$2y$10$DIh/GEAR/rYp5bvVz.TSQO0ejnz3RyWvW4r7LYhAsU5mX.vbFzbQy','','Student','One','1andonly@gmail.com',0,'','','','','','','','en','gregorian','','99',1703621647,1703622385,1703621905,1703622182,'127.0.0.1','',0,'',1,1,0,2,1,0,1703617653,1703617653,0,'','','','','',''),(4,'manual',1,0,0,0,1,'teacher1','$6$rounds=10000$aWaHss6FJwLPrLjk$YX426imGeWJDfFfjM4xDLM5rizsD9OUejGU1SOjJ/R7xz.x1DDN0qzXgY8igeIKeox/Nl9TM.J2T7tRoN6Hvo1','','Teach','BlackBeard','piepiepie@gmail.com',0,'','','','','','','','en','gregorian','','99',1703624831,1704205992,1703626445,1704205864,'127.0.0.1','',0,'',1,1,0,2,1,0,1703624092,1703624092,0,'','','','','',''),(5,'manual',1,0,0,0,1,'admin2','$2y$10$/upka3P5PEAZr9jBkximJOsg1zx1rQ/EE2rzhp4fWWEVWW1ah5nb.','','Mini','Mouse','disneyworld@gmail.com',0,'','','','','','','','en','gregorian','','99',1703633335,1703633335,0,1703633335,'127.0.0.1','',0,'',1,1,0,2,1,0,1703633317,1703633317,0,'','','','','','');
+INSERT INTO `mdl_user` VALUES (1,'manual',1,0,0,0,1,'guest','$2y$10$u9AA/V2o7gFbfkaL9rOw0etm9mtGnawGginfRxGenllF0mePf1Iee','','Guest user',' ','root@localhost',0,'','','','','','','','en','gregorian','','99',0,0,0,0,'','',0,'This user is a special user that allows read-only access to some courses.',1,1,0,2,1,0,0,1702837440,0,NULL,NULL,NULL,NULL,NULL,NULL),(2,'manual',1,0,0,0,1,'admin','$6$rounds=10000$Ygd5Dd/xtOi8mQ5A$bMiaoE0EGx8j.wZq1UbvGEloZU4j57ruvUJxSBo1ksSdYsMqfSeaWSz.UbSfL8au2BOpsuVmA6HfXAHi1Ju8f/','','Admin','User','apexmachine2@gmail.com',0,'','','','','','','','en','gregorian','','99',1702838108,1704392731,1704204236,1704377935,'127.0.0.1','',0,'',1,1,0,1,1,0,0,1702838185,0,NULL,'','','','',NULL),(3,'manual',1,0,0,0,1,'student1','$2y$10$DIh/GEAR/rYp5bvVz.TSQO0ejnz3RyWvW4r7LYhAsU5mX.vbFzbQy','','Student','One','1andonly@gmail.com',0,'','','','','','','','en','gregorian','','99',1703621647,1703622385,1703621905,1703622182,'127.0.0.1','',0,'',1,1,0,2,1,0,1703617653,1703617653,0,'','','','','',''),(4,'manual',1,0,0,0,1,'teacher1','$6$rounds=10000$aWaHss6FJwLPrLjk$YX426imGeWJDfFfjM4xDLM5rizsD9OUejGU1SOjJ/R7xz.x1DDN0qzXgY8igeIKeox/Nl9TM.J2T7tRoN6Hvo1','','Teach','BlackBeard','piepiepie@gmail.com',0,'','','','','','','','en','gregorian','','99',1703624831,1704205992,1703626445,1704205864,'127.0.0.1','',0,'',1,1,0,2,1,0,1703624092,1703624092,0,'','','','','',''),(5,'manual',1,0,0,0,1,'admin2','$2y$10$/upka3P5PEAZr9jBkximJOsg1zx1rQ/EE2rzhp4fWWEVWW1ah5nb.','','Mini','Mouse','disneyworld@gmail.com',0,'','','','','','','','en','gregorian','','99',1703633335,1703633335,0,1703633335,'127.0.0.1','',0,'',1,1,0,2,1,0,1703633317,1703633317,0,'','','','','','');
 /*!40000 ALTER TABLE `mdl_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -16314,4 +16314,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-04 20:24:26
+-- Dump completed on 2024-01-04 20:26:00
