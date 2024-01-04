@@ -3483,7 +3483,8 @@ function calendar_get_view(\calendar_information $calendar, $view, $includenavig
                 $calendardate['hours']);
         $date->setTimestamp($tstart);
         $date->modify('+' . $lookahead . ' days');
-    } else {
+    } 
+    else {
         $tstart = $type->convert_to_timestamp($calendardate['year'], $calendardate['mon'], 1);
         $monthdays = $type->get_num_days_in_month($calendardate['year'], $calendardate['mon']);
         $date->setTimestamp($tstart);
@@ -3575,7 +3576,15 @@ function calendar_get_view(\calendar_information $calendar, $view, $includenavig
         $data->viewingday = true;
         $data->showviewselector = true;
         $template = 'core_calendar/calendar_day';
-    } else if ($view == "upcoming" || $view == "upcoming_mini") {
+    } 
+    else if($view === 'weekblock'){
+        $week = new \core_calendar\external\calendar_week_exporter($calendar, $related);
+        $data = $week->export($renderer);
+        $data->viewingday = true;
+        $data->showviewselector = true;
+        $template = 'core_calendar/calendar_week';
+    }
+    else if ($view == "upcoming" || $view == "upcoming_mini") {
         $upcoming = new \core_calendar\external\calendar_upcoming_exporter($calendar, $related);
         $data = $upcoming->export($renderer);
 

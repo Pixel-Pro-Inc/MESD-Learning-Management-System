@@ -54,8 +54,7 @@ class block_calendar_week extends block_base {
         $categoryid = ($this->page->context->contextlevel === CONTEXT_COURSECAT && !empty($this->page->category)) ?
             $this->page->category->id : null;
         $calendar = \calendar_information::create(time(), $courseid, $categoryid);
-        //You need to change the monthblock to weekblock, and then put the functionality for that
-        list($data, $template) = calendar_get_view($calendar, 'monthblock', isloggedin());
+        list($data, $template) = calendar_get_view($calendar, 'weekblock', isloggedin());
 
         $renderer = $this->page->get_renderer('core_calendar');
         $this->content->text .= $renderer->render_from_template($template, $data);
