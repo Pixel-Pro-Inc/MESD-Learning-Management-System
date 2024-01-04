@@ -3582,6 +3582,7 @@ function calendar_get_view(\calendar_information $calendar, $view, $includenavig
         $data = $week->export($renderer);
         $data->viewingday = true;
         $data->showviewselector = true;
+        //This gets the information of the view that we need 
         $template = 'core_calendar/calendar_week';
     }
     else if ($view == "upcoming" || $view == "upcoming_mini") {
@@ -3597,6 +3598,8 @@ function calendar_get_view(\calendar_information $calendar, $view, $includenavig
         }
     }
 
+    //data has the info and template has the cookie cutter shape that will be filled by 
+    //data
     return [$data, $template];
 }
 

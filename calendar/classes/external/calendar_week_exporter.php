@@ -142,7 +142,7 @@ class calendar_week_exporter extends exporter {
 
         $cache = $this->related['cache'];
         $url = new moodle_url('/calendar/view.php', [
-            'view' => 'day',
+            'view' => 'week',
             'time' => $timestamp,
         ]);
         if ($this->calendar->course && SITEID !== $this->calendar->course->id) {
@@ -195,6 +195,7 @@ class calendar_week_exporter extends exporter {
         $previousperiodlink = new moodle_url($this->url);
         $previousperiodlink->param('time', $previousperiod[0]);
 
+        //This gets all the days in that week apparently
         $days = calendar_get_days();
         $return['date'] = (new date_exporter($date))->export($output);
         $return['periodname'] = userdate($this->calendar->time, get_string('strftimedaydate'));
