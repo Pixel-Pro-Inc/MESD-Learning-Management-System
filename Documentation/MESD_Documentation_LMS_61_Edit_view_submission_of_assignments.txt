@@ -1,0 +1,44 @@
+MESD Documentation LMS-61-Edit-view-submission-of-assignments
+How do students submit their assignments?
+The first page students will see when they click on the assignment activity link from the course page will display the assignment name, description and the submission status. The first time a student views the assignment it will look like this:
+ 
+
+The submission status section includes:
+•	Submission status
+•	Grading status
+•	Due date
+•	Time remaining
+•	Last modified
+•	Submission details
+As they progress through the assignment the Submission status and Grading status will update and the Last modified date will appear.
+ 
+Example of submitted and graded assignment
+Viewing Submissions:
+1.	Login to Moodle:
+•	Go to your Moodle site and log in with your username and password.
+2.	Navigate to the Course:
+•	Find and click on the course where you submitted the assignment.
+3.	Locate the Assignment:
+•	Look for the assignment in the course content. It may be in a specific section or within a module.
+4.	Access the Assignment:
+•	Click on the assignment title to open it.
+5.	View Your Submission:
+•	You should see a section displaying your submission. This might include a file upload, text entry, or another submission method.
+ 
+Editing Submissions:
+Please note that not all Moodle courses allow students to edit their submissions after they have been submitted. If this feature has not been enabled, you can follow these steps:
+1.	Follow Steps 1-4 in ‘Viewing Submission’ above:
+•	Login to Moodle, navigate to the course, and open the assignment.
+2.	Locate the Edit Option:
+•	If editing is allowed, you might see an "Edit" or "Edit submission" link. Click on it.
+ 
+3.	Make Changes:
+•	Depending on the assignment settings, you may be able to edit text, re-upload files, or make changes as needed.
+4.	Submit Changes:
+•	After making edits, follow any on-screen instructions to submit your changes by clicking ‘Save changes’ button.
+ 
+5.	Confirmation:
+•	You should receive a confirmation that your submission has been updated.
+Note:
+•	Deadlines:
+•	Keep in mind any assignment deadlines set. Editing might be restricted after the due date has passed
