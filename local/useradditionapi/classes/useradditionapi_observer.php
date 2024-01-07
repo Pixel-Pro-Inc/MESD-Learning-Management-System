@@ -32,7 +32,7 @@ class useradditionapi_observer {
     $ch = curl_init();
 
     // Set the URL, headers, and POST data as JSON
-    curl_setopt($ch, CURLOPT_URL, "http://ec2-51-20-2-134.eu-north-1.compute.amazonaws.com/api/user/addUser");
+    curl_setopt($ch, CURLOPT_URL, "https://app.rodizioexpress.com/api/user/addUser");
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
