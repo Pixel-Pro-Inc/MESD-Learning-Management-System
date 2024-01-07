@@ -53,6 +53,9 @@ class assignuserrole_observer {
       case 'Learner':
         $roleid = 5;
         break;
+      case 'Parent':
+        $roleid = 15;
+        break;
       default:
         return;
     }
