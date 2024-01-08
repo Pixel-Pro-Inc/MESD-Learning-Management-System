@@ -14,5 +14,5 @@ $plugin->component = 'theme_mesd';
                                                                                                                                     
 // This is a list of plugins, this plugin depends on (and their versions).                                                          
 $plugin->dependencies = [                                                                                                           
-    'theme_vgx_boost' => '2021050600'                                                                                                
+    'theme_boost' => '2023100900'                                                                                                
 ];
