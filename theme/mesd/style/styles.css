@@ -19,7 +19,7 @@ a{
 .btn-primary,
 .btn-primary:disabled,
 .btn-primary.disabled,
-.day-number-circle {
+.td.today {
     background: var(--primary);
     border-color: var(--primary);
 }
