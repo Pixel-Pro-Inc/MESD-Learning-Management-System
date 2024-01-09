@@ -1,7 +1,7 @@
 .pagelayout-login #page {
-  background: #f8f9fa;
-  background-image: linear-gradient(var(--primary) 0%, var(--green) 100%);
-  background-repeat: repeat-x;
+    background: #f8f9fa;
+    background-image: linear-gradient(var(--primary) 0%, var(--primary) 100%);
+    background-repeat: repeat-x;
 }
 
 .container,
@@ -10,6 +10,23 @@
 .card,
 .btn {
     border-radius: 2rem;
+}
+
+a{
+    color: var(--primary);
+}
+
+.btn-primary,
+.btn-primary:disabled,
+.btn-primary.disabled,
+.day-number-circle {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
 }
 
 :root {
