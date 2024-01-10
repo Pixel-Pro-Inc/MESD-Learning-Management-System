@@ -91,9 +91,38 @@ class block_view_learners extends block_base
         $this->content->text = $courseList;
        
         return $this->content;
-       }
-       
-       
+    }
+
+    // function applicable_formats() {
+    //     global $CFG;
+     
+    //     // Get the system context.
+    //     $context = context_system::instance();
+     
+    //     // Check if the user has the required capability.
+    //     if (has_capability('block/view_learners:useviewlearners', $context)) {
+    //         // The block can be added to any page.
+    //         return parent::applicable_formats();
+    //     } else {
+    //         // The block cannot be added to any page.
+    //         return array();
+    //     }
+    // }
+
+    function check_visibility() {
+        // Get the context of the block.
+        $context = $this->page->context;
+     
+        // Check if the user has the required capability.
+        if (has_capability('block/view_learners:useviewlearners', $context)) {
+            // The block is visible.
+            return true;
+        } else {
+            // The block is not visible.
+            return false;
+        }
+     }
+     
        
 
 }

@@ -31,7 +31,7 @@ $capabilities = array(
     'block/view_learners:useviewlearners' => array(
         'riskbitmask' => RISK_SPAM | RISK_XSS,
 
-        'captype' => 'write',
+        'captype' => 'read',
         'contextlevel' => CONTEXT_BLOCK,
         'archetypes' => array(
             'editingteacher' => CAP_ALLOW,
