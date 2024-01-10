@@ -30,7 +30,6 @@
     <button id="calendarviewdropdown" type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span class="d-sm-inline-block" data-active-item-text>
             {{#viewingmonth}}{{#str}} month {{/str}}{{/viewingmonth}}
-            {{#viewingweek}}{{#str}} week {{/str}}{{/viewingweek}}
             {{#viewingday}}{{#str}} day, core_calendar {{/str}}{{/viewingday}}
             {{#viewingupcoming}}{{#str}} upcomingevents, core_calendar {{/str}}{{/viewingupcoming}}
         </span>
@@ -42,12 +41,7 @@
                 {{#str}} month {{/str}}
             </a>
         </li>
-        <li>
-            <a class="dropdown-item {{#viewingweek}}active{{/viewingweek}}" href="#" data-view="week"
-                data-year="{{date.year}}" data-month="{{date.mon}}" data-day="{{date.mday}}" data-courseid="{{courseid}}" data-categoryid="{{categoryid}}">
-                {{#str}} week {{/str}}
-            </a>
-        </li>
+       
         <li>
             <a class="dropdown-item {{#viewingday}}active{{/viewingday}}" href="#" data-view="day" data-year="{{date.year}}" data-month="{{date.mon}}"
                 data-day="{{date.mday}}" data-courseid="{{courseid}}" data-categoryid="{{categoryid}}">
