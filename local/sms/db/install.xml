@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMLDB PATH="local/sms/db" VERSION="2023011200" COMMENT="XMLDB file for sms plugin"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
+  <TABLES>
+
+      <TABLE NAME="local_sms" COMMENT="Stores information for sent sms">
+          <FIELDS>
+              <FIELD NAME="sms_id" TYPE="int" LENGTH="10" NOTNULL="true" COMMENT="Unique identifier for the sms"/>
+              <FIELD NAME="sender_id" TYPE="int" LENGTH="10" NOTNULL="true" COMMENT="ID for the sender"/>
+              <FIELD NAME="recipient_id" TYPE="int" LENGTH="10" COMMENT="ID for the recipient"/>
+              <FIELD NAME="message" TYPE="char" LENGTH="255" NOTNULL="true" COMMENT="SMS message"/>
+              <FIELD NAME="subject" TYPE="char" LENGTH="60" NOTNULL="true" COMMENT="Name displayed on reciever side from where sms is from"/>
+              <FIELD NAME="recipient_number" TYPE="char" LENGTH="16" COMMENT="Phone number of recipient"/>
+              <FIELD NAME="senttime" TYPE="int" LENGTH="10" NOTNULL="true" COMMENT="Time sent"/>
+          </FIELDS>
+          <KEYS>
+              <KEY NAME="primary" TYPE="primary" FIELDS="sms_id" />
+              <KEY NAME="sender_id" TYPE="foreign" FIELDS="sender_id" REFTABLE="mdl_user" REFFIELDS="id"/>
+              <KEY NAME="recipient_id" TYPE="foreign" FIELDS="recipient_id" REFTABLE="mdl_user" REFFIELDS="id"/>
+          </KEYS>
+      </TABLE>
+      
+  </TABLES>
+</XMLDB>
