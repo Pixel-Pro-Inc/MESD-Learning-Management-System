@@ -3,7 +3,7 @@ name: MESD LMS CI/CD
 on:
   push:
     branches:
-      - Development
+      - Production
 
 jobs:
   Deploy:
