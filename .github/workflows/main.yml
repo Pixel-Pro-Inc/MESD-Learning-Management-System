@@ -1,19 +1,22 @@
 name: MESD LMS CI/CD
 
-on: [push] # tells github to run this on any push to the repository
+on:
+  push:
+    branches:
+      - Development
 
 jobs:
-  deploy:
-  runs-on: ubuntu-latest
-  if: github.ref == 'refs/heads/Development' # we tell Github to only execute this step if we're on our master branch (so we don't put unfinished branches in production)
-  steps:
-    - name: Deploying to server
-      uses: appleboy/ssh-action@master # An action made to control Linux servers
-      with: # We set all our secrets here for the action, these won't be shown in the action logs
-        host: ${{ secrets.HOST }}
-        key: ${{ secrets.KEY }}
-        port: ${{ secrets.PORT }}
-        script: |
-          sudo su
-          cd /var/www/html/MESD-Learning-Managment-System # we move into our app's folder
-          git pull # we pull any changes from git
+  Deploy:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Deploying to server
+        uses: appleboy/ssh-action@master # An action made to control Linux servers
+        with: # We set all our secrets here for the action, these won't be shown in the action logs
+          host: ${{ secrets.HOST }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            sudo su
+            cd /var/www/html/MESD-Learning-Managment-System # we move into our app's folder
+            git pull # we pull any changes from git
