@@ -19,5 +19,5 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             sudo su
-            cd /var/www/html/MESD-Learning-Managment-System # we move into our app's folder
+            cd /var/www/html/MESD-Learning-Management-System # we move into our app's folder
             git pull # we pull any changes from git
