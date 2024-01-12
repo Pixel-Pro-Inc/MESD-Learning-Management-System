@@ -3,7 +3,7 @@ name: MESD LMS CI/CD
 on:
   push:
     branches:
-      - Development
+      - Production
 
 jobs:
   Deploy:
@@ -21,3 +21,4 @@ jobs:
             sudo su
             cd /var/www/html/MESD-Learning-Management-System # we move into our app's folder
             git pull # we pull any changes from git
+            chmod 0777 -R /var/www/html/MESD-Learning-Management-System
