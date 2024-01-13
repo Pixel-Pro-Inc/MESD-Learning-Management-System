@@ -8,7 +8,7 @@
 require_once("$CFG->libdir/formslib.php");
 
 
-class compose_message_form extends moodleform {
+class compose_email_form extends moodleform {
 
     function definition() {
         global $CFG, $DB;

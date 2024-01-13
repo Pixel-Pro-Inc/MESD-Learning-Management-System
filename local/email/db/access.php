@@ -22,7 +22,7 @@
  */
 
 $capabilities = [
-    'local/sms:composeemail' => [
+    'local/email:composeemail' => [
         'riskbitmask' => RISK_SPAM,
         'captype' => 'create',
         'contextlevel' => CONTEXT_SYSTEM,
