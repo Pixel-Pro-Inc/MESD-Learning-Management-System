@@ -17,12 +17,12 @@
 /**
  * Capability definitions for this module.
  *
- * @package   local_sms
+ * @package   local_email
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 $capabilities = [
-    'local/sms:composesms' => [
+    'local/sms:composeemail' => [
         'riskbitmask' => RISK_SPAM,
         'captype' => 'create',
         'contextlevel' => CONTEXT_SYSTEM,
@@ -31,4 +31,3 @@ $capabilities = [
         ],
     ],
 ];
- 

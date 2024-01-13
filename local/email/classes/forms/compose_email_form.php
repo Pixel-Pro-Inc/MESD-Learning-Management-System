@@ -1,11 +1,13 @@
 <?php
 /**
  * @author     Terrence Titus
- * @package    local_departments
+ * @package    local_email
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 require_once("$CFG->libdir/formslib.php");
+
+
 class compose_message_form extends moodleform {
 
     function definition() {
@@ -20,7 +22,6 @@ class compose_message_form extends moodleform {
         $mform->addElement('hidden', 'courseid', $_GET['courseid']);
 
         // Get the user ids of the enrolled users
-
         $sql = "SELECT ue.userid
             FROM {user_enrolments} ue
             WHERE ue.enrolid IN (SELECT e.id FROM {enrol} e WHERE e.courseid = :courseid)";
@@ -43,11 +44,9 @@ class compose_message_form extends moodleform {
 
         // Define options for the autocomplete element
         $options = ['multiple' => true];
-        
-        // $mform->addElement('checkbox', 'selectall', 'Select All', '');
 
         // Add the autocomplete element to the form
-        $mform->addElement('autocomplete', 'user_ids', 'Select users', $userOptions, $options);
+        $mform->addElement('autocomplete', 'user_ids', 'Select recipients', $userOptions, $options);
         $mform->addRule('user_ids', get_string('required'), 'required', null, 'client');
 
         // Message subject field

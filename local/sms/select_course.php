@@ -9,11 +9,14 @@ require_once(__DIR__ . '/../../config.php');
 require_once($CFG->dirroot . '/local/sms/classes/forms/select_course.php');
 require_login();
 
+$context = context_system::instance();
+require_capability('local/sms:composesms', $context);
+
 // Page header
 $PAGE->set_url(new moodle_url('/local/sms/select_course.php'));
 $PAGE->set_context(context_system::instance());
 $PAGE->set_title('Select course');
-$PAGE->set_heading('Select course');
+$PAGE->set_heading('Select course for sms');
 
 $mform = new select_course();
 

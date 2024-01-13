@@ -29,12 +29,14 @@ class smsapi_observer {
      
         $result = curl_exec($ch);
      
-        if(!$result){die("Connection Failure");}
+        if(!$result){
+            die("Connection Failure");
+        }
      
         curl_close($ch);
      
         return $result;
+        
     }
-
 }
 
