@@ -59,7 +59,7 @@ $PAGE->set_title(format_string($moduleinstance->name));
 $PAGE->set_heading(format_string($course->fullname));
 $PAGE->set_context($modulecontext);
 
-$PAGE->addElement('link', $moduleinstance->url, get_string('videoclassurl', 'synchronouslearning'));
+//$PAGE->addElement('link', $moduleinstance->url, get_string('videoclassurl', 'synchronouslearning'));
 
 echo $OUTPUT->header();
 
