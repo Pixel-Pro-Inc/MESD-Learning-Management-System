@@ -53,6 +53,6 @@ $PAGE->set_context($modulecontext);
 echo $OUTPUT->header();
 
 // Display the link in the body
-echo "<p>Visit <a href='{$moduleinstance->url}'>" . get_string('videoclassurl', 'synchronouslearning') . "</a></p>";
+echo "<p>Attend class <a href='{$moduleinstance->url}'>" . get_string('videoclassurl', 'synchronouslearning') . "</a></p>";
 
 echo $OUTPUT->footer();
