@@ -50,8 +50,9 @@ $PAGE->set_title(format_string($moduleinstance->name));
 $PAGE->set_heading(format_string($course->fullname));
 $PAGE->set_context($modulecontext);
 
-echo html_writer::link($moduleinstance->url, get_string('videoclassurl', 'synchronouslearning'));
-
 echo $OUTPUT->header();
+
+// Display the link in the body
+echo "<p>Visit <a href='{$moduleinstance->url}'>" . get_string('videoclassurl', 'synchronouslearning') . "</a></p>";
 
 echo $OUTPUT->footer();
