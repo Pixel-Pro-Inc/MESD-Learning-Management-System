@@ -29,16 +29,13 @@ if ($hassiteconfig) {
     $ADMIN->add('courses', new admin_category('tool_backuprestore', 
     new lang_string('Backup & Restore Database', 'tool_backuprestore')));
 
-     $settingspage = new admin_settingpage('tool_backuprestore_settings', 
-     new lang_string('manage', 'tool_backuprestore'));
-     if ($ADMIN->fulltree) {
-         $settingspage->add(new admin_setting_configcheckbox(
-             'tool_backuprestore/showinnavigation',
-             new lang_string('showinnavigation', 'tool_backuprestore'),
-             new lang_string('showinnavigation_desc', 'tool_backuprestore'),
-             1
-         ));
-     }
-
-    $ADMIN->add('tool_backuprestore', $settingspage);
+     $backuppage= new admin_settingpage('tool_backup_settings', 
+     new lang_string('Backup site', 'tool_backup'));
+     //Addes the page to view
+     $ADMIN->add('tool_backuprestore', $backuppage);
+     
+     $restorepage = new admin_settingpage('tool_restore_settings', 
+     new lang_string('Restore site', 'tool_restore'));   
+     //Addes the page to view
+     $ADMIN->add('tool_backuprestore', $restorepage);
 }
