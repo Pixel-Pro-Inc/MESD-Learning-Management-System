@@ -63,6 +63,8 @@ function synchronouslearning_add_instance($moduleinstance, $mform = null) {
 
     //$moduleinstance->url = $api_response;
 
+    $moduleinstance->url = 'https://example.com/';
+
     $id = $DB->insert_record('synchronouslearning', $moduleinstance);
 
     return $id;
