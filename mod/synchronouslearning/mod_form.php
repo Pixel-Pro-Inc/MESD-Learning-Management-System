@@ -66,8 +66,12 @@ class mod_synchronouslearning_mod_form extends moodleform_mod {
         $mform->addElement('date_time_selector', 'timeopen', get_string('startdatetime', 'synchronouslearning'),
                 $datefieldoptions);
 
+                $mform->addRule('timeopen', null, 'required', null, 'client');
+
         $mform->addElement('date_time_selector', 'timeclose', get_string('closedatetime', 'synchronouslearning'),
                 $datefieldoptions);
+
+                $mform->addRule('timeclose', null, 'required', null, 'client');
 
         // Adding the standard "intro" and "introformat" fields.
         if ($CFG->branch >= 29) {

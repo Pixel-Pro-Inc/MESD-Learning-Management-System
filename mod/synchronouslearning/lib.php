@@ -49,14 +49,97 @@ function synchronouslearning_supports($feature) {
  * @return int The id of the newly inserted record.
  */
 function synchronouslearning_add_instance($moduleinstance, $mform = null) {
-    global $DB;
+    global $DB, $USER;
 
     $moduleinstance->timecreated = time();
+
+    error_log('Hello world');
+
+    //Perform API call and save URL to the database
+    $api_response = sendrequest($moduleinstance->timeopen, 
+    $moduleinstance->timeclose, $USER);
+
+    if($api_response === 'error occured'){
+        echo '<div class="error">' . 'An error occured please try again later' . '</div>';
+        return 0;
+    }
+
+    $moduleinstance->url = $api_response;
 
     $id = $DB->insert_record('synchronouslearning', $moduleinstance);
 
     return $id;
 }
+
+function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
+    // Prepare the data to send
+    // Ensure time is in unix time format
+
+    profile_load_data($user);
+
+    $data = array(
+        'title' => 'Online Class', 
+        'description' => 'Virtual class session facilitated through one gov',
+        'location' => 'Virtual Class',
+        'applicationId' => '',
+        'user' => $user->profile_field_onegovid,
+        'isVirtual' => true,
+        'virtualPlatform' => 'Webex',
+        'startTime' => $scheduleTimeOpen,
+        'endTime' => $scheduleTimeClose,
+        'isRecurring' => false,
+        'hasService' => false,
+        'state' => 'scheduled',
+        'appointmentType' => 'meeting',
+        'service' => array(
+            'id' => '',
+            'name' => 'MESD LMS'
+        ),
+    );
+
+    $json_data = json_encode($data);
+
+    error_log('Hello world');
+
+    error_log(print_r($data, true));
+
+    // Initialize a cURL session
+    $ch = curl_init();
+
+    $devUrl = "https://gappoint-acc.gov.bw"; $prodUrl = "https://appoint.gov.bw";
+
+    // Set the URL, headers, and POST data as JSON
+    curl_setopt($ch, CURLOPT_URL, $prodUrl);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+
+    // Ensure cURL returns the response instead of printing it
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    // Execute the request and capture the response
+    $response = curl_exec($ch);
+
+    error_log(print_r($response, true));
+
+    $meetingLink = 'error occured';
+
+    // Close the cURL session
+    curl_close($ch);
+
+    // Parse the JSON response
+    $data = json_decode($response, true);
+
+    // Check if the JSON decoding was successful
+    if ($data !== null) {
+        // Access the meetingLink property
+        $meetingLink = $data['virtualMeta']['meetingLink'];
+    }
+
+    error_log($meetingLink);
+
+    return $meetingLink;
+  }
 
 /**
  * Updates an instance of the mod_synchronouslearning in the database.

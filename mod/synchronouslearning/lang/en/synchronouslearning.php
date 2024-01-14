@@ -30,6 +30,8 @@ $string['modulename'] = 'Video Class';
 $string['synchronouslearningname'] = 'Video class name';
 $string['synchronouslearningname_help'] = 'Set the name for this class meeting';
 
+$string['videoclassurl'] = 'Video class link';
+
 $string['startdatetime'] = 'Video class start time';
 $string['closedatetime'] = 'Video class end time';
 
