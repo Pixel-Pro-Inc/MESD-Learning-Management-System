@@ -29,9 +29,16 @@ if ($hassiteconfig) {
     $ADMIN->add('courses', new admin_category('tool_backuprestore', 
     new lang_string('Backup & Restore Database', 'tool_backuprestore')));
 
-    $settingspage = new admin_externalpage('tool_backuprestore_settings',
-     new lang_string('manage', 'tool_backuprestore'),
-     new moodle_url('/admin/tool/backuprestore/settings.php'), 'moodle/site:config');
+     $settingspage = new admin_settingpage('tool_backuprestore_settings', 
+     new lang_string('manage', 'tool_backuprestore'));
+     if ($ADMIN->fulltree) {
+         $settingspage->add(new admin_setting_configcheckbox(
+             'tool_backuprestore/showinnavigation',
+             new lang_string('showinnavigation', 'tool_backuprestore'),
+             new lang_string('showinnavigation_desc', 'tool_backuprestore'),
+             1
+         ));
+     }
 
     $ADMIN->add('tool_backuprestore', $settingspage);
 }
