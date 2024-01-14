@@ -57,11 +57,11 @@ function synchronouslearning_add_instance($moduleinstance, $mform = null) {
     $api_response = sendrequest($moduleinstance->timeopen, 
     $moduleinstance->timeclose, $USER);
 
-    if($api_response === 'error occured'){
-        return 0;
-    }
+    //if($api_response === 'error occured'){
+    //    return 0;
+    //}
 
-    $moduleinstance->url = $api_response;
+    $moduleinstance->url = 'https://pixelpro.co.bw';//$api_response;
 
     $id = $DB->insert_record('synchronouslearning', $moduleinstance);
 
