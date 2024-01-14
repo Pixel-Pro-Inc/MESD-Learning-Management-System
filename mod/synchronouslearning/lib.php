@@ -53,18 +53,15 @@ function synchronouslearning_add_instance($moduleinstance, $mform = null) {
 
     $moduleinstance->timecreated = time();
 
-    error_log('Hello world');
-
     //Perform API call and save URL to the database
     $api_response = sendrequest($moduleinstance->timeopen, 
     $moduleinstance->timeclose, $USER);
 
-    if($api_response === 'error occured'){
-        echo '<div class="error">' . 'An error occured please try again later' . '</div>';
-        return 0;
-    }
+    //if($api_response === 'error occured'){
+        //return 0;
+    //}
 
-    $moduleinstance->url = $api_response;
+    //$moduleinstance->url = $api_response;
 
     $id = $DB->insert_record('synchronouslearning', $moduleinstance);
 
@@ -73,7 +70,6 @@ function synchronouslearning_add_instance($moduleinstance, $mform = null) {
 
 function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
     // Prepare the data to send
-    // Ensure time is in unix time format
 
     profile_load_data($user);
 
@@ -99,10 +95,6 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
 
     $json_data = json_encode($data);
 
-    error_log('Hello world');
-
-    error_log(print_r($data, true));
-
     // Initialize a cURL session
     $ch = curl_init();
 
@@ -120,8 +112,6 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
     // Execute the request and capture the response
     $response = curl_exec($ch);
 
-    error_log(print_r($response, true));
-
     $meetingLink = 'error occured';
 
     // Close the cURL session
@@ -135,8 +125,6 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
         // Access the meetingLink property
         $meetingLink = $data['virtualMeta']['meetingLink'];
     }
-
-    error_log($meetingLink);
 
     return $meetingLink;
   }
