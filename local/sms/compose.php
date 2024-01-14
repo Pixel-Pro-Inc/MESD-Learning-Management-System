@@ -47,7 +47,7 @@ if ($mform->is_cancelled()) {
  
         // Get the user's phone number
         $phoneNumber = $user->phone1; // Assuming the phone number is stored in the 'phone1' field
- 
+
         // Send the SMS
         $smsapi->sendSMS($phoneNumber, $subject, $message);
     }

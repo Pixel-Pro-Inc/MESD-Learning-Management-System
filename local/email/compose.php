@@ -59,9 +59,6 @@ if ($mform->is_cancelled()) {
             // Add the file path to the attachments array
             $attachments[] = $destination;
         }
-        
-        var_dump($data);
-        die;
 
         // Send the email
         $emailapi->sendEmailAPI($user->email, $subject, $message, $attachments);

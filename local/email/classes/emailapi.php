@@ -9,7 +9,7 @@
 class emailapi {
     function sendEmailAPI($to, $subject, $message, $attachments = []) {
         // The API endpoint
-        $url = 'http://coms.gov.bw/email';
+        $url = 'https://coms.gov.bw/email';
      
         // Prepare the data
         $data = array(
@@ -34,7 +34,11 @@ class emailapi {
      
         // Execute the request
         $response = curl_exec($ch);
-     
+        
+        if(!$response){
+            die("Connection Failure");
+        }
+
         // Close the cURL session
         curl_close($ch);
      

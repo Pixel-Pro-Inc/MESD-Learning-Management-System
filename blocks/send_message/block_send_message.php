@@ -58,7 +58,8 @@ class block_send_message extends block_base
         $this->content->text .= '<a href="'.$CFG->wwwroot.'/local/sms/select_course.php" class="btn btn-default">Send SMS</a>';
      
         return $this->content;
-     }
-     
+    }
+    
+    
 
 }
