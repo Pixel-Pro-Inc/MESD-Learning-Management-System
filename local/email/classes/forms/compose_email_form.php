@@ -39,7 +39,7 @@ class compose_email_form extends moodleform {
         // Create an array of user IDs and names
         $userOptions = [];
         foreach ($users as $user) {
-        $userOptions[$user->id] = fullname($user);
+        $userOptions[$user->id] = fullname($user) . ' - ' . $user->email;
         }
 
         // Define options for the autocomplete element
@@ -56,6 +56,16 @@ class compose_email_form extends moodleform {
         // Text message field
         $mform->addElement('textarea', 'message', "Enter message", 'wrap="virtual" rows="5" cols="10"');
         $mform->addRule('message', 'required', 'required', null, 'client');
+
+        // Set the maximum file size to 200MB
+        $maxbytes = 200 * 1024 * 1024; // 200MB
+
+        // Set the total area size to 500MB
+        $areamaxbytes = 500 * 1024 * 1024; // 500MB
+
+        // File picker field
+        $mform->addElement('filepicker', 'attachment', 'Attach file', null, array('maxbytes' => $maxbytes, 'areamaxbytes' => $areamaxbytes));
+        $mform->addHelpButton('attachment', 'attachment', 'mod_forum');
 
         // Add save changes button and cancel button
         $this->add_action_buttons();

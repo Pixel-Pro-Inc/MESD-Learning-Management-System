@@ -7,7 +7,7 @@
 
 require_once(__DIR__ . '/../../config.php');
 require_once($CFG->dirroot . '/local/sms/classes/forms/compose_message_form.php');
-require_once($CFG->dirroot . '/local/sms/classes/smsapi_observer.php');
+require_once($CFG->dirroot . '/local/sms/classes/smsapi.php');
 require_login();
 
 $context = context_system::instance();
@@ -20,7 +20,7 @@ $PAGE->set_title('Compose message');
 $PAGE->set_heading('Compose message');
 
 $mform = new compose_message_form();
-$smsapi = new smsapi_observer();
+$smsapi = new smsapi();
 
 echo $OUTPUT->header();
 

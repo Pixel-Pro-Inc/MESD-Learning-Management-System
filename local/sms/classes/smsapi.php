@@ -6,7 +6,7 @@
  */
 
 
-class smsapi_observer {
+class smsapi {
     function sendSMS($number, $subject, $message) {
         $url = 'https://coms.gov.bw/sms';
      

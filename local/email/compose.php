@@ -7,7 +7,7 @@
 
 require_once(__DIR__ . '/../../config.php');
 require_once($CFG->dirroot . '/local/email/classes/forms/compose_email_form.php');
-require_once($CFG->dirroot . '/local/email/classes/emailapi_observer.php');
+require_once($CFG->dirroot . '/local/email/classes/emailapi.php');
 require_login();
 
 $context = context_system::instance();
@@ -20,7 +20,7 @@ $PAGE->set_title('Compose email');
 $PAGE->set_heading('Compose email');
 
 $mform = new compose_email_form();
-$emailapi = new emailapi_observer();
+$emailapi = new emailapi();
 
 echo $OUTPUT->header();
 
@@ -31,27 +31,47 @@ if ($mform->is_cancelled()) {
     // Go back to manage page
     redirect($CFG->wwwroot . '/local/email/select_course.php', 'You cancelled');
 
- } else if ($data = $mform->get_data()) {
+}else if ($data = $mform->get_data()) {
     // Get the selected user IDs
-    $userIds = $data->user_ids;
+    $selectedUserIds = $data->user_ids;
  
-    // Get the subject and message
+    // Get the subject and message from the form
     $subject = $data->subject;
     $message = $data->message;
  
-    // Loop through each user ID
-    foreach ($userIds as $userId) {
+    // Get the uploaded files
+    $uploadedFiles = $_FILES['attachment'];
+ 
+    // Re-arrange the uploaded files array
+    $files = $emailapi->reArrayFiles($uploadedFiles);
+ 
+    // Loop through each selected user ID
+    foreach ($selectedUserIds as $userId) {
         // Get the user record
         $user = $DB->get_record('user', ['id' => $userId]);
  
-        // Get the user's phone number
-        $phoneNumber = $user->phone1; // Assuming the phone number is stored in the 'phone1' field
+        // Loop through each uploaded file
+        foreach ($files as $file) {
+            // Move the uploaded file to a permanent location
+            $destination = "/path/to/your/directory/" . $file['name'];
+            move_uploaded_file($file['tmp_name'], $destination);
  
-        // Send the SMS
-        $smsapi->sendSMS($phoneNumber, $subject, $message);
+            // Add the file path to the attachments array
+            $attachments[] = $destination;
+        }
+        
+        var_dump($data);
+        die;
+
+        // Send the email
+        $emailapi->sendEmailAPI($user->email, $subject, $message, $attachments);
+ 
+        // Clear the attachments array for the next user
+        $attachments = [];
     }
-    redirect($CFG->wwwroot . '/local/sms/select_course.php', 'Message sent');
-}
  
+    // Redirect back to the manage page
+    redirect($CFG->wwwroot . '/local/email/select_course.php', 'Emails sent successfully');
+}
  
 echo $OUTPUT->footer();
