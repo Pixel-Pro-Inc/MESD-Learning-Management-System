@@ -26,3 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Synchronous Learning';
+$string['modulename'] = 'Video Class';
+$string['synchronouslearningname'] = 'Video Class Name';
+$string['synchronouslearningname_help'] = 'Set the name for this class meeting';
+
+$string['synchronouslearningname_help'] = 'The synchronous learning activity module enables a teacher to create online classes which can be scheduled and attended by learners.';
