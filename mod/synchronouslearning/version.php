@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'mod_synchronouslearning';
-$plugin->release = '0.1.7';
+$plugin->release = '0.1.8';
 $plugin->version = 2024011300;
 $plugin->requires = 2022112800;
-$plugin->maturity = MATURITY_ALPHA;
+$plugin->maturity  = MATURITY_STABLE;
