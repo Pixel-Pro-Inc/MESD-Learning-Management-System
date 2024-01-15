@@ -1,0 +1,55 @@
+MESD Documentation LMS-15-Add-Edit-students-together-with-their-parents-information
+
+
+Moodle is primarily designed as a Learning Management System (LMS) for managing courses and learning activities. You can use custom fields, user roles, and communication tools to create a system where you can associate students with their parents.
+
+Usage
+Here's a general guide:
+1. Create Custom Fields for Student and Parent Information:
+•	Go to "Site administration" > "Users" > "Accounts" > "Profile fields."
+•	Add custom fields for student information and parent information.
+•	For example, you might add fields like "Parent Name," "Parent Email," etc.
+•	For parent information to be displayed on the student’s profile, students must fill the parent’s custom field and vice versa for the students information to be displayed on parent’s profile
+2. Enroll Parents in Relevant Courses:
+•	Enroll parents in courses where they need access to information or resources.
+•	Use the "Enrol users" option in the course settings.
+3. Custom Enrolment Fields (Optional):
+•	If you need specific information during enrolment (e.g., relationship to student), customize enrolment fields.
+•	Go to "Site administration" > "Users" > "Accounts" > "User profile fields."
+4. Use Messaging and Communication Tools:
+•	Utilize Moodle's messaging and communication tools for communication between students, parents, and teachers.
+•	Encourage parents to update their contact information in their profiles.
+5. Forums and Announcements:
+•	Create forums or use the Announcements feature for sharing important information.
+•	Parents and students can be enrolled in the same courses or groups.
+6. Conditional Activities:
+•	Use conditional activities to restrict access based on specific conditions.
+•	For example, you might have resources that are visible only to parents.
+7. Feedback and Surveys:
+•	Use surveys or feedback activities to collect information from parents about their experience.
+•	You can create a feedback activity in Moodle.
+8. Reports and Analytics:
+•	Use Moodle's reporting tools to gather analytics on student and parent activities.
+•	Review participation reports to understand engagement.
+9. External Systems Integration (Optional):
+•	If your institution uses external systems, consider integrations to synchronize student and parent information.
+•	Some Student Information Systems (SIS) have integrations with Moodle.
+10. User Import (Optional):
+•	If you have a large number of students and parents, you can use the "Upload users" feature to import them in bulk.
+•	Prepare a CSV file with the necessary details.
+Important Notes:
+•	Always respect privacy and data protection regulations when handling student and parent information.
+•	Communicate clearly with users about the purposes for which their information is collected.
+•	Regularly review and update profiles and user data based on changing needs.
+
+Assigning the parent to the student
+•	Access the child's full profile page, via Site administration ► Users ► Accounts ► Browse list of users
+•	Click the child's name to view the profile.
+•	In the Administration section, click Preferences
+•	In the Roles section, click Assign roles relative to this user
+•	Choose the role to assign i.e. Parent by clicking on the word.
+•	Select the parent in the potential users list and use the Add button to add it to the existing users list.
+At this point you can return to the "Assign roles in user:" page and you should see that the parent name is now in the "Users with Role" column.
+NOTE:The same parent may be assigned to several students, siblings or otherwise.
+Agreeing to policies on behalf of the child
+If the parent has been given the Capabilities/tool/policy:acceptbehalf then they can click on the child's profile, click the Policies and agreements link and agree to the policies there.
