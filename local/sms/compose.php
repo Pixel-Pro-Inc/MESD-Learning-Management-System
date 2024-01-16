@@ -39,14 +39,21 @@ if ($mform->is_cancelled()) {
     // Get the subject and message
     $subject = $data->subject;
     $message = $data->message;
- 
+    
     // Loop through each user ID
     foreach ($userIds as $userId) {
         // Get the user record
         $user = $DB->get_record('user', ['id' => $userId]);
- 
+        
+        profile_load_data($user);
+        
         // Get the user's phone number
-        $phoneNumber = $user->phone1; // Assuming the phone number is stored in the 'phone1' field
+        $phoneNumber = $user->profile_field_phonenumber; // Assuming the phone number is stored in the 'phone1' field
+
+        // Check if phone number > 8 digit
+        // If phone number doesnt have a country code add 267, assuming its a botswana number
+        // Check if it has a + , if true, remove the +
+        // Remove all spaces
 
         // Send the SMS
         $smsapi->sendSMS($phoneNumber, $subject, $message);
