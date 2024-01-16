@@ -46,19 +46,19 @@ class block_search_user extends block_base
         return true;
     }
 
-    // function check_visibility() {
-    //     // Get the context of the block.
-    //     $context = $this->page->context;
+    function check_visibility() {
+        // Get the context of the block.
+        $context = $this->page->context;
      
-    //     // Check if the user has the required capability.
-    //     if (has_capability('block/view_learners:useviewlearners', $context)) {
-    //         // The block is visible.
-    //         return true;
-    //     } else {
-    //         // The block is not visible.
-    //         return false;
-    //     }
-    // }
+        // Check if the user has the required capability.
+        if (has_capability('block/search_user:usesearchuser', $context)) {
+            // The block is visible.
+            return true;
+        } else {
+            // The block is not visible.
+            return false;
+        }
+    }
      
     public function get_content() {
 

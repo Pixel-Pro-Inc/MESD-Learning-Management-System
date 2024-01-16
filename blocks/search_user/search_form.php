@@ -18,7 +18,7 @@ class search_form extends moodleform {
 
         $usernames = array();
         foreach ($allusers as $user) {
-            $usernames[$user->id] = fullname($user);
+            $usernames[$user->id] = fullname($user) . ' - ' . $user->email;
         }
 
         $options = array(                                                                                                    

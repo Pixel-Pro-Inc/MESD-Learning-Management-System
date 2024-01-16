@@ -22,7 +22,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$plugin->version = 2023011400; // YYYYMMDDHH (year, month, day, hour)
+$plugin->version = 2023011401; // YYYYMMDDHH (year, month, day, hour)
 $plugin->requires = 2020111200; // Moodle version required
 $plugin->component = 'block_search_user';
 $plugin->maturity = MATURITY_STABLE;
