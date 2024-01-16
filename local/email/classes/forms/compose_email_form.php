@@ -68,6 +68,6 @@ class compose_email_form extends moodleform {
         $mform->addHelpButton('attachment', 'attachment', 'mod_forum');
 
         // Add save changes button and cancel button
-        $this->add_action_buttons();
+        $this->add_action_buttons(true, 'Send email');
     }
 }

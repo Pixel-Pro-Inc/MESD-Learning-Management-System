@@ -59,6 +59,6 @@ class compose_message_form extends moodleform {
         $mform->addRule('message', 'required', 'required', null, 'client');
 
         // Add save changes button and cancel button
-        $this->add_action_buttons();
+        $this->add_action_buttons(true, 'Send sms');
     }
 }
