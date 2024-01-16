@@ -38,9 +38,6 @@
 #page-user-editadvanced #id_moodle_interests,
 
 /* Hide Optional section. */
-#page-user-editadvanced #id_moodle_optional,
-
-.nodisplay {
-  /* The .nodisplay class is just a placeholder. */
+#page-user-editadvanced #id_moodle_optional {
   display: none !important;
 }
