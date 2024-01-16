@@ -26,15 +26,15 @@
 defined('MOODLE_INTERNAL') || die();
 
 if ($hassiteconfig) {
-    $ADMIN->add('courses', new admin_category('tool_backuprestore', 
-    new lang_string('Backup & Restore Database', 'tool_backuprestore')));
+    //$ADMIN->add('courses', new admin_category('tool_backuprestore', 
+    //new lang_string('Backup & Restore Database', 'tool_backuprestore')));
 #region Backup page
 
     $backuppage= new admin_externalpage('tool_backup_settings', new lang_string('Backup site', 'tool_backup'),
     "$CFG->wwwroot/$CFG->admin/tool/backuprestore/backup.php");
     
      //Addes the page to view in the proper category
-     $ADMIN->add('tool_backuprestore', $backuppage);
+     //$ADMIN->add('tool_backuprestore', $backuppage);
      
 #endregion
 #region Restore page
@@ -44,7 +44,7 @@ if ($hassiteconfig) {
      //Add a filepicker that requires only an sql file to the restorepage
 
      //Addes the page to view in the proper category
-     $ADMIN->add('tool_backuprestore', $restorepage);
+     //$ADMIN->add('tool_backuprestore', $restorepage);
 #endregion 
 
 }
