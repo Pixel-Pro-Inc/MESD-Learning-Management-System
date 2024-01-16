@@ -27,6 +27,9 @@
  *  Class definition for the Quick Find List block.
  */
 
+ require_once(__DIR__ . '/search_form.php');
+require_once("$CFG->libdir/formslib.php");
+
 class block_search_user extends block_base 
 {
     public function init() {
@@ -43,16 +46,6 @@ class block_search_user extends block_base
         return true;
     }
 
-    
-    // public function get_content() {
-    //     global $DB, $USER;
-       
-    //     if ($this->content !== NULL) {
-    //     return $this->content;
-    //     }
-       
-    // }
-
     // function check_visibility() {
     //     // Get the context of the block.
     //     $context = $this->page->context;
@@ -68,24 +61,29 @@ class block_search_user extends block_base
     // }
      
     public function get_content() {
-        global $OUTPUT, $USER;
-     
-        // Check if the search term is set in the URL.
-        $searchterm = optional_param('search', '', PARAM_TEXT);
-     
-        if (!empty($searchterm)) {
-            // Search for users.
-            $userlist = core_user::get_users(false, array('lastname' => $searchterm));
-     
-            // Display the search results.
-            foreach ($userlist as $user) {
-                echo html_writer::link(new moodle_url('/user/view.php', array('id' => $user->id)), fullname($user));
+
+        if ($this->content !== null) {
+            return $this->content;
+        }
+        
+        $mform = new search_form();
+        if ($mform->is_submitted()) {
+            $data = $mform->get_data();
+            $userid = $data->search_user;
+            if ($userid) {
+                redirect(new moodle_url('/user/view.php', array('id' => $userid)));
             }
         } else {
-            // Display the search bar.
-            $form = new stdClass();
-            $form->action = new moodle_url('/blocks/searchusers/index.php');
-            $form->method = 'get';
+            ob_start();
+            $mform->display();
+            $formhtml = ob_get_clean();
         }
-    }
+     
+        $this->content = new stdClass;
+        $this->content->text = $formhtml;
+     
+        return $this->content;
+     }
+     
+     
 }
