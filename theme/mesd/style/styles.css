@@ -3,3 +3,44 @@
   background-image: linear-gradient(#6bc5ec 0%, #1fa6e7 100%);
   background-repeat: repeat-x;
 }
+
+/* These fields are available on both the user's Edit Profile page 
+   and the New Account sign-up registration page.
+ */
+
+/* Hide the City/Town profile field in the General section. */
+#page-login-signup #fitem_id_city,
+#page-user-editadvanced #fitem_id_city,
+
+/* Hide the Country profile field in the General section. */
+#page-login-signup #fitem_id_country,
+#page-user-editadvanced #fitem_id_country,
+
+/* These fields are only available on the user's Edit Profile page.
+ */
+
+/* Hide the Email display profile field in the General section. */
+#page-user-editadvanced #fitem_id_maildisplay,
+
+/* Hide the MoodleNet profile field in the General section. */
+#page-user-editadvanced #fitem_id_moodlenetprofile,
+
+/* Hide the Timezone profile field in the General section. */
+#page-user-editadvanced #fitem_id_timezone,
+
+/* Hide the Description profile field in the General section. */
+#page-user-editadvanced #fitem_id_description_editor,
+
+/* Hide the Additional names section. */
+#page-user-editadvanced #id_moodle_additional_names,
+
+/* Hide the Interests section. */
+#page-user-editadvanced #id_moodle_interests,
+
+/* Hide Optional section. */
+#page-user-editadvanced #id_moodle_optional,
+
+.nodisplay {
+  /* The .nodisplay class is just a placeholder. */
+  display: none !important;
+}
