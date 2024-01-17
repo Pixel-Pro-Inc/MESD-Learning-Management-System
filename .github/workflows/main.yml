@@ -1,0 +1,24 @@
+name: MESD LMS CI/CD
+
+on:
+  push:
+    branches:
+      - Production
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Deploying to server
+        uses: appleboy/ssh-action@master # An action made to control Linux servers
+        with: # We set all our secrets here for the action, these won't be shown in the action logs
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            sudo su
+            cd /var/www/html/MESD-Learning-Management-System # we move into our app's folder
+            git pull # we pull any changes from git
+            chmod 0777 -R /var/www/html/MESD-Learning-Management-System
