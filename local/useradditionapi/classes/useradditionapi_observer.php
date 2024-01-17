@@ -24,8 +24,10 @@ class useradditionapi_observer {
     // Construct the link using the current domain
     $link = $wwwroot . '/login/index.php?nin=';
 
+    profile_load_data($user);
+
     // Prepare the data to send
-    $data = array('userId' => $user->idnumber, 'link' => $link);
+    $data = array('userId' => $user->profile_field_nin, 'link' => $link);
     $json_data = json_encode($data);
 
     // Initialize a cURL session
