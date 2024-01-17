@@ -27,14 +27,8 @@ class local_autologin {
             foreach ($users as $user) {
                 // Obfuscate the user's ID for comparison.
                 profile_load_data($user);
-
-                error_log(print_r($user, true));
-
-                error_log($user->profile_field_nin);
                 
                 $obfuscatedUserid = self::obfuscate($user->profile_field_nin);
-
-                error_log($obfuscatedUserid);
 
                 if ($obfuscatedUserid === $obfuscatedIdnumber) {
                     // Log in the user.
