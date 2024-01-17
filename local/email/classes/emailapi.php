@@ -9,7 +9,7 @@
 class emailapi {
     function sendEmailAPI($to, $subject, $message, $attachments = []) {
         // The API endpoint
-        $url = 'https://coms.gov.bw/email';
+        $url = 'https://coms-acc.gov.bw/email';
      
         // Prepare the data
         $data = array(

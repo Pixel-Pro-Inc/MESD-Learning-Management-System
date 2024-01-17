@@ -7,6 +7,7 @@
 
 require_once(__DIR__ . '/../../config.php');
 require_once($CFG->dirroot . '/local/sms/classes/forms/compose_message_form.php');
+require_once($CFG->dirroot . '/user/profile/lib.php');
 require_once($CFG->dirroot . '/local/sms/classes/smsapi.php');
 require_login();
 
@@ -49,7 +50,7 @@ if ($mform->is_cancelled()) {
         
         // Get the user's phone number
         $phoneNumber = $user->profile_field_phonenumber; // Assuming the phone number is stored in the 'phone1' field
-
+        //$phoneNumber = $user->phone1;
         // Check if phone number > 8 digit
         // If phone number doesnt have a country code add 267, assuming its a botswana number
         // Check if it has a + , if true, remove the +

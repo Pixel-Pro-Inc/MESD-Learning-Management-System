@@ -8,7 +8,7 @@
 
 class smsapi {
     function sendSMS($number, $subject, $message) {
-        $url = 'http://coms.gov.bw/sms';
+        $url = 'http://coms-acc.gov.bw/sms';
 
         $headers = array(
            'Content-Type: application/json',
