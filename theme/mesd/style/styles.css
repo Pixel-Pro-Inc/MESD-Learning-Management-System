@@ -3,3 +3,17 @@
   background-image: linear-gradient(#6bc5ec 0%, #1fa6e7 100%);
   background-repeat: repeat-x;
 }
+
+/* These fields are only available on the user's Edit Profile page.
+ */
+
+/* Hide the Additional names section. */
+#id_moodle_additional_names,
+
+/* Hide the Interests section. */
+#id_moodle_interests,
+
+/* Hide Optional section. */
+#id_moodle_optional {
+  display: none !important;
+}
