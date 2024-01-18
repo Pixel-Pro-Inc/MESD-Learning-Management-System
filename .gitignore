@@ -58,3 +58,4 @@ phpcs.xml
 jsconfig.json
 /RedirectModule/node_modules
 /.vs/MESD-Learning-Management-System/v17/.wsuo
+/.vs/VSWorkspaceState.json
