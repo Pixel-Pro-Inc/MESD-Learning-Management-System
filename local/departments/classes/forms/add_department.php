@@ -25,7 +25,7 @@ class add_department extends moodleform {
         // Create an array of user IDs and names
         $userOptions = [];
         foreach ($users as $user) {
-            $userOptions[$user->id] = fullname($user);
+            $userOptions[$user->id] = fullname($user) . ' - ' . $user->email;
         }
 
         // Define options for the autocomplete element
