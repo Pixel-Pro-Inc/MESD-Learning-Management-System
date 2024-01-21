@@ -1,0 +1,125 @@
+<div class="content-container">
+  <div class="title-container">
+    <h2 class="text">Edit User</h2>
+  </div>
+  <article class="container">
+    <!--Users menu-->
+    <article class="user-container">
+      <article *ngFor="let user of users">
+        <div class="item-container">
+          <h4>
+            {{ user.firstName }} {{ user.lastName }} ({{
+              user.nationalIdentityNumber
+            }})
+          </h4>
+          <div class="item-actions-container">
+            <button class="btn btn-action" (click)="edit(user)">Edit</button>
+            <!--
+            <button class="btn btn-action" (click)="disable(item)">
+              Disable
+            </button>
+            -->
+          </div>
+        </div>
+      </article>
+    </article>
+    <!--Edit Form-->
+    <form
+      [formGroup]="userForm"
+      (ngSubmit)="userForm.valid && editUser()"
+      class="form-container"
+    >
+      <article class="form-group-two-column">
+        <div class="form-control-group">
+          <label class="text">First Name</label>
+          <app-text-input
+            [type]="'text'"
+            [formControl]="userForm.controls['firstname']"
+            [label]="'first name'"
+            [placeholder]="'First Name'"
+            class="form-control-container"
+          ></app-text-input>
+        </div>
+        <div class="form-control-group">
+          <label class="text">Last Name</label>
+          <app-text-input
+            [type]="'text'"
+            [formControl]="userForm.controls['lastname']"
+            [label]="'last name'"
+            [placeholder]="'Last Name'"
+          ></app-text-input>
+        </div>
+      </article>
+      <article class="form-group-two-column">
+        <div class="form-control-group">
+          <label class="text">User Name</label>
+          <app-text-input
+            [type]="'text'"
+            [formControl]="userForm.controls['username']"
+            [label]="'user name'"
+            [placeholder]="'User Name'"
+            class="form-control-container"
+          ></app-text-input>
+        </div>
+        <div class="form-control-group">
+          <label class="text">Email</label>
+          <app-text-input
+            [type]="'email'"
+            [formControl]="userForm.controls['email']"
+            [label]="'email'"
+            [placeholder]="'Email'"
+          ></app-text-input>
+        </div>
+      </article>
+      <article class="form-group-two-column">
+        <div class="form-control-group">
+          <label class="text">National Identity Number</label>
+          <app-text-input
+            [type]="'text'"
+            [formControl]="userForm.controls['nationalIdentityNumber']"
+            [label]="'national identity number'"
+            [placeholder]="'National Identity Number'"
+            class="form-control-container"
+          ></app-text-input>
+        </div>
+        <div class="form-control-group">
+          <label class="text">Permissions</label>
+          <p-multiSelect
+            [filter]="false"
+            [options]="permissions"
+            formControlName="permissions"
+            defaultLabel="Select permissions"
+          ></p-multiSelect>
+        </div>
+      </article>
+      <article class="form-group-two-column">
+        <div class="form-control-group">
+          <label class="text">Dialing Code</label>
+          <app-country-code-selection
+            [formControl]="userForm.controls['countryCode']"
+          ></app-country-code-selection>
+        </div>
+        <div class="form-control-group">
+          <label class="text">Phone Number</label>
+          <app-text-input
+            [type]="'text'"
+            id="'phoneNumber"
+            [formControl]="userForm.controls['phoneNumber']"
+            [label]="'phone number'"
+            [placeholder]="'Enter phone number'"
+            class="form-control-container"
+          ></app-text-input>
+        </div>
+      </article>
+      <article class="form-group-two-column">
+        <div class="form-control-group">
+          <label class="text">Enable Account</label>
+          <p-inputSwitch formControlName="accountEnabled"></p-inputSwitch>
+        </div>
+        <button [disabled]="!userForm.valid" class="btn btn-register">
+          Edit User
+        </button>
+      </article>
+    </form>
+  </article>
+</div>

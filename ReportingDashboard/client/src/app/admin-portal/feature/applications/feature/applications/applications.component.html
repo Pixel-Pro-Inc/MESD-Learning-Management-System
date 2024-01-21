@@ -1,0 +1,30 @@
+<div class="content-container">
+  <div class="title-container">
+    <h2 class="text">Applications</h2>
+  </div>
+  <article class="container">
+    <!--Documents menu-->
+    <article class="document-container">
+      <article *ngFor="let document of documents">
+        <div class="item-container" *ngIf="document.status == 'InReview'">
+          <h4>
+            {{ document.documentName }} -
+            {{ formattedDate(document.dateCreated) }}
+          </h4>
+          <div class="item-actions-container">
+            <app-btn
+              [icon]="'pi pi-angle-right'"
+              [styleClass]="'p-button-secondary'"
+              pTooltip="View"
+              tooltipPosition="left"
+              (click)="verify(document)"
+            ></app-btn>
+          </div>
+        </div>
+      </article>
+    </article>
+    <article class="review-container">
+      <router-outlet (activate)="onOutletLoaded($event)"></router-outlet>
+    </article>
+  </article>
+</div>

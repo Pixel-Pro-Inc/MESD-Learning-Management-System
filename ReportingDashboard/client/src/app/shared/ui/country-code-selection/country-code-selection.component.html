@@ -1,0 +1,23 @@
+<p-dropdown
+  [options]="countries"
+  [formControl]="ngControl.control"
+  optionLabel="fullName"
+  [filter]="true"
+  placeholder="Dial Code"
+>
+  <ng-template pTemplate="selectedItem">
+    <div class="item-container" *ngIf="ngControl.control.value">
+      <img src="{{ ngControl.control.value.flagImg }}" style="width: 18px" />
+      <div>
+        {{ ngControl.control.value.dialingCode }}
+      </div>
+    </div>
+  </ng-template>
+  <ng-template let-country pTemplate="item">
+    <div class="item-container">
+      <img src="{{ country.flagImg }}" style="width: 18px" />
+      <div>{{ country.name }}</div>
+      <div>{{ country.dialingCode }}</div>
+    </div>
+  </ng-template>
+</p-dropdown>

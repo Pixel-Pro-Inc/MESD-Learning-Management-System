@@ -1,0 +1,89 @@
+<div class="content-container">
+  <div class="title-container">
+    <h3 class="text">Supporting Documents</h3>
+  </div>
+  <form [formGroup]="serviceForm" class="form-container">
+    <!--Files-->
+    <article class="form-group-one-column">
+      <div class="form-control-group">
+        <label class="text">Please upload your supporting documents.</label>
+        <p-fileUpload
+          #fileUpload
+          [customUpload]="true"
+          (onSelect)="onFileSelect($event)"
+          mode="advanced"
+          chooseLabel="Choose"
+          [multiple]="true"
+        >
+          <ng-template pTemplate="content">
+            <ul *ngIf="uploadedFiles.length">
+              <li *ngFor="let file of uploadedFiles">
+                {{ file.name }} - {{ file.size }} bytes
+              </li>
+            </ul>
+          </ng-template>
+        </p-fileUpload>
+      </div>
+    </article>
+    <h4 class="text">What supporting documents are required?</h4>
+    <ul class="list">
+      <li class="text">
+        In the case of companies: certified copy of valid identities of
+        shareholders and Certificate of incorporation.
+      </li>
+      <li class="text">
+        Certified copy of Identification documents (Omang card for citizens)
+      </li>
+      <li class="text">First three (3) pages of passport (for non-citizens)</li>
+      <li class="text">Certification of Incorporation in Botswana</li>
+      <li class="text">
+        Certified copies of Shareholders Certificates (Form2)
+      </li>
+      <li class="text">Certified List of Directors</li>
+      <li class="text">Company structure/organisational chart</li>
+      <li class="text">
+        Audited financial reports for the previous three (3) years or financial
+        documents confirming financial competency of the company
+      </li>
+      <li class="text">
+        Proof of technical competence (expertise and experience of production
+        team in cutting, polishing and owning appropriate equipment)
+      </li>
+      <li class="text">
+        Company Directors must have diamond related training (attach
+        certificates)
+      </li>
+      <li class="text">
+        Financial credentials/financial backing from a bank or financial
+        institution
+      </li>
+      <li class="text">
+        Rough diamond supply agreements/ proof of continuous rough diamond
+        supply
+      </li>
+      <li class="text">
+        Affidavits proving absence of criminal records and police clearance for
+        directors and shareholders
+      </li>
+      <li class="text">
+        Proof of no bankruptcy in the history of the company’s operations
+      </li>
+      <li class="text">Business Plan</li>
+    </ul>
+    <article class="navigation-section">
+      <app-btn
+        [label]="'Previous'"
+        [iconPos]="'left'"
+        [icon]="'pi pi-chevron-left'"
+        (click)="previous()"
+      ></app-btn>
+      <app-btn
+        [label]="'Next'"
+        [iconPos]="'right'"
+        [icon]="'pi pi-chevron-right'"
+        [disabled]="!serviceForm.valid"
+        (click)="serviceForm.valid && next()"
+      ></app-btn>
+    </article>
+  </form>
+</div>

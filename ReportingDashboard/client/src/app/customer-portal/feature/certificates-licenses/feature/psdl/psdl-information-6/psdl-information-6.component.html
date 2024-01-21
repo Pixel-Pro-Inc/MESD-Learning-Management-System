@@ -1,0 +1,55 @@
+<div class="content-container">
+  <div class="title-container">
+    <h3 class="text">Other Information</h3>
+  </div>
+  <form [formGroup]="serviceForm" class="form-container">
+    <article class="form-group-one-column">
+      <div class="form-control-group">
+        <label class="text">State location of operations</label>
+        <!--Map-->
+        <app-map
+          [PinLabel]="'Selected Location'"
+          [initialCoordinates]="initialCoordinates"
+          (onLocationSelected)="locationSelected($event)"
+        ></app-map>
+      </div>
+    </article>
+    <article class="form-group-two-column">
+      <div class="form-control-group">
+        <label class="text">State source of the stones</label>
+        <app-text-input
+          [type]="'text'"
+          [formControl]="serviceForm.controls['sourceStones']"
+          [label]="'source of the stones'"
+          [placeholder]="'State source of the stones'"
+          class="form-control-container"
+        ></app-text-input>
+      </div>
+      <div class="form-control-group">
+        <label class="text">State the market of your products</label>
+        <app-text-input
+          [type]="'text'"
+          [formControl]="serviceForm.controls['market']"
+          [label]="'market'"
+          [placeholder]="'State the market of your products'"
+          class="form-control-container"
+        ></app-text-input>
+      </div>
+    </article>
+    <article class="navigation-section">
+      <app-btn
+        [label]="'Previous'"
+        [iconPos]="'left'"
+        [icon]="'pi pi-chevron-left'"
+        (click)="previous()"
+      ></app-btn>
+      <app-btn
+        [label]="'Next'"
+        [iconPos]="'right'"
+        [icon]="'pi pi-chevron-right'"
+        [disabled]="!serviceForm.valid"
+        (click)="serviceForm.valid && next()"
+      ></app-btn>
+    </article>
+  </form>
+</div>

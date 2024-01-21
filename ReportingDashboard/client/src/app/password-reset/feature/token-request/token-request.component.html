@@ -1,0 +1,31 @@
+<section class="video-container">
+  <article class="content-container">
+    <div class="login-card">
+      <div class="header">
+        <img class="company-logo" />
+        <h2 class="text">Diamond Hub</h2>
+      </div>
+
+      <p class="text">Reset your account login info</p>
+      <form [formGroup]="tokenForm" class="form-container">
+        <div class="form-control-group">
+          <app-text-input
+            [type]="'text'"
+            [formControl]="tokenForm.controls['accountID']"
+            [label]="'username or email'"
+            [placeholder]="'Username / Email'"
+            class="form-control-container"
+          ></app-text-input>
+        </div>
+        <app-btn
+          [disabled]="!tokenForm.valid"
+          [label]="'Request Reset Token'"
+          (click)="tokenForm.valid && tokenRequest()"
+        ></app-btn>
+      </form>
+    </div>
+  </article>
+
+  <video muted autoplay loop src="../../../assets/videos/spin.mp4"></video>
+  <div class="overlay"></div>
+</section>

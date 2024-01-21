@@ -1,0 +1,43 @@
+<div class="content-container">
+  <div class="title-container">
+    <h3 class="text">More Information</h3>
+  </div>
+  <form [formGroup]="serviceForm" class="form-container">
+    <article class="form-group-one-column">
+      <div class="form-control-group">
+        <label class="text">Enter share holders details</label>
+        <app-data-grid-input
+          [height]="'150px'"
+          #dataGridCmp
+        ></app-data-grid-input>
+      </div>
+    </article>
+    <article class="form-group-one-column">
+      <div class="form-control-group">
+        <label class="text">Describe your intended operations</label>
+        <textarea
+          placeholder="Describe your Intended Operations"
+          rows="5"
+          cols="30"
+          pInputTextarea
+          formControlName="intendedOperations"
+        ></textarea>
+      </div>
+    </article>
+    <article class="navigation-section">
+      <app-btn
+        [label]="'Previous'"
+        [iconPos]="'left'"
+        [icon]="'pi pi-chevron-left'"
+        (click)="previous()"
+      ></app-btn>
+      <app-btn
+        [label]="'Next'"
+        [iconPos]="'right'"
+        [icon]="'pi pi-chevron-right'"
+        [disabled]="!serviceForm.valid"
+        (click)="serviceForm.valid && next()"
+      ></app-btn>
+    </article>
+  </form>
+</div>

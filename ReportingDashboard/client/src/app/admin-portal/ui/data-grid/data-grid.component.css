@@ -1,0 +1,25 @@
+.summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+  border-right: 0.5px solid var(--light-gray);
+}
+
+.e-summarycell,
+.e-templatecell {
+  padding: 0;
+}
+
+.e-grid .e-rowcell {
+  border-right: 0.5px solid var(--light-gray);
+}
+
+.e-grid .e-headercell {
+  color: var(--darkest-gray);
+  font-weight: bold;
+}
+
+table {
+  margin: 0;
+}

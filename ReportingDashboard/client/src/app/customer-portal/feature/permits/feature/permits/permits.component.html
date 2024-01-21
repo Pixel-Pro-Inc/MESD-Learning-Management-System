@@ -1,0 +1,13 @@
+<div class="content-container">
+  <div class="title-container">
+    <h2 class="text">Permits</h2>
+  </div>
+  <!--Content-->
+  <article class="container">
+    <!--Document Form-->
+    <article class="document-form">
+      <p-steps [model]="items" [readonly]="true"></p-steps>
+      <router-outlet (activate)="onOutletLoaded($event)"></router-outlet>
+    </article>
+  </article>
+</div>

@@ -1,0 +1,39 @@
+.group-two-column {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.group-one-column {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+label {
+  font-size: 0.8rem;
+  display: block;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+body {
+  padding: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+.navigation-section {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+textarea {
+  margin-top: 1rem;
+  width: 100%;
+}

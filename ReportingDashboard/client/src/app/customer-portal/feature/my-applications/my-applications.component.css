@@ -1,0 +1,37 @@
+.content-container {
+  padding: 0 2rem;
+}
+
+.title-container {
+  border-bottom: 1px solid var(--light-gray);
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.document-container {
+  height: calc(100vh - var(--navbar-height) - 60px);
+  overflow-y: auto;
+}
+
+.item-container {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.5px solid var(--light-gray);
+}
+
+.item-actions-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+app-btn {
+  width: 47.2px;
+}
+
+.badge {
+  margin-left: 1rem;
+}

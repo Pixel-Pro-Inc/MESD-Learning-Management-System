@@ -1,0 +1,56 @@
+<app-nav></app-nav>
+<article class="grid">
+  <div class="main-container">
+    <div class="title-container">
+      <h2 class="text">Verify Documents</h2>
+    </div>
+    <!--Content-->
+    <article></article>
+    <div class="content-container">
+      <div class="container">
+        <p class="text">Ensure the validity of documents</p>
+      </div>
+      <form [formGroup]="serviceForm" class="form-container">
+        <article class="form-group-one-column">
+          <div class="form-control-group">
+            <label class="text">Enter Certificate Number</label>
+            <app-text-input
+              [type]="'text'"
+              [formControl]="serviceForm.controls['cNumber']"
+              [label]="'certificate number'"
+              [placeholder]="'Certificate Number'"
+              class="form-control-container"
+            ></app-text-input>
+          </div>
+        </article>
+      </form>
+      <article *ngIf="document != null">
+        <!--Validity-->
+        <p-badge class="badge" [value]="'Valid'" severity="success"></p-badge>
+        <label class="text">
+          Expiry Date: {{ formattedDate(document.expiryDate) }}
+        </label>
+        <label class="text">
+          View Document:
+          <a href="{{ document.fileUrl }}" target="_blank">{{
+            document.documentName
+          }}</a>
+        </label>
+      </article>
+      <article *ngIf="document == null && searched">
+        <!--Validity-->
+        <p-badge class="badge" [value]="'In Valid'" severity="danger"></p-badge>
+      </article>
+      <article class="navigation-section">
+        <app-btn
+          [label]="'Next'"
+          [iconPos]="'right'"
+          [icon]="'pi pi-chevron-right'"
+          [disabled]="!serviceForm.valid"
+          (click)="serviceForm.valid && verify()"
+        ></app-btn>
+      </article>
+    </div>
+  </div>
+  <div class="image"></div>
+</article>

@@ -1,0 +1,57 @@
+<div class="content-container">
+  <div class="title-container">
+    <h2 class="text">My Applications</h2>
+  </div>
+  <p class="text">
+    This is where you can view the progress of your applications and download
+    completed certificates.
+  </p>
+  <!--Content-->
+  <article class="document-container">
+    <article *ngFor="let document of documents">
+      <div class="item-container">
+        <h4>
+          {{ document.documentName }} -
+          {{ formattedDate(document.dateCreated) }}
+          <p-badge
+            *ngIf="document.status == 'InReview'"
+            class="badge"
+            [value]="'In Review'"
+            severity="warning"
+          ></p-badge>
+          <p-badge
+            *ngIf="document.status == 'Approved'"
+            class="badge"
+            [value]="document.status"
+            severity="success"
+          ></p-badge>
+          <p-badge
+            *ngIf="document.status == 'Rejected'"
+            class="badge"
+            [value]="document.status"
+            pTooltip="Check your email for details"
+            severity="danger"
+          ></p-badge>
+        </h4>
+        <div class="item-actions-container">
+          <app-btn
+            *ngIf="document.status == 'Approved'"
+            [icon]="'pi pi-file'"
+            [styleClass]="'p-button-secondary'"
+            pTooltip="View"
+            tooltipPosition="left"
+            (click)="download(document)"
+          ></app-btn>
+          <app-btn
+            *ngIf="document.status == 'Rejected'"
+            [icon]="'pi pi-trash'"
+            [styleClass]="'p-button-danger'"
+            pTooltip="Delete"
+            tooltipPosition="left"
+            (click)="delete(document)"
+          ></app-btn>
+        </div>
+      </div>
+    </article>
+  </article>
+</div>

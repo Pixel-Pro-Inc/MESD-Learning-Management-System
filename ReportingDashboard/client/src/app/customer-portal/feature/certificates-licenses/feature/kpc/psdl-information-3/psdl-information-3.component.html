@@ -1,0 +1,51 @@
+<div class="content-container">
+  <div class="title-container">
+    <h3 class="text">Supporting Documents</h3>
+  </div>
+  <form [formGroup]="serviceForm" class="form-container">
+    <!--Files-->
+    <article class="form-group-one-column">
+      <div class="form-control-group">
+        <label class="text">Please upload your supporting documents.</label>
+        <p-fileUpload
+          #fileUpload
+          [customUpload]="true"
+          (onSelect)="onFileSelect($event)"
+          mode="advanced"
+          chooseLabel="Choose"
+          [multiple]="true"
+        >
+          <ng-template pTemplate="content">
+            <ul *ngIf="uploadedFiles.length">
+              <li *ngFor="let file of uploadedFiles">
+                {{ file.name }} - {{ file.size }} bytes
+              </li>
+            </ul>
+          </ng-template>
+        </p-fileUpload>
+      </div>
+    </article>
+    <h4 class="text">What supporting documents are required?</h4>
+    <ul class="list">
+      <li class="text">
+        Diamond Cutting Licence or the Precious Stones Dealer’s Licence.
+      </li>
+      <li class="text">An invoice for the shipment/diamonds/goods.</li>
+    </ul>
+    <article class="navigation-section">
+      <app-btn
+        [label]="'Previous'"
+        [iconPos]="'left'"
+        [icon]="'pi pi-chevron-left'"
+        (click)="previous()"
+      ></app-btn>
+      <app-btn
+        [label]="'Next'"
+        [iconPos]="'right'"
+        [icon]="'pi pi-chevron-right'"
+        [disabled]="!serviceForm.valid"
+        (click)="serviceForm.valid && next()"
+      ></app-btn>
+    </article>
+  </form>
+</div>

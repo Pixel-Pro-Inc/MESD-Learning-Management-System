@@ -1,0 +1,89 @@
+<div class="content-container">
+  <div class="title-container">
+    <h3 class="text">Personal Information</h3>
+  </div>
+  <form [formGroup]="serviceForm" class="form-container">
+    <article class="form-group-two-column">
+      <div class="form-control-group">
+        <label class="text">Full Name</label>
+        <app-text-input
+          [type]="'text'"
+          [formControl]="serviceForm.controls['name']"
+          [label]="'full name'"
+          [placeholder]="'Full Name'"
+          class="form-control-container"
+        ></app-text-input>
+      </div>
+      <div class="form-control-group">
+        <label class="text">Nationality</label>
+        <app-text-input
+          [type]="'text'"
+          [formControl]="serviceForm.controls['nationality']"
+          [label]="'nationality'"
+          [placeholder]="'Nationality'"
+          class="form-control-container"
+        ></app-text-input>
+      </div>
+    </article>
+
+    <article class="form-group-two-column">
+      <div class="form-control-group">
+        <label class="text">Occupation</label>
+        <app-text-input
+          [type]="'text'"
+          [formControl]="serviceForm.controls['occupation']"
+          [label]="'occupation'"
+          [placeholder]="'Occupation'"
+          class="form-control-container"
+        ></app-text-input>
+      </div>
+      <div class="form-control-group">
+        <label class="text">Capacity</label>
+        <p-dropdown
+          [options]="['Personal', 'Director', 'Partner']"
+          formControlName="capacity"
+          placeholder="Capacity"
+        >
+        </p-dropdown>
+      </div>
+    </article>
+
+    <article class="form-group-two-column">
+      <div class="form-control-group">
+        <label class="text">Date of Birth</label>
+
+        <p-calendar
+          formControlName="dateOfBirth"
+          placeholder="Date of Birth"
+          [showIcon]="true"
+        ></p-calendar>
+      </div>
+      <div class="form-control-group">
+        <label class="text">Residential Address</label>
+        <app-text-input
+          [type]="'text'"
+          [formControl]="serviceForm.controls['address']"
+          [label]="'residential address'"
+          [placeholder]="'Residential Address'"
+          class="form-control-container"
+        ></app-text-input>
+      </div>
+    </article>
+
+    <article class="navigation-section">
+      <app-btn
+        [label]="'Previous'"
+        [iconPos]="'left'"
+        [icon]="'pi pi-chevron-left'"
+        (click)="previous()"
+      ></app-btn>
+      <app-btn
+        [label]="'Next'"
+        [iconPos]="'right'"
+        [icon]="'pi pi-chevron-right'"
+        [disabled]="!serviceForm.valid"
+        (click)="serviceForm.valid && next()"
+      ></app-btn>
+    </article>
+  </form>
+</div>

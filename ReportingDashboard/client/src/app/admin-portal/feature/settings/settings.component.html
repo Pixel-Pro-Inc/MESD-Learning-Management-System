@@ -1,0 +1,464 @@
+<div class="content-container">
+  <div class="title-container">
+    <h2 class="text">Settings</h2>
+  </div>
+  <!--Edit Branch-->
+  <form
+    [formGroup]="branchForm"
+    (ngSubmit)="branchForm.valid && updateBranch()"
+    class="form-container"
+  >
+    <article class="form-group">
+      <div class="form-control-group">
+        <label class="text">Branch ID</label>
+        <app-text-input
+          [type]="'text'"
+          [formControl]="branchForm.controls['branchId']"
+          [label]="'branch ID'"
+          [placeholder]="'Branch ID'"
+          [Disabled]="true"
+          class="form-control-container"
+        ></app-text-input>
+      </div>
+      <div class="form-control-group">
+        <label class="text">Branch Name</label>
+        <app-text-input
+          [type]="'text'"
+          id="'name"
+          [formControl]="branchForm.controls['name']"
+          [label]="'name'"
+          [placeholder]="'Branch Name'"
+          class="form-control-container"
+        ></app-text-input>
+      </div>
+      <div class="form-control-group">
+        <label class="text">Branch Short Name</label>
+        <app-text-input
+          [type]="'text'"
+          id="'shortName'"
+          [formControl]="branchForm.controls['shortName']"
+          [label]="'shortName'"
+          [placeholder]="'Branch Short Name'"
+        ></app-text-input>
+      </div>
+    </article>
+    <article class="form-group">
+      <div class="form-control-group" *ngIf="branch != null">
+        <label class="text">Branch Phone Number 1</label>
+        <div class="phone-number-group">
+          <app-country-code-selection
+            [defaultDialingCode]="
+              branch.phoneNumbers.length > 0
+                ? branch.phoneNumbers[0].countryCode
+                : null
+            "
+            [formControl]="branchForm.controls['countryCode1']"
+          ></app-country-code-selection>
+          <app-text-input
+            [type]="'text'"
+            id="'phoneNumber1"
+            [formControl]="branchForm.controls['phoneNumber1']"
+            [label]="'phone number'"
+            [placeholder]="'Enter phone number'"
+            class="form-control-container"
+          ></app-text-input>
+        </div>
+      </div>
+      <div class="form-control-group" *ngIf="branch != null">
+        <label class="text">Branch Phone Number 2</label>
+        <div class="phone-number-group">
+          <app-country-code-selection
+            [defaultDialingCode]="
+              branch.phoneNumbers.length > 1
+                ? branch.phoneNumbers[1].countryCode
+                : null
+            "
+            [formControl]="branchForm.controls['countryCode2']"
+          ></app-country-code-selection>
+          <app-text-input
+            [type]="'text'"
+            id="'phoneNumber2"
+            [formControl]="branchForm.controls['phoneNumber2']"
+            [label]="'phone number'"
+            [placeholder]="'Enter phone number'"
+            class="form-control-container"
+          ></app-text-input>
+        </div>
+      </div>
+      <div class="form-control-group">
+        <label class="text">Time Zone</label>
+        <app-text-input
+          [type]="'number'"
+          id="'timeZone'"
+          [formControl]="branchForm.controls['timeZone']"
+          [label]="'time zone'"
+          [placeholder]="'Time Zone'"
+        ></app-text-input>
+      </div>
+    </article>
+    <article class="form-group">
+      <div class="form-control-group">
+        <label class="text">Minimum Delivery Amount</label>
+        <app-text-input
+          [type]="'number'"
+          [formControl]="branchForm.controls['minimumDeliveryAmount']"
+          [label]="'minimum delivery amount'"
+          [placeholder]="'Minimum Delivery Amount'"
+          class="form-control-container"
+        ></app-text-input>
+      </div>
+      <div class="form-control-group">
+        <label class="text">Minimum Card Payment Amount</label>
+        <app-text-input
+          [type]="'number'"
+          [formControl]="branchForm.controls['minimumCardPaymentAmount']"
+          [label]="'minimum card payment amount'"
+          [placeholder]="'Minimum Card Payment Amount'"
+        ></app-text-input>
+      </div>
+      <div class="form-control-group">
+        <label class="text">Delivery Radius</label>
+        <app-text-input
+          [type]="'number'"
+          [formControl]="branchForm.controls['deliveryRadius']"
+          [label]="'delivery radius'"
+          [placeholder]="'Delivery Radius'"
+        ></app-text-input>
+      </div>
+    </article>
+    <article class="form-group-one-column">
+      <!--Map-->
+      <div *ngIf="location != null" class="form-control-group">
+        <label class="text">Branch Location</label>
+        <app-map
+          [PinLabel]="'Selected Location'"
+          [initialCoordinates]="location"
+          (onLocationSelected)="locationSelected($event)"
+        ></app-map>
+      </div>
+    </article>
+    <article class="form-group-two-column">
+      <div class="form-control-group">
+        <h3 class="text">Opening Times</h3>
+        <div class="time-container">
+          <div>
+            <label class="text">Monday</label>
+            <app-text-input
+              [type]="'time'"
+              [formControl]="branchForm.controls['mondayOpening']"
+              [label]="'monday opening time'"
+              class="form-control-container"
+            ></app-text-input>
+          </div>
+          <div>
+            <label class="text">Tuesday</label>
+            <app-text-input
+              [type]="'time'"
+              [formControl]="branchForm.controls['tuesdayOpening']"
+              [label]="'tuesday opening time'"
+              class="form-control-container"
+            ></app-text-input>
+          </div>
+          <div>
+            <label class="text">Wednesday</label>
+            <app-text-input
+              [type]="'time'"
+              [formControl]="branchForm.controls['wednesdayOpening']"
+              [label]="'wednesday opening time'"
+              class="form-control-container"
+            ></app-text-input>
+          </div>
+          <div>
+            <label class="text">Thursday</label>
+            <app-text-input
+              [type]="'time'"
+              [formControl]="branchForm.controls['thursdayOpening']"
+              [label]="'thursday opening time'"
+              class="form-control-container"
+            ></app-text-input>
+          </div>
+          <div>
+            <label class="text">Friday</label>
+            <app-text-input
+              [type]="'time'"
+              [formControl]="branchForm.controls['fridayOpening']"
+              [label]="'friday opening time'"
+              class="form-control-container"
+            ></app-text-input>
+          </div>
+          <div>
+            <label class="text">Saturday</label>
+            <app-text-input
+              [type]="'time'"
+              [formControl]="branchForm.controls['saturdayOpening']"
+              [label]="'saturday opening time'"
+              class="form-control-container"
+            ></app-text-input>
+          </div>
+          <div>
+            <label class="text">Sunday</label>
+            <app-text-input
+              [type]="'time'"
+              [formControl]="branchForm.controls['sundayOpening']"
+              [label]="'sunday opening time'"
+              class="form-control-container"
+            ></app-text-input>
+          </div>
+          <div>
+            <label class="text">Public Holiday</label>
+            <app-text-input
+              [type]="'time'"
+              [formControl]="branchForm.controls['publicOpening']"
+              [label]="'public holiday opening time'"
+              class="form-control-container"
+            ></app-text-input>
+          </div>
+        </div>
+      </div>
+      <div class="form-control-group">
+        <h3 class="text">Closing Times</h3>
+        <div class="time-container">
+          <div>
+            <label class="text">Monday</label>
+            <app-text-input
+              [type]="'time'"
+              [formControl]="branchForm.controls['mondayClosing']"
+              [label]="'monday closing time'"
+              class="form-control-container"
+            ></app-text-input>
+          </div>
+          <div>
+            <label class="text">Tuesday</label>
+            <app-text-input
+              [type]="'time'"
+              [formControl]="branchForm.controls['tuesdayClosing']"
+              [label]="'tuesday closing time'"
+              class="form-control-container"
+            ></app-text-input>
+          </div>
+          <div>
+            <label class="text">Wednesday</label>
+            <app-text-input
+              [type]="'time'"
+              [formControl]="branchForm.controls['wednesdayClosing']"
+              [label]="'wednesday closing time'"
+              class="form-control-container"
+            ></app-text-input>
+          </div>
+          <div>
+            <label class="text">Thursday</label>
+            <app-text-input
+              [type]="'time'"
+              [formControl]="branchForm.controls['thursdayClosing']"
+              [label]="'thursday closing time'"
+              class="form-control-container"
+            ></app-text-input>
+          </div>
+          <div>
+            <label class="text">Friday</label>
+            <app-text-input
+              [type]="'time'"
+              [formControl]="branchForm.controls['fridayClosing']"
+              [label]="'friday closing time'"
+              class="form-control-container"
+            ></app-text-input>
+          </div>
+          <div>
+            <label class="text">Saturday</label>
+            <app-text-input
+              [type]="'time'"
+              [formControl]="branchForm.controls['saturdayClosing']"
+              [label]="'saturday closing time'"
+              class="form-control-container"
+            ></app-text-input>
+          </div>
+          <div>
+            <label class="text">Sunday</label>
+            <app-text-input
+              [type]="'time'"
+              [formControl]="branchForm.controls['sundayClosing']"
+              [label]="'sunday closing time'"
+              class="form-control-container"
+            ></app-text-input>
+          </div>
+          <div>
+            <label class="text">Public Holiday</label>
+            <app-text-input
+              [type]="'time'"
+              [formControl]="branchForm.controls['publicClosing']"
+              [label]="'public holiday closing time'"
+              class="form-control-container"
+            ></app-text-input>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="form-group">
+      <button [disabled]="!branchForm.valid" class="btn btn-register">
+        Update Branch Settings
+      </button>
+    </article>
+  </form>
+
+  <div class="title-container">
+    <h2 class="text">Theme</h2>
+  </div>
+  <!--Theme-->
+  <article>
+    <form
+      [formGroup]="themeForm"
+      (ngSubmit)="themeForm.valid && setTheme()"
+      class="form-container"
+    >
+      <article class="form-group">
+        <div class="form-control-group">
+          <label class="text"
+            >Logo <span *ngIf="logo == null">(unchanged)</span></label
+          >
+          <input
+            type="file"
+            class="text-form-control"
+            accept="image/*"
+            (change)="onFileChangeLogo($event)"
+          />
+        </div>
+        <div class="form-control-group">
+          <label class="text"
+            >Logo with name
+            <span *ngIf="logoName == null">(unchanged)</span></label
+          >
+          <input
+            type="file"
+            class="text-form-control"
+            accept="image/*"
+            (change)="onFileChangeLogoName($event)"
+          />
+        </div>
+        <div class="form-control-group">
+          <label class="text"
+            >Website Icon
+            <span *ngIf="favIcon == null">(unchanged)</span></label
+          >
+          <input
+            type="file"
+            class="text-form-control"
+            accept="image/*"
+            (change)="onFileChangeFavIcon($event)"
+          />
+        </div>
+      </article>
+      <article class="form-group">
+        <div class="form-control-group">
+          <label class="text">Window Title</label>
+          <app-text-input
+            [type]="'text'"
+            [formControl]="themeForm.controls['windowTitle']"
+            [label]="'window title'"
+            [placeholder]="'Window Title'"
+          ></app-text-input>
+        </div>
+        <div class="form-control-group">
+          <label class="text">Light Color</label>
+          <app-text-input
+            [type]="'color'"
+            [formControl]="themeForm.controls['lightColor']"
+            [label]="'light color'"
+            [placeholder]="'Light Color'"
+          ></app-text-input>
+        </div>
+        <div class="form-control-group">
+          <label class="text">Link Color</label>
+          <app-text-input
+            [type]="'color'"
+            [formControl]="themeForm.controls['linkColor']"
+            [label]="'link color'"
+            [placeholder]="'Link Color'"
+          ></app-text-input>
+        </div>
+      </article>
+      <article class="form-group">
+        <div class="form-control-group">
+          <label class="text">Accent Color</label>
+          <app-text-input
+            [type]="'color'"
+            [formControl]="themeForm.controls['accentColor']"
+            [label]="'accent color'"
+            [placeholder]="'Accent Color'"
+          ></app-text-input>
+        </div>
+        <div class="form-control-group">
+          <label class="text">Secondary Color</label>
+          <app-text-input
+            [type]="'color'"
+            [formControl]="themeForm.controls['secondaryColor']"
+            [label]="'secondary color'"
+            [placeholder]="'Secondary Color'"
+          ></app-text-input>
+        </div>
+        <div class="form-control-group">
+          <label class="text">Gray Color</label>
+          <app-text-input
+            [type]="'color'"
+            [formControl]="themeForm.controls['grayColor']"
+            [label]="'gray color'"
+            [placeholder]="'Gray Color'"
+          ></app-text-input>
+        </div>
+      </article>
+      <article class="form-group">
+        <div class="form-control-group">
+          <label class="text">Light Gray Color</label>
+          <app-text-input
+            [type]="'color'"
+            [formControl]="themeForm.controls['lightGrayColor']"
+            [label]="'light gray color'"
+            [placeholder]="'Light Gray Color'"
+          ></app-text-input>
+        </div>
+        <div class="form-control-group">
+          <label class="text">Lightest Gray Color</label>
+          <app-text-input
+            [type]="'color'"
+            [formControl]="themeForm.controls['lightestGrayColor']"
+            [label]="'lightest gray color'"
+            [placeholder]="'Lightest Gray Color'"
+          ></app-text-input>
+        </div>
+        <div class="form-control-group">
+          <label class="text">Medium Gray Color</label>
+          <app-text-input
+            [type]="'color'"
+            [formControl]="themeForm.controls['mediumGrayColor']"
+            [label]="'medium gray color'"
+            [placeholder]="'Medium Gray Color'"
+          ></app-text-input>
+        </div>
+      </article>
+      <article class="form-group">
+        <div class="form-control-group">
+          <label class="text">Dark Gray Color</label>
+          <app-text-input
+            [type]="'color'"
+            [formControl]="themeForm.controls['darkGrayColor']"
+            [label]="'dark gray color'"
+            [placeholder]="'Dark Gray Color'"
+          ></app-text-input>
+        </div>
+        <div class="form-control-group">
+          <label class="text">Darkest Gray Color</label>
+          <app-text-input
+            [type]="'color'"
+            [formControl]="themeForm.controls['darkestGrayColor']"
+            [label]="'darkest gray color'"
+            [placeholder]="'Darkest Gray Color'"
+          ></app-text-input>
+        </div>
+      </article>
+      <article class="form-group">
+        <button [disabled]="!themeForm.valid" class="btn btn-register">
+          Set Theme
+        </button>
+      </article>
+    </form>
+  </article>
+</div>

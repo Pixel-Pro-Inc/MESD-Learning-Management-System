@@ -1,0 +1,41 @@
+<div class="content-container">
+  <div class="title-container">
+    <h3 class="text">Parcel Information</h3>
+  </div>
+
+  <form [formGroup]="serviceForm" class="form-container">
+    <article class="form-group-one-column">
+      <div class="form-control-group">
+        <label class="text">Signing Capacity</label>
+        <app-text-input
+          [type]="'text'"
+          [formControl]="serviceForm.controls['capacity']"
+          [label]="'capacity'"
+          [placeholder]="'Signing Capacity'"
+          class="form-control-container"
+        ></app-text-input>
+      </div>
+    </article>
+    <article class="form-group-one-column">
+      <div class="form-control-group">
+        <label class="text">Enter information about your parcel.</label>
+        <app-data-grid-input #dataGridCmp></app-data-grid-input>
+      </div>
+    </article>
+    <article class="navigation-section">
+      <app-btn
+        [label]="'Previous'"
+        [iconPos]="'left'"
+        [icon]="'pi pi-chevron-left'"
+        (click)="previous()"
+      ></app-btn>
+      <app-btn
+        [label]="'Next'"
+        [iconPos]="'right'"
+        [icon]="'pi pi-chevron-right'"
+        [disabled]="!serviceForm.valid"
+        (click)="serviceForm.valid && next()"
+      ></app-btn>
+    </article>
+  </form>
+</div>

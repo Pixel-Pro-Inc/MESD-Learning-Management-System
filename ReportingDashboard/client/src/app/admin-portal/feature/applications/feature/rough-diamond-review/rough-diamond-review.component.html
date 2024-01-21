@@ -1,0 +1,116 @@
+<body *ngIf="document != null">
+  <article class="group-two-column">
+    <div class="control-group">
+      <label class="text">Name of user</label>
+      <p class="text">
+        {{ document.applicant.fullName }}
+      </p>
+    </div>
+    <div class="control-group">
+      <label class="text">Email of user</label>
+      <p class="text">{{ document.applicant.email }}</p>
+    </div>
+  </article>
+  <article class="group-two-column">
+    <div class="control-group">
+      <label class="text">National identity number</label>
+      <p class="text">
+        {{ document.applicant.nationalIdentityNumber }}
+      </p>
+    </div>
+    <div class="control-group">
+      <label class="text">Application Date</label>
+      <p class="text">
+        {{ formattedDate(document.dateCreated) }}
+      </p>
+    </div>
+  </article>
+  <article class="group-two-column">
+    <div class="control-group">
+      <label class="text">Diamond Type</label>
+      <p class="text">
+        {{ application.diamondType }}
+      </p>
+    </div>
+    <div class="control-group">
+      <label class="text">Color Grade</label>
+      <p class="text">{{ application.diamondColorGrade }}</p>
+    </div>
+  </article>
+  <article class="group-two-column">
+    <div class="control-group">
+      <label class="text">Clarity Grade</label>
+      <p class="text">
+        {{ application.diamondClarityGrade }}
+      </p>
+    </div>
+    <div class="control-group">
+      <label class="text">Diamond Dimensions (length, width, height)</label>
+      <p class="text">{{ application.diamondDimensions }}</p>
+    </div>
+  </article>
+  <article class="group-two-column">
+    <div class="control-group">
+      <label class="text">Diamond Weight</label>
+      <p class="text">
+        {{ application.diamondWeight }}
+      </p>
+    </div>
+    <div class="control-group">
+      <label class="text">Country of Origin</label>
+      <p class="text">{{ application.diamondOriginCountry }}</p>
+    </div>
+  </article>
+  <article class="group-two-column">
+    <div class="control-group">
+      <label class="text">Diamond Source (e.g., mine, supplier</label>
+      <p class="text">
+        {{ application.diamondSource }}
+      </p>
+    </div>
+  </article>
+  <article class="group-one-column">
+    <div class="control-group">
+      <label class="text">Supporting documents</label>
+      <ng-container *ngFor="let file of application.files">
+        <p class="text">
+          <a href="{{ file.fileUrl }}" target="_blank">{{ file.fileName }}</a>
+        </p>
+      </ng-container>
+    </div>
+  </article>
+</body>
+<body>
+  <!--Form-->
+  <form [formGroup]="reviewForm" class="form-container">
+    <h4 class="text">Review</h4>
+    <article class="group-one-column">
+      <div class="control-group">
+        <label class="text">Add your review</label>
+        <p-selectButton
+          [options]="stateOptions"
+          formControlName="action"
+          optionLabel="label"
+          optionValue="value"
+        ></p-selectButton>
+        <textarea
+          *ngIf="reviewForm.controls.action.value == 'Reject'"
+          placeholder="Explain why the application was rejected"
+          rows="5"
+          cols="30"
+          pInputTextarea
+          formControlName="reason"
+        ></textarea>
+      </div>
+    </article>
+    <article class="navigation-section">
+      <app-btn
+        [label]="'Confirm'"
+        [iconPos]="'right'"
+        [icon]="'pi pi-chevron-right'"
+        [disabled]="!reviewForm.valid"
+        (click)="reviewForm.valid && review()"
+      ></app-btn>
+    </article>
+  </form>
+</body>

@@ -1,0 +1,201 @@
+.content-container {
+  padding: 0 2rem;
+}
+
+.title-container {
+  border-bottom: 1px solid var(--light-gray);
+  padding: 1rem 0;
+}
+/*Content*/
+.form-container {
+  padding: 1rem;
+  width: 100%;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.form-group-two-column {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.form-group-one-column {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+label {
+  font-size: 0.8rem;
+  display: block;
+  margin: 0.5rem 0;
+}
+
+.btn-register {
+  width: 90%;
+  border-radius: 0.25rem;
+}
+
+.phone-number-group {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  gap: 0.5rem;
+}
+
+.text-form-control.country-code {
+  width: min-content;
+  height: min-content;
+  font-weight: bold;
+}
+
+.country-code-container {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.form-control-container {
+  width: 100%;
+}
+
+.time-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+input[type="file"] {
+  font-size: 0.6rem;
+}
+
+:host ::ng-deep .p-multiselect {
+  width: 100%;
+  max-width: 288.65px;
+  padding: 0.2rem;
+  border: 0.5px solid var(--medium-gray);
+}
+
+:host ::ng-deep .p-multiselect:hover {
+  border: 0.5px solid var(--medium-gray);
+  font-family: sans-serif;
+}
+
+:host ::ng-deep .p-dropdown {
+  width: 100%;
+  border: 0.5px solid var(--medium-gray);
+}
+
+:host ::ng-deep .p-dropdown:hover {
+  border: 0.5px solid var(--medium-gray);
+  font-family: sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.btn-action {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.menu-container {
+  height: calc(100vh - var(--navbar-height) - 82.4px);
+  overflow-y: scroll;
+}
+
+.item-container {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  padding-left: 0;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.5px solid var(--light-gray);
+}
+
+.item-actions-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn-new {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  margin-right: 1rem;
+  font-size: 0.75rem;
+  width: fit-content;
+  justify-self: end;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 2rem;
+}
+
+.btn-search {
+  padding: 1rem 2rem;
+}
+
+.text-form-control.text-area {
+  height: 150px;
+}
+
+input[type="checkbox"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: var(--light);
+  /* Not removed via appearance */
+  margin: 0;
+
+  width: 2rem;
+  height: 2rem;
+  border: 0.15em solid var(--secondary-color);
+  border-radius: 100%;
+
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  background-color: var(--secondary-color);
+  border-radius: 100%;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
