@@ -49,7 +49,7 @@ export class AccountService {
 
     this.preferencesService.setPreferences(prefs);
 
-    this.routerService.navigateByUrl('/sign-in');
+    this.routerService.navigateByUrl('/login');
   }
 
   getUsers() {

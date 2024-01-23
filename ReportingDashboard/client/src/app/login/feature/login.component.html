@@ -1,65 +1,60 @@
-<section class="video-container">
-  <article class="content-container">
-    <article class="headline">
-      <h1>The All New Digital Diamond Hub Experience.</h1>
+<body>
+  <article class="hero-container">
+    <article class="img-container">
+      <img src="../../../assets/images/coatofarms.png" class="hero-img" />
+      <h1 class="hero-title text">
+        MESD Learning Management System Executive Reporting Dashboard
+      </h1>
     </article>
-
-    <div class="form-container">
-      <div class="form-header">
-        <img class="company-logo" />
-        <h2 class="text">Sign into your account</h2>
+    <article class="form-container-container">
+      <div class="form-container">
+        <div class="form-header">
+          <h2 class="text">Welcome Back.</h2>
+          <p class="text">Please sign into your account</p>
+        </div>
+        <form [formGroup]="loginForm">
+          <div class="form-control-group">
+            <label class="text form-text">Username</label>
+            <app-text-input
+              [type]="'text'"
+              id="'username"
+              [formControl]="loginForm.controls['username']"
+              [label]="'username'"
+              [placeholder]="'Username'"
+              class="form-control-container"
+            ></app-text-input>
+          </div>
+          <div class="form-control-group">
+            <label class="text">Password</label>
+            <app-text-input
+              [type]="'password'"
+              id="'password'"
+              [formControl]="loginForm.controls['password']"
+              [label]="'password'"
+              [placeholder]="'*************'"
+            ></app-text-input>
+          </div>
+          <app-btn
+            [label]="'Sign in'"
+            [disabled]="!loginForm.valid"
+            (click)="loginForm.valid && login()"
+          ></app-btn>
+          <div class="link-group">
+            <p class="text">
+              Don't have an account?
+              <a href="https://1gov.gov.bw/" class="forgot-password-link"
+                >Create Account</a
+              >
+            </p>
+            <p class="text">
+              Forgot password?
+              <a href="https://1gov.gov.bw/" class="forgot-password-link"
+                >Reset Password</a
+              >
+            </p>
+          </div>
+        </form>
       </div>
-      <form [formGroup]="loginForm">
-        <div class="form-control-group">
-          <label class="text form-text">Email / Username</label>
-          <app-text-input
-            [type]="'text'"
-            id="'username"
-            [formControl]="loginForm.controls['username']"
-            [label]="'username'"
-            [placeholder]="'Username'"
-            class="form-control-container"
-          ></app-text-input>
-        </div>
-        <div class="form-control-group">
-          <label class="text">Password</label>
-          <app-text-input
-            [type]="'password'"
-            id="'password'"
-            [formControl]="loginForm.controls['password']"
-            [label]="'password'"
-            [placeholder]="'*************'"
-          ></app-text-input>
-        </div>
-        <app-btn
-          [label]="'Login'"
-          [disabled]="!loginForm.valid"
-          (click)="loginForm.valid && login()"
-        ></app-btn>
-        <div class="link-group">
-          <p class="text">
-            Don't have an account?
-            <a routerLink="/sign-up" class="forgot-password-link"
-              >Create Account</a
-            >
-          </p>
-          <p class="text">
-            Forgot password?
-            <a routerLink="/password-reset" class="forgot-password-link"
-              >Reset Password</a
-            >
-          </p>
-        </div>
-      </form>
-    </div>
+    </article>
   </article>
-
-  <video
-    id="video"
-    autoplay
-    loop
-    src="../../../assets/videos/spin.mp4"
-    muted
-  ></video>
-  <div class="overlay"></div>
-</section>
+</body>

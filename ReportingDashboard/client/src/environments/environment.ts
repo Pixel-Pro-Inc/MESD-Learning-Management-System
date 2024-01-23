@@ -6,9 +6,6 @@ export const environment = {
   production: false,
   apiUrl: 'https://localhost:7294/api/',
   clientUrl: 'https://localhost:7294/',
-  googlemapApiKey: 'AIzaSyAGPFZM56U72EnelHJDuqF9Xo2Be_zYu6o',
-  syncFusionKey:
-    'Ngo9BigBOggjHTQxAR8/V1NGaF1cVWhIfEx1RHxQdld5ZFRHallYTnNWUj0eQnxTdEZjUX5dcXRUR2JfUEFzWg==',
 };
 
 /*

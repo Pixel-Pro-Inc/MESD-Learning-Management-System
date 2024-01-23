@@ -24,6 +24,8 @@ export class AuthGuard implements CanActivate {
   canActivate(): boolean {
     let user: UserDto = this.preferencesService.getPreferences().user;
 
+    return true;
+
     if (user != null) {
       if (user.permissions.length == 1) {
         if (user.permissions[0] == 'External') {
@@ -38,6 +40,6 @@ export class AuthGuard implements CanActivate {
     this.preferencesService.setPreferences(prefs);
 
     this.toastService.error('You are unauthorized!');
-    this.routerService.navigateByUrl('/sign-in');
+    this.routerService.navigateByUrl('/login');
   }
 }

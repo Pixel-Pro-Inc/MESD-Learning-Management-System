@@ -17,7 +17,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Lato", sans-serif !important;
 }
 
 :root {
@@ -31,9 +31,8 @@
   --medium-gray: #606060;
   --dark-gray: #444;
   --darkest-gray: #292929;
-  --logo-name: url("./assets/images/DH Logo.png");
 
-  --navbar-height: 80.8px;
+  --navbar-height: 61.8px;
   --animation-duration: 200ms;
   --animation-timing-curve: ease-in-out;
   --dash-icon-color: var(--secondary-color);
@@ -68,7 +67,7 @@
 }
 
 .company-logo {
-  content: var(--logo-name);
+  content: "assets/images/coatofarms.png";
   display: block;
 }
 

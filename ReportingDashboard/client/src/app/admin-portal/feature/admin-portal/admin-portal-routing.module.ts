@@ -17,14 +17,6 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'applications',
-        canActivate: [],
-        loadChildren: () =>
-          import(
-            '../applications/feature/applications/applications.module'
-          ).then((m) => m.ApplicationsModule),
-      },
-      {
         path: 'register-user',
         canActivate: [AccountManagementGuard],
         loadChildren: () =>
