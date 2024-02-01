@@ -3,8 +3,10 @@
         <h2 class="text">Profiling</h2>
     </div>
 
-    <p-table #dt1 [value]="customers" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
-        [rowsPerPageOptions]="[10, 25, 50]" [loading]="loading" [paginator]="true"
+    <i class="pi pi-check"></i>
+
+    <p-table #dt1 [value]="users" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10, 25, 50]" [loading]="" [paginator]="true"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']">
         <ng-template pTemplate="caption">
@@ -22,8 +24,8 @@
             <tr>
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
-                        Name
-                        <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+                        ID
+                        <p-columnFilter type="text" field="id" display="menu"></p-columnFilter>
                     </div>
                 </th>
                 <th style="min-width:15rem">
@@ -110,9 +112,9 @@
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-customer>
-            <tr>
+            <tr *ngFor="let customer">
                 <td>
-                    {{ customer.name }}
+                    {{ customer.id }}
                 </td>
                 <td>
                     <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
