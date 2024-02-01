@@ -12,4 +12,4 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

@@ -17,6 +17,14 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'profiling',
+        canActivate: [],
+        loadChildren: () =>
+          import('../profiling/profiling.module').then(
+            (m) => m.ProfilingModule
+          ),
+      },
+      {
         path: 'register-user',
         canActivate: [AccountManagementGuard],
         loadChildren: () =>
@@ -39,4 +47,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AdminPortalRoutingModule {}
+export class AdminPortalRoutingModule { }
