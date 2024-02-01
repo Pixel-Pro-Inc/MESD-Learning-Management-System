@@ -1,1 +1,19 @@
-<p>school-analysis works!</p>t
+<p-table [value]="graderesults" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Level</th>
+            <!-- This should be a list of the other courses that are available -->
+            <th>Physics</th>
+            <th>Chemistry</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-graderesult>
+        <tr>
+            <td>{{ graderesult.Form5 }}</td>
+            <td>{{ graderesult.Form4 }}</td>
+            <td>{{ graderesult.Form3 }}</td>
+            <td>{{ graderesult.Form2 }}</td>
+            <td>{{ graderesult.Form1 }}</td>
+        </tr>
+    </ng-template>
+</p-table>

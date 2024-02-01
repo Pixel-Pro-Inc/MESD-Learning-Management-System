@@ -14,76 +14,8 @@ import { environment } from 'src/environments/environment';
 export class ReportService {
   constructor(private httpClient: HttpClient) {}
 
-  getDashboard(dashboardRequestDto: DashboardRequestDto) {
+  report_status_update(){
     return this.httpClient
-      .post(environment.apiUrl + 'report/get-dashboard', dashboardRequestDto)
-      .pipe(
-        map((response: DashboardDto) => {
-          return response;
-        })
-      );
-  }
-
-  getTimeSheets(reportRequestDto: ReportRequestDto) {
-    return this.httpClient
-      .post(environment.apiUrl + 'report/get-time-sheets', reportRequestDto)
-      .pipe(
-        map((response: any) => {
-          return response;
-        })
-      );
-  }
-
-  getSalesReport(reportRequestDto: ReportRequestDto) {
-    return this.httpClient
-      .post(environment.apiUrl + 'report/get-sales-report', reportRequestDto)
-      .pipe(
-        map((response: any) => {
-          return response;
-        })
-      );
-  }
-
-  getCancelledSalesReport(reportRequestDto: ReportRequestDto) {
-    return this.httpClient
-      .post(
-        environment.apiUrl + 'report/get-cancelled-sales-report',
-        reportRequestDto
-      )
-      .pipe(
-        map((response: any) => {
-          return response;
-        })
-      );
-  }
-
-  getCashierReport(reportRequestDto: ReportRequestDto) {
-    return this.httpClient
-      .post(environment.apiUrl + 'report/get-cashier-report', reportRequestDto)
-      .pipe(
-        map((response: CashierReportDto[]) => {
-          return response;
-        })
-      );
-  }
-
-  getRevenueReport(reportRequestDto: ReportRequestDto) {
-    return this.httpClient
-      .post(environment.apiUrl + 'report/get-revenue-report', reportRequestDto)
-      .pipe(
-        map((response: any[]) => {
-          return response;
-        })
-      );
-  }
-
-  getSmsReport(reportRequestDto: ReportRequestDto) {
-    return this.httpClient
-      .post(environment.apiUrl + 'report/get-sms-report', reportRequestDto)
-      .pipe(
-        map((response: SmsReport) => {
-          return response;
-        })
-      );
+    .get(environment.apiUrl+'report/get-status-report');;
   }
 }
