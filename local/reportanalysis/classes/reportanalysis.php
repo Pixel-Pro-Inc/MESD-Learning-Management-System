@@ -19,6 +19,7 @@ class reportanalysis {
     $ch = curl_init();
 
     // Set the URL, headers, and POST data as JSON
+    //We need to change this URL to what we are going to use in POSTman
     curl_setopt($ch, CURLOPT_URL, "http://ec2-51-20-2-134.eu-north-1.compute.amazonaws.com/api/report/status");
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
