@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ReportService } from '../../data-access/report.service';
-import { TableModule } from 'primeng/table';
 
 
 @Component({
