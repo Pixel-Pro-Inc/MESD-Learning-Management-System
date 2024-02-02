@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReportService } from '../../data-access/report.service';
-
+//import { ToastrService } from 'ngx-toastr/toastr/toastr.service';
 
 @Component({
   selector: 'app-school-analysis',
@@ -13,8 +13,16 @@ export class SchoolAnalysisComponent implements OnInit {
   courseKeys: string[] = []; // New property to hold the course keys
   schoolid= '';
 
-  constructor(private reportService: ReportService) { 
-     this.reportService.report_status_update().subscribe(
+  constructor(private reportService: ReportService,
+    // 
+    ) { 
+      this.getReportStatusUpdate();
+  }
+
+  ngOnInit(): void { }
+
+  getReportStatusUpdate(){
+    this.reportService.report_status_update().subscribe(
       (response)=>{
         let x:any = response;
           this.graderesults= x;
@@ -28,11 +36,15 @@ export class SchoolAnalysisComponent implements OnInit {
       this.courseKeys = Object.keys(this.graderesults[0]).filter(k => k !== 'level');
     }
   }
-
-  ngOnInit(): void { }
-
   findSchoolStatusUpdate(){
+    console.log('It tried searching ${this.schoolid}');
     //return this.graderesults.where( x=> x.schoolname==schoolid);
   }
+  onSubmit(): void {
+      // Set the schoolid property with the input value
+      this.schoolid = this.schoolid;
+      // Call the findSchoolStatusUpdate method
+      this.findSchoolStatusUpdate();
+  }  
 
 }

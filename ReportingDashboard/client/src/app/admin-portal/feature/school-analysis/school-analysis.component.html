@@ -3,10 +3,13 @@
         <h2 class="text"> School Analysis </h2>
     </div>
 
-    <span class="p-input-icon-left">
-        <i class="pi pi-search"></i>
-        <input type="text" pInputText [(ngModel)]="schoolid" />
-    </span>
+    <form (submit)="onSubmit()">
+        <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText [(ngModel)]="schoolid" name="schoolid" />
+        </span>
+        <button type="submit">Search</button>
+    </form>
     <div>
         <p-table [value]="graderesults" [tableStyle]="{ 'min-width': '50rem' }"
                  [showCurrentPageReport]="true" [rowsPerPageOptions]="[10, 25, 50]">
