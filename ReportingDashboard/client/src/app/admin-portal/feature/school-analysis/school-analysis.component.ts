@@ -10,6 +10,7 @@ import { ReportService } from '../../data-access/report.service';
 export class SchoolAnalysisComponent implements OnInit {
 
   graderesults= [];
+  schoolid= '';
 
   constructor(private reportService: ReportService) { 
      this.reportService.report_status_update().subscribe(
@@ -24,5 +25,9 @@ export class SchoolAnalysisComponent implements OnInit {
   }
 
   ngOnInit(): void { }
+
+  findSchoolStatusUpdate(){
+    //return this.graderesults.where( x=> x.schoolname==schoolid);
+  }
 
 }
