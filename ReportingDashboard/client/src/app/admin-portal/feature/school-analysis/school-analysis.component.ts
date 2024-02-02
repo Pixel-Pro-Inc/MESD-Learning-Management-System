@@ -9,7 +9,8 @@ import { ReportService } from '../../data-access/report.service';
 })
 export class SchoolAnalysisComponent implements OnInit {
 
-  graderesults= [];
+  graderesults: any[] = []; 
+  courseKeys: string[] = []; // New property to hold the course keys
   schoolid= '';
 
   constructor(private reportService: ReportService) { 
@@ -22,6 +23,10 @@ export class SchoolAnalysisComponent implements OnInit {
         //this.toastService.error("An error has occured please try again and report the issue if it persists", 'Error')
       }
      );
+      // After getting the graderesults, populate the courseKeys
+    if (this.graderesults.length > 0) {
+      this.courseKeys = Object.keys(this.graderesults[0]).filter(k => k !== 'level');
+    }
   }
 
   ngOnInit(): void { }
