@@ -13,13 +13,13 @@
             <ng-template pTemplate="header">
                 <tr>
                     <th>Level</th>
-                    <th *ngFor="let key of Object.keys(graderesults[0]).filter(k => k !== 'level')">{{ key }}</th>
+                    <th *ngFor="let key of courseKeys">{{ key }}</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body">
                 <tr *ngFor="let graderesult of graderesults">
                     <td>{{ graderesult.level }}</td>
-                    <td *ngFor="let key of Object.keys(graderesults[0]).filter(k => k !== 'level')">{{ graderesult[key] }}</td>
+                    <td *ngFor="let key of courseKeys">{{ graderesult[key] }}</td>
                 </tr>
             </ng-template>
         </p-table>
