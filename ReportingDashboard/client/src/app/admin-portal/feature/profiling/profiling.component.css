@@ -1,3 +1,13 @@
 .content-container {
     padding: 0 2rem;
 }
+
+.title-container {
+    border-bottom: 1px solid var(--light-gray);
+    padding: 1rem 0;
+}
+
+.flex {
+    gap: 1rem;
+    display: flex;
+}

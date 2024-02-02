@@ -16,7 +16,7 @@ export class ReportService {
 
   getUsers() {
     return this.httpClient
-      .get(environment.apiUrl + 'report/get-dashboard');
+      .get(environment.apiUrl + 'report/users');
   }
 
 

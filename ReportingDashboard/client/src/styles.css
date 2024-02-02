@@ -14,13 +14,14 @@
 @import "primeicons/primeicons.css";
 
 * {
-  font-family: "Lato", sans-serif !important;
+  font-family: "Lato", sans-serif;
 }
 
 .body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 
 }
 
