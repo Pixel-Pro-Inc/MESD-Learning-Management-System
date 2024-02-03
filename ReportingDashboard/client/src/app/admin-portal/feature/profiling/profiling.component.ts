@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ReportService } from '../../data-access/report.service';
 import { ToastrService } from 'ngx-toastr';
-import { timestamp } from 'rxjs/operators';
 import { BusyService } from 'src/app/shared/services/busy-service/busy.service';
+import * as FileSaver from 'file-saver';
+import jsPDF from 'jspdf'
+import autoTable from 'jspdf-autotable'
+
 @Component({
   selector: 'app-profiling',
   templateUrl: './profiling.component.html',
@@ -1654,6 +1657,13 @@ export class ProfilingComponent implements OnInit {
     }
   ];
 
+  cols: any[];
+
+  exportColumns: any[];
+
+
+
+
   ngOnInit(): void {
     this.busyService.busy();
     this.reportService.getUsers().subscribe(
@@ -1670,6 +1680,16 @@ export class ProfilingComponent implements OnInit {
         );
       }
     );
+
+    this.cols = [
+      { field: 'nin', header: 'National Identity Number', customExportHeader: 'Product Code' },
+      { field: 'userrole', header: 'User Role' },
+      { field: 'firstname', header: 'First Name' },
+      { field: 'lastname', header: 'Last Name' },];
+
+
+    this.exportColumns = this.cols.map(col => ({ title: col.header, dataKey: col.field }));
+
   }
 
   convertUnixTimestampToString(unixTimestamp) {
@@ -1688,5 +1708,31 @@ export class ProfilingComponent implements OnInit {
     return `${day}/${month}/${year}`;
   }
 
+  exportPdf() {
+    // const doc = new jsPDF();
+    const doc = new jsPDF('p', 'pt');
+    doc['autoTable'](this.exportColumns, this.users);
+    // doc.autoTable(this.exportColumns, this.products);
+    doc.save("users.pdf");
+  }
+
+  exportExcel() {
+    import("xlsx").then(xlsx => {
+      const worksheet = xlsx.utils.json_to_sheet(this.users);
+      const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+      const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
+      this.saveAsExcelFile(excelBuffer, "products");
+    });
+  }
+  saveAsExcelFile(buffer: any, fileName: string): void {
+    let EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+    let EXCEL_EXTENSION = '.xlsx';
+    const data: Blob = new Blob([buffer], {
+      type: EXCEL_TYPE
+    });
+    FileSaver.saveAs(data, fileName + '_export_' + new Date().getTime() + EXCEL_EXTENSION);
+  }
+
 
 }
+
