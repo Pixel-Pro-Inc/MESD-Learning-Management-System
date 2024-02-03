@@ -12,7 +12,7 @@ class reportanalysis {
     //Get the levels that exist in  that school
     $level= array(["level"]);
     
-    $grades= array([$level, $coursegrades]);
+    $grades= array(["schoolid",$level, $coursegrades]);
 
     return $grades;
   }
