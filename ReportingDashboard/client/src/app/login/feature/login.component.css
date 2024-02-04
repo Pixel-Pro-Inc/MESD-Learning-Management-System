@@ -74,6 +74,7 @@ p.text {
   .video {
     display: none;
   }
+
   .content-container {
     z-index: 2;
     padding: 2rem;

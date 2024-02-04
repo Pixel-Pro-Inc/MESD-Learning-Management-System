@@ -12,10 +12,15 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ReportService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   report_status_update(){
     return this.httpClient
     .get(environment.apiUrl+'report/get-status-report');;
+  }
+
+  getUsers() {
+    return this.httpClient
+      .get(environment.apiUrl + 'report/users');
   }
 }
