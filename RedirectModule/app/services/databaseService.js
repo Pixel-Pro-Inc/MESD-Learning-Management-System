@@ -1,4 +1,5 @@
 // databaseService.js
+const jwt = require("jsonwebtoken");
 const { mariadbConfig } = require("../config");
 const mariadb = require("mariadb");
 const crypto = require("crypto");
@@ -21,7 +22,13 @@ class DatabaseService {
     }
   }
 
-  async getUserLink(userId) {
+  async getUserLink(token) {
+    const decoded = jwt.decode(token);
+
+    //Verify token Authenticity
+
+    let userId = decoded.preferred_username;
+
     const sql = "SELECT link FROM user_links WHERE user_id = ?";
     const params = [userId];
 
