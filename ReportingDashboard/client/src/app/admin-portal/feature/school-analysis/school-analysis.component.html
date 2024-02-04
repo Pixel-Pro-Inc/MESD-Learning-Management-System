@@ -1,0 +1,37 @@
+<div class="content-containter">
+    <div class="title-container">
+        <h2 class="text"> School Analysis </h2>
+    </div>
+
+    <form (submit)="onSubmit()">
+        <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText [(ngModel)]="schoolid" name="schoolid" />
+        </span>
+        <button type="submit">Search</button>
+    </form>
+    <p-table [value]="graderesults" sortField="schoolid" sortMode="single" dataKey="schoolid" rowGroupMode="subheader" groupRowsBy="schoolid" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>School ID</th>
+                <th>Level</th>
+                <th *ngFor="let key of courseKeys">{{ key }}</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="groupheader" let-graderesult let-rowIndex="rowIndex" let-expanded="expanded">
+            <tr>
+                <td colspan="{{ courseKeys.length + 2 }}">
+                    <button type="button" pButton pRipple [pRowToggler]="graderesult" class="p-button-text p-button-rounded p-button-plain mr-2" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                    <span class="font-bold ml-2">{{ graderesult.schoolid }}</span>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body">
+            <tr *ngFor="let graderesult of graderesults">
+                <td>{{ graderesult.schoolid }}</td>
+                <td>{{ graderesult.level }}</td>
+                <td *ngFor="let key of courseKeys">{{ graderesult[key] }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

@@ -14,10 +14,13 @@ import { environment } from 'src/environments/environment';
 export class ReportService {
   constructor(private httpClient: HttpClient) { }
 
+  report_status_update(){
+    return this.httpClient
+    .get(environment.apiUrl+'report/get-status-report');;
+  }
+
   getUsers() {
     return this.httpClient
       .get(environment.apiUrl + 'report/users');
   }
-
-
 }

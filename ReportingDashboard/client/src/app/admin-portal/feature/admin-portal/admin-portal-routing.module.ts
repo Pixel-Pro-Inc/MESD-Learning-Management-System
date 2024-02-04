@@ -38,6 +38,14 @@ const routes: Routes = [
         loadChildren: () =>
           import('../edit-user/edit-user.module').then((m) => m.EditUserModule),
       },
+      {
+        path: 'school-analysis',
+        //sahcanActivate: [AccountManagementGuard],
+        loadChildren: () =>
+          import('../school-analysis/school-analysis.module').then(
+            (m) => m.SchoolAnalysisModule
+          ),
+      },
       { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
