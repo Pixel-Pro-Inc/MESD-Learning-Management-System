@@ -5,8 +5,8 @@ const DatabaseService = require("../services/databaseService");
 
 const databaseService = new DatabaseService();
 
-router.get("/:userId", async (req, res) => {
-  const userId = req.params.userId;
+router.get("/:token", async (req, res) => {
+  const userId = req.params.token;
 
   try {
     const userLink = await databaseService.getUserLink(userId);
