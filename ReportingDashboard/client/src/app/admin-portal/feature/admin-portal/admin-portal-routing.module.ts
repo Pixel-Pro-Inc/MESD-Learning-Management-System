@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { AdminPortalComponent } from './admin-portal.component';
 import { Routes, RouterModule } from '@angular/router';
-import { AccountManagementGuard } from 'src/app/shared/guards/account-management/account-management.guard';
 
 const routes: Routes = [
   {
@@ -25,22 +24,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'register-user',
-        canActivate: [AccountManagementGuard],
-        loadChildren: () =>
-          import('../account-creation/account-creation.module').then(
-            (m) => m.AccountCreationModule
-          ),
-      },
-      {
-        path: 'edit-user',
-        canActivate: [AccountManagementGuard],
-        loadChildren: () =>
-          import('../edit-user/edit-user.module').then((m) => m.EditUserModule),
-      },
-      {
         path: 'school-analysis',
-        //sahcanActivate: [AccountManagementGuard],
         loadChildren: () =>
           import('../school-analysis/school-analysis.module').then(
             (m) => m.SchoolAnalysisModule
@@ -55,4 +39,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AdminPortalRoutingModule { }
+export class AdminPortalRoutingModule {}

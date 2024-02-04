@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { PreferencesService } from '../../services/preferences-service/preferences.service';
 import { UserDto } from '../../models/user-dto';
 import { AccountService } from '../../services/account-service/account.service';
 
@@ -16,13 +15,10 @@ export class NavComponent implements OnInit {
 
   constructor(
     private routerService: Router,
-    private preferencesService: PreferencesService,
     private accountService: AccountService
   ) {}
 
-  ngOnInit(): void {
-    this.user = this.preferencesService.getPreferences().user;
-  }
+  ngOnInit(): void {}
 
   backwards() {
     window.history.back();

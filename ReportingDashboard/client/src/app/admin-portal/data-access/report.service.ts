@@ -1,26 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { CashierReportDto } from 'src/app/shared/models/cashier-report-dto';
-import { DashboardDto } from 'src/app/shared/models/dashboard-dto';
-import { DashboardRequestDto } from 'src/app/shared/models/dashboard-request-dto';
-import { ReportRequestDto } from 'src/app/shared/models/report-request-dto';
-import { SmsReport } from 'src/app/shared/models/sms-report';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ReportService {
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
-  report_status_update(){
-    return this.httpClient
-    .get(environment.apiUrl+'report/get-status-report');;
+  getGrades() {
+    return this.httpClient.get(environment.apiUrl + 'report/grades');
   }
 
   getUsers() {
-    return this.httpClient
-      .get(environment.apiUrl + 'report/users');
+    return this.httpClient.get(environment.apiUrl + 'report/users');
   }
 }

@@ -15,14 +15,9 @@
 
 * {
   font-family: "Lato", sans-serif;
-}
-
-.body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
-
 }
 
 :root {
@@ -37,7 +32,7 @@
   --dark-gray: #444;
   --darkest-gray: #292929;
 
-  --navbar-height: 61.8px;
+  --navbar-height: 80px;
   --animation-duration: 200ms;
   --animation-timing-curve: ease-in-out;
   --dash-icon-color: var(--secondary-color);

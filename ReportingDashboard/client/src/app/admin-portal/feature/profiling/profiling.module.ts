@@ -7,11 +7,15 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
 
-
-
-
 @NgModule({
   declarations: [ProfilingComponent],
-  imports: [CommonModule, ProfilingRoutingModule, NgxChartsModule, TableModule, ButtonModule, TooltipModule],
+  imports: [
+    CommonModule,
+    ProfilingRoutingModule,
+    NgxChartsModule,
+    TableModule,
+    ButtonModule,
+    TooltipModule,
+  ],
 })
-export class ProfilingModule { }
+export class ProfilingModule {}
