@@ -8,8 +8,10 @@ const databaseService = new DatabaseService();
 router.post("/addUser", async (req, res) => {
   const { userId, link } = req.body;
 
+  let links = [link];
+
   try {
-    await databaseService.addUser(userId, link);
+    await databaseService.addUser(userId, links);
     res.status(201).send("User added successfully");
   } catch (error) {
     console.error("Internal Server Error:", error);
