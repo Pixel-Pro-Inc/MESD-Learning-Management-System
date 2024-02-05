@@ -9,5 +9,9 @@
 #fitem_id_profile_field_onegovid,
 /* Hide Optional section. */
 #id_moodle_optional {
-    display: none !important;
+  display: none !important;
+}
+
+* {
+  font-family: "Lato", sans-serif !important;
 }
