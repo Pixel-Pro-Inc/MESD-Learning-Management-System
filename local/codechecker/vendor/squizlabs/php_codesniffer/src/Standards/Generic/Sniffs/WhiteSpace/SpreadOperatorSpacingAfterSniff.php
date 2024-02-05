@@ -4,7 +4,11 @@
  *
  * @author    Juliette Reinders Folmer <phpcs_nospam@adviesenzo.nl>
  * @copyright 2019 Juliette Reinders Folmer. All rights reserved.
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Generic\Sniffs\WhiteSpace;
@@ -54,8 +58,17 @@ class SpreadOperatorSpacingAfterSniff implements Sniff
      */
     public function process(File $phpcsFile, $stackPtr)
     {
+<<<<<<< HEAD
+        $tokens         = $phpcsFile->getTokens();
+        $this->spacing  = (int) $this->spacing;
+        $pluralizeSpace = 's';
+        if ($this->spacing === 1) {
+            $pluralizeSpace = '';
+        }
+=======
         $tokens        = $phpcsFile->getTokens();
         $this->spacing = (int) $this->spacing;
+>>>>>>> Development
 
         $nextNonEmpty = $phpcsFile->findNext(Tokens::$emptyTokens, ($stackPtr + 1), null, true);
         if ($nextNonEmpty === false) {
@@ -81,8 +94,16 @@ class SpreadOperatorSpacingAfterSniff implements Sniff
 
         $nextNonWhitespace = $phpcsFile->findNext(T_WHITESPACE, ($stackPtr + 1), null, true);
         if ($nextNonEmpty !== $nextNonWhitespace) {
+<<<<<<< HEAD
+            $error = 'Expected %s space%s after the spread operator; comment found';
+            $data  = [
+                $this->spacing,
+                $pluralizeSpace,
+            ];
+=======
             $error = 'Expected %s space(s) after the spread operator; comment found';
             $data  = [$this->spacing];
+>>>>>>> Development
             $phpcsFile->addError($error, $stackPtr, 'CommentFound', $data);
 
             if ($tokens[($stackPtr + 1)]['code'] === T_WHITESPACE) {
@@ -107,9 +128,16 @@ class SpreadOperatorSpacingAfterSniff implements Sniff
             return;
         }
 
+<<<<<<< HEAD
+        $error = 'Expected %s space%s after the spread operator; %s found';
+        $data  = [
+            $this->spacing,
+            $pluralizeSpace,
+=======
         $error = 'Expected %s space(s) after the spread operator; %s found';
         $data  = [
             $this->spacing,
+>>>>>>> Development
             $found,
         ];
 

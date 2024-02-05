@@ -44,7 +44,11 @@ class RemovedAssertStringAssertionSniff extends AbstractFunctionCallParameterSni
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
+     * @var array<string, true>
+=======
      * @var array
+>>>>>>> Development
      */
     protected $targetFunctions = [
         'assert' => true,
@@ -57,7 +61,11 @@ class RemovedAssertStringAssertionSniff extends AbstractFunctionCallParameterSni
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
+     * @var array<int|string, int|string>
+=======
      * @var array
+>>>>>>> Development
      */
     private $targetTokens = [];
 
@@ -66,7 +74,11 @@ class RemovedAssertStringAssertionSniff extends AbstractFunctionCallParameterSni
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {

@@ -74,7 +74,11 @@ class NewParamTypeDeclarationsSniff extends Sniff
      * @since 7.0.0
      * @since 7.0.3 Now lists all param type declarations, not just the PHP 7+ scalar ones.
      *
+<<<<<<< HEAD
+     * @var array<string, array<string, bool>>
+=======
      * @var array(string => array(string => bool))
+>>>>>>> Development
      */
     protected $newTypes = [
         'array' => [
@@ -144,7 +148,11 @@ class NewParamTypeDeclarationsSniff extends Sniff
      *
      * @since 7.0.3
      *
+<<<<<<< HEAD
+     * @var array<string, string>
+=======
      * @var array(string => string)
+>>>>>>> Development
      */
     protected $invalidTypes = [
         'static'  => 'self',
@@ -157,7 +165,11 @@ class NewParamTypeDeclarationsSniff extends Sniff
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
+     * @var array<string, true>
+=======
      * @var array
+>>>>>>> Development
      */
     protected $unionOnlyTypes = [
         'false' => true,
@@ -172,7 +184,11 @@ class NewParamTypeDeclarationsSniff extends Sniff
      * @since 7.1.3  Now also checks closures.
      * @since 10.0.0 Now also checks PHP 7.4+ arrow functions.
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {

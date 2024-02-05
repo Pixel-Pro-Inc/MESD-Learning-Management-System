@@ -35,7 +35,11 @@ class NewStripTagsAllowableTagsArraySniff extends AbstractFunctionCallParameterS
      *
      * @since 9.3.0
      *
+<<<<<<< HEAD
+     * @var array<string, true>
+=======
      * @var array
+>>>>>>> Development
      */
     protected $targetFunctions = [
         'strip_tags' => true,

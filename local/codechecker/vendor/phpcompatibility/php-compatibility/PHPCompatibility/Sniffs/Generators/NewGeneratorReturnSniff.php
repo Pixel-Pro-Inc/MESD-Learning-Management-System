@@ -36,7 +36,11 @@ class NewGeneratorReturnSniff extends Sniff
      *
      * @since 9.0.0
      *
+<<<<<<< HEAD
+     * @var array<int|string, int|string>
+=======
      * @var array
+>>>>>>> Development
      */
     private $validConditions = [
         \T_FUNCTION => \T_FUNCTION,
@@ -49,7 +53,11 @@ class NewGeneratorReturnSniff extends Sniff
      *
      * @since 8.2.0
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {

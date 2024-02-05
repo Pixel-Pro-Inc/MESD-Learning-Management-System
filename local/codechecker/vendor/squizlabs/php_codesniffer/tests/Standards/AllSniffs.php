@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Tests\Standards;
@@ -61,6 +65,8 @@ class AllSniffs
         foreach ($installedStandards as $standard => $details) {
             Autoload::addSearchPath($details['path'], $details['namespace']);
 
+<<<<<<< HEAD
+=======
             // If the test is running PEAR installed, the built-in standards
             // are split into different directories; one for the sniffs and
             // a different file system location for tests.
@@ -70,11 +76,16 @@ class AllSniffs
                 $testPath = $details['path'];
             }
 
+>>>>>>> Development
             if (in_array($standard, $ignoreTestsForStandards, true) === true) {
                 continue;
             }
 
+<<<<<<< HEAD
+            $testsDir = $details['path'].DIRECTORY_SEPARATOR.'Tests'.DIRECTORY_SEPARATOR;
+=======
             $testsDir = $testPath.DIRECTORY_SEPARATOR.'Tests'.DIRECTORY_SEPARATOR;
+>>>>>>> Development
             if (is_dir($testsDir) === false) {
                 // No tests for this standard.
                 continue;

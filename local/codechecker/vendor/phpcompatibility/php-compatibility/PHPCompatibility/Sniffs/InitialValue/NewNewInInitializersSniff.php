@@ -53,7 +53,11 @@ final class NewNewInInitializersSniff extends AbstractInitialValueSniff
      *
      * @since 10.0.0.
      *
+<<<<<<< HEAD
+     * @var array<string, string> Type indicator => suggested partial error phrase.
+=======
      * @var array
+>>>>>>> Development
      */
     protected $initialValueTypes = [
         'const'     => 'global/namespaced constants declared using the const keyword',

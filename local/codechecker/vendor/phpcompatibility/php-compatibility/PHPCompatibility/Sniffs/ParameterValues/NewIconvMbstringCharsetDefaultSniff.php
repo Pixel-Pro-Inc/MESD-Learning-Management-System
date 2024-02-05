@@ -50,7 +50,11 @@ class NewIconvMbstringCharsetDefaultSniff extends AbstractFunctionCallParameterS
      *
      * @since 9.3.0
      *
+<<<<<<< HEAD
+     * @var array<string, array<string, int|string>>
+=======
      * @var array
+>>>>>>> Development
      */
     protected $targetFunctions = [
         'iconv_mime_decode_headers' => [

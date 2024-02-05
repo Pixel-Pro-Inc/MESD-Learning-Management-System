@@ -5,7 +5,11 @@
  * @author    Ben Selby <benmatselby@gmail.com>
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Reports;
@@ -28,7 +32,11 @@ class Hgblame extends VersionControl
      *
      * @param string $line Line to parse.
      *
+<<<<<<< HEAD
+     * @return string|false String or FALSE if impossible to recover.
+=======
      * @return mixed string or false if impossible to recover.
+>>>>>>> Development
      */
     protected function getAuthor($line)
     {

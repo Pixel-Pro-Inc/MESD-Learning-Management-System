@@ -33,7 +33,11 @@ final class NewArrayMergeRecursiveWithGlobalsVarSniff extends AbstractFunctionCa
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
+     * @var array<string, true>
+=======
      * @var array
+>>>>>>> Development
      */
     protected $targetFunctions = [
         'array_merge_recursive' => true,

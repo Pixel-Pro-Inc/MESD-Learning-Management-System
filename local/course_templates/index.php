@@ -237,7 +237,11 @@ if (!$step) {
                     'value' => get_string('back', 'local_course_templates'),
                     'onclick' => 'javascript :history.back(-1)',
                     'class' => 'btn btn-primary',
+<<<<<<< HEAD
+                    'style' => 'margin-right:20px;'
+=======
                     'style' => 'margin-right:20px;',
+>>>>>>> Development
                 )
             ) . html_writer::empty_tag(
                 'input',
@@ -245,7 +249,11 @@ if (!$step) {
                     'type' => 'button',
                     'value' => get_string('continue', 'local_course_templates'),
                     'onclick' => 'window.location.href="' . $redirecturl . '"',
+<<<<<<< HEAD
+                    'class' => 'btn btn-primary'
+=======
                     'class' => 'btn btn-primary',
+>>>>>>> Development
                 )
             )
         );
@@ -315,14 +323,22 @@ if (!$step) {
                     'value' => get_string('back', 'local_course_templates'),
                     'onclick' => 'javascript :history.back(-1)',
                     'class' => 'btn btn-secondary',
+<<<<<<< HEAD
+                    'style' => 'margin-right:20px;'
+=======
                     'style' => 'margin-right:20px;',
+>>>>>>> Development
                 )
             ) . html_writer::empty_tag(
                 'input',
                 array('type' => 'button',
                     'value' => get_string('continue', 'local_course_templates'),
                     'onclick' => 'window.location.href="' . $redirecturl . '?step=2&cid=' . $cid . '"',
+<<<<<<< HEAD
+                    'class' => 'btn btn-primary'
+=======
                     'class' => 'btn btn-primary',
+>>>>>>> Development
                 )
             )
         );
@@ -347,7 +363,11 @@ if (!$step) {
                     'value' => get_string('back', 'local_course_templates'),
                     'onclick' => 'javascript :history.back(-1)',
                     'class' => 'btn btn-secondary',
+<<<<<<< HEAD
+                    'style' => 'margin-right:20px;'
+=======
                     'style' => 'margin-right:20px;',
+>>>>>>> Development
                 )
             ) . html_writer::empty_tag(
                 'input',
@@ -355,7 +375,11 @@ if (!$step) {
                     'type' => 'button',
                     'value' => get_string('continue', 'local_course_templates'),
                     'onclick' => 'window.location.href="' . $redirecturl . '"',
+<<<<<<< HEAD
+                    'class' => 'btn btn-primary'
+=======
                     'class' => 'btn btn-primary',
+>>>>>>> Development
                 )
             )
         );
@@ -370,7 +394,11 @@ if (!$step) {
                     'value' => get_string('back', 'local_course_templates'),
                     'onclick' => 'javascript :history.back(-1)',
                     'class' => 'btn btn-secondary',
+<<<<<<< HEAD
+                    'style' => 'margin-right:20px;'
+=======
                     'style' => 'margin-right:20px;',
+>>>>>>> Development
                 )
             ) . html_writer::empty_tag(
                 'input',
@@ -383,7 +411,11 @@ if (!$step) {
                         . '&sel_cate='
                         . $cateid
                         . '"',
+<<<<<<< HEAD
+                    'class' => 'btn btn-primary'
+=======
                     'class' => 'btn btn-primary',
+>>>>>>> Development
                 )
             )
         );
@@ -398,14 +430,22 @@ if (!$step) {
                     'value' => get_string('back', 'local_course_templates'),
                     'onclick' => 'javascript :history.back(-1)',
                     'class' => 'btn btn-secondary',
+<<<<<<< HEAD
+                    'style' => 'margin-right:20px;'
+=======
                     'style' => 'margin-right:20px;',
+>>>>>>> Development
                 )
             ) . html_writer::empty_tag(
                 'input',
                 array('type' => 'button',
                     'value' => get_string('continue', 'local_course_templates'),
                     'onclick' => 'window.location.href="' . $redirecturl . '"',
+<<<<<<< HEAD
+                    'class' => 'btn btn-primary'
+=======
                     'class' => 'btn btn-primary',
+>>>>>>> Development
                 )
             )
         );

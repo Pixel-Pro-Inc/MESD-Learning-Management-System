@@ -4,13 +4,21 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Squiz\Sniffs\PHP;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
+<<<<<<< HEAD
+use PHP_CodeSniffer\Util\Tokens;
+=======
+>>>>>>> Development
 
 class InnerFunctionsSniff implements Sniff
 {
@@ -41,6 +49,30 @@ class InnerFunctionsSniff implements Sniff
     {
         $tokens = $phpcsFile->getTokens();
 
+<<<<<<< HEAD
+        if (isset($tokens[$stackPtr]['conditions']) === false) {
+            return;
+        }
+
+        $conditions         = $tokens[$stackPtr]['conditions'];
+        $reversedConditions = array_reverse($conditions, true);
+
+        $outerFuncToken = null;
+        foreach ($reversedConditions as $condToken => $condition) {
+            if ($condition === T_FUNCTION || $condition === T_CLOSURE) {
+                $outerFuncToken = $condToken;
+                break;
+            }
+
+            if (\array_key_exists($condition, Tokens::$ooScopeTokens) === true) {
+                // Ignore methods in OOP structures defined within functions.
+                return;
+            }
+        }
+
+        if ($outerFuncToken === null) {
+            // Not a nested function.
+=======
         $function = $phpcsFile->getCondition($stackPtr, T_FUNCTION);
         if ($function === false) {
             // Not a nested function.
@@ -56,6 +88,7 @@ class InnerFunctionsSniff implements Sniff
         $prev = $phpcsFile->findPrevious(T_WHITESPACE, ($stackPtr - 1), null, true);
         if ($tokens[$prev]['code'] === T_EQUAL) {
             // Ignore closures.
+>>>>>>> Development
             return;
         }
 

@@ -4,7 +4,11 @@
  *
  * @author    Andy Grunwald <andygrunwald@gmail.com>
  * @copyright 2010-2014 Andy Grunwald
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Generic\Sniffs\Files;
@@ -44,7 +48,11 @@ class LowercasedFilenameSniff implements Sniff
     {
         $filename = $phpcsFile->getFilename();
         if ($filename === 'STDIN') {
+<<<<<<< HEAD
+            return  ($phpcsFile->numTokens + 1);
+=======
             return;
+>>>>>>> Development
         }
 
         $filename          = basename($filename);

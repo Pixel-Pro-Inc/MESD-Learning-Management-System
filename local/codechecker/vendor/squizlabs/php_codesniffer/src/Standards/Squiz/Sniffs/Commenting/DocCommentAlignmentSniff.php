@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Squiz\Sniffs\Commenting;
@@ -112,9 +116,21 @@ class DocCommentAlignmentSniff implements Sniff
             }
 
             if ($tokens[$i]['column'] !== $requiredColumn) {
+<<<<<<< HEAD
+                $pluralizeSpace = 's';
+                if (($requiredColumn - 1) === 1) {
+                    $pluralizeSpace = '';
+                }
+
+                $error = 'Expected %s space%s before asterisk; %s found';
+                $data  = [
+                    ($requiredColumn - 1),
+                    $pluralizeSpace,
+=======
                 $error = 'Expected %s space(s) before asterisk; %s found';
                 $data  = [
                     ($requiredColumn - 1),
+>>>>>>> Development
                     ($tokens[$i]['column'] - 1),
                 ];
                 $fix   = $phpcsFile->addFixableError($error, $i, 'SpaceBeforeStar', $data);
@@ -126,7 +142,11 @@ class DocCommentAlignmentSniff implements Sniff
                         $phpcsFile->fixer->replaceToken(($i - 1), $padding);
                     }
                 }
+<<<<<<< HEAD
+            }//end if
+=======
             }
+>>>>>>> Development
 
             if ($tokens[$i]['code'] !== T_DOC_COMMENT_STAR) {
                 continue;

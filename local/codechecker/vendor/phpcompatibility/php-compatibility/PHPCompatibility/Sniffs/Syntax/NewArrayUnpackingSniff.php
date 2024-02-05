@@ -35,7 +35,11 @@ class NewArrayUnpackingSniff extends Sniff
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
+     * @var array<int|string, int|string>
+=======
      * @var array
+>>>>>>> Development
      */
     private $arrayTokens = [
         \T_ARRAY               => \T_ARRAY,
@@ -48,7 +52,11 @@ class NewArrayUnpackingSniff extends Sniff
      *
      * @since 9.2.0
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {

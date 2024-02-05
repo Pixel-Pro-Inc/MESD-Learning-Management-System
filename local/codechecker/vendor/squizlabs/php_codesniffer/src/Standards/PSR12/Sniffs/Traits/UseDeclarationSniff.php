@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\PSR12\Sniffs\Traits;
@@ -36,7 +40,11 @@ class UseDeclarationSniff implements Sniff
      * @param int                         $stackPtr  The position of the current token in the
      *                                               stack passed in $tokens.
      *
+<<<<<<< HEAD
+     * @return void|int
+=======
      * @return void
+>>>>>>> Development
      */
     public function process(File $phpcsFile, $stackPtr)
     {
@@ -177,6 +185,41 @@ class UseDeclarationSniff implements Sniff
                 }//end if
             }//end if
 
+<<<<<<< HEAD
+            $error = 'Expected 1 space after USE in trait import statement; %s found';
+            if ($tokens[($useToken + 1)]['code'] !== T_WHITESPACE) {
+                $data = ['0'];
+                $fix  = $phpcsFile->addFixableError($error, $useToken, 'SpaceAfterUse', $data);
+                if ($fix === true) {
+                    $phpcsFile->fixer->addContent($useToken, ' ');
+                }
+            } else if ($tokens[($useToken + 1)]['content'] !== ' ') {
+                $next = $phpcsFile->findNext(T_WHITESPACE, ($useToken + 1), null, true);
+                if ($tokens[$next]['line'] !== $tokens[$useToken]['line']) {
+                    $found = 'newline';
+                } else {
+                    $found = $tokens[($useToken + 1)]['length'];
+                }
+
+                $data = [$found];
+                $fix  = $phpcsFile->addFixableError($error, $useToken, 'SpaceAfterUse', $data);
+                if ($fix === true) {
+                    if ($found === 'newline') {
+                        $phpcsFile->fixer->beginChangeset();
+                        for ($x = ($useToken + 1); $x < $next; $x++) {
+                            $phpcsFile->fixer->replaceToken($x, '');
+                        }
+
+                        $phpcsFile->fixer->addContent($useToken, ' ');
+                        $phpcsFile->fixer->endChangeset();
+                    } else {
+                        $phpcsFile->fixer->replaceToken(($useToken + 1), ' ');
+                    }
+                }
+            }//end if
+
+=======
+>>>>>>> Development
             // Check the formatting of the statement.
             if (isset($tokens[$useToken]['scope_opener']) === true) {
                 $this->processUseGroup($phpcsFile, $useToken);
@@ -652,6 +695,8 @@ class UseDeclarationSniff implements Sniff
     {
         $tokens = $phpcsFile->getTokens();
 
+<<<<<<< HEAD
+=======
         $error = 'Expected 1 space after USE in trait import statement; %s found';
         if ($tokens[($stackPtr + 1)]['code'] !== T_WHITESPACE) {
             $data = ['0'];
@@ -684,6 +729,7 @@ class UseDeclarationSniff implements Sniff
             }
         }//end if
 
+>>>>>>> Development
         $next = $phpcsFile->findNext([T_COMMA, T_SEMICOLON], ($stackPtr + 1));
         if ($next !== false && $tokens[$next]['code'] === T_COMMA) {
             $error = 'Each imported trait must have its own "use" import statement';

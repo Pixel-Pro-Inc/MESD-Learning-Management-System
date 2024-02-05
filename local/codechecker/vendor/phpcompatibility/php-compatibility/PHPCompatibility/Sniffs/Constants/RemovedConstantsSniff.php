@@ -42,7 +42,11 @@ class RemovedConstantsSniff extends Sniff
      *
      * @since 8.1.0
      *
+<<<<<<< HEAD
+     * @var array<string, array<string, bool|string>>
+=======
      * @var array(string => array(string => bool|string))
+>>>>>>> Development
      */
     protected $removedConstants = [
         'F_DUPFD' => [
@@ -2660,7 +2664,11 @@ class RemovedConstantsSniff extends Sniff
      *
      * @since 8.1.0
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {

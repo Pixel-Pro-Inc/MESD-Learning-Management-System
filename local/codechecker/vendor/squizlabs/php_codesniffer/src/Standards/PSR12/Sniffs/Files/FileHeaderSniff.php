@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2019 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\PSR12\Sniffs\Files;
@@ -36,7 +40,11 @@ class FileHeaderSniff implements Sniff
      * @param int                         $stackPtr  The position of the current
      *                                               token in the stack.
      *
+<<<<<<< HEAD
+     * @return int|void
+=======
      * @return int|null
+>>>>>>> Development
      */
     public function process(File $phpcsFile, $stackPtr)
     {
@@ -188,6 +196,10 @@ class FileHeaderSniff implements Sniff
 
                 if (isset($commentOpeners[$tokens[$docToken]['code']]) === false
                     && isset(Tokens::$methodPrefixes[$tokens[$docToken]['code']]) === false
+<<<<<<< HEAD
+                    && $tokens[$docToken]['code'] !== T_READONLY
+=======
+>>>>>>> Development
                 ) {
                     // Check for an @var annotation.
                     $annotation = false;
@@ -283,7 +295,11 @@ class FileHeaderSniff implements Sniff
      * @param array                       $headerLines Header information, as sourced
      *                                                 from getHeaderLines().
      *
+<<<<<<< HEAD
+     * @return void
+=======
      * @return int|null
+>>>>>>> Development
      */
     public function processHeaderLines(File $phpcsFile, $headerLines)
     {

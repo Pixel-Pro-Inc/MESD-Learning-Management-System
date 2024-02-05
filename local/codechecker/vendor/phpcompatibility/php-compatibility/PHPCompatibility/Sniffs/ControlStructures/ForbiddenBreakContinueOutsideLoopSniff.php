@@ -35,7 +35,11 @@ class ForbiddenBreakContinueOutsideLoopSniff extends Sniff
      *
      * @since 7.0.7
      *
+<<<<<<< HEAD
+     * @var array<int|string, int|string>
+=======
      * @var array
+>>>>>>> Development
      */
     protected $validLoopStructures = [
         \T_FOR     => \T_FOR,
@@ -50,7 +54,11 @@ class ForbiddenBreakContinueOutsideLoopSniff extends Sniff
      *
      * @since 7.0.7
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {

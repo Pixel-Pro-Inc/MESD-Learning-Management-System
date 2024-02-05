@@ -45,7 +45,11 @@ class NewFunctionsSniff extends Sniff
      *              but that sniff is no longer being extended.
      * @since 7.0.8 Renamed from `$forbiddenFunctions` to the more descriptive `$newFunctions`.
      *
+<<<<<<< HEAD
+     * @var array<string, array<string, bool|string>>
+=======
      * @var array(string => array(string => bool))
+>>>>>>> Development
      */
     protected $newFunctions = [
         'class_implements' => [
@@ -4938,6 +4942,59 @@ class NewFunctionsSniff extends Sniff
             '8.3'       => true,
             'extension' => 'mbstring',
         ],
+<<<<<<< HEAD
+        'pg_set_error_context_visibility' => [
+            '8.2'       => false,
+            '8.3'       => true,
+            'extension' => 'pgsql',
+        ],
+        'pg_enter_pipeline_mode' => [
+            '8.2'       => false,
+            '8.3'       => true,
+            'extension' => 'pgsql',
+        ],
+        'pg_exit_pipeline_mode' => [
+            '8.2'       => false,
+            '8.3'       => true,
+            'extension' => 'pgsql',
+        ],
+        'pg_pipeline_sync' => [
+            '8.2'       => false,
+            '8.3'       => true,
+            'extension' => 'pgsql',
+        ],
+        'pg_pipeline_status' => [
+            '8.2'       => false,
+            '8.3'       => true,
+            'extension' => 'pgsql',
+        ],
+        'posix_sysconf' => [
+            '8.2'       => false,
+            '8.3'       => true,
+            'extension' => 'posix',
+        ],
+        'posix_pathconf' => [
+            '8.2'       => false,
+            '8.3'       => true,
+            'extension' => 'posix',
+        ],
+        'posix_fpathconf' => [
+            '8.2'       => false,
+            '8.3'       => true,
+            'extension' => 'posix',
+        ],
+        'posix_eaccess' => [
+            '8.2'       => false,
+            '8.3'       => true,
+            'extension' => 'posix',
+        ],
+        'socket_atmark' => [
+            '8.2'       => false,
+            '8.3'       => true,
+            'extension' => 'sockets',
+        ],
+=======
+>>>>>>> Development
     ];
 
 
@@ -4946,7 +5003,11 @@ class NewFunctionsSniff extends Sniff
      *
      * @since 5.6
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {

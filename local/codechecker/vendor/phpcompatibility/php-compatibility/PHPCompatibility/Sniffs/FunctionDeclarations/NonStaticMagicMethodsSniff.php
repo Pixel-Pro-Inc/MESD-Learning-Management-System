@@ -46,7 +46,11 @@ class NonStaticMagicMethodsSniff extends Sniff
      * @since 5.6 The array format has changed to allow the sniff to also verify the
      *            use of the correct visibility for a magic method.
      *
+<<<<<<< HEAD
+     * @var array<string, array<string, string|bool>>
+=======
      * @var array(string)
+>>>>>>> Development
      */
     protected $magicMethods = [
         '__construct' => [
@@ -119,7 +123,11 @@ class NonStaticMagicMethodsSniff extends Sniff
      * @since 7.1.4  Now also checks anonymous classes.
      * @since 10.0.0 Switch to check based on T_FUNCTION token instead of OO construct token.
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {

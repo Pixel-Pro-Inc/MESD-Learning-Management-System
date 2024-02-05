@@ -41,7 +41,11 @@ class NewHashAlgorithmsSniff extends AbstractFunctionCallParameterSniff
      *
      * @since 7.0.7
      *
+<<<<<<< HEAD
+     * @var array<string, array<string, bool>>
+=======
      * @var array(string => array(string => bool))
+>>>>>>> Development
      */
     protected $newAlgorithms = [
         'md2' => [

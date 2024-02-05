@@ -4,7 +4,11 @@
  *
  * @author    Andy Grunwald <andygrunwald@gmail.com>
  * @copyright 2010-2014 Andy Grunwald
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Generic\Tests\PHP;
@@ -30,10 +34,16 @@ class CharacterBeforePHPOpeningTagUnitTest extends AbstractSniffUnitTest
         switch ($testFile) {
         case 'CharacterBeforePHPOpeningTagUnitTest.1.inc':
             return [2 => 1];
+<<<<<<< HEAD
+
+        default:
+            return [];
+=======
             break;
         default:
             return [];
             break;
+>>>>>>> Development
         }//end switch
 
     }//end getErrorList()

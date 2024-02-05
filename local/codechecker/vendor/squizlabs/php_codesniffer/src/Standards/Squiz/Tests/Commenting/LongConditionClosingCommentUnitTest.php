@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Squiz\Tests\Commenting;
@@ -60,7 +64,11 @@ class LongConditionClosingCommentUnitTest extends AbstractSniffUnitTest
                 1008 => 1,
                 1032 => 1,
             ];
+<<<<<<< HEAD
+
+=======
             break;
+>>>>>>> Development
         case 'LongConditionClosingCommentUnitTest.js':
             return [
                 47  => 1,
@@ -76,10 +84,16 @@ class LongConditionClosingCommentUnitTest extends AbstractSniffUnitTest
                 439 => 1,
                 444 => 1,
             ];
+<<<<<<< HEAD
+
+        default:
+            return [];
+=======
             break;
         default:
             return [];
             break;
+>>>>>>> Development
         }//end switch
 
     }//end getErrorList()

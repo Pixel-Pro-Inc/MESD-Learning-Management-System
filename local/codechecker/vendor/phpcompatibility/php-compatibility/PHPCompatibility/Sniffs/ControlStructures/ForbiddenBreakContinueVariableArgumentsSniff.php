@@ -43,7 +43,11 @@ class ForbiddenBreakContinueVariableArgumentsSniff extends Sniff
      * @since 7.0.5
      * @since 7.1.0 Changed from class constants to property.
      *
+<<<<<<< HEAD
+     * @var array<string, string>
+=======
      * @var array
+>>>>>>> Development
      */
     private $errorTypes = [
         'variableArgument' => 'a variable argument',
@@ -55,7 +59,11 @@ class ForbiddenBreakContinueVariableArgumentsSniff extends Sniff
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
+     * @var array<int|string, int|string>
+=======
      * @var array
+>>>>>>> Development
      */
     private $varArgTokens = [
         \T_VARIABLE => \T_VARIABLE,
@@ -68,7 +76,11 @@ class ForbiddenBreakContinueVariableArgumentsSniff extends Sniff
      *
      * @since 5.5
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {

@@ -74,6 +74,17 @@ final class BCTokens
 
     /**
      * Handle calls to (undeclared) methods for token arrays which haven't received any
+<<<<<<< HEAD
+     * changes since PHPCS 3.8.0.
+     *
+     * @since 1.0.0
+     *
+     * @param string       $name The name of the method which has been called.
+     * @param array<mixed> $args Any arguments passed to the method.
+     *                           Unused as none of the methods take arguments.
+     *
+     * @return array<int|string, int|string> Token array
+=======
      * changes since PHPCS 3.7.1.
      *
      * @since 1.0.0
@@ -83,6 +94,7 @@ final class BCTokens
      *                     Unused as none of the methods take arguments.
      *
      * @return array <int|string> => <int|string> Token array
+>>>>>>> Development
      *
      * @throws \PHPCSUtils\Exceptions\InvalidTokenArray When an invalid token array is requested.
      */
@@ -110,7 +122,11 @@ final class BCTokens
      *
      * @since 1.0.0
      *
+<<<<<<< HEAD
+     * @return array<int|string, int|string> Token array.
+=======
      * @return array <int|string> => <int|string> Token array.
+>>>>>>> Development
      */
     public static function functionNameTokens()
     {

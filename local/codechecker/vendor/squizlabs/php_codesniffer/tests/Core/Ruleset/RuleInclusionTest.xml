@@ -1,6 +1,19 @@
 <?xml version="1.0"?>
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="RuleInclusionTest" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
 
+<<<<<<< HEAD
+    <rule ref="PSR2">
+        <properties>
+            <property name="setforallsniffs" value="true" />
+            <property name="indent" value="20" />
+        </properties>
+    </rule>
+
+    <rule ref="PSR12.Operators">
+        <properties>
+            <property name="setforallincategory" value="true" />
+            <property name="ignoreSpacingBeforeAssignments" value="false" />
+=======
     <rule ref="PSR1">
         <properties>
             <property name="setforallsniffs" value="true" />
@@ -10,6 +23,7 @@
     <rule ref="Zend.NamingConventions">
         <properties>
             <property name="setforallincategory" value="true" />
+>>>>>>> Development
         </properties>
     </rule>
 
@@ -38,8 +52,14 @@
     </rule>
 
     <rule ref="./RuleInclusionTest-include.xml">
+<<<<<<< HEAD
+        <!-- Property being set for all sniffs included in this ruleset. -->
+        <properties>
+            <property name="absoluteNestingLevel" value="true" />
+=======
         <properties>
             <property name="setforsniffsinincludedruleset" value="true" />
+>>>>>>> Development
         </properties>
     </rule>
 

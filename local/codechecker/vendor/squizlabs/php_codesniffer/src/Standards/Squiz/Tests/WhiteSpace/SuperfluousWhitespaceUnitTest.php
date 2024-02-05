@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Squiz\Tests\WhiteSpace;
@@ -44,26 +48,42 @@ class SuperfluousWhitespaceUnitTest extends AbstractSniffUnitTest
                 65 => 1,
                 73 => 1,
             ];
+<<<<<<< HEAD
+
+=======
             break;
+>>>>>>> Development
         case 'SuperfluousWhitespaceUnitTest.2.inc':
             return [
                 2 => 1,
                 8 => 1,
             ];
+<<<<<<< HEAD
+
+=======
             break;
+>>>>>>> Development
         case 'SuperfluousWhitespaceUnitTest.3.inc':
             return [
                 6  => 1,
                 10 => 1,
             ];
+<<<<<<< HEAD
+
+=======
             break;
+>>>>>>> Development
         case 'SuperfluousWhitespaceUnitTest.4.inc':
         case 'SuperfluousWhitespaceUnitTest.5.inc':
             return [
                 1 => 1,
                 4 => 1,
             ];
+<<<<<<< HEAD
+
+=======
             break;
+>>>>>>> Development
         case 'SuperfluousWhitespaceUnitTest.1.js':
             return [
                 1  => 1,
@@ -77,19 +97,31 @@ class SuperfluousWhitespaceUnitTest extends AbstractSniffUnitTest
                 38 => 1,
                 56 => 1,
             ];
+<<<<<<< HEAD
+
+=======
             break;
+>>>>>>> Development
         case 'SuperfluousWhitespaceUnitTest.1.css':
             return [
                 1  => 1,
                 8  => 1,
                 9  => 1,
                 11 => 1,
+<<<<<<< HEAD
+                32 => 1,
+            ];
+
+        default:
+            return [];
+=======
                 25 => 1,
             ];
             break;
         default:
             return [];
             break;
+>>>>>>> Development
         }//end switch
 
     }//end getErrorList()

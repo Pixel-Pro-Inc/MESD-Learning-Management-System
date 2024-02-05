@@ -4,7 +4,11 @@
  *
  * @author    Stefano Kowalke <blueduck@gmx.net>
  * @copyright 2014 Arroba IT
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Generators;
@@ -67,7 +71,11 @@ class Markdown extends Generator
         // don't have their timezone set.
         error_reporting(0);
         echo 'Documentation generated on '.date('r');
+<<<<<<< HEAD
+        echo ' by [PHP_CodeSniffer '.Config::VERSION.'](https://github.com/PHPCSStandards/PHP_CodeSniffer)'.PHP_EOL;
+=======
         echo ' by [PHP_CodeSniffer '.Config::VERSION.'](https://github.com/squizlabs/PHP_CodeSniffer)'.PHP_EOL;
+>>>>>>> Development
 
     }//end printFooter()
 

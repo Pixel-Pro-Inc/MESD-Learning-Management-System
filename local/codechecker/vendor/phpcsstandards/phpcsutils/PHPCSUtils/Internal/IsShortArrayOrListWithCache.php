@@ -58,7 +58,11 @@ final class IsShortArrayOrListWithCache
      *
      * @since 1.0.0
      *
+<<<<<<< HEAD
+     * @var array<int, array<string, mixed>>
+=======
      * @var array
+>>>>>>> Development
      */
     private $tokens;
 

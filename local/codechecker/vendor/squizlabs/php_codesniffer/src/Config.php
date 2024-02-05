@@ -7,7 +7,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer;
@@ -27,7 +31,11 @@ use PHP_CodeSniffer\Util\Common;
  *                                     2: ruleset and file parsing output
  *                                     3: sniff execution output
  * @property bool     $interactive     Enable interactive checking mode.
+<<<<<<< HEAD
+ * @property int      $parallel        Check files in parallel.
+=======
  * @property bool     $parallel        Check files in parallel.
+>>>>>>> Development
  * @property bool     $cache           Enable the use of the file cache.
  * @property bool     $cacheFile       A file where the cache data should be written
  * @property bool     $colors          Display colours in output.
@@ -58,6 +66,10 @@ use PHP_CodeSniffer\Util\Common;
  * @property bool     $stdin           Read content from STDIN instead of supplied files.
  * @property string   $stdinContent    Content passed directly to PHPCS on STDIN.
  * @property string   $stdinPath       The path to use for content passed on STDIN.
+<<<<<<< HEAD
+ * @property bool     $trackTime       Whether or not to track sniff run time.
+=======
+>>>>>>> Development
  *
  * @property array<string, string>      $extensions File extensions that should be checked, and what tokenizer to use.
  *                                                  E.g., array('inc' => 'PHP');
@@ -80,7 +92,11 @@ class Config
      *
      * @var string
      */
+<<<<<<< HEAD
+    const VERSION = '3.8.0';
+=======
     const VERSION = '3.7.2';
+>>>>>>> Development
 
     /**
      * Package stability; either stable, beta or alpha.
@@ -90,6 +106,16 @@ class Config
     const STABILITY = 'stable';
 
     /**
+<<<<<<< HEAD
+     * Default report width when no report width is provided and 'auto' does not yield a valid width.
+     *
+     * @var int
+     */
+    const DEFAULT_REPORT_WIDTH = 80;
+
+    /**
+=======
+>>>>>>> Development
      * An array of settings that PHPCS and PHPCBF accept.
      *
      * This array is not meant to be accessed directly. Instead, use the settings
@@ -136,6 +162,10 @@ class Config
         'stdin'           => null,
         'stdinContent'    => null,
         'stdinPath'       => null,
+<<<<<<< HEAD
+        'trackTime'       => null,
+=======
+>>>>>>> Development
         'unknown'         => null,
     ];
 
@@ -200,6 +230,25 @@ class Config
             throw new RuntimeException("ERROR: unable to get value of property \"$name\"");
         }
 
+<<<<<<< HEAD
+        // Figure out what the terminal width needs to be for "auto".
+        if ($name === 'reportWidth' && $this->settings[$name] === 'auto') {
+            if (function_exists('shell_exec') === true) {
+                $dimensions = shell_exec('stty size 2>&1');
+                if (is_string($dimensions) === true && preg_match('|\d+ (\d+)|', $dimensions, $matches) === 1) {
+                    $this->settings[$name] = (int) $matches[1];
+                }
+            }
+
+            if ($this->settings[$name] === 'auto') {
+                // If shell_exec wasn't available or didn't yield a usable value, set to the default.
+                // This will prevent subsequent retrievals of the reportWidth from making another call to stty.
+                $this->settings[$name] = self::DEFAULT_REPORT_WIDTH;
+            }
+        }
+
+=======
+>>>>>>> Development
         return $this->settings[$name];
 
     }//end __get()
@@ -222,6 +271,22 @@ class Config
 
         switch ($name) {
         case 'reportWidth' :
+<<<<<<< HEAD
+            if (is_string($value) === true && $value === 'auto') {
+                // Nothing to do. Leave at 'auto'.
+                break;
+            }
+
+            if (is_int($value) === true) {
+                $value = abs($value);
+            } else if (is_string($value) === true && preg_match('`^\d+$`', $value) === 1) {
+                $value = (int) $value;
+            } else {
+                $value = self::DEFAULT_REPORT_WIDTH;
+            }
+            break;
+
+=======
             // Support auto terminal width.
             if ($value === 'auto'
                 && function_exists('shell_exec') === true
@@ -232,6 +297,7 @@ class Config
                 $value = (int) $value;
             }
             break;
+>>>>>>> Development
         case 'standards' :
             $cleaned = [];
 
@@ -250,6 +316,23 @@ class Config
 
             $value = $cleaned;
             break;
+<<<<<<< HEAD
+
+        // Only track time when explicitly needed.
+        case 'verbosity':
+            if ($value > 2) {
+                $this->settings['trackTime'] = true;
+            }
+            break;
+        case 'reports':
+            $reports = array_change_key_case($value, CASE_LOWER);
+            if (array_key_exists('performance', $reports) === true) {
+                $this->settings['trackTime'] = true;
+            }
+            break;
+
+=======
+>>>>>>> Development
         default :
             // No validation required.
             break;
@@ -503,6 +586,10 @@ class Config
         $this->stdin           = false;
         $this->stdinContent    = null;
         $this->stdinPath       = null;
+<<<<<<< HEAD
+        $this->trackTime       = false;
+=======
+>>>>>>> Development
         $this->unknown         = [];
 
         $standard = self::getConfigData('default_standard');
@@ -690,7 +777,11 @@ class Config
 
 
     /**
+<<<<<<< HEAD
+     * Processes a long (--example) command-line argument.
+=======
      * Processes a long (--example) command line argument.
+>>>>>>> Development
      *
      * @param string $arg The command line argument.
      * @param int    $pos The position of the argument on the command line.
@@ -709,7 +800,11 @@ class Config
             throw new DeepExitException($output, 0);
         case 'version':
             $output  = 'PHP_CodeSniffer version '.self::VERSION.' ('.self::STABILITY.') ';
+<<<<<<< HEAD
+            $output .= 'by Squiz and PHPCSStandards'.PHP_EOL;
+=======
             $output .= 'by Squiz (http://www.squiz.net)'.PHP_EOL;
+>>>>>>> Development
             throw new DeepExitException($output, 0);
         case 'colors':
             if (isset(self::$overriddenDefaults['colors']) === true) {
@@ -1205,6 +1300,19 @@ class Config
                 if ($this->dieOnUnknownArg === false) {
                     $eqPos = strpos($arg, '=');
                     try {
+<<<<<<< HEAD
+                        $unknown = $this->unknown;
+
+                        if ($eqPos === false) {
+                            $unknown[$arg] = $arg;
+                        } else {
+                            $value         = substr($arg, ($eqPos + 1));
+                            $arg           = substr($arg, 0, $eqPos);
+                            $unknown[$arg] = $value;
+                        }
+
+                        $this->unknown = $unknown;
+=======
                         if ($eqPos === false) {
                             $this->values[$arg] = $arg;
                         } else {
@@ -1212,6 +1320,7 @@ class Config
                             $arg   = substr($arg, 0, $eqPos);
                             $this->values[$arg] = $value;
                         }
+>>>>>>> Development
                     } catch (RuntimeException $e) {
                         // Value is not valid, so just ignore it.
                     }
@@ -1389,7 +1498,11 @@ class Config
         echo '                e.g., module/php,es/js'.PHP_EOL;
         echo ' <file>         One or more files and/or directories to check'.PHP_EOL;
         echo ' <fileList>     A file containing a list of files and/or directories to check (one per line)'.PHP_EOL;
+<<<<<<< HEAD
+        echo ' <filter>       Use either the "GitModified" or "GitStaged" filter,'.PHP_EOL;
+=======
         echo ' <filter>       Use either the "gitmodified" or "gitstaged" filter,'.PHP_EOL;
+>>>>>>> Development
         echo '                or specify the path to a custom filter class'.PHP_EOL;
         echo ' <generator>    Use either the "HTML", "Markdown" or "Text" generator'.PHP_EOL;
         echo '                (forces documentation generation instead of checking)'.PHP_EOL;
@@ -1397,8 +1510,13 @@ class Config
         echo ' <processes>    How many files should be checked simultaneously (default is 1)'.PHP_EOL;
         echo ' <report>       Print either the "full", "xml", "checkstyle", "csv"'.PHP_EOL;
         echo '                "json", "junit", "emacs", "source", "summary", "diff"'.PHP_EOL;
+<<<<<<< HEAD
+        echo '                "svnblame", "gitblame", "hgblame", "notifysend" or "performance",'.PHP_EOL;
+        echo '                report or specify the path to a custom report class'.PHP_EOL;
+=======
         echo '                "svnblame", "gitblame", "hgblame" or "notifysend" report,'.PHP_EOL;
         echo '                or specify the path to a custom report class'.PHP_EOL;
+>>>>>>> Development
         echo '                (the "full" report is printed by default)'.PHP_EOL;
         echo ' <reportFile>   Write the report to the specified file path'.PHP_EOL;
         echo ' <reportWidth>  How many columns wide screen reports should be printed'.PHP_EOL;
@@ -1451,7 +1569,11 @@ class Config
         echo '               e.g., module/php,es/js'.PHP_EOL;
         echo ' <file>        One or more files and/or directories to fix'.PHP_EOL;
         echo ' <fileList>    A file containing a list of files and/or directories to fix (one per line)'.PHP_EOL;
+<<<<<<< HEAD
+        echo ' <filter>      Use either the "GitModified" or "GitStaged" filter,'.PHP_EOL;
+=======
         echo ' <filter>      Use either the "gitmodified" or "gitstaged" filter,'.PHP_EOL;
+>>>>>>> Development
         echo '               or specify the path to a custom filter class'.PHP_EOL;
         echo ' <patterns>    A comma separated list of patterns to ignore files and directories'.PHP_EOL;
         echo ' <processes>   How many files should be fixed simultaneously (default is 1)'.PHP_EOL;
@@ -1567,6 +1689,8 @@ class Config
                 $configFile = dirname($path).DIRECTORY_SEPARATOR.'CodeSniffer.conf';
             } else {
                 $configFile = dirname(__DIR__).DIRECTORY_SEPARATOR.'CodeSniffer.conf';
+<<<<<<< HEAD
+=======
                 if (is_file($configFile) === false
                     && strpos('@data_dir@', '@data_dir') === false
                 ) {
@@ -1574,6 +1698,7 @@ class Config
                     // use the PEAR data dir to store the conf file.
                     $configFile = '@data_dir@/PHP_CodeSniffer/CodeSniffer.conf';
                 }
+>>>>>>> Development
             }
 
             if (is_file($configFile) === true

@@ -37,7 +37,11 @@ class ForbiddenSessionModuleNameUserSniff extends AbstractFunctionCallParameterS
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
+     * @var array<string, true>
+=======
      * @var array
+>>>>>>> Development
      */
     protected $targetFunctions = [
         'session_module_name' => true,
@@ -50,7 +54,11 @@ class ForbiddenSessionModuleNameUserSniff extends AbstractFunctionCallParameterS
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
+     * @var array<int|string, int|string>
+=======
      * @var array
+>>>>>>> Development
      */
     private $targetTokens = [];
 
@@ -59,7 +67,11 @@ class ForbiddenSessionModuleNameUserSniff extends AbstractFunctionCallParameterS
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {

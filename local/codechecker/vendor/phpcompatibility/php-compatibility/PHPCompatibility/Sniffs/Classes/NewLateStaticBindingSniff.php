@@ -40,7 +40,11 @@ class NewLateStaticBindingSniff extends Sniff
      * @since 7.0.3
      * @since 10.0.0 Now also sniffs for `T_STRING`.
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {

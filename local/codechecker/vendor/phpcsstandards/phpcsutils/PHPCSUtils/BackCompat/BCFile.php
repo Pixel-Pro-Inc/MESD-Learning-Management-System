@@ -29,7 +29,11 @@
  * @author    Klaus Purer <klaus.purer@protonmail.ch>
  *
  * @copyright 2006-2019 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHPCSUtils\BackCompat;
@@ -201,7 +205,11 @@ final class BCFile
      * @param int                         $stackPtr  The position in the stack of the function token
      *                                               to acquire the parameters for.
      *
+<<<<<<< HEAD
+     * @return array<int, array<string, mixed>>
+=======
      * @return array
+>>>>>>> Development
      *
      * @throws \PHP_CodeSniffer\Exceptions\RuntimeException If the specified `$stackPtr` is not of
      *                                                      type `T_FUNCTION`, `T_CLOSURE`, `T_USE`,
@@ -362,6 +370,10 @@ final class BCFile
                 case T_TYPE_UNION:
                 case T_TYPE_INTERSECTION:
                 case T_FALSE:
+<<<<<<< HEAD
+                case T_TRUE:
+=======
+>>>>>>> Development
                 case T_NULL:
                     // Part of a type hint or default value.
                     if ($defaultStart === null) {
@@ -498,7 +510,11 @@ final class BCFile
      *
      * Changelog for the PHPCS native function:
      * - Introduced in PHPCS 0.0.5.
+<<<<<<< HEAD
+     * - The upstream method has received no significant updates since PHPCS 3.8.0.
+=======
      * - The upstream method has received no significant updates since PHPCS 3.7.1.
+>>>>>>> Development
      *
      * @see \PHP_CodeSniffer\Files\File::getMethodProperties()      Original source.
      * @see \PHPCSUtils\Utils\FunctionDeclarations::getProperties() PHPCSUtils native improved version.
@@ -509,7 +525,11 @@ final class BCFile
      * @param int                         $stackPtr  The position in the stack of the function token to
      *                                               acquire the properties for.
      *
+<<<<<<< HEAD
+     * @return array<string, mixed>
+=======
      * @return array
+>>>>>>> Development
      *
      * @throws \PHP_CodeSniffer\Exceptions\RuntimeException If the specified position is not a
      *                                                      `T_FUNCTION`, `T_CLOSURE`, or `T_FN` token.
@@ -543,7 +563,11 @@ final class BCFile
      *
      * Changelog for the PHPCS native function:
      * - Introduced in PHPCS 0.0.5.
+<<<<<<< HEAD
+     * - The upstream method has received no significant updates since PHPCS 3.8.0.
+=======
      * - The upstream method has received no significant updates since PHPCS 3.7.1.
+>>>>>>> Development
      *
      * @see \PHP_CodeSniffer\Files\File::getMemberProperties() Original source.
      * @see \PHPCSUtils\Utils\Variables::getMemberProperties() PHPCSUtils native improved version.
@@ -554,7 +578,11 @@ final class BCFile
      * @param int                         $stackPtr  The position in the stack of the `T_VARIABLE` token to
      *                                               acquire the properties for.
      *
+<<<<<<< HEAD
+     * @return array<string, mixed>
+=======
      * @return array
+>>>>>>> Development
      *
      * @throws \PHP_CodeSniffer\Exceptions\RuntimeException If the specified position is not a
      *                                                      `T_VARIABLE` token, or if the position is not
@@ -573,7 +601,11 @@ final class BCFile
      * array(
      *   'is_abstract' => boolean, // TRUE if the abstract keyword was found.
      *   'is_final'    => boolean, // TRUE if the final keyword was found.
+<<<<<<< HEAD
+     *   'is_readonly' => boolean, // TRUE if the readonly keyword was found.
+=======
      *   'is_readonly' => false, // TRUE if the readonly keyword was found.
+>>>>>>> Development
      * );
      * ```
      *
@@ -593,7 +625,11 @@ final class BCFile
      * @param int                         $stackPtr  The position in the stack of the `T_CLASS`
      *                                               token to acquire the properties for.
      *
+<<<<<<< HEAD
+     * @return array<string, bool>
+=======
      * @return array
+>>>>>>> Development
      *
      * @throws \PHP_CodeSniffer\Exceptions\RuntimeException If the specified position is not a
      *                                                      `T_CLASS` token.
@@ -653,7 +689,11 @@ final class BCFile
      *
      * Changelog for the PHPCS native function:
      * - Introduced in PHPCS 0.0.5.
+<<<<<<< HEAD
+     * - The upstream method has received no significant updates since PHPCS 3.8.0.
+=======
      * - The upstream method has received no significant updates since PHPCS 3.7.1.
+>>>>>>> Development
      *
      * @see \PHP_CodeSniffer\Files\File::isReference() Original source.
      * @see \PHPCSUtils\Utils\Operators::isReference() PHPCSUtils native improved version.
@@ -679,7 +719,11 @@ final class BCFile
      *
      * Changelog for the PHPCS native function:
      * - Introduced in PHPCS 0.0.5.
+<<<<<<< HEAD
+     * - The upstream method has received no significant updates since PHPCS 3.8.0.
+=======
      * - The upstream method has received no significant updates since PHPCS 3.7.1.
+>>>>>>> Development
      *
      * @see \PHP_CodeSniffer\Files\File::getTokensAsString() Original source.
      * @see \PHPCSUtils\Utils\GetTokensAsString              Related set of functions.
@@ -708,15 +752,25 @@ final class BCFile
      *
      * Changelog for the PHPCS native function:
      * - Introduced in PHPCS 2.1.0.
+<<<<<<< HEAD
+     * - The upstream method has received no significant updates since PHPCS 3.8.0.
+=======
      * - The upstream method has received no significant updates since PHPCS 3.7.1.
+>>>>>>> Development
      *
      * @see \PHP_CodeSniffer\Files\File::findStartOfStatement() Original source.
      *
      * @since 1.0.0
      *
+<<<<<<< HEAD
+     * @param \PHP_CodeSniffer\Files\File  $phpcsFile The file being scanned.
+     * @param int                          $start     The position to start searching from in the token stack.
+     * @param int|string|array<int|string> $ignore    Token types that should not be considered stop points.
+=======
      * @param \PHP_CodeSniffer\Files\File $phpcsFile The file being scanned.
      * @param int                         $start     The position to start searching from in the token stack.
      * @param int|string|array            $ignore    Token types that should not be considered stop points.
+>>>>>>> Development
      *
      * @return int
      */
@@ -732,15 +786,25 @@ final class BCFile
      *
      * Changelog for the PHPCS native function:
      * - Introduced in PHPCS 2.1.0.
+<<<<<<< HEAD
+     * - The upstream method has received no significant updates since PHPCS 3.8.0.
+=======
      * - The upstream method has received no significant updates since PHPCS 3.7.1.
+>>>>>>> Development
      *
      * @see \PHP_CodeSniffer\Files\File::findEndOfStatement() Original source.
      *
      * @since 1.0.0
      *
+<<<<<<< HEAD
+     * @param \PHP_CodeSniffer\Files\File  $phpcsFile The file being scanned.
+     * @param int                          $start     The position to start searching from in the token stack.
+     * @param int|string|array<int|string> $ignore    Token types that should not be considered stop points.
+=======
      * @param \PHP_CodeSniffer\Files\File $phpcsFile The file being scanned.
      * @param int                         $start     The position to start searching from in the token stack.
      * @param int|string|array            $ignore    Token types that should not be considered stop points.
+>>>>>>> Development
      *
      * @return int
      */
@@ -756,16 +820,26 @@ final class BCFile
      *
      * Changelog for the PHPCS native function:
      * - Introduced in PHPCS 0.0.5.
+<<<<<<< HEAD
+     * - The upstream method has received no significant updates since PHPCS 3.8.0.
+=======
      * - The upstream method has received no significant updates since PHPCS 3.7.1.
+>>>>>>> Development
      *
      * @see \PHP_CodeSniffer\Files\File::hasCondition()  Original source.
      * @see \PHPCSUtils\Utils\Conditions::hasCondition() PHPCSUtils native alternative.
      *
      * @since 1.0.0
      *
+<<<<<<< HEAD
+     * @param \PHP_CodeSniffer\Files\File  $phpcsFile The file being scanned.
+     * @param int                          $stackPtr  The position of the token we are checking.
+     * @param int|string|array<int|string> $types     The type(s) of tokens to search for.
+=======
      * @param \PHP_CodeSniffer\Files\File $phpcsFile The file being scanned.
      * @param int                         $stackPtr  The position of the token we are checking.
      * @param int|string|array            $types     The type(s) of tokens to search for.
+>>>>>>> Development
      *
      * @return bool
      */
@@ -781,7 +855,11 @@ final class BCFile
      *
      * Changelog for the PHPCS native function:
      * - Introduced in PHPCS 1.3.0.
+<<<<<<< HEAD
+     * - The upstream method has received no significant updates since PHPCS 3.8.0.
+=======
      * - The upstream method has received no significant updates since PHPCS 3.7.1.
+>>>>>>> Development
      *
      * @see \PHP_CodeSniffer\Files\File::getCondition()  Original source.
      * @see \PHPCSUtils\Utils\Conditions::getCondition() More versatile alternative.
@@ -812,7 +890,11 @@ final class BCFile
      *
      * Changelog for the PHPCS native function:
      * - Introduced in PHPCS 1.2.0.
+<<<<<<< HEAD
+     * - The upstream method has received no significant updates since PHPCS 3.8.0.
+=======
      * - The upstream method has received no significant updates since PHPCS 3.7.1.
+>>>>>>> Development
      *
      * @see \PHP_CodeSniffer\Files\File::findExtendedClassName()          Original source.
      * @see \PHPCSUtils\Utils\ObjectDeclarations::findExtendedClassName() PHPCSUtils native improved version.
@@ -837,7 +919,11 @@ final class BCFile
      *
      * Changelog for the PHPCS native function:
      * - Introduced in PHPCS 2.7.0.
+<<<<<<< HEAD
+     * - The upstream method has received no significant updates since PHPCS 3.8.0.
+=======
      * - The upstream method has received no significant updates since PHPCS 3.7.1.
+>>>>>>> Development
      *
      * @see \PHP_CodeSniffer\Files\File::findImplementedInterfaceNames()          Original source.
      * @see \PHPCSUtils\Utils\ObjectDeclarations::findImplementedInterfaceNames() PHPCSUtils native improved version.
@@ -847,8 +933,13 @@ final class BCFile
      * @param \PHP_CodeSniffer\Files\File $phpcsFile The file being scanned.
      * @param int                         $stackPtr  The stack position of the class or enum token.
      *
+<<<<<<< HEAD
+     * @return string[]|false Array with names of the implemented interfaces or `FALSE` on
+     *                        error or if there are no implemented interface names.
+=======
      * @return array|false Array with names of the implemented interfaces or `FALSE` on
      *                     error or if there are no implemented interface names.
+>>>>>>> Development
      */
     public static function findImplementedInterfaceNames(File $phpcsFile, $stackPtr)
     {

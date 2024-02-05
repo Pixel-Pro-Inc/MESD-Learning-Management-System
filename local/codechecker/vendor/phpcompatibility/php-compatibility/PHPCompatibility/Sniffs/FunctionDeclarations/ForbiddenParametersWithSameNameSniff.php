@@ -35,7 +35,11 @@ class ForbiddenParametersWithSameNameSniff extends Sniff
      * @since 7.1.3  Allows for closures.
      * @since 10.0.0 Allows for PHP 7.4+ arrow functions.
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {

@@ -5,7 +5,11 @@
  * @author    Willington Vega <wvega@wvega.com>
  * @author    Juliette Reinders Folmer <phpcs_nospam@adviesenzo.nl>
  * @copyright 2019 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Tests\Core\Filters\Filter;
@@ -34,6 +38,16 @@ class AcceptTest extends TestCase
 
 
     /**
+<<<<<<< HEAD
+     * Initialize the config and ruleset objects based on the `AcceptTest.xml` ruleset file.
+     *
+     * @beforeClass
+     *
+     * @return void
+     */
+    public static function initializeConfigAndRuleset()
+    {
+=======
      * Initialize the test.
      *
      * @return void
@@ -62,11 +76,16 @@ class AcceptTest extends TestCase
             return;
         }
 
+>>>>>>> Development
         $standard      = __DIR__.'/'.basename(__FILE__, '.php').'.xml';
         self::$config  = new Config(["--standard=$standard", "--ignore=*/somethingelse/*"]);
         self::$ruleset = new Ruleset(self::$config);
 
+<<<<<<< HEAD
+    }//end initializeConfigAndRuleset()
+=======
     }//end setUpBeforeClass()
+>>>>>>> Development
 
 
     /**

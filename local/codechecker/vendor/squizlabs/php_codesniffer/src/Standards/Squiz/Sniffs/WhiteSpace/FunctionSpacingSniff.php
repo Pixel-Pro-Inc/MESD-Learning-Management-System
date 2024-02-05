@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace;
@@ -262,6 +266,14 @@ class FunctionSpacingSniff implements Sniff
                 $prevContent = $phpcsFile->findPrevious(T_WHITESPACE, ($tokens[$prevContent]['comment_opener'] - 1), null, true);
             }
 
+<<<<<<< HEAD
+            // Before we throw an error, check that we are not throwing an error
+            // for another function. We don't want to error for no blank lines after
+            // the previous function and no blank lines before this one as well.
+            $stopAt = 0;
+            if (isset($tokens[$prevLineToken]['conditions']) === true) {
+                $conditions = $tokens[$prevLineToken]['conditions'];
+=======
             $prevLineToken = $prevContent;
 
             // Before we throw an error, check that we are not throwing an error
@@ -274,10 +286,19 @@ class FunctionSpacingSniff implements Sniff
             $stopAt = 0;
             if (isset($tokens[$stackPtr]['conditions']) === true) {
                 $conditions = $tokens[$stackPtr]['conditions'];
+>>>>>>> Development
                 $conditions = array_keys($conditions);
                 $stopAt     = array_pop($conditions);
             }
 
+<<<<<<< HEAD
+            $prevLineToken = $prevContent;
+            $prevLine      = ($tokens[$prevContent]['line'] - 1);
+            $i          = ($stackPtr - 1);
+            $foundLines = 0;
+
+=======
+>>>>>>> Development
             while ($currentLine !== $prevLine && $currentLine > 1 && $i > $stopAt) {
                 if ($tokens[$i]['code'] === T_FUNCTION) {
                     // Found another interface or abstract function.

@@ -24,7 +24,11 @@
  *
  * @author    Manuel Pichler <mapi@manuel-pichler.de>
  * @copyright 2007-2014 Manuel Pichler. All rights reserved.
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis;
@@ -100,8 +104,13 @@ class JumbledIncrementerSniff implements Sniff
     /**
      * Get all used variables in the incrementer part of a for statement.
      *
+<<<<<<< HEAD
+     * @param array<int, array>    $tokens Array with all code sniffer tokens.
+     * @param array<string, mixed> $token  Current for loop token
+=======
      * @param array(integer=>array) $tokens Array with all code sniffer tokens.
      * @param array(string=>mixed)  $token  Current for loop token
+>>>>>>> Development
      *
      * @return string[] List of all found incrementer variables.
      */

@@ -31,7 +31,11 @@ class MyClass
  * Some info about the class here
   *
 */
+<<<<<<< HEAD
+readonly class MyClass
+=======
 class MyClass
+>>>>>>> Development
 {
     /**
      * Some info about the function here.

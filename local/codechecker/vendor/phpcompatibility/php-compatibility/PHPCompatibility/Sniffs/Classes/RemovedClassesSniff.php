@@ -55,7 +55,11 @@ class RemovedClassesSniff extends Sniff
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
+     * @var array<string, array<string, bool|string>>
+=======
      * @var array(string => array(string => bool))
+>>>>>>> Development
      */
     protected $removedClasses = [
         'HW_API' => [
@@ -204,7 +208,11 @@ class RemovedClassesSniff extends Sniff
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
+     * @var array<string, array<string, bool|string>>
+=======
      * @var array(string => array(string => bool))
+>>>>>>> Development
      */
     protected $removedExceptions = [
         'SQLiteException' => [
@@ -219,7 +227,11 @@ class RemovedClassesSniff extends Sniff
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {

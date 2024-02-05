@@ -4,7 +4,11 @@
  *
  * @author    Jaroslav Hanslík <kukulich@kukulich.cz>
  * @copyright 2021 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Tests\Core\Tokenizer;
@@ -148,7 +152,43 @@ class BackfillReadonlyTest extends AbstractMethodUnitTest
                 'readonly',
             ],
             [
+<<<<<<< HEAD
+                '/* testReadonlyPropertyDNFTypeUnqualified */',
+                'readonly',
+            ],
+            [
+                '/* testReadonlyPropertyDNFTypeFullyQualified */',
+                'readonly',
+            ],
+            [
+                '/* testReadonlyPropertyDNFTypePartiallyQualified */',
+                'readonly',
+            ],
+            [
+                '/* testReadonlyPropertyDNFTypeRelativeName */',
+                'readonly',
+            ],
+            [
+                '/* testReadonlyPropertyDNFTypeMultipleSets */',
+                'readonly',
+            ],
+            [
+                '/* testReadonlyPropertyDNFTypeWithArray */',
+                'readonly',
+            ],
+            [
+                '/* testReadonlyPropertyDNFTypeWithSpacesAndComments */',
+                'readonly',
+            ],
+            [
+                '/* testReadonlyConstructorPropertyPromotionWithDNF */',
+                'readonly',
+            ],
+            [
+                '/* testReadonlyConstructorPropertyPromotionWithDNFAndRefence */',
+=======
                 '/* testReadonlyUsedAsFunctionCallWithSpaceBetweenKeywordAndParens */',
+>>>>>>> Development
                 'readonly',
             ],
             [
@@ -213,6 +253,13 @@ class BackfillReadonlyTest extends AbstractMethodUnitTest
                 'readonly',
             ],
             [
+<<<<<<< HEAD
+                '/* testReadonlyUsedAsFunctionNameWithReturnByRef */',
+                'readonly',
+            ],
+            [
+=======
+>>>>>>> Development
                 '/* testReadonlyUsedAsNamespaceName */',
                 'Readonly',
             ],
@@ -225,9 +272,43 @@ class BackfillReadonlyTest extends AbstractMethodUnitTest
                 'readonly',
             ],
             [
+<<<<<<< HEAD
+                '/* testReadonlyAsNamespacedFunctionCall */',
+                'readonly',
+            ],
+            [
+                '/* testReadonlyAsNamespaceRelativeFunctionCall */',
+                'ReadOnly',
+            ],
+            [
+                '/* testReadonlyAsMethodCall */',
+                'readonly',
+            ],
+            [
+                '/* testReadonlyAsNullsafeMethodCall */',
+                'readOnly',
+            ],
+            [
+                '/* testReadonlyAsStaticMethodCallWithSpace */',
+                'readonly',
+            ],
+            [
                 '/* testClassConstantFetchWithReadonlyAsConstantName */',
                 'READONLY',
             ],
+            [
+                '/* testReadonlyUsedAsFunctionCallWithSpaceBetweenKeywordAndParens */',
+                'readonly',
+            ],
+            [
+                '/* testReadonlyUsedAsMethodNameWithDNFParam */',
+                'readonly',
+            ],
+=======
+                '/* testClassConstantFetchWithReadonlyAsConstantName */',
+                'READONLY',
+            ],
+>>>>>>> Development
         ];
 
     }//end dataNotReadonly()

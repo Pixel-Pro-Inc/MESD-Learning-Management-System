@@ -47,7 +47,11 @@ class NewMagicMethodsSniff extends Sniff
      *
      * @since 7.0.4
      *
+<<<<<<< HEAD
+     * @var array<string, array<string, bool|string>>
+=======
      * @var array(string => array(string => bool|string))
+>>>>>>> Development
      */
     protected $newMagicMethods = [
         '__construct' => [
@@ -114,7 +118,11 @@ class NewMagicMethodsSniff extends Sniff
      *
      * @since 7.0.4
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {

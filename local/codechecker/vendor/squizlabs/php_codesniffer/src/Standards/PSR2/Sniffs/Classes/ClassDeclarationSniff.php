@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\PSR2\Sniffs\Classes;
@@ -71,7 +75,11 @@ class ClassDeclarationSniff extends PEARClassDeclarationSniff
                 $blankSpace = substr($prevContent, strpos($prevContent, $phpcsFile->eolChar));
                 $spaces     = strlen($blankSpace);
 
+<<<<<<< HEAD
+                if (in_array($tokens[($stackPtr - 2)]['code'], [T_ABSTRACT, T_FINAL, T_READONLY], true) === true
+=======
                 if (in_array($tokens[($stackPtr - 2)]['code'], [T_ABSTRACT, T_FINAL], true) === true
+>>>>>>> Development
                     && $spaces !== 1
                 ) {
                     $prevContent = strtolower($tokens[($stackPtr - 2)]['content']);
@@ -89,6 +97,10 @@ class ClassDeclarationSniff extends PEARClassDeclarationSniff
                 }
             } else if ($tokens[($stackPtr - 2)]['code'] === T_ABSTRACT
                 || $tokens[($stackPtr - 2)]['code'] === T_FINAL
+<<<<<<< HEAD
+                || $tokens[($stackPtr - 2)]['code'] === T_READONLY
+=======
+>>>>>>> Development
             ) {
                 $prevContent = strtolower($tokens[($stackPtr - 2)]['content']);
                 $error       = 'Expected 1 space between %s and %s keywords; newline found';
@@ -491,12 +503,20 @@ class ClassDeclarationSniff extends PEARClassDeclarationSniff
 
             if ($fix === true) {
                 $phpcsFile->fixer->beginChangeset();
+<<<<<<< HEAD
+                for ($i = ($prevContent + 1); $tokens[$i]['line'] !== $tokens[$closeBrace]['line']; $i++) {
+=======
                 for ($i = ($prevContent + 1); $i < $closeBrace; $i++) {
+>>>>>>> Development
                     $phpcsFile->fixer->replaceToken($i, '');
                 }
 
                 if (strpos($tokens[$prevContent]['content'], $phpcsFile->eolChar) === false) {
+<<<<<<< HEAD
+                    $phpcsFile->fixer->addNewline($prevContent);
+=======
                     $phpcsFile->fixer->replaceToken($closeBrace, $phpcsFile->eolChar.$tokens[$closeBrace]['content']);
+>>>>>>> Development
                 }
 
                 $phpcsFile->fixer->endChangeset();

@@ -261,3 +261,13 @@ class Issue3357WithComment
         // code here.
     }
 }
+<<<<<<< HEAD
+
+    function myFunction()
+    {}
+    function myFunction()
+          {} // Too many spaces indent with an empty function.
+    function myFunction()
+{} // Too little spaces indent with an empty function.
+=======
+>>>>>>> Development

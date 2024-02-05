@@ -68,7 +68,12 @@ final class Cache
      *
      * @since 1.0.0
      *
+<<<<<<< HEAD
+     * @var array<int, array<string, array<string, array<string|int, mixed>>>>
+     *            Format: $cache[$loop][$fileName][$key][$id] = mixed $value;
+=======
      * @var array<int, array<string, array>> Format: $cache[$loop][$fileName][$key][$id] = mixed $value;
+>>>>>>> Development
      */
     private static $cache = [];
 
@@ -144,7 +149,11 @@ final class Cache
      * @param string                      $key       The key to identify a particular set of results.
      *                                               It is recommended to pass __METHOD__ to this parameter.
      *
+<<<<<<< HEAD
+     * @return array<string|int, mixed>
+=======
      * @return array
+>>>>>>> Development
      */
     public static function getForFile(File $phpcsFile, $key)
     {

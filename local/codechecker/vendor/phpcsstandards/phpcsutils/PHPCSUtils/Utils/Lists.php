@@ -33,7 +33,11 @@ final class Lists
      *
      * @since 1.0.0
      *
+<<<<<<< HEAD
+     * @var array<string, mixed>
+=======
      * @var array
+>>>>>>> Development
      */
     private static $listItemDefaults = [
         'raw'                  => '',
@@ -87,6 +91,17 @@ final class Lists
      *                                                 tokens in a list.
      *                                                 Use with care.
      *
+<<<<<<< HEAD
+     * @return array<string, int>|false An array with the token pointers; or `FALSE` if this is not a (short) list
+     *                                  token or if the opener/closer could not be determined.
+     *                                 The format of the array return value is:
+     *                                 ```php
+     *                                 array(
+     *                                   'opener' => integer, // Stack pointer to the list open bracket.
+     *                                   'closer' => integer, // Stack pointer to the list close bracket.
+     *                                 )
+     *                                 ```
+=======
      * @return array|false An array with the token pointers; or `FALSE` if this is not a (short) list
      *                     token or if the opener/closer could not be determined.
      *                     The format of the array return value is:
@@ -96,6 +111,7 @@ final class Lists
      *                       'closer' => integer, // Stack pointer to the list close bracket.
      *                     )
      *                     ```
+>>>>>>> Development
      */
     public static function getOpenClose(File $phpcsFile, $stackPtr, $isShortList = null)
     {
@@ -190,7 +206,12 @@ final class Lists
      * @param int                         $stackPtr  The position in the stack of the function token
      *                                               to acquire the parameters for.
      *
+<<<<<<< HEAD
+     * @return array<int, array<string, mixed>>
+     *               An array with information on each assignment made, including skipped assignments (empty),
+=======
      * @return array An array with information on each assignment made, including skipped assignments (empty),
+>>>>>>> Development
      *               or an empty array if no assignments are made at all (fatal error in PHP >= 7.0).
      *
      * @throws \PHP_CodeSniffer\Exceptions\RuntimeException If the specified $stackPtr is not of

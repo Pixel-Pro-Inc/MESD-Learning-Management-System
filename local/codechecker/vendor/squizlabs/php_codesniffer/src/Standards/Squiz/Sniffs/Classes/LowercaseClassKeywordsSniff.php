@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Squiz\Sniffs\Classes;
@@ -29,6 +33,10 @@ class LowercaseClassKeywordsSniff implements Sniff
         $targets[] = T_IMPLEMENTS;
         $targets[] = T_ABSTRACT;
         $targets[] = T_FINAL;
+<<<<<<< HEAD
+        $targets[] = T_READONLY;
+=======
+>>>>>>> Development
         $targets[] = T_VAR;
         $targets[] = T_CONST;
 

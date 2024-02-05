@@ -34,7 +34,11 @@ class NewArrayReduceInitialTypeSniff extends AbstractFunctionCallParameterSniff
      *
      * @since 9.0.0
      *
+<<<<<<< HEAD
+     * @var array<string, true>
+=======
      * @var array
+>>>>>>> Development
      */
     protected $targetFunctions = [
         'array_reduce' => true,
@@ -46,7 +50,11 @@ class NewArrayReduceInitialTypeSniff extends AbstractFunctionCallParameterSniff
      *
      * @since 9.0.0
      *
+<<<<<<< HEAD
+     * @var array<int|string>
+=======
      * @var array
+>>>>>>> Development
      */
     private $variableValueTokens = [
         \T_VARIABLE,

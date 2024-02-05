@@ -39,7 +39,11 @@ class RemovedIconvEncodingSniff extends AbstractFunctionCallParameterSniff
      *
      * @since 9.0.0
      *
+<<<<<<< HEAD
+     * @var array<string, true>
+=======
      * @var array
+>>>>>>> Development
      */
     protected $targetFunctions = [
         'iconv_set_encoding' => true,

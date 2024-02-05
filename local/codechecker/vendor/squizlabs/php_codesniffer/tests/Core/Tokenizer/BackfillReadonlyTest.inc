@@ -49,9 +49,13 @@ class Foo
     public ReAdOnLy string $caseInsensitiveProperty;
 
     /* testReadonlyConstructorPropertyPromotion */
+<<<<<<< HEAD
+    public function __construct(private readonly bool $constructorPropertyPromotion) {}
+=======
     public function __construct(private readonly bool $constructorPropertyPromotion)
     {
     }
+>>>>>>> Development
 
     /* testReadonlyConstructorPropertyPromotionWithReference */
     public function __construct(private ReadOnly bool &$constructorPropertyPromotion) {}
@@ -68,8 +72,11 @@ class ClassName {
 
     /* testReadonlyUsedAsMethodName */
     public function readonly() {
+<<<<<<< HEAD
+=======
         // Do something.
 
+>>>>>>> Development
         /* testReadonlyUsedAsPropertyName */
         $this->readonly = 'foo';
 
@@ -79,9 +86,16 @@ class ClassName {
 }
 
 /* testReadonlyUsedAsFunctionName */
+<<<<<<< HEAD
+function readonly() {}
+
+/* testReadonlyUsedAsFunctionNameWithReturnByRef */
+function &readonly() {}
+=======
 function readonly()
 {
 }
+>>>>>>> Development
 
 /* testReadonlyUsedAsNamespaceName */
 namespace Readonly;
@@ -89,12 +103,64 @@ namespace Readonly;
 namespace My\Readonly\Collection;
 /* testReadonlyAsFunctionCall */
 $var = readonly($a, $b);
+<<<<<<< HEAD
+/* testReadonlyAsNamespacedFunctionCall */
+$var = My\NS\readonly($a, $b);
+/* testReadonlyAsNamespaceRelativeFunctionCall */
+$var = namespace\ReadOnly($a, $b);
+/* testReadonlyAsMethodCall */
+$var = $obj->readonly($a, $b);
+/* testReadonlyAsNullsafeMethodCall */
+$var = $obj?->readOnly($a, $b);
+/* testReadonlyAsStaticMethodCallWithSpace */
+$var = ClassName::readonly ($a, $b);
+=======
+>>>>>>> Development
 /* testClassConstantFetchWithReadonlyAsConstantName */
 echo ClassName::READONLY;
 
 /* testReadonlyUsedAsFunctionCallWithSpaceBetweenKeywordAndParens */
 $var = readonly /* comment */ ();
 
+<<<<<<< HEAD
+// These test cases are inspired by
+// https://github.com/php/php-src/commit/08b75395838b4b42a41e3c70684fa6c6b113eee0
+class ReadonlyWithDisjunctiveNormalForm
+{
+    /* testReadonlyPropertyDNFTypeUnqualified */
+    readonly (B&C)|A $h;
+
+    /* testReadonlyPropertyDNFTypeFullyQualified */
+    public readonly (\Fully\Qualified\B&\Full\C)|\Foo\Bar $j;
+
+    /* testReadonlyPropertyDNFTypePartiallyQualified */
+    protected readonly (Partially\Qualified&C)|A $l;
+
+    /* testReadonlyPropertyDNFTypeRelativeName */
+    private readonly (namespace\Relative&C)|A $n;
+
+    /* testReadonlyPropertyDNFTypeMultipleSets */
+    private readonly (A&C)|(B&C)|(C&D) $m;
+
+    /* testReadonlyPropertyDNFTypeWithArray */
+    private readonly (B & C)|array $o;
+
+    /* testReadonlyPropertyDNFTypeWithSpacesAndComments */
+    private readonly ( B & C /*something*/) | A $q;
+
+    public function __construct(
+        /* testReadonlyConstructorPropertyPromotionWithDNF */
+        private readonly (B&C)|A $b1,
+        /* testReadonlyConstructorPropertyPromotionWithDNFAndRefence */
+        readonly (B&C)|A &$b2,
+    ) {}
+
+    /* testReadonlyUsedAsMethodNameWithDNFParam */
+    public function readonly (A&B $param): void {}
+}
+
+=======
+>>>>>>> Development
 /* testParseErrorLiveCoding */
 // This must be the last test in the file.
 readonly

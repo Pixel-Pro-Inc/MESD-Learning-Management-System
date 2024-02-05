@@ -11,7 +11,11 @@
  * @author    Manuel Pichler <mapi@manuel-pichler.de>
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2007-2014 Manuel Pichler. All rights reserved.
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis;
@@ -30,6 +34,35 @@ class UnusedFunctionParameterSniff implements Sniff
      */
     public $ignoreTypeHints = [];
 
+<<<<<<< HEAD
+    /**
+     * A list of all PHP magic methods with fixed method signatures.
+     *
+     * Note: `__construct()` and `__invoke()` are excluded on purpose
+     * as their method signature is not fixed.
+     *
+     * @var array
+     */
+    private $magicMethods = [
+        '__destruct'    => true,
+        '__call'        => true,
+        '__callstatic'  => true,
+        '__get'         => true,
+        '__set'         => true,
+        '__isset'       => true,
+        '__unset'       => true,
+        '__sleep'       => true,
+        '__wakeup'      => true,
+        '__serialize'   => true,
+        '__unserialize' => true,
+        '__tostring'    => true,
+        '__set_state'   => true,
+        '__clone'       => true,
+        '__debuginfo'   => true,
+    ];
+
+=======
+>>>>>>> Development
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -69,6 +102,31 @@ class UnusedFunctionParameterSniff implements Sniff
         $errorCode  = 'Found';
         $implements = false;
         $extends    = false;
+<<<<<<< HEAD
+
+        if ($token['code'] === T_FUNCTION) {
+            $classPtr = $phpcsFile->getCondition($stackPtr, T_CLASS);
+            if ($classPtr !== false) {
+                // Check for magic methods and ignore these as the method signature cannot be changed.
+                $methodName = $phpcsFile->getDeclarationName($stackPtr);
+                if (empty($methodName) === false) {
+                    $methodNameLc = strtolower($methodName);
+                    if (isset($this->magicMethods[$methodNameLc]) === true) {
+                        return;
+                    }
+                }
+
+                // Check for extends/implements and adjust the error code when found.
+                $implements = $phpcsFile->findImplementedInterfaceNames($classPtr);
+                $extends    = $phpcsFile->findExtendedClassName($classPtr);
+                if ($extends !== false) {
+                    $errorCode .= 'InExtendedClass';
+                } else if ($implements !== false) {
+                    $errorCode .= 'InImplementedInterface';
+                }
+            }
+        }//end if
+=======
         $classPtr   = $phpcsFile->getCondition($stackPtr, T_CLASS);
         if ($classPtr !== false) {
             $implements = $phpcsFile->findImplementedInterfaceNames($classPtr);
@@ -79,6 +137,7 @@ class UnusedFunctionParameterSniff implements Sniff
                 $errorCode .= 'InImplementedInterface';
             }
         }
+>>>>>>> Development
 
         $params       = [];
         $methodParams = $phpcsFile->getMethodParameters($stackPtr);

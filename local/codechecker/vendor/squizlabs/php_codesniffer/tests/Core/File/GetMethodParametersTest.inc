@@ -66,11 +66,19 @@ function unionTypesAllPseudoTypes(false|mixed|self|parent|iterable|Resource $var
 $closure = function (?int|float $number) {};
 
 /* testPHP8PseudoTypeNull */
+<<<<<<< HEAD
+// PHP 8.0 - 8.1: Intentional fatal error - null pseudotype is only allowed in union types, but that's not the concern of the method.
+function pseudoTypeNull(null $var = null) {}
+
+/* testPHP8PseudoTypeFalse */
+// PHP 8.0 - 8.1: Intentional fatal error - false pseudotype is only allowed in union types, but that's not the concern of the method.
+=======
 // Intentional fatal error - null pseudotype is only allowed in union types, but that's not the concern of the method.
 function pseudoTypeNull(null $var = null) {}
 
 /* testPHP8PseudoTypeFalse */
 // Intentional fatal error - false pseudotype is only allowed in union types, but that's not the concern of the method.
+>>>>>>> Development
 function pseudoTypeFalse(false $var = false) {}
 
 /* testPHP8PseudoTypeFalseAndBool */
@@ -113,6 +121,14 @@ class ConstructorPropertyPromotionWithReadOnly {
     public function __construct(public readonly ?int $promotedProp, readonly private string|bool &$promotedToo) {}
 }
 
+<<<<<<< HEAD
+class ConstructorPropertyPromotionWithOnlyReadOnly {
+    /* testPHP81ConstructorPropertyPromotionWithOnlyReadOnly */
+    public function __construct(readonly Foo&Bar $promotedProp, readonly ?bool $promotedToo,) {}
+}
+
+=======
+>>>>>>> Development
 /* testPHP8ConstructorPropertyPromotionGlobalFunction */
 // Intentional fatal error. Property promotion not allowed in non-constructor, but that's not the concern of this method.
 function globalFunction(private $x) {}
@@ -162,3 +178,13 @@ $closure = function (string&int $numeric_string) {};
 /* testPHP81NullableIntersectionTypes */
 // Intentional fatal error - nullability is not allowed with intersection types, but that's not the concern of the method.
 $closure = function (?Foo&Bar $object) {};
+<<<<<<< HEAD
+
+/* testPHP82PseudoTypeTrue */
+function pseudoTypeTrue(?true $var = true) {}
+
+/* testPHP82PseudoTypeFalseAndTrue */
+// Intentional fatal error - Type contains both true and false, bool should be used instead, but that's not the concern of the method.
+function pseudoTypeFalseAndTrue(true|false $var = true) {}
+=======
+>>>>>>> Development

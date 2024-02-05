@@ -42,7 +42,11 @@ class ArgumentFunctionsUsageSniff extends Sniff
      *
      * @since 8.2.0
      *
+<<<<<<< HEAD
+     * @var array<string, true>
+=======
      * @var array
+>>>>>>> Development
      */
     protected $targetFunctions = [
         'func_get_args' => true,
@@ -56,7 +60,11 @@ class ArgumentFunctionsUsageSniff extends Sniff
      *
      * @since 8.2.0
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {

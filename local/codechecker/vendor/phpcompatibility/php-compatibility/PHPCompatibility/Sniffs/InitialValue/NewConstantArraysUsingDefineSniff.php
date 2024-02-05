@@ -38,7 +38,11 @@ class NewConstantArraysUsingDefineSniff extends AbstractFunctionCallParameterSni
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
+     * @var array<string, true>
+=======
      * @var array
+>>>>>>> Development
      */
     protected $targetFunctions = [
         'define' => true,

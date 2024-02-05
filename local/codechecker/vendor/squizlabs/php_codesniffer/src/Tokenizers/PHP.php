@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Tokenizers;
@@ -306,7 +310,11 @@ class PHP extends Tokenizer
     /**
      * Known lengths of tokens.
      *
+<<<<<<< HEAD
+     * @var array<string|int, int>
+=======
      * @var array<int, int>
+>>>>>>> Development
      */
     public $knownLengths = [
         T_ABSTRACT                 => 8,
@@ -682,6 +690,39 @@ class PHP extends Tokenizer
             }//end if
 
             /*
+<<<<<<< HEAD
+                Special case for `static` used as a function name, i.e. `static()`.
+            */
+
+            if ($tokenIsArray === true
+                && $token[0] === T_STATIC
+                && $finalTokens[$lastNotEmptyToken]['code'] !== T_NEW
+            ) {
+                for ($i = ($stackPtr + 1); $i < $numTokens; $i++) {
+                    if (is_array($tokens[$i]) === true
+                        && isset(Util\Tokens::$emptyTokens[$tokens[$i][0]]) === true
+                    ) {
+                        continue;
+                    }
+
+                    if ($tokens[$i][0] === '(') {
+                        $finalTokens[$newStackPtr] = [
+                            'code'    => T_STRING,
+                            'type'    => 'T_STRING',
+                            'content' => $token[1],
+                        ];
+
+                        $newStackPtr++;
+                        continue 2;
+                    }
+
+                    break;
+                }
+            }//end if
+
+            /*
+=======
+>>>>>>> Development
                 Parse doc blocks into something that can be easily iterated over.
             */
 
@@ -750,6 +791,10 @@ class PHP extends Tokenizer
                 && (isset($tokens[($stackPtr + 1)]) === true
                 && is_array($tokens[($stackPtr + 1)]) === true
                 && $tokens[($stackPtr + 1)][0] === T_STRING
+<<<<<<< HEAD
+                && isset($tokens[($stackPtr + 1)][1][0], $tokens[($stackPtr + 1)][1][1]) === true
+=======
+>>>>>>> Development
                 && strtolower($tokens[($stackPtr + 1)][1][0]) === 'o'
                 && $tokens[($stackPtr + 1)][1][1] !== '_')
                 && preg_match('`^(o[0-7]+(?:_[0-7]+)?)([0-9_]*)$`i', $tokens[($stackPtr + 1)][1], $matches) === 1
@@ -1282,23 +1327,104 @@ class PHP extends Tokenizer
                 "readonly" keyword for PHP < 8.1
             */
 
+<<<<<<< HEAD
+            if ($tokenIsArray === true
+=======
             if (PHP_VERSION_ID < 80100
                 && $tokenIsArray === true
+>>>>>>> Development
                 && strtolower($token[1]) === 'readonly'
                 && isset($this->tstringContexts[$finalTokens[$lastNotEmptyToken]['code']]) === false
             ) {
                 // Get the next non-whitespace token.
                 for ($i = ($stackPtr + 1); $i < $numTokens; $i++) {
                     if (is_array($tokens[$i]) === false
+<<<<<<< HEAD
+                        || isset(Util\Tokens::$emptyTokens[$tokens[$i][0]]) === false
+=======
                         || $tokens[$i][0] !== T_WHITESPACE
+>>>>>>> Development
                     ) {
                         break;
                     }
                 }
 
+<<<<<<< HEAD
+                $isReadonlyKeyword = false;
+
                 if (isset($tokens[$i]) === false
                     || $tokens[$i] !== '('
                 ) {
+                    $isReadonlyKeyword = true;
+                } else if ($tokens[$i] === '(') {
+                    /*
+                     * Skip over tokens which can be used in type declarations.
+                     * At this point, the only token types which need to be taken into consideration
+                     * as potential type declarations are identifier names, T_ARRAY, T_CALLABLE and T_NS_SEPARATOR
+                     * and the union/intersection/dnf parentheses.
+                     */
+
+                    $foundDNFParens = 1;
+                    $foundDNFPipe   = 0;
+
+                    for (++$i; $i < $numTokens; $i++) {
+                        if (is_array($tokens[$i]) === true) {
+                            $tokenType = $tokens[$i][0];
+                        } else {
+                            $tokenType = $tokens[$i];
+                        }
+
+                        if (isset(Util\Tokens::$emptyTokens[$tokenType]) === true) {
+                            continue;
+                        }
+
+                        if ($tokenType === '|') {
+                            ++$foundDNFPipe;
+                            continue;
+                        }
+
+                        if ($tokenType === ')') {
+                            ++$foundDNFParens;
+                            continue;
+                        }
+
+                        if ($tokenType === '(') {
+                            ++$foundDNFParens;
+                            continue;
+                        }
+
+                        if ($tokenType === T_STRING
+                            || $tokenType === T_NAME_FULLY_QUALIFIED
+                            || $tokenType === T_NAME_RELATIVE
+                            || $tokenType === T_NAME_QUALIFIED
+                            || $tokenType === T_ARRAY
+                            || $tokenType === T_NAMESPACE
+                            || $tokenType === T_NS_SEPARATOR
+                            || $tokenType === T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG // PHP 8.0+.
+                            || $tokenType === '&' // PHP < 8.0.
+                        ) {
+                            continue;
+                        }
+
+                        // Reached the next token after.
+                        if (($foundDNFParens % 2) === 0
+                            && $foundDNFPipe >= 1
+                            && ($tokenType === T_VARIABLE
+                            || $tokenType === T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG)
+                        ) {
+                            $isReadonlyKeyword = true;
+                        }
+
+                        break;
+                    }//end for
+                }//end if
+
+                if ($isReadonlyKeyword === true) {
+=======
+                if (isset($tokens[$i]) === false
+                    || $tokens[$i] !== '('
+                ) {
+>>>>>>> Development
                     $finalTokens[$newStackPtr] = [
                         'code'    => T_READONLY,
                         'type'    => 'T_READONLY',
@@ -1306,8 +1432,28 @@ class PHP extends Tokenizer
                     ];
                     $newStackPtr++;
 
+<<<<<<< HEAD
+                    if (PHP_CODESNIFFER_VERBOSITY > 1 && $type !== T_READONLY) {
+                        echo "\t\t* token $stackPtr changed from $type to T_READONLY".PHP_EOL;
+                    }
+                } else {
+                    $finalTokens[$newStackPtr] = [
+                        'code'    => T_STRING,
+                        'type'    => 'T_STRING',
+                        'content' => $token[1],
+                    ];
+                    $newStackPtr++;
+
+                    if (PHP_CODESNIFFER_VERBOSITY > 1 && $type !== T_STRING) {
+                        echo "\t\t* token $stackPtr changed from $type to T_STRING".PHP_EOL;
+                    }
+                }//end if
+
+                continue;
+=======
                     continue;
                 }
+>>>>>>> Development
             }//end if
 
             /*
@@ -2103,6 +2249,62 @@ class PHP extends Tokenizer
                 }
             } else {
                 // Some T_STRING tokens should remain that way due to their context.
+<<<<<<< HEAD
+                if ($tokenIsArray === true && $token[0] === T_STRING) {
+                    $preserveTstring = false;
+
+                    if (isset($this->tstringContexts[$finalTokens[$lastNotEmptyToken]['code']]) === true) {
+                        $preserveTstring = true;
+
+                        // Special case for syntax like: return new self/new parent
+                        // where self/parent should not be a string.
+                        $tokenContentLower = strtolower($token[1]);
+                        if ($finalTokens[$lastNotEmptyToken]['code'] === T_NEW
+                            && ($tokenContentLower === 'self' || $tokenContentLower === 'parent')
+                        ) {
+                            $preserveTstring = false;
+                        }
+                    } else if ($finalTokens[$lastNotEmptyToken]['content'] === '&') {
+                        // Function names for functions declared to return by reference.
+                        for ($i = ($lastNotEmptyToken - 1); $i >= 0; $i--) {
+                            if (isset(Util\Tokens::$emptyTokens[$finalTokens[$i]['code']]) === true) {
+                                continue;
+                            }
+
+                            if ($finalTokens[$i]['code'] === T_FUNCTION) {
+                                $preserveTstring = true;
+                            }
+
+                            break;
+                        }
+                    } else {
+                        // Keywords with special PHPCS token when used as a function call.
+                        for ($i = ($stackPtr + 1); $i < $numTokens; $i++) {
+                            if (is_array($tokens[$i]) === true
+                                && isset(Util\Tokens::$emptyTokens[$tokens[$i][0]]) === true
+                            ) {
+                                continue;
+                            }
+
+                            if ($tokens[$i][0] === '(') {
+                                $preserveTstring = true;
+                            }
+
+                            break;
+                        }
+                    }//end if
+
+                    if ($preserveTstring === true) {
+                        $finalTokens[$newStackPtr] = [
+                            'code'    => T_STRING,
+                            'type'    => 'T_STRING',
+                            'content' => $token[1],
+                        ];
+
+                        $newStackPtr++;
+                        continue;
+                    }
+=======
                 if ($tokenIsArray === true
                     && $token[0] === T_STRING
                     && isset($this->tstringContexts[$finalTokens[$lastNotEmptyToken]['code']]) === true
@@ -2135,6 +2337,7 @@ class PHP extends Tokenizer
 
                     $newStackPtr++;
                     continue;
+>>>>>>> Development
                 }//end if
 
                 $newToken = null;
@@ -2249,11 +2452,20 @@ class PHP extends Tokenizer
 
                             if (is_array($tokens[$i]) === false
                                 && ($tokens[$i] === ';'
+<<<<<<< HEAD
+                                || $tokens[$i] === '{'
+                                || $tokens[$i] === '}')
+                            ) {
+                                break;
+                            }
+                        }//end for
+=======
                                 || $tokens[$i] === '{')
                             ) {
                                 break;
                             }
                         }
+>>>>>>> Development
                     }//end if
 
                     if ($isInlineIf === true) {
@@ -2803,6 +3015,10 @@ class PHP extends Tokenizer
                     T_PARENT       => T_PARENT,
                     T_STATIC       => T_STATIC,
                     T_FALSE        => T_FALSE,
+<<<<<<< HEAD
+                    T_TRUE         => T_TRUE,
+=======
+>>>>>>> Development
                     T_NULL         => T_NULL,
                     T_NAMESPACE    => T_NAMESPACE,
                     T_NS_SEPARATOR => T_NS_SEPARATOR,
@@ -2862,6 +3078,13 @@ class PHP extends Tokenizer
                     continue;
                 }
 
+<<<<<<< HEAD
+                if ($suspectedType === 'property or parameter') {
+                    unset($allowed[\T_STATIC]);
+                }
+
+=======
+>>>>>>> Development
                 $typeTokenCount = 0;
                 $typeOperators  = [$i];
                 $confirmed      = false;
@@ -2894,6 +3117,10 @@ class PHP extends Tokenizer
                     if ($suspectedType === 'property or parameter'
                         && (isset(Util\Tokens::$scopeModifiers[$this->tokens[$x]['code']]) === true
                         || $this->tokens[$x]['code'] === T_VAR
+<<<<<<< HEAD
+                        || $this->tokens[$x]['code'] === T_STATIC
+=======
+>>>>>>> Development
                         || $this->tokens[$x]['code'] === T_READONLY)
                     ) {
                         // This will also confirm constructor property promotion parameters, but that's fine.
@@ -2995,14 +3222,24 @@ class PHP extends Tokenizer
                 || $this->tokens[$i]['code'] === T_FALSE
                 || $this->tokens[$i]['code'] === T_NULL
             ) {
+<<<<<<< HEAD
+                for ($x = ($i + 1); $x < $numTokens; $x++) {
+=======
                 for ($x = ($i + 1); $i < $numTokens; $x++) {
+>>>>>>> Development
                     if (isset(Util\Tokens::$emptyTokens[$this->tokens[$x]['code']]) === false) {
                         // Non-whitespace content.
                         break;
                     }
                 }
 
+<<<<<<< HEAD
+                if ($x !== $numTokens
+                    && isset($this->tstringContexts[$this->tokens[$x]['code']]) === true
+                ) {
+=======
                 if (isset($this->tstringContexts[$this->tokens[$x]['code']]) === true) {
+>>>>>>> Development
                     if (PHP_CODESNIFFER_VERBOSITY > 1) {
                         $line = $this->tokens[$i]['line'];
                         $type = $this->tokens[$i]['type'];

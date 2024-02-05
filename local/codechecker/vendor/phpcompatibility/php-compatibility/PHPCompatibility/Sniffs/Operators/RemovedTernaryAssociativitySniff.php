@@ -39,7 +39,11 @@ class RemovedTernaryAssociativitySniff extends Sniff
      *
      * @since 9.2.0
      *
+<<<<<<< HEAD
+     * @var array<string, true>
+=======
      * @var array
+>>>>>>> Development
      */
     private $tokensWithLowerPrecedence = [
         'T_YIELD_FROM'  => true,
@@ -55,7 +59,11 @@ class RemovedTernaryAssociativitySniff extends Sniff
      *
      * @since 9.2.0
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {

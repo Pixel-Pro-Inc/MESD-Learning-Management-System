@@ -4,7 +4,11 @@
  *
  * @author    Juliette Reinders Folmer <phpcs_nospam@adviesenzo.nl>
  * @copyright 2018-2019 Juliette Reinders Folmer. All rights reserved.
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Tests\Core;
@@ -13,6 +17,10 @@ use PHP_CodeSniffer\Config;
 use PHP_CodeSniffer\Ruleset;
 use PHP_CodeSniffer\Files\DummyFile;
 use PHPUnit\Framework\TestCase;
+<<<<<<< HEAD
+use ReflectionProperty;
+=======
+>>>>>>> Development
 
 abstract class AbstractMethodUnitTest extends TestCase
 {
@@ -41,6 +49,30 @@ abstract class AbstractMethodUnitTest extends TestCase
      * The test case file for a unit test class has to be in the same directory
      * directory and use the same file name as the test class, using the .inc extension.
      *
+<<<<<<< HEAD
+     * @beforeClass
+     *
+     * @return void
+     */
+    public static function initializeFile()
+    {
+        /*
+         * Set the static properties in the Config class to specific values for performance
+         * and to clear out values from other tests.
+         */
+
+        self::setStaticConfigProperty('executablePaths', []);
+
+        // Set to a usable value to circumvent Config trying to find a phpcs.xml config file.
+        self::setStaticConfigProperty('overriddenDefaults', ['standards' => ['PSR1']]);
+
+        // Set to values which prevent the test-runner user's `CodeSniffer.conf` file
+        // from being read and influencing the tests. Also prevent an `exec()` call to stty.
+        self::setStaticConfigProperty('configData', ['report_width' => 80]);
+        self::setStaticConfigProperty('configDataFile', '');
+
+        $config  = new Config();
+=======
      * @return void
      */
     public static function setUpBeforeClass()
@@ -48,6 +80,7 @@ abstract class AbstractMethodUnitTest extends TestCase
         $config            = new Config();
         $config->standards = ['PSR1'];
 
+>>>>>>> Development
         $ruleset = new Ruleset($config);
 
         // Default to a file with the same name as the test class. Extension is property based.
@@ -62,12 +95,51 @@ abstract class AbstractMethodUnitTest extends TestCase
         self::$phpcsFile = new DummyFile($contents, $ruleset, $config);
         self::$phpcsFile->process();
 
+<<<<<<< HEAD
+    }//end initializeFile()
+=======
     }//end setUpBeforeClass()
+>>>>>>> Development
 
 
     /**
      * Clean up after finished test.
      *
+<<<<<<< HEAD
+     * @afterClass
+     *
+     * @return void
+     */
+    public static function resetFile()
+    {
+        self::$phpcsFile = null;
+
+        // Reset the static properties in the Config class to their defaults to prevent tests influencing each other.
+        self::setStaticConfigProperty('overriddenDefaults', []);
+        self::setStaticConfigProperty('executablePaths', []);
+        self::setStaticConfigProperty('configData', null);
+        self::setStaticConfigProperty('configDataFile', null);
+
+    }//end resetFile()
+
+
+    /**
+     * Helper function to set the value of a private static property on the Config class.
+     *
+     * @param string $name  The name of the property to set.
+     * @param mixed  $value The value to set the property to.
+     *
+     * @return void
+     */
+    public static function setStaticConfigProperty($name, $value)
+    {
+        $property = new ReflectionProperty('PHP_CodeSniffer\Config', $name);
+        $property->setAccessible(true);
+        $property->setValue(null, $value);
+        $property->setAccessible(false);
+
+    }//end setStaticConfigProperty()
+=======
      * @return void
      */
     public static function tearDownAfterClass()
@@ -75,6 +147,7 @@ abstract class AbstractMethodUnitTest extends TestCase
         self::$phpcsFile = null;
 
     }//end tearDownAfterClass()
+>>>>>>> Development
 
 
     /**

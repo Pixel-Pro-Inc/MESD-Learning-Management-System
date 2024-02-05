@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Generic\Tests\Formatting;
@@ -122,7 +126,11 @@ class MultipleStatementAlignmentUnitTest extends AbstractSniffUnitTest
                 499 => 1,
                 500 => 1,
             ];
+<<<<<<< HEAD
+
+=======
         break;
+>>>>>>> Development
         case 'MultipleStatementAlignmentUnitTest.js':
             return [
                 11  => 1,
@@ -154,10 +162,16 @@ class MultipleStatementAlignmentUnitTest extends AbstractSniffUnitTest
                 114 => 1,
                 117 => 1,
             ];
+<<<<<<< HEAD
+
+        default:
+            return [];
+=======
             break;
         default:
             return [];
             break;
+>>>>>>> Development
         }//end switch
 
     }//end getWarningList()

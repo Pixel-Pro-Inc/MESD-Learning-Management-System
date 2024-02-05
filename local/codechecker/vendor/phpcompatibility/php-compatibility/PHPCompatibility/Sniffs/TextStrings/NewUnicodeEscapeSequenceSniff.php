@@ -39,7 +39,11 @@ class NewUnicodeEscapeSequenceSniff extends Sniff
      *
      * @since 9.3.0
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {

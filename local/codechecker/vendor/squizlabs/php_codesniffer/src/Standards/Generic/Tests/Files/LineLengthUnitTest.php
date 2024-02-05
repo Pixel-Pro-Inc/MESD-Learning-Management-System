@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Generic\Tests\Files;
@@ -50,6 +54,15 @@ class LineLengthUnitTest extends AbstractSniffUnitTest
                 45 => 1,
                 82 => 1,
             ];
+<<<<<<< HEAD
+
+        case 'LineLengthUnitTest.2.inc':
+        case 'LineLengthUnitTest.3.inc':
+            return [7 => 1];
+
+        default:
+            return [];
+=======
             break;
         case 'LineLengthUnitTest.2.inc':
         case 'LineLengthUnitTest.3.inc':
@@ -58,6 +71,7 @@ class LineLengthUnitTest extends AbstractSniffUnitTest
         default:
             return [];
             break;
+>>>>>>> Development
         }//end switch
 
     }//end getErrorList()
@@ -89,20 +103,34 @@ class LineLengthUnitTest extends AbstractSniffUnitTest
                 75 => 1,
                 84 => 1,
             ];
+<<<<<<< HEAD
+
+        case 'LineLengthUnitTest.2.inc':
+        case 'LineLengthUnitTest.3.inc':
+            return [6 => 1];
+
+=======
             break;
         case 'LineLengthUnitTest.2.inc':
         case 'LineLengthUnitTest.3.inc':
             return [6 => 1];
             break;
+>>>>>>> Development
         case 'LineLengthUnitTest.4.inc':
             return [
                 10 => 1,
                 14 => 1,
             ];
+<<<<<<< HEAD
+
+        default:
+            return [];
+=======
             break;
         default:
             return [];
             break;
+>>>>>>> Development
         }//end switch
 
     }//end getWarningList()

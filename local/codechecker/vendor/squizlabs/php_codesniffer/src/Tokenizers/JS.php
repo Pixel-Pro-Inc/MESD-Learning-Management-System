@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Tokenizers;
@@ -905,10 +909,17 @@ class JS extends Tokenizer
      *
      * If a regular expression is not found, NULL is returned.
      *
+<<<<<<< HEAD
+     * @param int    $char   The index of the possible regex start character.
+     * @param string $string The complete content of the string being tokenized.
+     * @param array  $chars  An array of characters being tokenized.
+     * @param array  $tokens The current array of tokens found in the string.
+=======
      * @param string $char   The index of the possible regex start character.
      * @param string $string The complete content of the string being tokenized.
      * @param string $chars  An array of characters being tokenized.
      * @param string $tokens The current array of tokens found in the string.
+>>>>>>> Development
      *
      * @return array<string, string>|null
      */

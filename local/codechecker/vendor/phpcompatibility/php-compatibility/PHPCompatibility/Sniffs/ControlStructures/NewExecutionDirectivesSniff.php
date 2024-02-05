@@ -52,7 +52,11 @@ class NewExecutionDirectivesSniff extends Sniff
      *
      * @since 7.0.3
      *
+<<<<<<< HEAD
+     * @var array<string, array<string, bool|string|array>>
+=======
      * @var array(string => array(string => bool|string|array))
+>>>>>>> Development
      */
     protected $newDirectives = [
         'ticks' => [
@@ -88,7 +92,11 @@ class NewExecutionDirectivesSniff extends Sniff
      *
      * @since 7.0.3
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {

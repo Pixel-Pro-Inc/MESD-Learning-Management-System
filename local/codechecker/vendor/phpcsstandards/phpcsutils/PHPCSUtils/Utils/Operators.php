@@ -35,7 +35,11 @@ final class Operators
      *
      * @since 1.0.0
      *
+<<<<<<< HEAD
+     * @var array<int|string, true> Note: value is irrelevant, only key is used.
+=======
      * @var array <int|string> => <irrelevant>
+>>>>>>> Development
      */
     private static $extraUnaryIndicators = [
         \T_STRING_CONCAT       => true,

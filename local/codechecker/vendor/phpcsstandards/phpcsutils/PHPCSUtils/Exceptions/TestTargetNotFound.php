@@ -29,12 +29,20 @@ final class TestTargetNotFound extends OutOfBoundsException
      * @param string $content The (optional) target token content.
      * @param string $file    The file in which the target token was not found.
      *
+<<<<<<< HEAD
+     * @return \PHPCSUtils\Exceptions\TestTargetNotFound
+=======
      * @return \PHPCSUtils\Exceptions\TestMarkerNotFound
+>>>>>>> Development
      */
     public static function create($marker, $content, $file)
     {
         $contentPhrase = '';
+<<<<<<< HEAD
+        if (\is_string($content)) {
+=======
         if ($content !== null) {
+>>>>>>> Development
             $contentPhrase = ' with token content: ' . $content;
         }
 

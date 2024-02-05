@@ -147,7 +147,11 @@ final class ObjectDeclarations
      * @param int                         $stackPtr  The position in the stack of the `T_CLASS`
      *                                               token to acquire the properties for.
      *
+<<<<<<< HEAD
+     * @return array<string, int|bool> Array with implementation properties of a class.
+=======
      * @return array Array with implementation properties of a class.
+>>>>>>> Development
      *               The format of the return value is:
      *               ```php
      *               array(
@@ -272,8 +276,13 @@ final class ObjectDeclarations
      * @param \PHP_CodeSniffer\Files\File $phpcsFile The file being scanned.
      * @param int                         $stackPtr  The stack position of the class or enum token.
      *
+<<<<<<< HEAD
+     * @return string[]|false Array with names of the implemented interfaces or `FALSE` on
+     *                        error or if there are no implemented interface names.
+=======
      * @return array|false Array with names of the implemented interfaces or `FALSE` on
      *                     error or if there are no implemented interface names.
+>>>>>>> Development
      */
     public static function findImplementedInterfaceNames(File $phpcsFile, $stackPtr)
     {
@@ -290,8 +299,13 @@ final class ObjectDeclarations
      * @param \PHP_CodeSniffer\Files\File $phpcsFile The file where this token was found.
      * @param int                         $stackPtr  The stack position of the interface keyword.
      *
+<<<<<<< HEAD
+     * @return string[]|false Array with names of the extended interfaces or `FALSE` on
+     *                        error or if there are no extended interface names.
+=======
      * @return array|false Array with names of the extended interfaces or `FALSE` on
      *                     error or if there are no extended interface names.
+>>>>>>> Development
      */
     public static function findExtendedInterfaceNames(File $phpcsFile, $stackPtr)
     {
@@ -309,6 +323,18 @@ final class ObjectDeclarations
      *
      * @since 1.0.0
      *
+<<<<<<< HEAD
+     * @param \PHP_CodeSniffer\Files\File   $phpcsFile  The file where this token was found.
+     * @param int                           $stackPtr   The stack position of the
+     *                                                  class/interface declaration keyword.
+     * @param int                           $keyword    The token constant for the keyword to examine.
+     *                                                  Either `T_EXTENDS` or `T_IMPLEMENTS`.
+     * @param array<int|string, int|string> $allowedFor Array of OO types for which use of the keyword
+     *                                                  is allowed.
+     *
+     * @return string[]|false Returns an array of names or `FALSE` on error or when the object
+     *                        being declared does not extend/implement another object.
+=======
      * @param \PHP_CodeSniffer\Files\File $phpcsFile  The file where this token was found.
      * @param int                         $stackPtr   The stack position of the
      *                                                class/interface declaration keyword.
@@ -319,6 +345,7 @@ final class ObjectDeclarations
      *
      * @return array|false Returns an array of names or `FALSE` on error or when the object
      *                     being declared does not extend/implement another object.
+>>>>>>> Development
      */
     private static function findNames(File $phpcsFile, $stackPtr, $keyword, array $allowedFor)
     {

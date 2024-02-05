@@ -5,7 +5,11 @@ interface MyInterface {}
 trait MyTrait {}
 enum MyEnum implements Colorful {}
 
+<<<<<<< HEAD
+readonly class MyClass
+=======
 class MyClass
+>>>>>>> Development
 {
     var $myVar = null;
     const myConst = true;

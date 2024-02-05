@@ -119,3 +119,15 @@ class IncorrectCodeBeforeClosingBrace
 {
 
 echo phpinfo();}
+<<<<<<< HEAD
+
+readonly
+class Test
+{
+}
+
+readonly    class Test
+{
+}
+=======
+>>>>>>> Development

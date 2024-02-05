@@ -5,7 +5,11 @@
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @author    Alexander Wei§ <aweisswa@gmx.de>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Generic\Sniffs\Debug;
@@ -45,15 +49,24 @@ class JSHintSniff implements Sniff
      * @param int                         $stackPtr  The position in the stack where
      *                                               the token was found.
      *
+<<<<<<< HEAD
+     * @return int
+=======
      * @return void
+>>>>>>> Development
      * @throws \PHP_CodeSniffer\Exceptions\RuntimeException If jshint.js could not be run
      */
     public function process(File $phpcsFile, $stackPtr)
     {
         $rhinoPath  = Config::getExecutablePath('rhino');
         $jshintPath = Config::getExecutablePath('jshint');
+<<<<<<< HEAD
+        if ($jshintPath === null) {
+            return ($phpcsFile->numTokens + 1);
+=======
         if ($rhinoPath === null && $jshintPath === null) {
             return;
+>>>>>>> Development
         }
 
         $fileName   = $phpcsFile->getFilename();

@@ -156,7 +156,12 @@ final class UseStatements
      * @param \PHP_CodeSniffer\Files\File $phpcsFile The file where this token was found.
      * @param int                         $stackPtr  The position in the stack of the `T_USE` token.
      *
+<<<<<<< HEAD
+     * @return array<string, array<string, string>>
+     *               A multi-level array containing information about the use statement.
+=======
      * @return array A multi-level array containing information about the use statement.
+>>>>>>> Development
      *               The first level is `'name'`, `'function'` and `'const'`. These keys will always exist.
      *               If any statements are found for any of these categories, the second level
      *               will contain the alias/name as the key and the full original use name as the
@@ -358,6 +363,20 @@ final class UseStatements
      *
      * @since 1.0.0
      *
+<<<<<<< HEAD
+     * @param \PHP_CodeSniffer\Files\File          $phpcsFile             The file where this token was found.
+     * @param int                                  $stackPtr              The position in the stack of the
+     *                                                                    `T_USE` token.
+     * @param array<string, array<string, string>> $previousUseStatements The import `use` statements collected so far.
+     *                                                                    This should be either the output of a
+     *                                                                    previous call to this method or the output of
+     *                                                                    an earlier call to the
+     *                                                                    {@see UseStatements::splitImportUseStatement()}
+     *                                                                    method.
+     *
+     * @return array<string, array<string, string>>
+     *               A multi-level array containing information about the current `use` statement combined with
+=======
      * @param \PHP_CodeSniffer\Files\File $phpcsFile             The file where this token was found.
      * @param int                         $stackPtr              The position in the stack of the `T_USE` token.
      * @param array                       $previousUseStatements The import `use` statements collected so far.
@@ -368,6 +387,7 @@ final class UseStatements
      *                                                           method.
      *
      * @return array A multi-level array containing information about the current `use` statement combined with
+>>>>>>> Development
      *               the previously collected `use` statement information.
      *               See {@see UseStatements::splitImportUseStatement()} for more details about the array format.
      */
@@ -393,6 +413,22 @@ final class UseStatements
      *
      * @since 1.0.0
      *
+<<<<<<< HEAD
+     * @param array<string, array<string, string>> $previousUseStatements The import `use` statements collected so far.
+     *                                                                    This should be either the output of a
+     *                                                                    previous call to this method or the output of
+     *                                                                    an earlier call to the
+     *                                                                    {@see UseStatements::splitImportUseStatement()}
+     *                                                                    method.
+     * @param array<string, array<string, string>> $currentUseStatement   The parsed import `use` statements to merge with
+     *                                                                    the previously collected use statements.
+     *                                                                    This should be the output of a call to the
+     *                                                                    {@see UseStatements::splitImportUseStatement()}
+     *                                                                    method.
+     *
+     * @return array<string, array<string, string>>
+     *               A multi-level array containing information about the current `use` statement combined with
+=======
      * @param array $previousUseStatements The import `use` statements collected so far.
      *                                     This should be either the output of a
      *                                     previous call to this method or the output of
@@ -406,6 +442,7 @@ final class UseStatements
      *                                     method.
      *
      * @return array A multi-level array containing information about the current `use` statement combined with
+>>>>>>> Development
      *               the previously collected `use` statement information.
      *               See {@see UseStatements::splitImportUseStatement()} for more details about the array format.
      */

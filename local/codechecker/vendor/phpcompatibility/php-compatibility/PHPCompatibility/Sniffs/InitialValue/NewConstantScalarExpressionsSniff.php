@@ -56,7 +56,11 @@ class NewConstantScalarExpressionsSniff extends AbstractInitialValueSniff
      *
      * @since 8.2.0
      *
+<<<<<<< HEAD
+     * @var array<int|string, int|string>
+=======
      * @var array
+>>>>>>> Development
      */
     protected $safeOperands = [
         \T_LNUMBER                  => \T_LNUMBER,
@@ -81,7 +85,11 @@ class NewConstantScalarExpressionsSniff extends AbstractInitialValueSniff
      *
      * @since 8.2.0
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {

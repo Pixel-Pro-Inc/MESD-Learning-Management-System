@@ -44,10 +44,17 @@ abstract class AbstractFunctionCallParameterSniff extends Sniff
      *
      * @since 8.2.0
      *
+<<<<<<< HEAD
+     * @var array<string, mixed> The only requirement for this array is that the top level
+     *                           array keys are the names of the functions you're looking for.
+     *                           Other than that, the array can have arbitrary content
+     *                           depending on your needs.
+=======
      * @var array The only requirement for this array is that the top level
      *            array keys are the names of the functions you're looking for.
      *            Other than that, the array can have arbitrary content
      *            depending on your needs.
+>>>>>>> Development
      */
     protected $targetFunctions = [];
 
@@ -59,7 +66,11 @@ abstract class AbstractFunctionCallParameterSniff extends Sniff
      *
      * @since 8.2.0
      *
+<<<<<<< HEAD
+     * @var array<int|string, true>
+=======
      * @var array
+>>>>>>> Development
      */
     private $ignoreTokens = [
         \T_NEW => true,
@@ -71,7 +82,11 @@ abstract class AbstractFunctionCallParameterSniff extends Sniff
      *
      * @since 8.2.0
      *
+<<<<<<< HEAD
+     * @return array<int|string>
+=======
      * @return array
+>>>>>>> Development
      */
     public function register()
     {
