@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['choosereadme'] = 'Loms Education & LMS Moodle Theme';
-$string['pluginname'] = 'Loms';
+$string['pluginname'] = 'MESD';
 
 $string['loms_settings_menu'] = 'Options';
 $string['loms_page_settings_menu'] = 'Page Settings';
