@@ -17,15 +17,4 @@ $THEME->sheets = ['styles'];
 // themes. We could add more than one parent here to inherit from multiple parents, and if we did they would be processed in        
 // order of importance (later themes overriding earlier ones). Things we will inherit from the parent theme include                 
 // styles and mustache templates and some (not all) settings.                                                                       
-$THEME->parents = ['loms'];                                                                                                        
-                                                                                                                                    
-// A dock is a way to take blocks out of the page and put them in a persistent floating area on the side of the page. Boost         
-// does not support a dock so we won't either - but look at bootstrapbase for an example of a theme with a dock.                    
-$THEME->enable_dock = false;                                                                                                        
-                                                                                                                                    
-// This is an old setting used to load specific CSS for some YUI JS. We don't need it in Boost based themes because Boost           
-// provides default styling for the YUI modules that we use. It is not recommended to use this setting anymore.                     
-$THEME->yuicssmodules = array();                                                                                                    
-                                                                                                                                    
-// Most themes will use this rendererfactory as this is the one that allows the theme to override any other renderer.               
-$THEME->rendererfactory = 'theme_overridden_renderer_factory';
+$THEME->parents = ['loms'];                                                                                                                                                                                                                                                                                                                                                       
