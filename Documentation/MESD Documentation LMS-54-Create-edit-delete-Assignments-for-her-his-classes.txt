@@ -1,0 +1,38 @@
+MESD Documentation LMS-54-Create-edit-delete-Assignments-for-her-his-classes
+Here are general instructions:
+Adding Assignments:
+1.	Log in to Moodle:
+•	Use your credentials to log in to your Moodle account with the appropriate role (Senior Educator).
+2.	Access the Course:
+•	Navigate to the course where you want to add an assignment.
+3.	Turn Editing On:
+•	Click the "Edit Mode" button. This usually appears in the top-right corner of the course page.
+•	 
+4.	Add Assignment:
+•	Scroll down to the section where you want to add the assignment.
+•	Click the "Add an activity or resource" link.
+•	Select "Assignment" from the list of activities.
+•	 
+5.	Configure Assignment Settings:
+•	Fill in the assignment details, such as the name, description, due date, and any other relevant settings.
+•	Save and display the assignment.
+Editing Assignments:
+1.	Access the Course and Turn Editing On:
+•	Follow steps 2 and 3 from the "Adding Assignments" section.
+2.	Locate the Assignment:
+•	Find the assignment you want to edit.
+3.	Edit Assignment Settings:
+•	Click on the assignment name or the edit icon (usually a pencil icon) to edit name of assignment
+•	Click on the three dots on the assignment and click on ‘Edit’ to change name, due date, etc.
+•	 
+•	Modify the necessary settings.
+•	Save changes.
+Deleting Assignments:
+1.	Access the Course and Turn Editing On:
+•	Follow steps 2 and 3 from the "Adding Assignments" section.
+2.	Locate the Assignment:
+•	Find the assignment you want to delete.
+3.	Delete Assignment:
+•	Click on the assignment's three dot icon, find a delete option in the assignment settings.
+•	 
+•	Confirm the deletion.

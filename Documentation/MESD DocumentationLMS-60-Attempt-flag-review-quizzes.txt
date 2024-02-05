@@ -1,0 +1,35 @@
+MESD Documentation LMS-60-Attempt-flag-review-quizzes
+As a student on Moodle, attempting, flagging, and reviewing quizzes involves navigating through the quiz interface. Here's a step-by-step guide on how to approach these actions:
+Attempting a Quiz:
+1.	Log in to Moodle:
+•	Log in to your Moodle account using your credentials.
+2.	Access the Course:
+•	Navigate to the course where the quiz is located.
+3.	Navigate to the Quiz:
+•	Look for a link or tab named "Quizzes" or similar in the course navigation menu. Click on it to access the list of available quizzes.
+4.	Start the Quiz:
+•	Click on the quiz you want to attempt. Once you are on the quiz page, read any instructions provided.
+5.	Attempt the Questions:
+•	Answer each question based on the instructions given. Moodle supports various question types, such as multiple-choice, true/false, short answer, etc.
+6.	Submit the Quiz:
+•	Once you have answered all the questions, locate the "Submit" or "Finish attempt" button and click on it to submit your responses.
+Flagging Questions:
+1.	During the Quiz Attempt:
+•	While attempting the quiz, if you want to flag a particular question for review, look for an option that allows you to flag found on the left hand side
+ 
+2.	Use the Flag/Mark Option:
+•	Click on the flag or mark icon associated with a specific question to indicate that you want to review it later.
+3.	Complete the Quiz:
+•	Finish your quiz attempt and submit it.
+Reviewing Quiz Attempts:
+1.	After Submission:
+•	Once you have submitted the quiz, you may see an option to review your attempt immediately. Some quizzes allow for instant review, while others may be set up to only allow review after a certain period.
+2.	Access Quiz Review:
+•	If instant review is available, look for a link or button named "Review" or "Review attempt" on the quiz page. Click on it to see your responses and feedback.
+3.	View Correct Answers and Feedback:
+•	Review each question to see your selected answer, the correct answer (if available), and any feedback provided by the instructor.
+4.	Check Flagged Questions:
+•	If you flagged any questions during the attempt, pay special attention to those questions during the review.
+5.	Note Instructor Feedback:
+•	Take note of any additional feedback or comments provided by the instructor for each question.
+
