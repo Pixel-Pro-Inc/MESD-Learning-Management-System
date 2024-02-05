@@ -70,10 +70,6 @@ Default Style
   display: none !important;
 }
 
-* {
-  font-family: "Lato", sans-serif !important;
-}
-
 a {
   transition: var(--transition);
   color: var(--body-color);
