@@ -42,7 +42,7 @@ Default Style
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@800&display=swap");
 :root {
-  --body-font-family: "Josefin Sans", sans-serif;
+  --body-font-family: "Lato", sans-serif;
   --body-color: #646464;
   --main-color: [[setting:brandcolor]];
   --heading-color: #0D0C0C;
@@ -54,6 +54,24 @@ Default Style
   --transition: all ease .5s;
   --border-radius: 5px;
   --box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* These fields are only available on the user's Edit Profile page.
+ */
+
+/* Hide the Additional names section. */
+#id_moodle_additional_names,
+/* Hide the Interests section. */
+#id_moodle_interests,
+/* Hide the one gov id field. */
+#fitem_id_profile_field_onegovid,
+/* Hide Optional section. */
+#id_moodle_optional {
+  display: none !important;
+}
+
+* {
+  font-family: "Lato", sans-serif !important;
 }
 
 a {
