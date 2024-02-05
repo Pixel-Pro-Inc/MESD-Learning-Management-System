@@ -1,0 +1,36 @@
+MESD Documentation LMS-37-Create and uploading learning materials
+Creating and uploading learning materials in Moodle is a common task for teachers and course creators. Moodle provides various tools to add content such as text, documents, videos, and more. Here's a step-by-step guide:
+Creating and Uploading Learning Materials:
+1.	Log in to Moodle:
+•	Log in to your Moodle account using your username and password.
+2.	Navigate to Your Course:
+•	Go to the course where you want to add learning materials.
+3.	Turn Editing On:
+•	Click the "Turn editing on" button. This button is usually located in the top-right corner of the course page.
+ 
+4.	Add a Section (If Needed):
+•	If you don't have a specific section for your learning materials, you may want to add one. Scroll down to the bottom of the course page, and under the "Add a resource" dropdown, choose "Section" to add a new topic or week.
+5.	Add Learning Materials:
+•	To add learning materials, click on the "Add an activity or resource" link in the section where you want to add content.
+6.	Choose the Type of Material:
+•	Select the type of content you want to add. Common options include:
+•	File: Upload documents (PDFs, Word files, etc.).
+•	Page: Create a web page with text, images, and links.
+•	URL: Link to an external website or resource.
+•	Folder: Organize multiple files within a folder.
+•	Label: Add text or multimedia without a separate link.
+7.	Configure the Material:
+•	Depending on the type of material you selected, you'll be prompted to configure settings. For example, if you're adding a file, you'll upload the file and set options like display name and description.
+8.	Save and Return to Course:
+•	After configuring the material, click the "Save and return to course" button.
+Uploading Files (Alternative Method):
+1.	Turn Editing On:
+•	Click the "Turn editing on" button.
+2.	Locate Section:
+•	Navigate to the section where you want to upload files.
+3.	Upload Files:
+•	Drag and drop files directly into the section, or click the "Add an activity or resource" link and choose "File" to upload files. Follow the on-screen instructions to upload the files.
+4.	Configure Options:
+•	Set the display name, description, and other options for the uploaded files.
+5.	Save and Return to Course:
+•	Click the "Save and return to course" button.
