@@ -1,0 +1,39 @@
+MESD Documentation LMS-86-View-print-download-Subject-Analysis
+Here is guidance on how you view, print, or download subject analysis in Moodle:
+1.	Accessing Reports:
+•	Log in to your Moodle account.
+•	Navigate to the course for which you want to view subject analysis.
+2.	Navigate to Report:
+•	Click on ‘Reports’ and ‘Activity report’ to view the content activity in the course
+ 
+3.	Grader Report:
+•	In Moodle, one common tool for viewing subject analysis is the "Grader Report."
+•	Click on "Grader Report" within your course. This report displays a summary of student grades and activity completion.
+4.	Export/Download Grade Options:
+•	Depending on your permissions, you might find options to export/download or print grades.
+ 
+•	Common export formats include PDF, Excel, or CSV. 
+5.	View Participants in a course:
+•	Navigate to ‘Participants’ and view all participants in the course
+•	To have a more detailed report on a certain activity, navigate to Reports > Course Participation. Set the activity module, date and so and on click ‘Go’
+ 
+6.	Viewing Logs:
+•	To view logs of the course, go to Reports > Logs to view the actions taken by the participants in the course
+   
+7.	Print Subject Analysis:
+•	An alternative and general way to print subject analysis is to use the web browser print functionality. For windows, ‘Ctrl + P’. For Mac, ‘Command + P’.
+Grade export capabilities
+•	Publish ODS grade export - Capabilities/gradeexport/ods:publish, this allows a user to publish OpenOffice grade exports i.e. set up a URL for accessing exported grades without having to login to Moodle. This capability is set to allow for the default role of manager.
+•	Use OpenDocument grade export - Capabilities/gradeexport/ods:view, This allows a user to use the OpenOffice grade export. This capability is set to allow for the default roles of manager, teacher and non-editing teacher.
+•	Publish text file grade export - Capabilities/gradeexport/txt:publish, This allows a user to publish text file grade exports i.e. set up a URL for accessing exported grades without having to login to Moodle. This capability is set to allow for the default role of manager.
+•	Use text file grade export - Capabilities/gradeexport/txt:view, This allows a user to export grades as a text file. This capability is set to allow for the default roles of manager, teacher and non-editing teacher.
+•	Publish XLS grade export - Capabilities/gradeexport/xls:publish, This allows a user to publish Excel grade exports i.e. set up a URL for accessing exported grades without having to login to Moodle. This capability is set to allow for the default role of manager only. Note: Grade publishing is disabled by default. It can be enabled by checking the gradepublishing box in Settings > Site administration > Grades > Grade settings.
+•	Use Excel grade export - Capabilities/gradeexport/xls:view, This allows a user to use the Excel spreadsheet grade export. This capability is allowed for the default roles of manager, teacher and non-editing teacher
+•	Publish XML grade export -  Capabilities/gradeexport/xml:publish, This allows a user to publish XML file grade exports i.e. set up a URL for accessing exported grades without having to login to Moodle. This capability is allowed for the default role of manager only
+Note: Grade publishing is disabled by default. It can be enabled by checking the gradepublishing box in Settings > Site administration > Grades > Grade settings.
+•	Use XML grade export - Capabilities/gradeexport/xml:view, This allows a user to use the XML file grade export. This capability is allowed for the default roles of manager, teacher and non-editing teacher
+
+Log capabilities
+
+•	View course logs - Capabilities/report/log:view, This allows a user to view Logs of course activities in Navigation > Courses > My course > Reports > Logs. This capability is allowed for the default roles of manager, teacher and non-editing teacher
+

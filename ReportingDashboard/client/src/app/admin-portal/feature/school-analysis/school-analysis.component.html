@@ -1,0 +1,115 @@
+<div class="content-container">
+  <div class="title-container">
+    <h2 class="text">School Analysis</h2>
+  </div>
+
+  <p-table
+    #dt1
+    [value]="grades"
+    styleClass="p-datatable-gridlines p-datatable-striped"
+    dataKey="id"
+    [rows]="10"
+    [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    [loading]=""
+    rowGroupMode="subheader"
+    groupRowsBy="level"
+    [paginator]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  >
+    <ng-template pTemplate="caption">
+      <div class="flex">
+        <form
+          [formGroup]="reportForm"
+          (ngSubmit)="reportForm.valid && selectSchool()"
+          class="flex"
+        >
+          <p-dropdown
+            [options]="schools"
+            formControlName="school"
+            optionLabel="name"
+            [filter]="true"
+            placeholder="Organisation"
+          >
+          </p-dropdown>
+          <button
+            type="button"
+            pButton
+            pRipple
+            icon="pi pi-search"
+            (click)="selectSchool()"
+            class="p-button-info mr-2"
+            pTooltip="Select Organization"
+            tooltipPosition="bottom"
+          ></button>
+        </form>
+        <button
+          type="button"
+          pButton
+          pRipple
+          icon="pi pi-file-excel"
+          (click)="exportExcel()"
+          class="p-button-success mr-2"
+          pTooltip="XLS"
+          tooltipPosition="bottom"
+        ></button>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="min-width: 15rem">
+          <div class="flex align-items-center">Student Level</div>
+        </th>
+
+        <ng-container *ngFor="let subject of subjects">
+          <th style="min-width: 15rem">
+            <div class="flex align-items-center">
+              {{ subject }}
+            </div>
+          </th>
+        </ng-container>
+      </tr>
+    </ng-template>
+    <ng-template
+      pTemplate="groupheader"
+      let-grade
+      let-rowIndex="rowIndex"
+      let-expanded="expanded"
+    >
+      <tr>
+        <td colspan="5">
+          <div class="toggle">
+            <button
+              type="button"
+              pButton
+              pRipple
+              [pRowToggler]="grade"
+              class="p-button-text p-button-rounded p-button-plain mr-2"
+              [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"
+            ></button>
+            <span class="font-bold ml-2">{{ grade.level }}</span>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="rowexpansion" let-grade>
+      <tr>
+        <td>
+          {{ grade.level }}
+        </td>
+        <ng-container *ngFor="let subject of subjects">
+          <td class="right" *ngIf="subject == grade.course">
+            {{ formatGrade(grade.averageGrade) }}%
+          </td>
+          <td class="right" *ngIf="subject != grade.course">0%</td>
+        </ng-container>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="7">No information found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
