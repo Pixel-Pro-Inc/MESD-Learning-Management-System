@@ -1,0 +1,55 @@
+MESD Documentation LMS-76-View-print-download-Academic-Reports
+Moodle is a popular learning management system used by educational institutions to manage courses and deliver content online. Here are general steps you can follow to view, print and download academic reports:
+View academic reports
+1.	Log in to Moodle:
+•	Access your institution's Moodle platform and log in using your credentials.
+2.	Navigate to the Course:
+•	Locate the course for which you want to view academic reports.
+3.	Access the Gradebook:
+•	Academic reports, grades, and assessments are managed through the Gradebook. Click "Grades" within the course.
+4.	View Grades:
+•	Once you are in the Gradebook, you should be able to see the grades and academic reports.
+Print reports
+Printing grades in Moodle typically involves using your web browser's print functionality. Here's a general guide:
+1.	Log in to Moodle:
+•	Access your institution's Moodle platform and log in using your credentials.
+2.	Navigate to the Gradebook:
+•	Locate the course for which you want to print grades and access the Gradebook.
+3.	View Grades:
+•	Within the Gradebook, navigate to the page where you can view the grades you want to print.
+4.	Use Browser Print Functionality:
+•	Once you are on the page displaying the grades, use your web browser's print functionality. You can usually find this option in the browser's menu or by pressing Ctrl+P (Windows/Linux) or Command+P (Mac) on your keyboard.
+5.	Adjust Print Settings:
+•	A print dialog box will appear. Adjust the print settings as needed. You may have options to choose the printer, set the layout, and select the range of pages to print.
+6.	Preview:
+•	Some browsers offer a print preview option. Use this to ensure that the grades are formatted correctly before printing.
+7.	Print:
+•	Click the 'Print' button in the print dialog box to proceed with printing the grades.
+Grade export/download
+Grades can be exported to Excel spreadsheet, OpenDocument spreadsheet, plain text file or XML file, or published via a URL. To set which grade export method options to use, navigate to Site Administrator > Grades > General settings.
+Grade export is NOT intended for students.
+How to download/export grades
+To export grades from the gradebook:
+1.	Navigate to ‘Grades’ section within the desired course to access the grades you wish to download. Open the ‘Grade Report’ dropdown menu and select the ‘Export’ option.
+ 
+2.	Set options as required. Choose which grade method to use
+ 
+3.	If the course uses groups, select whether to export grades for all participants or for a particular group.
+4.	Select the grade items to be included. Note that ID numbers are required for all activities for XML file export. An ID number field can be found in the common module settings for each activity.
+5.	Click the export button.
+
+Grade export capabilities
+•	Publish ODS grade export - Capabilities/gradeexport/ods:publish, this allows a user to publish OpenOffice grade exports i.e. set up a URL for accessing exported grades without having to login to Moodle. This capability is set to allow for the default role of manager.
+•	Use OpenDocument grade export - Capabilities/gradeexport/ods:view, This allows a user to use the OpenOffice grade export. This capability is set to allow for the default roles of manager, teacher and non-editing teacher.
+•	Publish text file grade export - Capabilities/gradeexport/txt:publish, This allows a user to publish text file grade exports i.e. set up a URL for accessing exported grades without having to login to Moodle. This capability is set to allow for the default role of manager.
+•	Use text file grade export - Capabilities/gradeexport/txt:view, This allows a user to export grades as a text file. This capability is set to allow for the default roles of manager, teacher and non-editing teacher.
+•	Publish XLS grade export - Capabilities/gradeexport/xls:publish, This allows a user to publish Excel grade exports i.e. set up a URL for accessing exported grades without having to login to Moodle. This capability is set to allow for the default role of manager only. Note: Grade publishing is disabled by default. It can be enabled by checking the gradepublishing box in Settings > Site administration > Grades > Grade settings.
+•	Use Excel grade export - Capabilities/gradeexport/xls:view, This allows a user to use the Excel spreadsheet grade export. This capability is allowed for the default roles of manager, teacher and non-editing teacher
+•	Publish XML grade export -  Capabilities/gradeexport/xml:publish, This allows a user to publish XML file grade exports i.e. set up a URL for accessing exported grades without having to login to Moodle. This capability is allowed for the default role of manager only
+Note: Grade publishing is disabled by default. It can be enabled by checking the gradepublishing box in Settings > Site administration > Grades > Grade settings.
+•	Use XML grade export - Capabilities/gradeexport/xml:view, This allows a user to use the XML file grade export. This capability is allowed for the default roles of manager, teacher and non-editing teacher
+
+Grades capabilities
+
+•	Manage grades - Capabilities/moodle/grade:manage, This allows a user to manage grade items and categories in the gradebook (create, edit, lock, hide, delete, etc.). This capability is allowed for the default role of teacher and is not set for the default role of non-editing teacher.
+
