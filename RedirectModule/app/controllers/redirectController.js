@@ -23,8 +23,8 @@ async function fetchLinkPreviews(userLinks) {
   return linkPreviews;
 }
 
-router.get("/:userId", async (req, res) => {
-  const userId = req.params.userId;
+router.get("/:token", async (req, res) => {
+  const userId = req.params.token;
 
   try {
     const userLinks = await databaseService.getUserLinks(userId);
