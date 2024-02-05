@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Squiz\Tests\Operators;
@@ -59,7 +63,11 @@ class ComparisonOperatorUsageUnitTest extends AbstractSniffUnitTest
                 131 => 1,
                 135 => 1,
             ];
+<<<<<<< HEAD
 
+=======
+            break;
+>>>>>>> Development
         case 'ComparisonOperatorUsageUnitTest.js':
             return [
                 5  => 1,
@@ -74,9 +82,16 @@ class ComparisonOperatorUsageUnitTest extends AbstractSniffUnitTest
                 67 => 1,
                 71 => 1,
             ];
+<<<<<<< HEAD
 
         default:
             return [];
+=======
+            break;
+        default:
+            return [];
+            break;
+>>>>>>> Development
         }//end switch
 
     }//end getErrorList()

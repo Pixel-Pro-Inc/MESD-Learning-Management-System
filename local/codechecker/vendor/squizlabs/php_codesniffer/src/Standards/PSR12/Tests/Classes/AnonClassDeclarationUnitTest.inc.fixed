@@ -84,6 +84,7 @@ $foo->bar(
 
 foo(new class {
 });
+<<<<<<< HEAD
 
 // Issue #3790: OpenBraceSameLine fixer should not remove open brace.
 $instance = new class () extends SomeClass implements
@@ -91,3 +92,5 @@ $instance = new class () extends SomeClass implements
 {
     public function __construct() {}
 };
+=======
+>>>>>>> Development

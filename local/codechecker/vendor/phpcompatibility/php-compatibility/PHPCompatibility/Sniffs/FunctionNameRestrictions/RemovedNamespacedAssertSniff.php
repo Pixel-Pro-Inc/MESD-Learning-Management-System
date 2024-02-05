@@ -45,7 +45,11 @@ class RemovedNamespacedAssertSniff extends Sniff
      *
      * @since 9.0.0
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

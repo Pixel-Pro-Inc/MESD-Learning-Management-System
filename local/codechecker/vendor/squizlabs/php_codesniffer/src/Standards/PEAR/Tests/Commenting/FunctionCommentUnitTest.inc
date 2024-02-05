@@ -476,6 +476,7 @@ class Something implements JsonSerializable {
 
     public function blankLineDetectionC() {}
 }
+<<<<<<< HEAD
 
 class SpacingAfter {
     /**
@@ -510,3 +511,5 @@ class SpacingAfter {
 
     public function multipleLinesSomeEmpty() {}
 }
+=======
+>>>>>>> Development

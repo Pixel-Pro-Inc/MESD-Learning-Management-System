@@ -4,7 +4,11 @@
  *
  * @author    Juliette Reinders Folmer <phpcs_nospam@adviesenzo.nl>
  * @copyright 2018 Juliette Reinders Folmer. All rights reserved.
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Generic\Sniffs\WhiteSpace;
@@ -63,8 +67,12 @@ class IncrementDecrementSpacingSniff implements Sniff
         // Is this a pre-increment/decrement ?
         $nextNonEmpty = $phpcsFile->findNext(Tokens::$emptyTokens, ($stackPtr + 1), null, true);
         if ($nextNonEmpty !== false
+<<<<<<< HEAD
             && (($phpcsFile->tokenizerType === 'PHP'
             && ($tokens[$nextNonEmpty]['code'] === T_VARIABLE || $tokens[$nextNonEmpty]['code'] === T_STRING))
+=======
+            && (($phpcsFile->tokenizerType === 'PHP' && $tokens[$nextNonEmpty]['code'] === T_VARIABLE)
+>>>>>>> Development
             || ($phpcsFile->tokenizerType === 'JS' && $tokens[$nextNonEmpty]['code'] === T_STRING))
         ) {
             if ($nextNonEmpty === ($stackPtr + 1)) {
@@ -117,10 +125,14 @@ class IncrementDecrementSpacingSniff implements Sniff
         // Is this a post-increment/decrement ?
         $prevNonEmpty = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($stackPtr - 1), null, true);
         if ($prevNonEmpty !== false
+<<<<<<< HEAD
             && (($phpcsFile->tokenizerType === 'PHP'
             && ($tokens[$prevNonEmpty]['code'] === T_VARIABLE
             || $tokens[$prevNonEmpty]['code'] === T_STRING
             || $tokens[$prevNonEmpty]['code'] === T_CLOSE_SQUARE_BRACKET))
+=======
+            && (($phpcsFile->tokenizerType === 'PHP' && $tokens[$prevNonEmpty]['code'] === T_VARIABLE)
+>>>>>>> Development
             || ($phpcsFile->tokenizerType === 'JS' && $tokens[$prevNonEmpty]['code'] === T_STRING))
         ) {
             if ($prevNonEmpty === ($stackPtr - 1)) {

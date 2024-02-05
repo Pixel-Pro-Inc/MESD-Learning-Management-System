@@ -15,6 +15,7 @@ $i /*comment*/ --;
 $i++;
 $i ++;
 $i /*comment*/ ++;
+<<<<<<< HEAD
 
 // Handle properties and array access too.
 $i['key']++;
@@ -35,3 +36,5 @@ $obj->prop['key'] ++;
 
 --ClassName::$prop;
 -- ClassName::$prop;
+=======
+>>>>>>> Development

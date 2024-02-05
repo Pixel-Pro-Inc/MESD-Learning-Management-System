@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Squiz\Sniffs\Arrays;
@@ -330,6 +334,7 @@ class ArrayDeclarationSniff implements Sniff
             }
         } else if ($tokens[$arrayEnd]['column'] !== $keywordStart) {
             // Check the closing bracket is lined up under the "a" in array.
+<<<<<<< HEAD
             $expected       = ($keywordStart - 1);
             $found          = ($tokens[$arrayEnd]['column'] - 1);
             $pluralizeSpace = 's';
@@ -341,6 +346,13 @@ class ArrayDeclarationSniff implements Sniff
             $data  = [
                 $expected,
                 $pluralizeSpace,
+=======
+            $expected = ($keywordStart - 1);
+            $found    = ($tokens[$arrayEnd]['column'] - 1);
+            $error    = 'Closing parenthesis not aligned correctly; expected %s space(s) but found %s';
+            $data     = [
+                $expected,
+>>>>>>> Development
                 $found,
             ];
 
@@ -436,6 +448,7 @@ class ArrayDeclarationSniff implements Sniff
                 }
 
                 if ($keyUsed === true && $tokens[$lastToken]['code'] === T_COMMA) {
+<<<<<<< HEAD
                     $nextToken = $phpcsFile->findNext(Tokens::$emptyTokens, ($lastToken + 1), null, true);
                     // Allow for PHP 7.4+ array unpacking within an array declaration.
                     if ($tokens[$nextToken]['code'] !== T_ELLIPSIS) {
@@ -443,6 +456,11 @@ class ArrayDeclarationSniff implements Sniff
                         $phpcsFile->addError($error, $nextToken, 'NoKeySpecified');
                         return;
                     }
+=======
+                    $error = 'No key specified for array entry; first entry specifies key';
+                    $phpcsFile->addError($error, $nextToken, 'NoKeySpecified');
+                    return;
+>>>>>>> Development
                 }
 
                 if ($keyUsed === false) {
@@ -480,6 +498,7 @@ class ArrayDeclarationSniff implements Sniff
                         true
                     );
 
+<<<<<<< HEAD
                     $indices[]          = ['value' => $valueContent];
                     $usesArrayUnpacking = $phpcsFile->findPrevious(
                         Tokens::$emptyTokens,
@@ -491,6 +510,10 @@ class ArrayDeclarationSniff implements Sniff
                         // Don't decide if an array is key => value indexed or not when PHP 7.4+ array unpacking is used.
                         $singleUsed = true;
                     }
+=======
+                    $indices[]  = ['value' => $valueContent];
+                    $singleUsed = true;
+>>>>>>> Development
                 }//end if
 
                 $lastToken = $nextToken;
@@ -680,6 +703,7 @@ class ArrayDeclarationSniff implements Sniff
                 } else if ($previousIsWhitespace === true) {
                     $expected = $keywordStart;
 
+<<<<<<< HEAD
                     $first          = $phpcsFile->findFirstOnLine(T_WHITESPACE, $valuePointer, true);
                     $found          = ($tokens[$first]['column'] - 1);
                     $pluralizeSpace = 's';
@@ -692,6 +716,14 @@ class ArrayDeclarationSniff implements Sniff
                         $data  = [
                             $expected,
                             $pluralizeSpace,
+=======
+                    $first = $phpcsFile->findFirstOnLine(T_WHITESPACE, $valuePointer, true);
+                    $found = ($tokens[$first]['column'] - 1);
+                    if ($found !== $expected) {
+                        $error = 'Array value not aligned correctly; expected %s spaces but found %s';
+                        $data  = [
+                            $expected,
+>>>>>>> Development
                             $found,
                         ];
 
@@ -775,6 +807,7 @@ class ArrayDeclarationSniff implements Sniff
             }
 
             if ($tokens[$indexPointer]['column'] !== $indicesStart && ($indexPointer - 1) !== $arrayStart) {
+<<<<<<< HEAD
                 $expected       = ($indicesStart - 1);
                 $found          = ($tokens[$indexPointer]['column'] - 1);
                 $pluralizeSpace = 's';
@@ -786,6 +819,13 @@ class ArrayDeclarationSniff implements Sniff
                 $data  = [
                     $expected,
                     $pluralizeSpace,
+=======
+                $expected = ($indicesStart - 1);
+                $found    = ($tokens[$indexPointer]['column'] - 1);
+                $error    = 'Array key not aligned correctly; expected %s spaces but found %s';
+                $data     = [
+                    $expected,
+>>>>>>> Development
                     $found,
                 ];
 
@@ -797,6 +837,7 @@ class ArrayDeclarationSniff implements Sniff
                         $phpcsFile->fixer->replaceToken(($indexPointer - 1), str_repeat(' ', $expected));
                     }
                 }
+<<<<<<< HEAD
             }//end if
 
             $arrowStart = ($tokens[$indexPointer]['column'] + $maxLength + 1);
@@ -812,6 +853,17 @@ class ArrayDeclarationSniff implements Sniff
                 $data  = [
                     $expected,
                     $pluralizeSpace,
+=======
+            }
+
+            $arrowStart = ($tokens[$indexPointer]['column'] + $maxLength + 1);
+            if ($tokens[$index['arrow']]['column'] !== $arrowStart) {
+                $expected = ($arrowStart - ($index['index_length'] + $tokens[$indexPointer]['column']));
+                $found    = ($tokens[$index['arrow']]['column'] - ($index['index_length'] + $tokens[$indexPointer]['column']));
+                $error    = 'Array double arrow not aligned correctly; expected %s space(s) but found %s';
+                $data     = [
+                    $expected,
+>>>>>>> Development
                     $found,
                 ];
 
@@ -825,7 +877,11 @@ class ArrayDeclarationSniff implements Sniff
                 }
 
                 continue;
+<<<<<<< HEAD
             }//end if
+=======
+            }
+>>>>>>> Development
 
             $valueStart = ($arrowStart + 3);
             if ($tokens[$valuePointer]['column'] !== $valueStart) {
@@ -835,6 +891,7 @@ class ArrayDeclarationSniff implements Sniff
                     $found = 'newline';
                 }
 
+<<<<<<< HEAD
                 $pluralizeSpace = 's';
                 if ($expected === 1) {
                     $pluralizeSpace = '';
@@ -844,6 +901,11 @@ class ArrayDeclarationSniff implements Sniff
                 $data  = [
                     $expected,
                     $pluralizeSpace,
+=======
+                $error = 'Array value not aligned correctly; expected %s space(s) but found %s';
+                $data  = [
+                    $expected,
+>>>>>>> Development
                     $found,
                 ];
 

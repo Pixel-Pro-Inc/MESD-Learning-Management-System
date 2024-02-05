@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Generic\Sniffs\Functions;
@@ -170,6 +174,7 @@ class OpeningFunctionBraceBsdAllmanSniff implements Sniff
         $ignore[] = T_WHITESPACE;
         $next     = $phpcsFile->findNext($ignore, ($openingBrace + 1), null, true);
         if ($tokens[$next]['line'] === $tokens[$openingBrace]['line']) {
+<<<<<<< HEAD
             // Only throw this error when this is not an empty function.
             if ($next !== $tokens[$stackPtr]['scope_closer']) {
                 $error = 'Opening brace must be the last content on the line';
@@ -177,6 +182,17 @@ class OpeningFunctionBraceBsdAllmanSniff implements Sniff
                 if ($fix === true) {
                     $phpcsFile->fixer->addNewline($openingBrace);
                 }
+=======
+            if ($next === $tokens[$stackPtr]['scope_closer']) {
+                // Ignore empty functions.
+                return;
+            }
+
+            $error = 'Opening brace must be the last content on the line';
+            $fix   = $phpcsFile->addFixableError($error, $openingBrace, 'ContentAfterBrace');
+            if ($fix === true) {
+                $phpcsFile->fixer->addNewline($openingBrace);
+>>>>>>> Development
             }
         }
 

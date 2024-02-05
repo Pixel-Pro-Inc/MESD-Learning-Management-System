@@ -36,7 +36,11 @@ final class NewReadonlyPropertiesSniff extends Sniff
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

@@ -5,7 +5,11 @@
  * @author    Ben Selby <benmatselby@gmail.com>
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Reports;
@@ -31,16 +35,27 @@ abstract class VersionControl implements Report
      * and FALSE if it ignored the file. Returning TRUE indicates that the file and
      * its data should be counted in the grand totals.
      *
+<<<<<<< HEAD
      * @param array                       $report      Prepared report data.
      * @param \PHP_CodeSniffer\Files\File $phpcsFile   The file being reported on.
      * @param bool                        $showSources Show sources?
      * @param int                         $width       Maximum allowed line width.
+=======
+     * @param array                 $report      Prepared report data.
+     * @param \PHP_CodeSniffer\File $phpcsFile   The file being reported on.
+     * @param bool                  $showSources Show sources?
+     * @param int                   $width       Maximum allowed line width.
+>>>>>>> Development
      *
      * @return bool
      */
     public function generateFileReport($report, File $phpcsFile, $showSources=false, $width=80)
     {
+<<<<<<< HEAD
         $blames = $this->getBlameContent($phpcsFile->getFilename());
+=======
+        $blames = $this->getBlameContent($report['filename']);
+>>>>>>> Development
 
         $authorCache = [];
         $praiseCache = [];

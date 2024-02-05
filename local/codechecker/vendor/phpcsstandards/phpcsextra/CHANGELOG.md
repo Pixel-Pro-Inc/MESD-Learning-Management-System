@@ -14,6 +14,7 @@ This projects adheres to [Keep a CHANGELOG](http://keepachangelog.com/) and uses
 
 _Nothing yet._
 
+<<<<<<< HEAD
 ## [1.2.1] - 2023-12-08
 
 ### Changed
@@ -58,6 +59,8 @@ Please ensure you run `composer update phpcsstandards/phpcsextra --with-dependen
 [#294]: https://github.com/PHPCSStandards/PHPCSExtra/pull/294
 
 
+=======
+>>>>>>> Development
 ## [1.1.2] - 2023-09-21
 
 ### Changed
@@ -564,11 +567,17 @@ This initial alpha release contains the following sniffs:
     Individual sub-types can be allowed by excluding specific error codes.
 
 [Composer PHPCS plugin]: https://github.com/PHPCSStandards/composer-installer
+<<<<<<< HEAD
 [php_version-config]:    https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#setting-the-php-version
 
 [Unreleased]: https://github.com/PHPCSStandards/PHPCSExtra/compare/stable...HEAD
 [1.2.1]: https://github.com/PHPCSStandards/PHPCSExtra/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/PHPCSStandards/PHPCSExtra/compare/1.1.2...1.2.0
+=======
+[php_version-config]:    https://github.com/squizlabs/PHP_CodeSniffer/wiki/Configuration-Options#setting-the-php-version
+
+[Unreleased]: https://github.com/PHPCSStandards/PHPCSExtra/compare/stable...HEAD
+>>>>>>> Development
 [1.1.2]: https://github.com/PHPCSStandards/PHPCSExtra/compare/1.1.1...1.1.2
 [1.1.1]: https://github.com/PHPCSStandards/PHPCSExtra/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/PHPCSStandards/PHPCSExtra/compare/1.0.4...1.1.0
@@ -583,8 +592,12 @@ This initial alpha release contains the following sniffs:
 
 [@anomiex]:     https://github.com/anomiex
 [@derickr]:     https://github.com/derickr
+<<<<<<< HEAD
 [@diedexx]:     https://github.com/diedexx
 [@fredden]:     https://github.com/fredden
 [@GaryJones]:   https://github.com/GaryJones
 [@stronk7]:     https://github.com/stronk7
+=======
+[@GaryJones]:   https://github.com/GaryJones
+>>>>>>> Development
 [@szepeviktor]: https://github.com/szepeviktor

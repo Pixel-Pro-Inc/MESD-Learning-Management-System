@@ -8,7 +8,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Tests\Standards;
@@ -50,17 +54,27 @@ abstract class AbstractSniffUnitTest extends TestCase
     /**
      * Sets up this unit test.
      *
+<<<<<<< HEAD
      * @before
      *
      * @return void
      */
     protected function setUpPrerequisites()
+=======
+     * @return void
+     */
+    protected function setUp()
+>>>>>>> Development
     {
         $class = get_class($this);
         $this->standardsDir = $GLOBALS['PHP_CODESNIFFER_STANDARD_DIRS'][$class];
         $this->testsDir     = $GLOBALS['PHP_CODESNIFFER_TEST_DIRS'][$class];
 
+<<<<<<< HEAD
     }//end setUpPrerequisites()
+=======
+    }//end setUp()
+>>>>>>> Development
 
 
     /**
@@ -90,7 +104,11 @@ abstract class AbstractSniffUnitTest extends TestCase
         }
 
         // Put them in order.
+<<<<<<< HEAD
         sort($testFiles, SORT_NATURAL);
+=======
+        sort($testFiles);
+>>>>>>> Development
 
         return $testFiles;
 
@@ -433,6 +451,10 @@ abstract class AbstractSniffUnitTest extends TestCase
      */
     public function setCliValues($filename, $config)
     {
+<<<<<<< HEAD
+=======
+        return;
+>>>>>>> Development
 
     }//end setCliValues()
 

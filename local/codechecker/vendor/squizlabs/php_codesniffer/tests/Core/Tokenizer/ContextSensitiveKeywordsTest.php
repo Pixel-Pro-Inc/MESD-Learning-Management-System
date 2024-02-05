@@ -4,7 +4,11 @@
  *
  * @author    Jaroslav Hanslík <kukulich@kukulich.cz>
  * @copyright 2020 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Tests\Core\Tokenizer;
@@ -30,7 +34,11 @@ class ContextSensitiveKeywordsTest extends AbstractMethodUnitTest
     {
         $tokens = self::$phpcsFile->getTokens();
 
+<<<<<<< HEAD
         $token = $this->getTargetToken($testMarker, (Tokens::$contextSensitiveKeywords + [T_STRING, T_NULL, T_FALSE, T_TRUE, T_PARENT, T_SELF]));
+=======
+        $token = $this->getTargetToken($testMarker, (Tokens::$contextSensitiveKeywords + [T_STRING]));
+>>>>>>> Development
 
         $this->assertSame(T_STRING, $tokens[$token]['code']);
         $this->assertSame('T_STRING', $tokens[$token]['type']);
@@ -120,9 +128,12 @@ class ContextSensitiveKeywordsTest extends AbstractMethodUnitTest
             ['/* testAnd */'],
             ['/* testOr */'],
             ['/* testXor */'],
+<<<<<<< HEAD
             ['/* testFalse */'],
             ['/* testTrue */'],
             ['/* testNull */'],
+=======
+>>>>>>> Development
 
             ['/* testKeywordAfterNamespaceShouldBeString */'],
             ['/* testNamespaceNameIsString1 */'],
@@ -131,6 +142,7 @@ class ContextSensitiveKeywordsTest extends AbstractMethodUnitTest
 
             ['/* testKeywordAfterFunctionShouldBeString */'],
             ['/* testKeywordAfterFunctionByRefShouldBeString */'],
+<<<<<<< HEAD
             ['/* testKeywordSelfAfterFunctionByRefShouldBeString */'],
             ['/* testKeywordStaticAfterFunctionByRefShouldBeString */'],
             ['/* testKeywordParentAfterFunctionByRefShouldBeString */'],
@@ -149,6 +161,8 @@ class ContextSensitiveKeywordsTest extends AbstractMethodUnitTest
             ['/* testClassInstantiationFalseIsString */'],
             ['/* testClassInstantiationTrueIsString */'],
             ['/* testClassInstantiationNullIsString */'],
+=======
+>>>>>>> Development
         ];
 
     }//end dataStrings()
@@ -169,10 +183,14 @@ class ContextSensitiveKeywordsTest extends AbstractMethodUnitTest
     {
         $tokens = self::$phpcsFile->getTokens();
 
+<<<<<<< HEAD
         $token = $this->getTargetToken(
             $testMarker,
             (Tokens::$contextSensitiveKeywords + [T_ANON_CLASS, T_MATCH_DEFAULT, T_PARENT, T_SELF, T_STRING, T_NULL, T_FALSE, T_TRUE])
         );
+=======
+        $token = $this->getTargetToken($testMarker, (Tokens::$contextSensitiveKeywords + [T_ANON_CLASS, T_MATCH_DEFAULT, T_PARENT, T_SELF, T_STRING]));
+>>>>>>> Development
 
         $this->assertSame(constant($expectedTokenType), $tokens[$token]['code']);
         $this->assertSame($expectedTokenType, $tokens[$token]['type']);
@@ -525,6 +543,7 @@ class ContextSensitiveKeywordsTest extends AbstractMethodUnitTest
                 '/* testNamespaceInNameIsKeyword */',
                 'T_NAMESPACE',
             ],
+<<<<<<< HEAD
 
             [
                 '/* testStaticIsKeywordBeforeClosure */',
@@ -579,6 +598,8 @@ class ContextSensitiveKeywordsTest extends AbstractMethodUnitTest
                 '/* testNullIsKeywordInComparison */',
                 'T_NULL',
             ],
+=======
+>>>>>>> Development
         ];
 
     }//end dataKeywords()

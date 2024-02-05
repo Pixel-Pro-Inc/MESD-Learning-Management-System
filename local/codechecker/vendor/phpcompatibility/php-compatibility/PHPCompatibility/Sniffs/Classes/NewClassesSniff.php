@@ -53,7 +53,11 @@ class NewClassesSniff extends Sniff
      *
      * @since 5.5
      *
+<<<<<<< HEAD
      * @var array<string, array<string, bool|string>>
+=======
+     * @var array(string => array(string => bool))
+>>>>>>> Development
      */
     protected $newClasses = [
         'ArrayObject' => [
@@ -871,7 +875,11 @@ class NewClassesSniff extends Sniff
      *
      * @since 7.1.4
      *
+<<<<<<< HEAD
      * @var array<string, array<string, bool|string>>
+=======
+     * @var array(string => array(string => bool))
+>>>>>>> Development
      */
     protected $newExceptions = [
         'com_exception' => [
@@ -1111,7 +1119,11 @@ class NewClassesSniff extends Sniff
      *               as return type declarations.
      * @since 10.0.0 `T_RETURN_TYPE` token removed after PHPCS < 3.7.1 version drop.
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

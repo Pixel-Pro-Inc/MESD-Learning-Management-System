@@ -48,6 +48,7 @@ new class {
         }
     }
 };
+<<<<<<< HEAD
 
 $outerClosure = function ()
 {
@@ -85,3 +86,5 @@ function foo() {
         }
     }
 }
+=======
+>>>>>>> Development

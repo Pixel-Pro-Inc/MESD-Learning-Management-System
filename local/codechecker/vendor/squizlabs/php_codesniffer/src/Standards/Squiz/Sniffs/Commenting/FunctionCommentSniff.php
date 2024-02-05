@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Squiz\Sniffs\Commenting;
@@ -27,7 +31,11 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
     /**
      * The current PHP version.
      *
+<<<<<<< HEAD
      * @var integer|string|null
+=======
+     * @var integer
+>>>>>>> Development
      */
     private $phpVersion = null;
 
@@ -143,12 +151,18 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
                             }
                         }
                     }//end if
+<<<<<<< HEAD
                 } else if ($returnType !== 'mixed'
                     && $returnType !== 'never'
                     && in_array('void', $typeNames, true) === false
                 ) {
                     // If return type is not void, never, or mixed, there needs to be a
                     // return statement somewhere in the function that returns something.
+=======
+                } else if ($returnType !== 'mixed' && in_array('void', $typeNames, true) === false) {
+                    // If return type is not void, there needs to be a return statement
+                    // somewhere in the function that returns something.
+>>>>>>> Development
                     if (isset($tokens[$stackPtr]['scope_closer']) === true) {
                         $endToken = $tokens[$stackPtr]['scope_closer'];
                         for ($returnToken = $stackPtr; $returnToken < $endToken; $returnToken++) {
@@ -408,10 +422,13 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
             $suggestedTypeNames = [];
 
             foreach ($typeNames as $typeName) {
+<<<<<<< HEAD
                 if ($typeName === '') {
                     continue;
                 }
 
+=======
+>>>>>>> Development
                 // Strip nullable operator.
                 if ($typeName[0] === '?') {
                     $typeName = substr($typeName, 1);
@@ -558,6 +575,7 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
 
             // Make sure the param name is correct.
             if (isset($realParams[$pos]) === true) {
+<<<<<<< HEAD
                 $realName     = $realParams[$pos]['name'];
                 $paramVarName = $param['var'];
 
@@ -585,11 +603,22 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
                     $code = 'ParamNameNoMatch';
                     $data = [
                         $paramVarName,
+=======
+                $realName = $realParams[$pos]['name'];
+                if ($realName !== $param['var']) {
+                    $code = 'ParamNameNoMatch';
+                    $data = [
+                        $param['var'],
+>>>>>>> Development
                         $realName,
                     ];
 
                     $error = 'Doc comment for parameter %s does not match ';
+<<<<<<< HEAD
                     if (strtolower($paramVarName) === strtolower($realName)) {
+=======
+                    if (strtolower($param['var']) === strtolower($realName)) {
+>>>>>>> Development
                         $error .= 'case of ';
                         $code   = 'ParamNameNoCaseMatch';
                     }
@@ -597,7 +626,11 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
                     $error .= 'actual variable name %s';
 
                     $phpcsFile->addError($error, $param['tag'], $code, $data);
+<<<<<<< HEAD
                 }//end if
+=======
+                }
+>>>>>>> Development
             } else if (substr($param['var'], -4) !== ',...') {
                 // We must have an extra parameter comment.
                 $error = 'Superfluous parameter comment';

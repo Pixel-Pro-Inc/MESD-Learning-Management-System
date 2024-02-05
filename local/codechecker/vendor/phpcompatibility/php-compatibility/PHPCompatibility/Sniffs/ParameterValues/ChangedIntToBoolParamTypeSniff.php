@@ -35,7 +35,11 @@ class ChangedIntToBoolParamTypeSniff extends AbstractFunctionCallParameterSniff
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
      * @var array<string, array<int, array<string, string>>>
+=======
+     * @var array
+>>>>>>> Development
      */
     protected $targetFunctions = [
         'ob_implicit_flush' => [

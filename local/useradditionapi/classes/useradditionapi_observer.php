@@ -24,15 +24,17 @@ class useradditionapi_observer {
     // Construct the link using the current domain
     $link = $wwwroot . '/login/index.php?nin=';
 
+    profile_load_data($user);
+
     // Prepare the data to send
-    $data = array('userId' => $user->idnumber, 'link' => $link);
+    $data = array('userId' => $user->profile_field_nin, 'link' => $link);
     $json_data = json_encode($data);
 
     // Initialize a cURL session
     $ch = curl_init();
 
     // Set the URL, headers, and POST data as JSON
-    curl_setopt($ch, CURLOPT_URL, "http://ec2-51-20-2-134.eu-north-1.compute.amazonaws.com/api/user/addUser");
+    curl_setopt($ch, CURLOPT_URL, "https://app.rodizioexpress.com/api/user/addUser");
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));

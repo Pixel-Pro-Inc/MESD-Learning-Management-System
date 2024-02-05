@@ -23,8 +23,12 @@
   "homepage": "http://techblog.wimgodden.be/tag/codesniffer/",
   "support": {
     "issues": "https://github.com/PHPCompatibility/PHPCompatibility/issues",
+<<<<<<< HEAD
     "source": "https://github.com/PHPCompatibility/PHPCompatibility",
     "security": "https://github.com/PHPCompatibility/PHPCompatibility/security/policy"
+=======
+    "source": "https://github.com/PHPCompatibility/PHPCompatibility"
+>>>>>>> Development
   },
   "require": {
     "php": ">=5.4",

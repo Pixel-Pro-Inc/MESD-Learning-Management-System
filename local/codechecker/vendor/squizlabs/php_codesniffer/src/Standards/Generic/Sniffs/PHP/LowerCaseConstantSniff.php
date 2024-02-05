@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Generic\Sniffs\PHP;
@@ -37,6 +41,7 @@ class LowerCaseConstantSniff implements Sniff
         T_NULL  => T_NULL,
     ];
 
+<<<<<<< HEAD
     /**
      * Token types which can be encountered in a property type declaration.
      *
@@ -60,6 +65,8 @@ class LowerCaseConstantSniff implements Sniff
         T_NULLABLE             => T_NULLABLE,
     ];
 
+=======
+>>>>>>> Development
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -70,6 +77,7 @@ class LowerCaseConstantSniff implements Sniff
     {
         $targets = $this->targets;
 
+<<<<<<< HEAD
         // Register scope modifiers to filter out property type declarations.
         $targets  += Tokens::$scopeModifiers;
         $targets[] = T_VAR;
@@ -77,6 +85,9 @@ class LowerCaseConstantSniff implements Sniff
         $targets[] = T_READONLY;
 
         // Register function keywords to filter out param/return type declarations.
+=======
+        // Register function keywords to filter out type declarations.
+>>>>>>> Development
         $targets[] = T_FUNCTION;
         $targets[] = T_CLOSURE;
         $targets[] = T_FN;
@@ -93,14 +104,19 @@ class LowerCaseConstantSniff implements Sniff
      * @param int                         $stackPtr  The position of the current token in the
      *                                               stack passed in $tokens.
      *
+<<<<<<< HEAD
      * @return void|int Optionally returns a stack pointer. The sniff will not be
      *                  called again on the current file until the returned stack
      *                  pointer is reached.
+=======
+     * @return void
+>>>>>>> Development
      */
     public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
+<<<<<<< HEAD
         /*
          * Skip over type declarations for properties.
          *
@@ -130,6 +146,8 @@ class LowerCaseConstantSniff implements Sniff
             return;
         }
 
+=======
+>>>>>>> Development
         // Handle function declarations separately as they may contain the keywords in type declarations.
         if ($tokens[$stackPtr]['code'] === T_FUNCTION
             || $tokens[$stackPtr]['code'] === T_CLOSURE
@@ -139,6 +157,7 @@ class LowerCaseConstantSniff implements Sniff
                 return;
             }
 
+<<<<<<< HEAD
             // Make sure to skip over return type declarations.
             $end = $tokens[$stackPtr]['parenthesis_closer'];
             if (isset($tokens[$stackPtr]['scope_opener']) === true) {
@@ -148,6 +167,11 @@ class LowerCaseConstantSniff implements Sniff
                 if ($skipTo !== false) {
                     $end = $skipTo;
                 }
+=======
+            $end = $tokens[$stackPtr]['parenthesis_closer'];
+            if (isset($tokens[$stackPtr]['scope_opener']) === true) {
+                $end = $tokens[$stackPtr]['scope_opener'];
+>>>>>>> Development
             }
 
             // Do a quick check if any of the targets exist in the declaration.
@@ -180,6 +204,24 @@ class LowerCaseConstantSniff implements Sniff
             return $end;
         }//end if
 
+<<<<<<< HEAD
+=======
+        // Handle property declarations separately as they may contain the keywords in type declarations.
+        if (isset($tokens[$stackPtr]['conditions']) === true) {
+            $conditions    = $tokens[$stackPtr]['conditions'];
+            $lastCondition = end($conditions);
+            if (isset(Tokens::$ooScopeTokens[$lastCondition]) === true) {
+                // This can only be an OO constant or property declaration as methods are handled above.
+                $equals = $phpcsFile->findPrevious(T_EQUAL, ($stackPtr - 1), null, false, null, true);
+                if ($equals !== false) {
+                    $this->processConstant($phpcsFile, $stackPtr);
+                }
+
+                return;
+            }
+        }
+
+>>>>>>> Development
         // Handle everything else.
         $this->processConstant($phpcsFile, $stackPtr);
 

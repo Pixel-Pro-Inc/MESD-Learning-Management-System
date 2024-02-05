@@ -3,6 +3,7 @@
     "type": "phpcodesniffer-standard",
     "description": "Moodle Coding Sniffer rules",
     "keywords": [
+<<<<<<< HEAD
         "moodle",
         "phpcs",
         "coding",
@@ -10,6 +11,11 @@
         "standard",
         "sniff",
         "codesniffer"
+=======
+        "phpcs",
+        "standards",
+        "WordPress"
+>>>>>>> Development
     ],
     "license": "GPL-2.0-or-later",
     "authors": [
@@ -18,14 +24,25 @@
             "email": "andrew@nicols.co.uk"
         },
         {
+<<<<<<< HEAD
             "name": "Eloy Lafuente (stronk7)"
+=======
+            "name": "Eloy Lafuente",
+            "email": "stronk7@moodle.com"
+>>>>>>> Development
         }
     ],
     "require": {
         "dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
+<<<<<<< HEAD
         "squizlabs/php_codesniffer": "^3.8.0",
         "phpcsstandards/phpcsextra": "^1.2.1",
         "phpcompatibility/php-compatibility": "dev-develop#306cd263"
+=======
+        "squizlabs/php_codesniffer": "^3.7.2",
+        "phpcsstandards/phpcsextra": "^1.1.0",
+        "phpcompatibility/php-compatibility": "dev-develop#0a17f9ed"
+>>>>>>> Development
     },
     "config": {
         "allow-plugins": {

@@ -418,6 +418,7 @@ class ConstructorPropertyPromotionMultiLineAttributesIncorrectIndent
         // Do something.
     }
 }
+<<<<<<< HEAD
 
 // PHP 8.1: new in initializers means that class instantiations with parameters can occur in a function declaration.
 function usingNewInInitializersCallParamsIndented(
@@ -488,3 +489,5 @@ function foo(
     $param2
 ) : // comment.
    \Package\Sub\SomeClass   {}
+=======
+>>>>>>> Development

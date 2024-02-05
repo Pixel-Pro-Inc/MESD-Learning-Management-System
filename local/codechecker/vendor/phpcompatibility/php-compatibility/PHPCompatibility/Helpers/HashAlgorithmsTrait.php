@@ -41,7 +41,11 @@ trait HashAlgorithmsTrait
      * @since 7.0.7  Moved from the `RemovedHashAlgorithms` sniff to the base `Sniff` class.
      * @since 10.0.0 Moved from the base `Sniff` class to the `HashAlgorithmsTrait`.
      *
+<<<<<<< HEAD
      * @var array<string, array<string, int|string>>
+=======
+     * @var array
+>>>>>>> Development
      */
     protected $hashAlgoFunctions = [
         'hash_file' => [

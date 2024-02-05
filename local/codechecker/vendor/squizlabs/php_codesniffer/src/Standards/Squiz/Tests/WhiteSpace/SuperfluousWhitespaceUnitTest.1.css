@@ -23,6 +23,7 @@
 }
 /* phpcs:set Squiz.WhiteSpace.SuperfluousWhitespace ignoreBlankLines false */
 
+<<<<<<< HEAD
 // /**
 //  * This text is in two types of comment: each line is commented out
 //  * individually, and the whole block is in what looks like a
@@ -30,3 +31,5 @@
 //  * is no superfluous white-space here.
 //  */
 
+=======
+>>>>>>> Development

@@ -464,6 +464,7 @@ yield [
        static fn () : string => '',
       ];
 
+<<<<<<< HEAD
 $foo = [
         'foo' => match ($anything) {
             'foo' => 'bar',
@@ -471,10 +472,13 @@ $foo = [
         },
        ];
 
+=======
+>>>>>>> Development
 // Intentional syntax error.
 $a = [
       'a' =>
      ];
+<<<<<<< HEAD
 
 // Safeguard correct errors for key/no key when PHP 7.4+ array unpacking is encountered.
 $x = [
@@ -524,3 +528,5 @@ $x = [
   'a',
   'b',
    ];
+=======
+>>>>>>> Development

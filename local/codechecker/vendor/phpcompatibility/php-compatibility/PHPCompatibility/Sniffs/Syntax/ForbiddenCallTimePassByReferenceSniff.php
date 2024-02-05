@@ -43,7 +43,11 @@ class ForbiddenCallTimePassByReferenceSniff extends Sniff
      *
      * @since 8.1.0
      *
+<<<<<<< HEAD
      * @var array<int|string, int|string>
+=======
+     * @var array
+>>>>>>> Development
      */
     private $assignOrCompare = [];
 
@@ -52,7 +56,11 @@ class ForbiddenCallTimePassByReferenceSniff extends Sniff
      *
      * @since 5.5
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

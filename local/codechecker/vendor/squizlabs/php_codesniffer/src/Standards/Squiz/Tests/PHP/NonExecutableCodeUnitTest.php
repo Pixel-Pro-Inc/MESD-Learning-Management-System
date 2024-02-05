@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Squiz\Tests\PHP;
@@ -74,6 +78,7 @@ class NonExecutableCodeUnitTest extends AbstractSniffUnitTest
                 252 => 1,
                 253 => 1,
                 254 => 2,
+<<<<<<< HEAD
                 303 => 1,
                 308 => 1,
                 370 => 1,
@@ -87,6 +92,10 @@ class NonExecutableCodeUnitTest extends AbstractSniffUnitTest
                 419 => 1,
             ];
 
+=======
+            ];
+            break;
+>>>>>>> Development
         case 'NonExecutableCodeUnitTest.2.inc':
             return [
                 7  => 1,
@@ -95,6 +104,7 @@ class NonExecutableCodeUnitTest extends AbstractSniffUnitTest
                 10 => 2,
                 14 => 1,
                 54 => 2,
+<<<<<<< HEAD
                 65 => 2,
                 69 => 2,
                 70 => 2,
@@ -111,6 +121,13 @@ class NonExecutableCodeUnitTest extends AbstractSniffUnitTest
             ];
         default:
             return [];
+=======
+            ];
+            break;
+        default:
+            return [];
+            break;
+>>>>>>> Development
         }//end switch
 
     }//end getWarningList()

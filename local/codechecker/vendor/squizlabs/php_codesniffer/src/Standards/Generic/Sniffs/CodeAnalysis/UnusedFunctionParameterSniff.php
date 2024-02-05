@@ -11,7 +11,11 @@
  * @author    Manuel Pichler <mapi@manuel-pichler.de>
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2007-2014 Manuel Pichler. All rights reserved.
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis;
@@ -30,6 +34,7 @@ class UnusedFunctionParameterSniff implements Sniff
      */
     public $ignoreTypeHints = [];
 
+<<<<<<< HEAD
     /**
      * A list of all PHP magic methods with fixed method signatures.
      *
@@ -56,6 +61,8 @@ class UnusedFunctionParameterSniff implements Sniff
         '__debuginfo'   => true,
     ];
 
+=======
+>>>>>>> Development
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -95,6 +102,7 @@ class UnusedFunctionParameterSniff implements Sniff
         $errorCode  = 'Found';
         $implements = false;
         $extends    = false;
+<<<<<<< HEAD
 
         if ($token['code'] === T_FUNCTION) {
             $classPtr = $phpcsFile->getCondition($stackPtr, T_CLASS);
@@ -118,6 +126,18 @@ class UnusedFunctionParameterSniff implements Sniff
                 }
             }
         }//end if
+=======
+        $classPtr   = $phpcsFile->getCondition($stackPtr, T_CLASS);
+        if ($classPtr !== false) {
+            $implements = $phpcsFile->findImplementedInterfaceNames($classPtr);
+            $extends    = $phpcsFile->findExtendedClassName($classPtr);
+            if ($extends !== false) {
+                $errorCode .= 'InExtendedClass';
+            } else if ($implements !== false) {
+                $errorCode .= 'InImplementedInterface';
+            }
+        }
+>>>>>>> Development
 
         $params       = [];
         $methodParams = $phpcsFile->getMethodParameters($stackPtr);

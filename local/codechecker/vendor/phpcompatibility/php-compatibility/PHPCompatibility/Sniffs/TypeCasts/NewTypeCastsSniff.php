@@ -37,7 +37,11 @@ class NewTypeCastsSniff extends Sniff
      *
      * @since 8.0.1
      *
+<<<<<<< HEAD
      * @var array<string, array<string, bool|string>>
+=======
+     * @var array(string => array(string => bool|string))
+>>>>>>> Development
      */
     protected $newTypeCasts = [
         'T_UNSET_CAST' => [
@@ -58,7 +62,11 @@ class NewTypeCastsSniff extends Sniff
      *
      * @since 8.0.1
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

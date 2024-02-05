@@ -26,6 +26,9 @@ $foo = 0o28_2;
 
 /* testInvalid6 */
 $foo = 0o2_82;
+<<<<<<< HEAD
 
 /* testInvalid7 */
 $foo = 0o;
+=======
+>>>>>>> Development

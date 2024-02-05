@@ -7,7 +7,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer;
@@ -49,7 +53,11 @@ class Runner
     /**
      * Run the PHPCS script.
      *
+<<<<<<< HEAD
      * @return int
+=======
+     * @return array
+>>>>>>> Development
      */
     public function runPHPCS()
     {
@@ -151,7 +159,11 @@ class Runner
     /**
      * Run the PHPCBF script.
      *
+<<<<<<< HEAD
      * @return int
+=======
+     * @return array
+>>>>>>> Development
      */
     public function runPHPCBF()
     {
@@ -595,7 +607,11 @@ class Runner
      * @param string $file    The path of the file that raised the error.
      * @param int    $line    The line number the error was raised at.
      *
+<<<<<<< HEAD
      * @return bool
+=======
+     * @return void
+>>>>>>> Development
      * @throws \PHP_CodeSniffer\Exceptions\RuntimeException
      */
     public function handleErrors($code, $message, $file, $line)
@@ -652,6 +668,7 @@ class Runner
             }
         } catch (\Exception $e) {
             $error = 'An error occurred during processing; checking has been aborted. The error message was: '.$e->getMessage();
+<<<<<<< HEAD
 
             // Determine which sniff caused the error.
             $sniffStack = null;
@@ -685,6 +702,8 @@ class Runner
                 $error .= sprintf(PHP_EOL.'The error originated in the %s sniff on line %s.', $sniffCode, $sniffStack['line']);
             }
 
+=======
+>>>>>>> Development
             $file->addErrorOnLine($error, 1, 'Internal.Exception');
         }//end try
 

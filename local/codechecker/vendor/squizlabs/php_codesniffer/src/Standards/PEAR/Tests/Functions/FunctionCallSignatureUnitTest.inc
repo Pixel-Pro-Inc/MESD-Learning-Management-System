@@ -567,6 +567,7 @@ content
       <p><?php require get_theme_file_path(
       '/theme_extra/test_block.php'
 ); ?></p>
+<<<<<<< HEAD
 
 <!-- If the first token is inline HTML, the token itself should be adjusted, not the token before. -->
 <?php if (check_me() == 'value'): ?>
@@ -574,3 +575,5 @@ content
     'my_file.php'
   ); ?>
 <?php endif; ?>
+=======
+>>>>>>> Development

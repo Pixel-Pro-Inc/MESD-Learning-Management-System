@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Tests\Core\Autoloader;
@@ -19,6 +23,7 @@ class DetermineLoadedClassTest extends TestCase
     /**
      * Load the test files.
      *
+<<<<<<< HEAD
      * @beforeClass
      *
      * @return void
@@ -28,6 +33,15 @@ class DetermineLoadedClassTest extends TestCase
         include __DIR__.'/TestFiles/Sub/C.inc';
 
     }//end includeFixture()
+=======
+     * @return void
+     */
+    public static function setUpBeforeClass()
+    {
+        include __DIR__.'/TestFiles/Sub/C.inc';
+
+    }//end setUpBeforeClass()
+>>>>>>> Development
 
 
     /**

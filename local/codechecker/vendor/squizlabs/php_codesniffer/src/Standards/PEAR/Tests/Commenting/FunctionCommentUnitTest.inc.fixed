@@ -453,6 +453,10 @@ class Something implements JsonSerializable {
      *
      * @return mixed
      */
+<<<<<<< HEAD
+=======
+
+>>>>>>> Development
     #[ReturnTypeWillChange]
     public function blankLineDetectionA() {}
 
@@ -462,6 +466,10 @@ class Something implements JsonSerializable {
      * @return mixed
      */
     #[ReturnTypeWillChange]
+<<<<<<< HEAD
+=======
+
+>>>>>>> Development
     public function blankLineDetectionB() {}
 
     /**
@@ -469,6 +477,7 @@ class Something implements JsonSerializable {
      *
      * @return mixed
      */
+<<<<<<< HEAD
     #[ReturnTypeWillChange]
     public function blankLineDetectionC() {}
 }
@@ -488,4 +497,10 @@ class SpacingAfter {
      * @return void
      */
     public function multipleLinesSomeEmpty() {}
+=======
+
+    #[ReturnTypeWillChange]
+
+    public function blankLineDetectionC() {}
+>>>>>>> Development
 }

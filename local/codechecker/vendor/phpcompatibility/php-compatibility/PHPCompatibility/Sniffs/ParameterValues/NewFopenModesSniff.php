@@ -32,7 +32,11 @@ class NewFopenModesSniff extends AbstractFunctionCallParameterSniff
      *
      * @since 9.0.0
      *
+<<<<<<< HEAD
      * @var array<string, true>
+=======
+     * @var array
+>>>>>>> Development
      */
     protected $targetFunctions = [
         'fopen' => true,

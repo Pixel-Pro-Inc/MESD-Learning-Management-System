@@ -255,6 +255,7 @@ private string $private,
     ) {
     }
 }
+<<<<<<< HEAD
 
 // PHP 8.1: new in initializers means that class instantiations with parameters can occur in a function declaration.
 function usingNewInInitializersCallParamsIndented(
@@ -302,3 +303,5 @@ new ExceptionMessage(),
     ) {
     }
 }
+=======
+>>>>>>> Development

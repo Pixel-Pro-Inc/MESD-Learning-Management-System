@@ -44,6 +44,7 @@ HERE;
     $x = $parameter; // This line must be immediately after the HERE; with no intervening blank lines.
     $tango = <<<HERE
 1 Must be a HEREdoc
+<<<<<<< HEAD
 2
 3
 4
@@ -51,6 +52,15 @@ HERE;
 6
 7
 8
+=======
+2 
+3 
+4 
+5   
+6
+7
+8 
+>>>>>>> Development
 9 at least 9 lines long
 HERE;
 }
@@ -152,6 +162,7 @@ class ConstructorPropertyPromotionWithContentInMethod {
 }
 
 $found = in_array_cb($needle, $haystack, fn($array, $needle) => $array[2] === $needle);
+<<<<<<< HEAD
 
 
 /*
@@ -249,3 +260,5 @@ class MagicMethodsWithParamsNotDictatedByPHPInChildClass extends SomeParent{
         $this->foo = $foo;
     }
 }
+=======
+>>>>>>> Development

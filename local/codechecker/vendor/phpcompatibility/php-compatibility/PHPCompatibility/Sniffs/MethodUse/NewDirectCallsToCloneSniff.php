@@ -38,7 +38,11 @@ class NewDirectCallsToCloneSniff extends Sniff
      *
      * @since 9.1.0
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

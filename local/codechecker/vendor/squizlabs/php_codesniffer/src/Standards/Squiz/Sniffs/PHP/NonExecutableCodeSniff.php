@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Squiz\Sniffs\PHP;
@@ -16,6 +20,7 @@ use PHP_CodeSniffer\Util\Tokens;
 class NonExecutableCodeSniff implements Sniff
 {
 
+<<<<<<< HEAD
     /**
      * Tokens for terminating expressions, which can be used inline.
      *
@@ -32,6 +37,8 @@ class NonExecutableCodeSniff implements Sniff
         T_THROW => T_THROW,
     ];
 
+=======
+>>>>>>> Development
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -65,6 +72,7 @@ class NonExecutableCodeSniff implements Sniff
     {
         $tokens = $phpcsFile->getTokens();
 
+<<<<<<< HEAD
         $prev = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($stackPtr - 1), null, true);
 
         // Tokens which can be used in inline expressions need special handling.
@@ -101,22 +109,56 @@ class NonExecutableCodeSniff implements Sniff
             || (isset($tokens[$prev]['parenthesis_owner']) === true
             && ($tokens[$tokens[$prev]['parenthesis_owner']]['code'] === T_IF
             || $tokens[$tokens[$prev]['parenthesis_owner']]['code'] === T_ELSEIF))
+=======
+        // If this token is preceded with an "or", it only relates to one line
+        // and should be ignored. For example: fopen() or die().
+        $prev = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($stackPtr - 1), null, true);
+        if ($tokens[$prev]['code'] === T_LOGICAL_OR || $tokens[$prev]['code'] === T_BOOLEAN_OR) {
+            return;
+        }
+
+        // Check if this token is actually part of a one-line IF or ELSE statement.
+        for ($i = ($stackPtr - 1); $i > 0; $i--) {
+            if ($tokens[$i]['code'] === T_CLOSE_PARENTHESIS) {
+                $i = $tokens[$i]['parenthesis_opener'];
+                continue;
+            } else if (isset(Tokens::$emptyTokens[$tokens[$i]['code']]) === true) {
+                continue;
+            }
+
+            break;
+        }
+
+        if ($tokens[$i]['code'] === T_IF
+            || $tokens[$i]['code'] === T_ELSE
+            || $tokens[$i]['code'] === T_ELSEIF
+>>>>>>> Development
         ) {
             return;
         }
 
         if ($tokens[$stackPtr]['code'] === T_RETURN) {
+<<<<<<< HEAD
             $next = $phpcsFile->findNext(Tokens::$emptyTokens, ($stackPtr + 1), null, true);
             if ($tokens[$next]['code'] === T_SEMICOLON) {
                 $next = $phpcsFile->findNext(Tokens::$emptyTokens, ($next + 1), null, true);
+=======
+            $next = $phpcsFile->findNext(T_WHITESPACE, ($stackPtr + 1), null, true);
+            if ($tokens[$next]['code'] === T_SEMICOLON) {
+                $next = $phpcsFile->findNext(T_WHITESPACE, ($next + 1), null, true);
+>>>>>>> Development
                 if ($tokens[$next]['code'] === T_CLOSE_CURLY_BRACKET) {
                     // If this is the closing brace of a function
                     // then this return statement doesn't return anything
                     // and is not required anyway.
                     $owner = $tokens[$next]['scope_condition'];
+<<<<<<< HEAD
                     if ($tokens[$owner]['code'] === T_FUNCTION
                         || $tokens[$owner]['code'] === T_CLOSURE
                     ) {
+=======
+                    if ($tokens[$owner]['code'] === T_FUNCTION) {
+>>>>>>> Development
                         $warning = 'Empty return statement not required here';
                         $phpcsFile->addWarning($warning, $stackPtr, 'ReturnNotRequired');
                         return;
@@ -168,6 +210,25 @@ class NonExecutableCodeSniff implements Sniff
             }//end if
         }//end if
 
+<<<<<<< HEAD
+=======
+        // This token may be part of an inline condition.
+        // If we find a closing parenthesis that belongs to a condition
+        // we should ignore this token.
+        $prev = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($stackPtr - 1), null, true);
+        if (isset($tokens[$prev]['parenthesis_owner']) === true) {
+            $owner  = $tokens[$prev]['parenthesis_owner'];
+            $ignore = [
+                T_IF     => true,
+                T_ELSE   => true,
+                T_ELSEIF => true,
+            ];
+            if (isset($ignore[$tokens[$owner]['code']]) === true) {
+                return;
+            }
+        }
+
+>>>>>>> Development
         $ourConditions = array_keys($tokens[$stackPtr]['conditions']);
 
         if (empty($ourConditions) === false) {
@@ -220,8 +281,13 @@ class NonExecutableCodeSniff implements Sniff
             $end = ($phpcsFile->numTokens - 1);
         }//end if
 
+<<<<<<< HEAD
         // Find the semicolon or closing PHP tag that ends this statement,
         // skipping nested statements like FOR loops and closures.
+=======
+        // Find the semicolon that ends this statement, skipping
+        // nested statements like FOR loops and closures.
+>>>>>>> Development
         for ($start = ($stackPtr + 1); $start < $phpcsFile->numTokens; $start++) {
             if ($start === $end) {
                 break;
@@ -241,7 +307,11 @@ class NonExecutableCodeSniff implements Sniff
                 continue;
             }
 
+<<<<<<< HEAD
             if ($tokens[$start]['code'] === T_SEMICOLON || $tokens[$start]['code'] === T_CLOSE_TAG) {
+=======
+            if ($tokens[$start]['code'] === T_SEMICOLON) {
+>>>>>>> Development
                 break;
             }
         }//end for
@@ -274,6 +344,7 @@ class NonExecutableCodeSniff implements Sniff
                 continue;
             }
 
+<<<<<<< HEAD
             // Skip HTML whitespace.
             if ($tokens[$i]['code'] === T_INLINE_HTML && \trim($tokens[$i]['content']) === '') {
                 continue;
@@ -284,6 +355,8 @@ class NonExecutableCodeSniff implements Sniff
                 continue;
             }
 
+=======
+>>>>>>> Development
             $line = $tokens[$i]['line'];
             if ($line > $lastLine) {
                 $type    = substr($tokens[$stackPtr]['type'], 2);

@@ -119,6 +119,7 @@ class IncorrectCodeBeforeClosingBrace
 {
 
 echo phpinfo();}
+<<<<<<< HEAD
 
 readonly
 class Test
@@ -128,3 +129,5 @@ class Test
 readonly    class Test
 {
 }
+=======
+>>>>>>> Development

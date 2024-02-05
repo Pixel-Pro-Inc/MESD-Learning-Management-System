@@ -39,7 +39,11 @@ class ChangedObStartEraseFlagsSniff extends AbstractFunctionCallParameterSniff
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
      * @var array<string, true>
+=======
+     * @var array
+>>>>>>> Development
      */
     protected $targetFunctions = [
         'ob_start' => true,

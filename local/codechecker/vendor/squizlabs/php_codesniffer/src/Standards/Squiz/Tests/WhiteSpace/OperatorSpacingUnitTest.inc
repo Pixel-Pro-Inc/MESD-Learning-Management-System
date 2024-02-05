@@ -269,7 +269,11 @@ fn&($x) => $x;
 
 // phpcs:set Squiz.WhiteSpace.OperatorSpacing ignoreSpacingBeforeAssignments false
 $a  =  3;
+<<<<<<< HEAD
 // phpcs:set Squiz.WhiteSpace.OperatorSpacing ignoreSpacingBeforeAssignments true
+=======
+
+>>>>>>> Development
 yield -1;
 echo -1;
 $a = -1;

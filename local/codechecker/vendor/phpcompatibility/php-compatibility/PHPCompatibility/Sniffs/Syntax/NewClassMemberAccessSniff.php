@@ -47,7 +47,11 @@ class NewClassMemberAccessSniff extends Sniff
      *
      * @since 8.2.0
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

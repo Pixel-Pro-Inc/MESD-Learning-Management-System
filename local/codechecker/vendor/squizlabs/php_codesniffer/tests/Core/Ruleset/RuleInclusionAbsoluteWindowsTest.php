@@ -4,7 +4,11 @@
  *
  * @author    Juliette Reinders Folmer <phpcs_nospam@adviesenzo.nl>
  * @copyright 2019 Juliette Reinders Folmer. All rights reserved.
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Tests\Core\Ruleset;
@@ -41,16 +45,32 @@ class RuleInclusionAbsoluteWindowsTest extends TestCase
     /**
      * Initialize the config and ruleset objects.
      *
+<<<<<<< HEAD
      * @before
      *
      * @return void
      */
     public function initializeConfigAndRuleset()
+=======
+     * @return void
+     */
+    public function setUp()
+>>>>>>> Development
     {
         if (DIRECTORY_SEPARATOR === '/') {
             $this->markTestSkipped('Windows specific test');
         }
 
+<<<<<<< HEAD
+=======
+        if ($GLOBALS['PHP_CODESNIFFER_PEAR'] === true) {
+            // PEAR installs test and sniff files into different locations
+            // so these tests will not pass as they directly reference files
+            // by relative location.
+            $this->markTestSkipped('Test cannot run from a PEAR install');
+        }
+
+>>>>>>> Development
         $this->standard = __DIR__.'/'.basename(__FILE__, '.php').'.xml';
         $repoRootDir    = dirname(dirname(dirname(__DIR__)));
 
@@ -68,23 +88,37 @@ class RuleInclusionAbsoluteWindowsTest extends TestCase
         $config        = new Config(["--standard={$this->standard}"]);
         $this->ruleset = new Ruleset($config);
 
+<<<<<<< HEAD
     }//end initializeConfigAndRuleset()
+=======
+    }//end setUp()
+>>>>>>> Development
 
 
     /**
      * Reset ruleset file.
      *
+<<<<<<< HEAD
      * @after
      *
      * @return void
      */
     public function resetRuleset()
+=======
+     * @return void
+     */
+    public function tearDown()
+>>>>>>> Development
     {
         if (DIRECTORY_SEPARATOR !== '/') {
             file_put_contents($this->standard, $this->contents);
         }
 
+<<<<<<< HEAD
     }//end resetRuleset()
+=======
+    }//end tearDown()
+>>>>>>> Development
 
 
     /**
@@ -96,6 +130,10 @@ class RuleInclusionAbsoluteWindowsTest extends TestCase
     public function testWindowsStylePathRuleInclusion()
     {
         // Test that the sniff is correctly registered.
+<<<<<<< HEAD
+=======
+        $this->assertObjectHasAttribute('sniffCodes', $this->ruleset);
+>>>>>>> Development
         $this->assertCount(1, $this->ruleset->sniffCodes);
         $this->assertArrayHasKey('Generic.Formatting.SpaceAfterCast', $this->ruleset->sniffCodes);
         $this->assertSame(

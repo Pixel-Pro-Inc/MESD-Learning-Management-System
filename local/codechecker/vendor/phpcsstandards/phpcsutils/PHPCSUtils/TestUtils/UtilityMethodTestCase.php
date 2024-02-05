@@ -18,7 +18,10 @@ use PHPCSUtils\Exceptions\TestMarkerNotFound;
 use PHPCSUtils\Exceptions\TestTargetNotFound;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
+<<<<<<< HEAD
 use ReflectionProperty;
+=======
+>>>>>>> Development
 
 /**
  * Base class for use when testing utility methods for PHP_CodeSniffer.
@@ -155,7 +158,11 @@ abstract class UtilityMethodTestCase extends TestCase
      *
      * @since 1.0.0
      *
+<<<<<<< HEAD
      * @var \PHP_CodeSniffer\Files\File|null
+=======
+     * @var \PHP_CodeSniffer\Files\File
+>>>>>>> Development
      */
     protected static $phpcsFile;
 
@@ -169,7 +176,11 @@ abstract class UtilityMethodTestCase extends TestCase
      *
      * @since 1.0.0
      *
+<<<<<<< HEAD
      * @var string[]
+=======
+     * @var array
+>>>>>>> Development
      */
     protected static $selectedSniff = ['Dummy.Dummy.Dummy'];
 
@@ -209,6 +220,7 @@ abstract class UtilityMethodTestCase extends TestCase
 
         $contents = \file_get_contents($caseFile);
 
+<<<<<<< HEAD
         /*
          * Set the static properties in the Config class to specific values for performance
          * and to clear out values from other tests.
@@ -225,6 +237,11 @@ abstract class UtilityMethodTestCase extends TestCase
         /*
          * Set to a usable value to circumvent Config trying to find a phpcs.xml config file.
          *
+=======
+        $config = new \PHP_CodeSniffer\Config();
+
+        /*
+>>>>>>> Development
          * We just need to provide a standard so PHPCS will tokenize the file.
          * The standard itself doesn't actually matter for testing utility methods,
          * so use the smallest one to get the fastest results.
@@ -312,6 +329,7 @@ abstract class UtilityMethodTestCase extends TestCase
         self::$tabWidth      = 4;
         self::$phpcsFile     = null;
         self::$selectedSniff = ['Dummy.Dummy.Dummy'];
+<<<<<<< HEAD
 
         // Reset the static properties in the Config class to their defaults to prevent tests influencing each other.
         self::setStaticConfigProperty('executablePaths', []);
@@ -333,6 +351,8 @@ abstract class UtilityMethodTestCase extends TestCase
         $property->setAccessible(true);
         $property->setValue(null, $value);
         $property->setAccessible(false);
+=======
+>>>>>>> Development
     }
 
     /**
@@ -364,10 +384,17 @@ abstract class UtilityMethodTestCase extends TestCase
      *
      * @since 1.0.0
      *
+<<<<<<< HEAD
      * @param string                       $commentString The complete delimiter comment to look for as a string.
      *                                                    This string should include the comment opener and closer.
      * @param int|string|array<int|string> $tokenType     The type of token(s) to look for.
      * @param string                       $tokenContent  Optional. The token content for the target token.
+=======
+     * @param string           $commentString The complete delimiter comment to look for as a string.
+     *                                        This string should include the comment opener and closer.
+     * @param int|string|array $tokenType     The type of token(s) to look for.
+     * @param string           $tokenContent  Optional. The token content for the target token.
+>>>>>>> Development
      *
      * @return int
      *

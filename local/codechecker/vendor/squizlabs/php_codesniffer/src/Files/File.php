@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Files;
@@ -209,7 +213,10 @@ class File
      * An array of sniffs being processed and how long they took.
      *
      * @var array
+<<<<<<< HEAD
      * @see getListenerTimes()
+=======
+>>>>>>> Development
      */
     protected $listenerTimes = [];
 
@@ -254,7 +261,10 @@ class File
         $this->configCache['errorSeverity']   = $this->config->errorSeverity;
         $this->configCache['warningSeverity'] = $this->config->warningSeverity;
         $this->configCache['recordErrors']    = $this->config->recordErrors;
+<<<<<<< HEAD
         $this->configCache['trackTime']       = $this->config->trackTime;
+=======
+>>>>>>> Development
         $this->configCache['ignorePatterns']  = $this->ruleset->ignorePatterns;
         $this->configCache['includePatterns'] = $this->ruleset->includePatterns;
 
@@ -345,7 +355,10 @@ class File
         $listenerIgnoreTo = [];
         $inTests          = defined('PHP_CODESNIFFER_IN_TESTS');
         $checkAnnotations = $this->config->annotations;
+<<<<<<< HEAD
         $annotationErrors = [];
+=======
+>>>>>>> Development
 
         // Foreach of the listeners that have registered to listen for this
         // token, get them to process it.
@@ -382,12 +395,18 @@ class File
                                 if (isset($this->ruleset->sniffCodes[$parts[0]]) === true) {
                                     $listenerCode  = array_shift($parts);
                                     $propertyCode  = array_shift($parts);
+<<<<<<< HEAD
                                     $settings      = [
                                         'value' => rtrim(implode(' ', $parts), " */\r\n"),
                                         'scope' => 'sniff',
                                     ];
                                     $listenerClass = $this->ruleset->sniffCodes[$listenerCode];
                                     $this->ruleset->setSniffProperty($listenerClass, $propertyCode, $settings);
+=======
+                                    $propertyValue = rtrim(implode(' ', $parts), " */\r\n");
+                                    $listenerClass = $this->ruleset->sniffCodes[$listenerCode];
+                                    $this->ruleset->setSniffProperty($listenerClass, $propertyCode, $propertyValue);
+>>>>>>> Development
                                 }
                             }
                         }
@@ -409,6 +428,7 @@ class File
                         $listenerCode = $token['sniffCode'];
                         if (isset($this->ruleset->sniffCodes[$listenerCode]) === true) {
                             $propertyCode  = $token['sniffProperty'];
+<<<<<<< HEAD
                             $settings      = [
                                 'value' => $token['sniffPropertyValue'],
                                 'scope' => 'sniff',
@@ -423,6 +443,11 @@ class File
                                 // the scan of the current file, so collect these and throw later.
                                 $annotationErrors[] = 'Line '.$token['line'].': '.str_replace('Ruleset invalid. ', '', $e->getMessage());
                             }
+=======
+                            $propertyValue = $token['sniffPropertyValue'];
+                            $listenerClass = $this->ruleset->sniffCodes[$listenerCode];
+                            $this->ruleset->setSniffProperty($listenerClass, $propertyCode, $propertyValue);
+>>>>>>> Development
                         }
                     }
                 }//end if
@@ -507,11 +532,16 @@ class File
 
                 $this->activeListener = $class;
 
+<<<<<<< HEAD
                 if ($this->configCache['trackTime'] === true) {
                     $startTime = microtime(true);
                 }
 
                 if (PHP_CODESNIFFER_VERBOSITY > 2) {
+=======
+                if (PHP_CODESNIFFER_VERBOSITY > 2) {
+                    $startTime = microtime(true);
+>>>>>>> Development
                     echo "\t\t\tProcessing ".$this->activeListener.'... ';
                 }
 
@@ -520,16 +550,24 @@ class File
                     $listenerIgnoreTo[$this->activeListener] = $ignoreTo;
                 }
 
+<<<<<<< HEAD
                 if ($this->configCache['trackTime'] === true) {
+=======
+                if (PHP_CODESNIFFER_VERBOSITY > 2) {
+>>>>>>> Development
                     $timeTaken = (microtime(true) - $startTime);
                     if (isset($this->listenerTimes[$this->activeListener]) === false) {
                         $this->listenerTimes[$this->activeListener] = 0;
                     }
 
                     $this->listenerTimes[$this->activeListener] += $timeTaken;
+<<<<<<< HEAD
                 }
 
                 if (PHP_CODESNIFFER_VERBOSITY > 2) {
+=======
+
+>>>>>>> Development
                     $timeTaken = round(($timeTaken), 4);
                     echo "DONE in $timeTaken seconds".PHP_EOL;
                 }
@@ -552,6 +590,7 @@ class File
             }
         }
 
+<<<<<<< HEAD
         if ($annotationErrors !== []) {
             $error  = 'Encountered invalid inline phpcs:set annotations. Found:'.PHP_EOL;
             $error .= implode(PHP_EOL, $annotationErrors);
@@ -559,11 +598,18 @@ class File
             $this->addWarning($error, null, 'Internal.PropertyDoesNotExist');
         }
 
+=======
+>>>>>>> Development
         if (PHP_CODESNIFFER_VERBOSITY > 2) {
             echo "\t*** END TOKEN PROCESSING ***".PHP_EOL;
             echo "\t*** START SNIFF PROCESSING REPORT ***".PHP_EOL;
 
+<<<<<<< HEAD
             arsort($this->listenerTimes, SORT_NUMERIC);
+=======
+            asort($this->listenerTimes, SORT_NUMERIC);
+            $this->listenerTimes = array_reverse($this->listenerTimes, true);
+>>>>>>> Development
             foreach ($this->listenerTimes as $listener => $timeTaken) {
                 echo "\t$listener: ".round(($timeTaken), 4).' secs'.PHP_EOL;
             }
@@ -761,7 +807,11 @@ class File
 
 
     /**
+<<<<<<< HEAD
      * Records a warning against a specific line in the file.
+=======
+     * Records a warning against a specific token in the file.
+>>>>>>> Development
      *
      * @param string $warning  The error message.
      * @param int    $line     The line on which the warning occurred.
@@ -1239,6 +1289,7 @@ class File
 
 
     /**
+<<<<<<< HEAD
      * Returns the time taken processing this file for each invoked sniff.
      *
      * @return array
@@ -1251,6 +1302,8 @@ class File
 
 
     /**
+=======
+>>>>>>> Development
      * Returns the absolute filename of this file.
      *
      * @return string
@@ -1321,6 +1374,7 @@ class File
      *
      * <code>
      *   0 => array(
+<<<<<<< HEAD
      *         'name'                => string,        // The variable name.
      *         'token'               => integer,       // The stack pointer to the variable name.
      *         'content'             => string,        // The full content of the variable definition.
@@ -1340,6 +1394,27 @@ class File
      *                                                 // operator.
      *         'comma_token'         => integer|false, // The stack pointer to the comma after the param
      *                                                 // or FALSE if this is the last param.
+=======
+     *         'name'                => '$var',  // The variable name.
+     *         'token'               => integer, // The stack pointer to the variable name.
+     *         'content'             => string,  // The full content of the variable definition.
+     *         'has_attributes'      => boolean, // Does the parameter have one or more attributes attached ?
+     *         'pass_by_reference'   => boolean, // Is the variable passed by reference?
+     *         'reference_token'     => integer, // The stack pointer to the reference operator
+     *                                           // or FALSE if the param is not passed by reference.
+     *         'variable_length'     => boolean, // Is the param of variable length through use of `...` ?
+     *         'variadic_token'      => integer, // The stack pointer to the ... operator
+     *                                           // or FALSE if the param is not variable length.
+     *         'type_hint'           => string,  // The type hint for the variable.
+     *         'type_hint_token'     => integer, // The stack pointer to the start of the type hint
+     *                                           // or FALSE if there is no type hint.
+     *         'type_hint_end_token' => integer, // The stack pointer to the end of the type hint
+     *                                           // or FALSE if there is no type hint.
+     *         'nullable_type'       => boolean, // TRUE if the type is preceded by the nullability
+     *                                           // operator.
+     *         'comma_token'         => integer, // The stack pointer to the comma after the param
+     *                                           // or FALSE if this is the last param.
+>>>>>>> Development
      *        )
      * </code>
      *
@@ -1349,12 +1424,19 @@ class File
      *         'default_equal_token' => integer, // The stack pointer to the equals sign.
      *
      * Parameters declared using PHP 8 constructor property promotion, have these additional array indexes:
+<<<<<<< HEAD
      *         'property_visibility' => string,        // The property visibility as declared.
      *         'visibility_token'    => integer|false, // The stack pointer to the visibility modifier token
      *                                                 // or FALSE if the visibility is not explicitly declared.
      *         'property_readonly'   => boolean,       // TRUE if the readonly keyword was found.
      *         'readonly_token'      => integer,       // The stack pointer to the readonly modifier token.
      *                                                 // This index will only be set if the property is readonly.
+=======
+     *         'property_visibility' => string,  // The property visibility as declared.
+     *         'visibility_token'    => integer, // The stack pointer to the visibility modifier token.
+     *         'property_readonly'   => bool,    // TRUE if the readonly keyword was found.
+     *         'readonly_token'      => integer, // The stack pointer to the readonly modifier token.
+>>>>>>> Development
      *
      * @param int $stackPtr The position in the stack of the function token
      *                      to acquire the parameters for.
@@ -1513,7 +1595,10 @@ class File
             case T_TYPE_UNION:
             case T_TYPE_INTERSECTION:
             case T_FALSE:
+<<<<<<< HEAD
             case T_TRUE:
+=======
+>>>>>>> Development
             case T_NULL:
                 // Part of a type hint or default value.
                 if ($defaultStart === null) {
@@ -1573,6 +1658,7 @@ class File
                 $vars[$paramCount]['type_hint_end_token'] = $typeHintEndToken;
                 $vars[$paramCount]['nullable_type']       = $nullableType;
 
+<<<<<<< HEAD
                 if ($visibilityToken !== null || $readonlyToken !== null) {
                     $vars[$paramCount]['property_visibility'] = 'public';
                     $vars[$paramCount]['visibility_token']    = false;
@@ -1587,6 +1673,17 @@ class File
                         $vars[$paramCount]['property_readonly'] = true;
                         $vars[$paramCount]['readonly_token']    = $readonlyToken;
                     }
+=======
+                if ($visibilityToken !== null) {
+                    $vars[$paramCount]['property_visibility'] = $this->tokens[$visibilityToken]['content'];
+                    $vars[$paramCount]['visibility_token']    = $visibilityToken;
+                    $vars[$paramCount]['property_readonly']   = false;
+                }
+
+                if ($readonlyToken !== null) {
+                    $vars[$paramCount]['property_readonly'] = true;
+                    $vars[$paramCount]['readonly_token']    = $readonlyToken;
+>>>>>>> Development
                 }
 
                 if ($this->tokens[$i]['code'] === T_COMMA) {
@@ -1632,6 +1729,7 @@ class File
      * The format of the return value is:
      * <code>
      *   array(
+<<<<<<< HEAD
      *    'scope'                 => string,        // Public, private, or protected
      *    'scope_specified'       => boolean,       // TRUE if the scope keyword was found.
      *    'return_type'           => string,        // The return type of the method.
@@ -1645,6 +1743,21 @@ class File
      *    'is_final'              => boolean,       // TRUE if the final keyword was found.
      *    'is_static'             => boolean,       // TRUE if the static keyword was found.
      *    'has_body'              => boolean,       // TRUE if the method has a body
+=======
+     *    'scope'                 => 'public', // Public, private, or protected
+     *    'scope_specified'       => true,     // TRUE if the scope keyword was found.
+     *    'return_type'           => '',       // The return type of the method.
+     *    'return_type_token'     => integer,  // The stack pointer to the start of the return type
+     *                                         // or FALSE if there is no return type.
+     *    'return_type_end_token' => integer,  // The stack pointer to the end of the return type
+     *                                         // or FALSE if there is no return type.
+     *    'nullable_return_type'  => false,    // TRUE if the return type is preceded by the
+     *                                         // nullability operator.
+     *    'is_abstract'           => false,    // TRUE if the abstract keyword was found.
+     *    'is_final'              => false,    // TRUE if the final keyword was found.
+     *    'is_static'             => false,    // TRUE if the static keyword was found.
+     *    'has_body'              => false,    // TRUE if the method has a body
+>>>>>>> Development
      *   );
      * </code>
      *
@@ -1740,7 +1853,10 @@ class File
                 T_PARENT            => T_PARENT,
                 T_STATIC            => T_STATIC,
                 T_FALSE             => T_FALSE,
+<<<<<<< HEAD
                 T_TRUE              => T_TRUE,
+=======
+>>>>>>> Development
                 T_NULL              => T_NULL,
                 T_NAMESPACE         => T_NAMESPACE,
                 T_NS_SEPARATOR      => T_NS_SEPARATOR,
@@ -1807,6 +1923,7 @@ class File
      *
      * <code>
      *   array(
+<<<<<<< HEAD
      *    'scope'           => string,        // Public, private, or protected.
      *    'scope_specified' => boolean,       // TRUE if the scope was explicitly specified.
      *    'is_static'       => boolean,       // TRUE if the static keyword was found.
@@ -1818,6 +1935,19 @@ class File
      *                                        // or FALSE if there is no type.
      *    'nullable_type'   => boolean,       // TRUE if the type is preceded by the nullability
      *                                        // operator.
+=======
+     *    'scope'           => string,  // Public, private, or protected.
+     *    'scope_specified' => boolean, // TRUE if the scope was explicitly specified.
+     *    'is_static'       => boolean, // TRUE if the static keyword was found.
+     *    'is_readonly'     => boolean, // TRUE if the readonly keyword was found.
+     *    'type'            => string,  // The type of the var (empty if no type specified).
+     *    'type_token'      => integer, // The stack pointer to the start of the type
+     *                                  // or FALSE if there is no type.
+     *    'type_end_token'  => integer, // The stack pointer to the end of the type
+     *                                  // or FALSE if there is no type.
+     *    'nullable_type'   => boolean, // TRUE if the type is preceded by the nullability
+     *                                  // operator.
+>>>>>>> Development
      *   );
      * </code>
      *
@@ -1942,7 +2072,10 @@ class File
                 T_SELF              => T_SELF,
                 T_PARENT            => T_PARENT,
                 T_FALSE             => T_FALSE,
+<<<<<<< HEAD
                 T_TRUE              => T_TRUE,
+=======
+>>>>>>> Development
                 T_NULL              => T_NULL,
                 T_NAMESPACE         => T_NAMESPACE,
                 T_NS_SEPARATOR      => T_NS_SEPARATOR,
@@ -1995,9 +2128,14 @@ class File
      * The format of the return value is:
      * <code>
      *   array(
+<<<<<<< HEAD
      *    'is_abstract' => boolean, // TRUE if the abstract keyword was found.
      *    'is_final'    => boolean, // TRUE if the final keyword was found.
      *    'is_readonly' => boolean, // TRUE if the readonly keyword was found.
+=======
+     *    'is_abstract' => false, // true if the abstract keyword was found.
+     *    'is_final'    => false, // true if the final keyword was found.
+>>>>>>> Development
      *   );
      * </code>
      *
@@ -2017,7 +2155,10 @@ class File
         $valid = [
             T_FINAL       => T_FINAL,
             T_ABSTRACT    => T_ABSTRACT,
+<<<<<<< HEAD
             T_READONLY    => T_READONLY,
+=======
+>>>>>>> Development
             T_WHITESPACE  => T_WHITESPACE,
             T_COMMENT     => T_COMMENT,
             T_DOC_COMMENT => T_DOC_COMMENT,
@@ -2025,7 +2166,10 @@ class File
 
         $isAbstract = false;
         $isFinal    = false;
+<<<<<<< HEAD
         $isReadonly = false;
+=======
+>>>>>>> Development
 
         for ($i = ($stackPtr - 1); $i > 0; $i--) {
             if (isset($valid[$this->tokens[$i]['code']]) === false) {
@@ -2040,17 +2184,23 @@ class File
             case T_FINAL:
                 $isFinal = true;
                 break;
+<<<<<<< HEAD
 
             case T_READONLY:
                 $isReadonly = true;
                 break;
+=======
+>>>>>>> Development
             }
         }//end for
 
         return [
             'is_abstract' => $isAbstract,
             'is_final'    => $isFinal,
+<<<<<<< HEAD
             'is_readonly' => $isReadonly,
+=======
+>>>>>>> Development
         ];
 
     }//end getClassProperties()

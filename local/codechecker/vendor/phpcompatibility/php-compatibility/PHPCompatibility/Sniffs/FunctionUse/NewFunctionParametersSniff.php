@@ -45,7 +45,11 @@ class NewFunctionParametersSniff extends AbstractFunctionCallParameterSniff
      * @since 10.0.0 - The parameter offsets were changed from 0-based to 1-based.
      *               - The property was renamed from `$newFunctionParameters` to `$targetFunctions`.
      *
+<<<<<<< HEAD
      * @var array<string, array<int, array<string, bool|string>>>
+=======
+     * @var array
+>>>>>>> Development
      */
     protected $targetFunctions = [
         'array_filter' => [
@@ -950,6 +954,7 @@ class NewFunctionParametersSniff extends AbstractFunctionCallParameterSniff
                 '5.3'  => true,
             ],
         ],
+<<<<<<< HEAD
         'strrchr' => [
             3 => [
                 'name' => 'before_needle',
@@ -957,6 +962,8 @@ class NewFunctionParametersSniff extends AbstractFunctionCallParameterSniff
                 '8.3'  => true,
             ],
         ],
+=======
+>>>>>>> Development
         'strstr' => [
             3 => [
                 'name' => 'before_needle',

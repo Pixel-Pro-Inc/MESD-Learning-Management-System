@@ -111,6 +111,7 @@ $array = [
     name: $value
     ),
 ];
+<<<<<<< HEAD
 
 // phpcs:set Generic.Arrays.ArrayIndent indent 1
 
@@ -149,3 +150,5 @@ $var = [
   ];
 
 // phpcs:set Generic.Arrays.ArrayIndent indent 4
+=======
+>>>>>>> Development

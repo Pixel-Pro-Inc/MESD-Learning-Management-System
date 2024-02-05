@@ -73,7 +73,11 @@ class RemovedSerializableSniff extends Sniff
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
      * @var string[]
+=======
+     * @var array
+>>>>>>> Development
      */
     private $phpSerializableInterfaces = [
         'serializable',
@@ -112,7 +116,11 @@ class RemovedSerializableSniff extends Sniff
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {
@@ -342,8 +350,13 @@ class RemovedSerializableSniff extends Sniff
      * @param int                         $stackPtr  The position of the current token in the
      *                                               stack passed in $tokens.
      *
+<<<<<<< HEAD
      * @return array<string, bool> Array with two keys: '__serialize' and '__unserialize'.
      *                             The values are boolean indicators of whether the method declarations were found.
+=======
+     * @return array Array with two keys: '__serialize' and '__unserialize'.
+     *               The values are boolean indicators of whether the method declarations were found.
+>>>>>>> Development
      */
     private function findMagicMethods($phpcsFile, $stackPtr)
     {

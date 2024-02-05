@@ -64,7 +64,11 @@ class NewReturnTypeDeclarationsSniff extends Sniff
      *
      * @since 7.0.0
      *
+<<<<<<< HEAD
      * @var array<string, array<string, bool>>
+=======
+     * @var array(string => array(string => bool))
+>>>>>>> Development
      */
     protected $newTypes = [
         'int' => [
@@ -152,7 +156,11 @@ class NewReturnTypeDeclarationsSniff extends Sniff
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
      * @var array<string, true>
+=======
+     * @var array
+>>>>>>> Development
      */
     protected $unionOnlyTypes = [
         'false' => true,
@@ -164,7 +172,11 @@ class NewReturnTypeDeclarationsSniff extends Sniff
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
      * @var array<string, string> Key: string type name, value: PHP version in which the type was introduced.
+=======
+     * @var array Key: string type name, value: PHP version in which the type was introduced.
+>>>>>>> Development
      */
     protected $standAloneTypes = [
         'void'  => '7.1',
@@ -180,7 +192,11 @@ class NewReturnTypeDeclarationsSniff extends Sniff
      * @since 7.1.2  Now also checks based on the function and closure keywords.
      * @since 10.0.0 Now also checks PHP 7.4+ arrow functions.
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

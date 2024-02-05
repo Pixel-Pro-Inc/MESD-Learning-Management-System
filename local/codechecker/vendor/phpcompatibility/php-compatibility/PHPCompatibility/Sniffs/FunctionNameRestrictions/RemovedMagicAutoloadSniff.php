@@ -44,7 +44,11 @@ class RemovedMagicAutoloadSniff extends Sniff
      *
      * @since 8.1.0
      *
+<<<<<<< HEAD
      * @var array<int|string, int|string>
+=======
+     * @var array
+>>>>>>> Development
      */
     private $checkForScopes = [
         \T_NAMESPACE => \T_NAMESPACE,
@@ -55,7 +59,11 @@ class RemovedMagicAutoloadSniff extends Sniff
      *
      * @since 8.1.0
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

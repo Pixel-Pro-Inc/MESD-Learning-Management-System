@@ -6,14 +6,21 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer;
 
 use PHP_CodeSniffer\Exceptions\RuntimeException;
 use PHP_CodeSniffer\Util;
+<<<<<<< HEAD
 use stdClass;
+=======
+>>>>>>> Development
 
 class Ruleset
 {
@@ -47,7 +54,11 @@ class Ruleset
      * The key is the regular expression and the value is the type
      * of ignore pattern (absolute or relative).
      *
+<<<<<<< HEAD
      * @var array<string, array>
+=======
+     * @var array<string, string>
+>>>>>>> Development
      */
     public $ignorePatterns = [];
 
@@ -238,12 +249,25 @@ class Ruleset
     public function explain()
     {
         $sniffs = array_keys($this->sniffCodes);
+<<<<<<< HEAD
         sort($sniffs, (SORT_NATURAL | SORT_FLAG_CASE));
 
         $sniffCount = count($sniffs);
 
         // Add a dummy entry to the end so we loop one last time
         // and echo out the collected info about the last standard.
+=======
+        sort($sniffs);
+
+        ob_start();
+
+        $lastStandard = null;
+        $lastCount    = '';
+        $sniffCount   = count($sniffs);
+
+        // Add a dummy entry to the end so we loop
+        // one last time and clear the output buffer.
+>>>>>>> Development
         $sniffs[] = '';
 
         $summaryLine = PHP_EOL."The $this->name standard contains 1 sniff".PHP_EOL;
@@ -253,9 +277,13 @@ class Ruleset
 
         echo $summaryLine;
 
+<<<<<<< HEAD
         $lastStandard     = null;
         $lastCount        = 0;
         $sniffsInStandard = [];
+=======
+        ob_start();
+>>>>>>> Development
 
         foreach ($sniffs as $i => $sniff) {
             if ($i === $sniffCount) {
@@ -267,6 +295,7 @@ class Ruleset
                 }
             }
 
+<<<<<<< HEAD
             // Reached the first item in the next standard.
             // Echo out the info collected from the previous standard.
             if ($currentStandard !== $lastStandard) {
@@ -284,14 +313,41 @@ class Ruleset
                 $lastStandard     = $currentStandard;
                 $lastCount        = 0;
                 $sniffsInStandard = [];
+=======
+            if ($currentStandard !== $lastStandard) {
+                $sniffList = ob_get_contents();
+                ob_end_clean();
+
+                echo PHP_EOL.$lastStandard.' ('.$lastCount.' sniff';
+                if ($lastCount > 1) {
+                    echo 's';
+                }
+
+                echo ')'.PHP_EOL;
+                echo str_repeat('-', (strlen($lastStandard.$lastCount) + 10));
+                echo PHP_EOL;
+                echo $sniffList;
+
+                $lastStandard = $currentStandard;
+                $lastCount    = 0;
+>>>>>>> Development
 
                 if ($currentStandard === null) {
                     break;
                 }
+<<<<<<< HEAD
             }//end if
 
             $sniffsInStandard[] = $sniff;
             ++$lastCount;
+=======
+
+                ob_start();
+            }//end if
+
+            echo '  '.$sniff.PHP_EOL;
+            $lastCount++;
+>>>>>>> Development
         }//end foreach
 
     }//end explain()
@@ -958,11 +1014,14 @@ class Ruleset
             if (isset($rule->properties) === true
                 && $this->shouldProcessElement($rule->properties) === true
             ) {
+<<<<<<< HEAD
                 $propertyScope = 'standard';
                 if ($code === $ref || substr($ref, -9) === 'Sniff.php') {
                     $propertyScope = 'sniff';
                 }
 
+=======
+>>>>>>> Development
                 foreach ($rule->properties->property as $prop) {
                     if ($this->shouldProcessElement($prop) === false) {
                         continue;
@@ -983,9 +1042,15 @@ class Ruleset
                         $values = [];
                         if (isset($prop['extend']) === true
                             && (string) $prop['extend'] === 'true'
+<<<<<<< HEAD
                             && isset($this->ruleset[$code]['properties'][$name]['value']) === true
                         ) {
                             $values = $this->ruleset[$code]['properties'][$name]['value'];
+=======
+                            && isset($this->ruleset[$code]['properties'][$name]) === true
+                        ) {
+                            $values = $this->ruleset[$code]['properties'][$name];
+>>>>>>> Development
                         }
 
                         if (isset($prop->element) === true) {
@@ -1020,10 +1085,14 @@ class Ruleset
                             }
                         }//end if
 
+<<<<<<< HEAD
                         $this->ruleset[$code]['properties'][$name] = [
                             'value' => $values,
                             'scope' => $propertyScope,
                         ];
+=======
+                        $this->ruleset[$code]['properties'][$name] = $values;
+>>>>>>> Development
                         if (PHP_CODESNIFFER_VERBOSITY > 1) {
                             echo str_repeat("\t", $depth);
                             echo "\t\t=> array property \"$name\" set to \"$printValue\"";
@@ -1034,10 +1103,14 @@ class Ruleset
                             echo PHP_EOL;
                         }
                     } else {
+<<<<<<< HEAD
                         $this->ruleset[$code]['properties'][$name] = [
                             'value' => (string) $prop['value'],
                             'scope' => $propertyScope,
                         ];
+=======
+                        $this->ruleset[$code]['properties'][$name] = (string) $prop['value'];
+>>>>>>> Development
                         if (PHP_CODESNIFFER_VERBOSITY > 1) {
                             echo str_repeat("\t", $depth);
                             echo "\t\t=> property \"$name\" set to \"".(string) $prop['value'].'"';
@@ -1227,8 +1300,13 @@ class Ruleset
 
             // Set custom properties.
             if (isset($this->ruleset[$sniffCode]['properties']) === true) {
+<<<<<<< HEAD
                 foreach ($this->ruleset[$sniffCode]['properties'] as $name => $settings) {
                     $this->setSniffProperty($sniffClass, $name, $settings);
+=======
+                foreach ($this->ruleset[$sniffCode]['properties'] as $name => $value) {
+                    $this->setSniffProperty($sniffClass, $name, $value);
+>>>>>>> Development
                 }
             }
 
@@ -1295,6 +1373,7 @@ class Ruleset
      *
      * @param string $sniffClass The class name of the sniff.
      * @param string $name       The name of the property to change.
+<<<<<<< HEAD
      * @param array  $settings   Array with the new value of the property and the scope of the property being set.
      *
      * @return void
@@ -1304,12 +1383,20 @@ class Ruleset
      *                                                      dynamic properties.
      */
     public function setSniffProperty($sniffClass, $name, $settings)
+=======
+     * @param string $value      The new value of the property.
+     *
+     * @return void
+     */
+    public function setSniffProperty($sniffClass, $name, $value)
+>>>>>>> Development
     {
         // Setting a property for a sniff we are not using.
         if (isset($this->sniffs[$sniffClass]) === false) {
             return;
         }
 
+<<<<<<< HEAD
         $name         = trim($name);
         $propertyName = $name;
         if (substr($propertyName, -2) === '[]') {
@@ -1365,6 +1452,9 @@ class Ruleset
 
         $value = $settings['value'];
 
+=======
+        $name = trim($name);
+>>>>>>> Development
         if (is_string($value) === true) {
             $value = trim($value);
         }
@@ -1379,7 +1469,11 @@ class Ruleset
         } else if ($value === 'false') {
             $value = false;
         } else if (substr($name, -2) === '[]') {
+<<<<<<< HEAD
             $name   = $propertyName;
+=======
+            $name   = substr($name, 0, -2);
+>>>>>>> Development
             $values = [];
             if ($value !== null) {
                 foreach (explode(',', $value) as $val) {
@@ -1395,7 +1489,11 @@ class Ruleset
             $value = $values;
         }
 
+<<<<<<< HEAD
         $sniffObject->$name = $value;
+=======
+        $this->sniffs[$sniffClass]->$name = $value;
+>>>>>>> Development
 
     }//end setSniffProperty()
 

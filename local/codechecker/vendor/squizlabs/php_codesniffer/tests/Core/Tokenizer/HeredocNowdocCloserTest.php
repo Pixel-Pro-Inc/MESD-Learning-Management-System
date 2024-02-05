@@ -4,7 +4,11 @@
  *
  * @author    Juliette Reinders Folmer <phpcs_nospam@adviesenzo.nl>
  * @copyright 2020 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Tests\Core\Tokenizer;
@@ -29,11 +33,17 @@ class HeredocNowdocCloserTest extends AbstractMethodUnitTest
      * {@internal This is a near duplicate of the original method. Only difference is that
      * tab replacement is enabled for this test.}
      *
+<<<<<<< HEAD
      * @beforeClass
      *
      * @return void
      */
     public static function initializeFile()
+=======
+     * @return void
+     */
+    public static function setUpBeforeClass()
+>>>>>>> Development
     {
         $config            = new Config();
         $config->standards = ['PSR1'];
@@ -53,7 +63,11 @@ class HeredocNowdocCloserTest extends AbstractMethodUnitTest
         self::$phpcsFile = new DummyFile($contents, $ruleset, $config);
         self::$phpcsFile->process();
 
+<<<<<<< HEAD
     }//end initializeFile()
+=======
+    }//end setUpBeforeClass()
+>>>>>>> Development
 
 
     /**

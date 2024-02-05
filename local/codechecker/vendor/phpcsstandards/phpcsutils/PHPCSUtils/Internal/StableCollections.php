@@ -46,7 +46,11 @@ final class StableCollections
      *
      * @since 1.0.2
      *
+<<<<<<< HEAD
      * @var array<int|string, int|string>
+=======
+     * @var array <int|string> => <int|string>
+>>>>>>> Development
      */
     public static $shortArrayListOpenTokensBC = [
         \T_OPEN_SHORT_ARRAY    => \T_OPEN_SHORT_ARRAY,
@@ -64,7 +68,11 @@ final class StableCollections
      *
      * @since 1.0.2
      *
+<<<<<<< HEAD
      * @var array<int|string, int|string>
+=======
+     * @var array <int|string> => <int|string>
+>>>>>>> Development
      */
     public static $shortArrayListTokensBC = [
         \T_OPEN_SHORT_ARRAY     => \T_OPEN_SHORT_ARRAY,

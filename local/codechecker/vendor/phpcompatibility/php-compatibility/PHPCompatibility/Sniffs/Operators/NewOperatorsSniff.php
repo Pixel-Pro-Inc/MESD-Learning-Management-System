@@ -42,7 +42,11 @@ class NewOperatorsSniff extends Sniff
      *
      * @since 5.6
      *
+<<<<<<< HEAD
      * @var array<string, array<string, bool|string>>
+=======
+     * @var array(string => array(string => bool|string))
+>>>>>>> Development
      */
     protected $newOperators = [
         'T_POW' => [
@@ -82,7 +86,11 @@ class NewOperatorsSniff extends Sniff
      *
      * @since 5.6
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

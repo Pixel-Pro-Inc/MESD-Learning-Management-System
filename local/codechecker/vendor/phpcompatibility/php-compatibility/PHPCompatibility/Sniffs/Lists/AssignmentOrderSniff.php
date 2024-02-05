@@ -39,7 +39,11 @@ class AssignmentOrderSniff extends Sniff
      *
      * @since 9.0.0
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {
@@ -101,8 +105,13 @@ class AssignmentOrderSniff extends Sniff
      * @param \PHP_CodeSniffer\Files\File $phpcsFile The file being scanned.
      * @param int                         $stackPtr  The position of a list-like token.
      *
+<<<<<<< HEAD
      * @return array<int, string> Array with the variables being assigned to as values and the corresponding
      *                            stack pointer to the start of each variable as keys.
+=======
+     * @return array Array with the variables being assigned to as values and the corresponding
+     *               stack pointer to the start of each variable as keys.
+>>>>>>> Development
      *
      * @throws \PHP_CodeSniffer\Exceptions\RuntimeException If the specified $stackPtr is not of
      *                                                      type T_LIST, T_OPEN_SHORT_ARRAY or

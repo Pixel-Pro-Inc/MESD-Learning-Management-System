@@ -4,7 +4,11 @@
  *
  * @author    Manuel Pichler <mapi@manuel-pichler.de>
  * @copyright 2007-2014 Manuel Pichler. All rights reserved.
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Generic\Tests\CodeAnalysis;
@@ -45,8 +49,11 @@ class UnnecessaryFinalModifierUnitTest extends AbstractSniffUnitTest
             12 => 1,
             15 => 1,
             18 => 1,
+<<<<<<< HEAD
             32 => 1,
             33 => 1,
+=======
+>>>>>>> Development
         ];
 
     }//end getWarningList()

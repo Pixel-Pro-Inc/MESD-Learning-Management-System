@@ -43,7 +43,11 @@ class ValidIntegersSniff extends Sniff
      *
      * @since 7.0.3
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {
@@ -160,9 +164,15 @@ class ValidIntegersSniff extends Sniff
      *
      * @since 7.0.3
      *
+<<<<<<< HEAD
      * @param array                     $tokens     Token stack.
      * @param int                       $stackPtr   The current position in the token stack.
      * @param array<string, string|int> $numberInfo The information on the number to examine
+=======
+     * @param array  $tokens     Token stack.
+     * @param int    $stackPtr   The current position in the token stack.
+     * @param string $numberInfo The information on the number to examine
+>>>>>>> Development
      *
      * @return string|bool The invalid octal as a string or false when this is not an invalid octal.
      */

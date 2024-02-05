@@ -41,6 +41,7 @@ $callToNamespacedFunction = namespace\STR_REPEAT($a, 2); // Could potentially be
 $filePath = new \File($path);
 
 $count = $object?->Count();
+<<<<<<< HEAD
 
 class AttributesShouldBeIgnored
 {
@@ -48,3 +49,5 @@ class AttributesShouldBeIgnored
     public function foo(): void
     {}
 }
+=======
+>>>>>>> Development

@@ -5,7 +5,11 @@ Interface MyInterface {}
 Trait MyTrait {}
 Enum MyEnum IMPLEMENTS Colorful {}
 
+<<<<<<< HEAD
 ReadOnly class MyClass
+=======
+class MyClass
+>>>>>>> Development
 {
     Var $myVar = null;
     Const myConst = true;

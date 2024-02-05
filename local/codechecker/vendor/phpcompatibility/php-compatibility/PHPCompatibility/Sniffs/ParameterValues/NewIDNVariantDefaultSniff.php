@@ -39,7 +39,11 @@ class NewIDNVariantDefaultSniff extends AbstractFunctionCallParameterSniff
      *
      * @since 9.3.0
      *
+<<<<<<< HEAD
      * @var array<string, array<string, int|string>>
+=======
+     * @var array
+>>>>>>> Development
      */
     protected $targetFunctions = [
         'idn_to_ascii' => [

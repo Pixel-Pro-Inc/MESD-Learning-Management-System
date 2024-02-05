@@ -40,7 +40,11 @@ class ForbiddenNegativeBitshiftSniff extends Sniff
      *
      * @since 8.2.0
      *
+<<<<<<< HEAD
      * @var array<int|string, true>
+=======
+     * @var array
+>>>>>>> Development
      */
     private $inclusiveStopPoints = [
         \T_COLON        => true,
@@ -55,7 +59,11 @@ class ForbiddenNegativeBitshiftSniff extends Sniff
      * @since 7.0.0
      * @since 8.2.0 Now registers all bitshift tokens, not just bitshift right (`T_SR`).
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

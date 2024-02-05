@@ -21,7 +21,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Sniffs;
@@ -42,7 +46,11 @@ abstract class AbstractScopeSniff implements Sniff
     /**
      * The type of scope opener tokens that this test wishes to listen to.
      *
+<<<<<<< HEAD
      * @var array<int|string>
+=======
+     * @var string
+>>>>>>> Development
      */
     private $scopeTokens = [];
 
@@ -148,6 +156,11 @@ abstract class AbstractScopeSniff implements Sniff
             return min($skipTokens);
         }
 
+<<<<<<< HEAD
+=======
+        return;
+
+>>>>>>> Development
     }//end process()
 
 

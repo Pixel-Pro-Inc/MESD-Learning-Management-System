@@ -34,7 +34,11 @@ class NewPackFormatSniff extends AbstractFunctionCallParameterSniff
      *
      * @since 9.0.0
      *
+<<<<<<< HEAD
      * @var array<string, true>
+=======
+     * @var array
+>>>>>>> Development
      */
     protected $targetFunctions = [
         'pack' => true,
@@ -45,7 +49,11 @@ class NewPackFormatSniff extends AbstractFunctionCallParameterSniff
      *
      * @since 9.0.0
      *
+<<<<<<< HEAD
      * @var array<string, array<string, bool>> Regex pattern => Version array.
+=======
+     * @var array Regex pattern => Version array.
+>>>>>>> Development
      */
     protected $newFormats = [
         '`([Z])`'    => [

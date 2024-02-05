@@ -4,7 +4,11 @@
  *
  * @author    Juliette Reinders Folmer <phpcs_nospam@adviesenzo.nl>
  * @copyright 2018 Juliette Reinders Folmer. All rights reserved.
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Generic\Tests\WhiteSpace;
@@ -27,6 +31,7 @@ class IncrementDecrementSpacingUnitTest extends AbstractSniffUnitTest
      */
     public function getErrorList($testFile='IncrementDecrementSpacingUnitTest.inc')
     {
+<<<<<<< HEAD
         $errors = [
             5  => 1,
             6  => 1,
@@ -53,6 +58,21 @@ class IncrementDecrementSpacingUnitTest extends AbstractSniffUnitTest
 
         case 'IncrementDecrementSpacingUnitTest.js':
             return $errors;
+=======
+        switch ($testFile) {
+        case 'IncrementDecrementSpacingUnitTest.inc':
+        case 'IncrementDecrementSpacingUnitTest.js':
+            return [
+                5  => 1,
+                6  => 1,
+                8  => 1,
+                10 => 1,
+                13 => 1,
+                14 => 1,
+                16 => 1,
+                17 => 1,
+            ];
+>>>>>>> Development
 
         default:
             return [];

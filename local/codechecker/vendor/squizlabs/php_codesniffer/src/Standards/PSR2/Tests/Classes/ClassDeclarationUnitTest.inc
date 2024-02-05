@@ -239,6 +239,7 @@ C8
 
 foo(new class {
 });
+<<<<<<< HEAD
 
 readonly
 class Test
@@ -257,3 +258,5 @@ if (!class_exists('IndentedDeclaration')) {
 
     }
 }
+=======
+>>>>>>> Development

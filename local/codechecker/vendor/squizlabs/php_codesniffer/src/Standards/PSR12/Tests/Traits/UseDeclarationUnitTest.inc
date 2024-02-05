@@ -54,7 +54,11 @@ class ClassName7
 
 class ClassName8
 {
+<<<<<<< HEAD
     use   A ,  B,
+=======
+    use A ,  B,
+>>>>>>> Development
     C
     {
 

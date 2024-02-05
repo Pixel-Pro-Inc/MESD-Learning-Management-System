@@ -58,6 +58,7 @@ $a = new class {
     }
 };
 
+<<<<<<< HEAD
 // Multiple statements are still one line of unreachable code, so should get
 // only one complaint from this sniff. (Well, technically two here since there
 // are two 'exit()' statements above, so one complaint from each of those. So,
@@ -70,4 +71,6 @@ echo 'one' . 'two'
     . 'three' . 'four'
     . 'five' . 'six';
 
+=======
+>>>>>>> Development
 interface MyInterface {

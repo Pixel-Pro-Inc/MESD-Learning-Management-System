@@ -49,7 +49,11 @@ class RemovedIniDirectivesSniff extends AbstractFunctionCallParameterSniff
      * @since 10.0.0 Moved from the base `Sniff` class to this sniff and renamed from
      *               `$iniFunctions` to `$targetFunctions`.
      *
+<<<<<<< HEAD
      * @var array<string, array<string, int|string>>
+=======
+     * @var array
+>>>>>>> Development
      */
     protected $targetFunctions = [
         'ini_get' => [
@@ -71,7 +75,11 @@ class RemovedIniDirectivesSniff extends AbstractFunctionCallParameterSniff
      * @since 5.5
      * @since 7.0.3 Support for 'alternative' has been added.
      *
+<<<<<<< HEAD
      * @var array<string, array<string, bool|string>>
+=======
+     * @var array(string)
+>>>>>>> Development
      */
     protected $deprecatedIniDirectives = [
         'crack.default_dictionary' => [

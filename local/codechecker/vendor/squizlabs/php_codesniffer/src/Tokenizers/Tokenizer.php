@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Tokenizers;
@@ -27,7 +31,11 @@ abstract class Tokenizer
      *
      * @var string
      */
+<<<<<<< HEAD
     protected $eolChar = '';
+=======
+    protected $eolChar = [];
+>>>>>>> Development
 
     /**
      * A token-based representation of the content.
@@ -60,7 +68,11 @@ abstract class Tokenizer
     /**
      * Known lengths of tokens.
      *
+<<<<<<< HEAD
      * @var array<string|int, int>
+=======
+     * @var array<int, int>
+>>>>>>> Development
      */
     public $knownLengths = [];
 

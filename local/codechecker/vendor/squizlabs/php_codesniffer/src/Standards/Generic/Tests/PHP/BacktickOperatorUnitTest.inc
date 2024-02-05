@@ -1,5 +1,6 @@
 <?php
 $output = `ls -al`;
+<<<<<<< HEAD
 
 // Testing an invalid phpcs:set annotations.
 // This test is unrelated to this sniff, but the issue needs a sniff to be tested.
@@ -7,3 +8,5 @@ $output = `ls -al`;
 
 // Make sure errors after an incorrect annotation are still being thrown.
 $output = `ls -al`;
+=======
+>>>>>>> Development

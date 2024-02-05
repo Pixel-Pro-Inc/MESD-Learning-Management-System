@@ -36,9 +36,12 @@ class TypeIntersection
     /* testTypeIntersectionPropertyWithReadOnlyKeyword */
     protected readonly Foo&Bar $fooBar;
 
+<<<<<<< HEAD
     /* testTypeIntersectionPropertyWithStaticKeyword */
     static Foo&Bar $obj;
 
+=======
+>>>>>>> Development
     public function paramTypes(
         /* testTypeIntersectionParam1 */
         Foo&Bar $paramA /* testBitwiseAndParamDefaultValue */ = CONSTANT_A & CONSTANT_B,

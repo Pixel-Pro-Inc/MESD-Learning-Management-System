@@ -36,7 +36,11 @@ class ForbiddenToStringParametersSniff extends Sniff
      *
      * @since 9.2.0
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

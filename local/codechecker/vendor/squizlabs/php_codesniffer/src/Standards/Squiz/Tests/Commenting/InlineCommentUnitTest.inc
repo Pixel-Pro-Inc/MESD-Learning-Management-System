@@ -173,6 +173,7 @@ enum MyEnum {
 
 }
 
+<<<<<<< HEAD
 /**
  * Comment should be ignored.
  *
@@ -186,6 +187,8 @@ readonly class MyClass
     readonly $property = 10;
 }
 
+=======
+>>>>>>> Development
 /*
  * N.B.: The below test line must be the last test in the file.
  * Testing that a new line after an inline comment when it's the last non-whitespace

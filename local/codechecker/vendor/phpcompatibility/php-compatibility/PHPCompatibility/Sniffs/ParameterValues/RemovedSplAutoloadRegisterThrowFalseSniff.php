@@ -36,7 +36,11 @@ class RemovedSplAutoloadRegisterThrowFalseSniff extends AbstractFunctionCallPara
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
      * @var array<string, true>
+=======
+     * @var array
+>>>>>>> Development
      */
     protected $targetFunctions = [
         'spl_autoload_register' => true,

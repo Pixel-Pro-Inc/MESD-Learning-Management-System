@@ -4,14 +4,21 @@
  *
  * @author    Sertan Danis <sdanis@squiz.net>
  * @copyright 2006-2019 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Generic\Sniffs\PHP;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
+<<<<<<< HEAD
 use PHP_CodeSniffer\Util\Tokens;
+=======
+>>>>>>> Development
 
 class RequireStrictTypesSniff implements Sniff
 {
@@ -41,6 +48,7 @@ class RequireStrictTypesSniff implements Sniff
     public function process(File $phpcsFile, $stackPtr)
     {
         $tokens  = $phpcsFile->getTokens();
+<<<<<<< HEAD
         $declare = $phpcsFile->findNext(T_DECLARE, ($stackPtr + 1));
 
         $found = false;
@@ -73,10 +81,26 @@ class RequireStrictTypesSniff implements Sniff
                 $next = $phpcsFile->findNext(T_COMMA, ($next + 1), $tokens[$declare]['parenthesis_closer']);
             } while ($next !== false && $next < $tokens[$declare]['parenthesis_closer']);
         }//end if
+=======
+        $declare = $phpcsFile->findNext(T_DECLARE, $stackPtr);
+        $found   = false;
+
+        if ($declare !== false) {
+            $nextString = $phpcsFile->findNext(T_STRING, $declare);
+
+            if ($nextString !== false) {
+                if (strtolower($tokens[$nextString]['content']) === 'strict_types') {
+                    // There is a strict types declaration.
+                    $found = true;
+                }
+            }
+        }
+>>>>>>> Development
 
         if ($found === false) {
             $error = 'Missing required strict_types declaration';
             $phpcsFile->addError($error, $stackPtr, 'MissingDeclaration');
+<<<<<<< HEAD
 
             return $phpcsFile->numTokens;
         }
@@ -96,6 +120,8 @@ class RequireStrictTypesSniff implements Sniff
             if ($fix === true) {
                 $phpcsFile->fixer->replaceToken($valuePtr, '1');
             }
+=======
+>>>>>>> Development
         }
 
         // Skip the rest of the file so we don't pick up additional

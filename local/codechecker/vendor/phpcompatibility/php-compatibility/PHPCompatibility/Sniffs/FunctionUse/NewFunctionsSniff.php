@@ -45,7 +45,11 @@ class NewFunctionsSniff extends Sniff
      *              but that sniff is no longer being extended.
      * @since 7.0.8 Renamed from `$forbiddenFunctions` to the more descriptive `$newFunctions`.
      *
+<<<<<<< HEAD
      * @var array<string, array<string, bool|string>>
+=======
+     * @var array(string => array(string => bool))
+>>>>>>> Development
      */
     protected $newFunctions = [
         'class_implements' => [
@@ -4938,6 +4942,7 @@ class NewFunctionsSniff extends Sniff
             '8.3'       => true,
             'extension' => 'mbstring',
         ],
+<<<<<<< HEAD
         'pg_set_error_context_visibility' => [
             '8.2'       => false,
             '8.3'       => true,
@@ -4988,6 +4993,8 @@ class NewFunctionsSniff extends Sniff
             '8.3'       => true,
             'extension' => 'sockets',
         ],
+=======
+>>>>>>> Development
     ];
 
 
@@ -4996,7 +5003,11 @@ class NewFunctionsSniff extends Sniff
      *
      * @since 5.6
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

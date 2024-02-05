@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Generic\Tests\Files;
@@ -30,6 +34,7 @@ class InlineHTMLUnitTest extends AbstractSniffUnitTest
         switch ($testFile) {
         case 'InlineHTMLUnitTest.3.inc':
             return [4 => 1];
+<<<<<<< HEAD
 
         case 'InlineHTMLUnitTest.4.inc':
             return [1 => 1];
@@ -39,6 +44,18 @@ class InlineHTMLUnitTest extends AbstractSniffUnitTest
 
         default:
             return [];
+=======
+            break;
+        case 'InlineHTMLUnitTest.4.inc':
+            return [1 => 1];
+            break;
+        case 'InlineHTMLUnitTest.7.inc':
+            return [1 => 1];
+            break;
+        default:
+            return [];
+            break;
+>>>>>>> Development
         }//end switch
 
     }//end getErrorList()

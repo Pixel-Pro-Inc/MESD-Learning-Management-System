@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Squiz\Tests\Commenting;
@@ -48,7 +52,12 @@ class FunctionCommentUnitTest extends AbstractSniffUnitTest
             138  => 4,
             139  => 4,
             143  => 2,
+<<<<<<< HEAD
             155  => 1,
+=======
+            152  => 1,
+            155  => 2,
+>>>>>>> Development
             159  => 1,
             166  => 1,
             173  => 1,
@@ -115,6 +124,7 @@ class FunctionCommentUnitTest extends AbstractSniffUnitTest
             1004 => 2,
             1006 => 1,
             1029 => 1,
+<<<<<<< HEAD
             1053 => 1,
             1058 => 2,
             1069 => 1,
@@ -132,6 +142,8 @@ class FunctionCommentUnitTest extends AbstractSniffUnitTest
             1123 => 1,
             1124 => 1,
             1125 => 1,
+=======
+>>>>>>> Development
         ];
 
         // Scalar type hints only work from PHP 7 onwards.
@@ -147,16 +159,23 @@ class FunctionCommentUnitTest extends AbstractSniffUnitTest
             $errors[575]  = 2;
             $errors[627]  = 1;
             $errors[1002] = 1;
+<<<<<<< HEAD
             $errors[1075] = 6;
             $errors[1089] = 3;
             $errors[1107] = 8;
             $errors[1129] = 3;
+=======
+>>>>>>> Development
         } else {
             $errors[729] = 4;
             $errors[740] = 2;
             $errors[752] = 2;
             $errors[982] = 1;
+<<<<<<< HEAD
         }//end if
+=======
+        }
+>>>>>>> Development
 
         // Object type hints only work from PHP 7.2 onwards.
         if (PHP_VERSION_ID >= 70200) {

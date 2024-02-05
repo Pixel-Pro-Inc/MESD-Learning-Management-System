@@ -41,7 +41,11 @@ class NewNullableTypesSniff extends Sniff
      * @since 7.0.7
      * @since 10.0.0 Allows for PHP 7.4+ arrow functions.
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

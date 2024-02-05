@@ -37,7 +37,11 @@ class RemovedNewReferenceSniff extends Sniff
      *
      * @since 5.5
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

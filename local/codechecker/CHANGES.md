@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Changes in version 5.0.3 (20231219) - Bumping bumps
 ---------------------------------------------------
 - Bundled dependencies updated:
@@ -7,6 +8,8 @@ Changes in version 5.0.3 (20231219) - Bumping bumps
   - PHPCS Utils updated to 1.0.9.
   - Moodle CS updated to v3.3.12.
 
+=======
+>>>>>>> Development
 Changes in version 5.0.2 (20231129) - Mainly main
 -------------------------------------------------
 - This repository has moved its default branch [from "master" to "main"](https://github.com/moodlehq/moodle-local_codechecker/issues/225).
@@ -14,6 +17,10 @@ Changes in version 5.0.2 (20231129) - Mainly main
 - Bundled dependencies updated:
   - [moodle-cs](https://github.com/moodlehq/moodle-cs) updated to [v3.3.11](https://github.com/moodlehq/moodle-cs/releases/tag/v3.3.11).
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> Development
 Changes in version 5.0.1 (20231020) - Daddy's birthday
 ------------------------------------------------------
 - Added `MOODLE_403_STABLE` tests.

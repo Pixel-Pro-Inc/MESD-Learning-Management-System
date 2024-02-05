@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Util;
@@ -41,6 +45,7 @@ class Timing
 
 
     /**
+<<<<<<< HEAD
      * Get the duration of the run up to "now".
      *
      * @return int Duration in microseconds.
@@ -86,6 +91,8 @@ class Timing
 
 
     /**
+=======
+>>>>>>> Development
      * Print information about the run.
      *
      * @param boolean $force If TRUE, prints the output even if it has
@@ -105,11 +112,31 @@ class Timing
             return;
         }
 
+<<<<<<< HEAD
         $duration = self::getDuration();
         $duration = self::getHumanReadableDuration($duration);
 
         $mem = round((memory_get_peak_usage(true) / (1024 * 1024)), 2).'MB';
         echo "Time: $duration; Memory: $mem".PHP_EOL.PHP_EOL;
+=======
+        $time = ((microtime(true) - self::$startTime) * 1000);
+
+        if ($time > 60000) {
+            $mins = floor($time / 60000);
+            $secs = round((fmod($time, 60000) / 1000), 2);
+            $time = $mins.' mins';
+            if ($secs !== 0) {
+                $time .= ", $secs secs";
+            }
+        } else if ($time > 1000) {
+            $time = round(($time / 1000), 2).' secs';
+        } else {
+            $time = round($time).'ms';
+        }
+
+        $mem = round((memory_get_peak_usage(true) / (1024 * 1024)), 2).'MB';
+        echo "Time: $time; Memory: $mem".PHP_EOL.PHP_EOL;
+>>>>>>> Development
 
         self::$printed = true;
 

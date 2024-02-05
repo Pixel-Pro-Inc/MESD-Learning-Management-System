@@ -36,7 +36,11 @@ class NewAssertCustomExceptionSniff extends AbstractFunctionCallParameterSniff
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
      * @var array<string, true>
+=======
+     * @var array
+>>>>>>> Development
      */
     protected $targetFunctions = [
         'assert' => true,

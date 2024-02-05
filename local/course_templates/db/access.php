@@ -33,7 +33,11 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW,
             'coursecreator' => CAP_ALLOW,
+<<<<<<< HEAD
         )
+=======
+        ),
+>>>>>>> Development
     ),
     'local/course_templates:edit' => array(
         'captype' => 'write',
@@ -42,6 +46,10 @@ $capabilities = array(
             'teacher' => CAP_ALLOW,
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW,
+<<<<<<< HEAD
         )
+=======
+        ),
+>>>>>>> Development
     ),
 );

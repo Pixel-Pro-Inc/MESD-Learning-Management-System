@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2019 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\PSR12\Sniffs\Files;
@@ -44,6 +48,7 @@ class OpenTagSniff implements Sniff
             return $phpcsFile->numTokens;
         }
 
+<<<<<<< HEAD
         $tokens = $phpcsFile->getTokens();
         $next   = $phpcsFile->findNext(T_WHITESPACE, ($stackPtr + 1), null, true);
         if ($next === false) {
@@ -56,16 +61,34 @@ class OpenTagSniff implements Sniff
             return $phpcsFile->numTokens;
         }
 
+=======
+>>>>>>> Development
         $next = $phpcsFile->findNext(T_INLINE_HTML, 0);
         if ($next !== false) {
             // This rule only applies to PHP-only files.
             return $phpcsFile->numTokens;
         }
 
+<<<<<<< HEAD
         $error = 'Opening PHP tag must be on a line by itself';
         $fix   = $phpcsFile->addFixableError($error, $stackPtr, 'NotAlone');
         if ($fix === true) {
             $phpcsFile->fixer->addNewline($stackPtr);
+=======
+        $tokens = $phpcsFile->getTokens();
+        $next   = $phpcsFile->findNext(T_WHITESPACE, ($stackPtr + 1), null, true);
+        if ($next === false) {
+            // Empty file.
+            return;
+        }
+
+        if ($tokens[$next]['line'] === $tokens[$stackPtr]['line']) {
+            $error = 'Opening PHP tag must be on a line by itself';
+            $fix   = $phpcsFile->addFixableError($error, $stackPtr, 'NotAlone');
+            if ($fix === true) {
+                $phpcsFile->fixer->addNewline($stackPtr);
+            }
+>>>>>>> Development
         }
 
         return $phpcsFile->numTokens;

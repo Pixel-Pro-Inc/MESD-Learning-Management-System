@@ -38,7 +38,11 @@ class NewFlexibleHeredocNowdocSniff extends Sniff
      *
      * @since 9.0.0
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {
@@ -47,7 +51,11 @@ class NewFlexibleHeredocNowdocSniff extends Sniff
             \T_END_NOWDOC,
         ];
 
+<<<<<<< HEAD
         if (\PHP_VERSION_ID < 70300) {
+=======
+        if (\version_compare(\PHP_VERSION_ID, '70299', '>') === false) {
+>>>>>>> Development
             // Start identifier of a PHP 7.3 flexible heredoc/nowdoc.
             $targets[] = \T_STRING;
         }
@@ -99,7 +107,11 @@ class NewFlexibleHeredocNowdocSniff extends Sniff
         $trailingError     = 'Having code - other than a semi-colon or new line - after the closing marker of a heredoc/nowdoc is not supported in PHP 7.2 or earlier.';
         $trailingErrorCode = 'ClosingMarkerNoNewLine';
 
+<<<<<<< HEAD
         if (\PHP_VERSION_ID >= 70300) {
+=======
+        if (\version_compare(\PHP_VERSION_ID, '70299', '>') === true) {
+>>>>>>> Development
             /*
              * Check for indented closing marker.
              */
@@ -185,7 +197,11 @@ class NewFlexibleHeredocNowdocSniff extends Sniff
         $error     = 'The body of a heredoc/nowdoc can not contain the heredoc/nowdoc closing marker as text at the start of a line since PHP 7.3.';
         $errorCode = 'ClosingMarkerNoNewLine';
 
+<<<<<<< HEAD
         if (\PHP_VERSION_ID >= 70300) {
+=======
+        if (\version_compare(\PHP_VERSION_ID, '70299', '>') === true) {
+>>>>>>> Development
             $nextNonWhitespace = $phpcsFile->findNext(\T_WHITESPACE, ($stackPtr + 1), null, true, null, true);
             if ($nextNonWhitespace === false
                 || $tokens[$nextNonWhitespace]['code'] === \T_SEMICOLON

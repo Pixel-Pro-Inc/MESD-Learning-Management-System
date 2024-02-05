@@ -4,7 +4,11 @@
  *
  * @author    Sertan Danis <sdanis@squiz.net>
  * @copyright 2006-2019 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Generic\Tests\PHP;
@@ -28,6 +32,7 @@ class RequireStrictTypesUnitTest extends AbstractSniffUnitTest
     public function getErrorList($testFile='')
     {
         switch ($testFile) {
+<<<<<<< HEAD
         case 'RequireStrictTypesUnitTest.2.inc':
         case 'RequireStrictTypesUnitTest.5.inc':
         case 'RequireStrictTypesUnitTest.6.inc':
@@ -38,12 +43,22 @@ class RequireStrictTypesUnitTest extends AbstractSniffUnitTest
             return [];
         }
 
+=======
+        case 'RequireStrictTypesUnitTest.1.inc':
+            return [];
+            break;
+        }
+
+        return [1 => 1];
+
+>>>>>>> Development
     }//end getErrorList()
 
 
     /**
      * Returns the lines where warnings should occur.
      *
+<<<<<<< HEAD
      * @param string $testFile The name of the file being tested.
      *
      * @return array<int, int>
@@ -60,6 +75,16 @@ class RequireStrictTypesUnitTest extends AbstractSniffUnitTest
         default:
             return [];
         }
+=======
+     * The key of the array should represent the line number and the value
+     * should represent the number of warnings that should occur on that line.
+     *
+     * @return array<int, int>
+     */
+    public function getWarningList()
+    {
+        return [];
+>>>>>>> Development
 
     }//end getWarningList()
 

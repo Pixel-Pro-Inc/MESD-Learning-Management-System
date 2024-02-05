@@ -48,7 +48,11 @@ class OptionalToRequiredFunctionParametersSniff extends AbstractFunctionCallPara
      *                 compatibility with the `AbstractFunctionCallParameterSniff` class.
      *               - The parameter offsets were changed from 0-based to 1-based.
      *
+<<<<<<< HEAD
      * @var array<string, array<int, array<string, bool|string>>>
+=======
+     * @var array
+>>>>>>> Development
      */
     protected $targetFunctions = [
         'crypt' => [

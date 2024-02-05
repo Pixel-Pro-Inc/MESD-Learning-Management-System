@@ -131,6 +131,7 @@ class Space_At_end
 class AllGood
 {
 }
+<<<<<<< HEAD
 
 /**
  * Docblock
@@ -143,3 +144,5 @@ abstract readonly class AbstractReadonlyWithDocblock {}
 readonly class ReadonlyWrongStyle {}
 
 readonly final class ReadonlyFinalWithoutDocblock {}
+=======
+>>>>>>> Development

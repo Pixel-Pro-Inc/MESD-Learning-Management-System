@@ -36,7 +36,11 @@ class NewDynamicAccessToStaticSniff extends Sniff
      *
      * @since 8.1.0
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

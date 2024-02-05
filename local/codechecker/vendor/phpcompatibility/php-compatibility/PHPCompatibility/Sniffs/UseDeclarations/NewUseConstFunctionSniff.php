@@ -39,7 +39,11 @@ class NewUseConstFunctionSniff extends Sniff
      *
      * @since 7.1.4
      *
+<<<<<<< HEAD
      * @var array<string, bool>
+=======
+     * @var array(string => string)
+>>>>>>> Development
      */
     protected $validUseNames = [
         'const'    => true,
@@ -51,7 +55,11 @@ class NewUseConstFunctionSniff extends Sniff
      *
      * @since 7.1.4
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

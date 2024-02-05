@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2018 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\PSR12\Sniffs\Functions;
@@ -27,9 +31,12 @@ class NullableTypeDeclarationSniff implements Sniff
         T_SELF         => true,
         T_PARENT       => true,
         T_STATIC       => true,
+<<<<<<< HEAD
         T_NULL         => true,
         T_FALSE        => true,
         T_TRUE         => true,
+=======
+>>>>>>> Development
     ];
 
 

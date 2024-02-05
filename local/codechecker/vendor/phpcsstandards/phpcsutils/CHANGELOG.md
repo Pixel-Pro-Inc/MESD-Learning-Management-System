@@ -10,6 +10,7 @@ This projects adheres to [Keep a CHANGELOG](https://keepachangelog.com/) and use
 _Nothing yet._
 
 
+<<<<<<< HEAD
 ## [1.0.9] - 2023-12-08
 
 ### Added
@@ -38,6 +39,8 @@ _Nothing yet._
 [#525]: https://github.com/PHPCSStandards/PHPCSUtils/pull/525
 
 
+=======
+>>>>>>> Development
 ## [1.0.8] - 2023-07-17
 
 ### Changed
@@ -956,7 +959,10 @@ This initial alpha release contains the following utility classes:
 
 
 [Unreleased]:   https://github.com/PHPCSStandards/PHPCSUtils/compare/stable...HEAD
+<<<<<<< HEAD
 [1.0.9]:        https://github.com/PHPCSStandards/PHPCSUtils/compare/1.0.8...1.0.9
+=======
+>>>>>>> Development
 [1.0.8]:        https://github.com/PHPCSStandards/PHPCSUtils/compare/1.0.7...1.0.8
 [1.0.7]:        https://github.com/PHPCSStandards/PHPCSUtils/compare/1.0.6...1.0.7
 [1.0.6]:        https://github.com/PHPCSStandards/PHPCSUtils/compare/1.0.5...1.0.6
@@ -972,7 +978,10 @@ This initial alpha release contains the following utility classes:
 [1.0.0-alpha2]: https://github.com/PHPCSStandards/PHPCSUtils/compare/1.0.0-alpha1...1.0.0-alpha2
 
 [Composer PHPCS plugin]: https://github.com/PHPCSStandards/composer-installer
+<<<<<<< HEAD
 [PHP_CodeSniffer]:       https://github.com/PHPCSStandards/PHP_CodeSniffer
+=======
+>>>>>>> Development
 
 [`AbstractArrayDeclarationSniff`]: https://phpcsutils.com/phpdoc/classes/PHPCSUtils-AbstractSniffs-AbstractArrayDeclarationSniff.html
 [`BCFile`]:                        https://phpcsutils.com/phpdoc/classes/PHPCSUtils-BackCompat-BCFile.html
@@ -1003,6 +1012,9 @@ This initial alpha release contains the following utility classes:
 [`UseStatements`]:                 https://phpcsutils.com/phpdoc/classes/PHPCSUtils-Utils-UseStatements.html
 [`Variables`]:                     https://phpcsutils.com/phpdoc/classes/PHPCSUtils-Utils-Variables.html
 
+<<<<<<< HEAD
 [@fredden]:     https://github.com/fredden
+=======
+>>>>>>> Development
 [@GaryJones]:   https://github.com/GaryJones
 [@szepeviktor]: https://github.com/szepeviktor

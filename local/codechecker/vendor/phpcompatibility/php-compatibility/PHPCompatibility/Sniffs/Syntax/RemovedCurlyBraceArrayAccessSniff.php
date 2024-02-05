@@ -44,11 +44,19 @@ class RemovedCurlyBraceArrayAccessSniff extends Sniff
     private $newArrayStringDereferencing;
 
     /**
+<<<<<<< HEAD
      * Target tokens as registered by the NewArrayStringDereferencing sniff.
      *
      * @since 9.3.0
      *
      * @var array<int|string>
+=======
+     * Target tokens as register by the NewArrayStringDereferencing sniff.
+     *
+     * @since 9.3.0
+     *
+     * @var array
+>>>>>>> Development
      */
     private $newArrayStringDereferencingTargets;
 
@@ -62,11 +70,19 @@ class RemovedCurlyBraceArrayAccessSniff extends Sniff
     private $newClassMemberAccess;
 
     /**
+<<<<<<< HEAD
      * Target tokens as registered by the NewClassMemberAccess sniff.
      *
      * @since 9.3.0
      *
      * @var array<int|string>
+=======
+     * Target tokens as register by the NewClassMemberAccess sniff.
+     *
+     * @since 9.3.0
+     *
+     * @var array
+>>>>>>> Development
      */
     private $newClassMemberAccessTargets;
 
@@ -80,11 +96,19 @@ class RemovedCurlyBraceArrayAccessSniff extends Sniff
     private $newFunctionArrayDereferencing;
 
     /**
+<<<<<<< HEAD
      * Target tokens as registered by the NewFunctionArrayDereferencing sniff.
      *
      * @since 9.3.0
      *
      * @var array<int|string>
+=======
+     * Target tokens as register by the NewFunctionArrayDereferencing sniff.
+     *
+     * @since 9.3.0
+     *
+     * @var array
+>>>>>>> Development
      */
     private $newFunctionArrayDereferencingTargets;
 
@@ -107,7 +131,11 @@ class RemovedCurlyBraceArrayAccessSniff extends Sniff
      *
      * @since 9.3.0
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

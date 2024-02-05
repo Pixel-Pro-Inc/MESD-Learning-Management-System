@@ -297,6 +297,7 @@ class TestAlternativeControlStructures {
 $var_after_class_in_global_space = 1;
 do_something_else();
 
+<<<<<<< HEAD
 // These are parse errors, but that's not the concern of the sniff.
 function parseError1() {
     defined('FOO') or return 'foo';
@@ -419,5 +420,7 @@ $closure = function ()
     return; // This return should be flagged as not required.
 };
 
+=======
+>>>>>>> Development
 // Intentional syntax error.
 return array_map(

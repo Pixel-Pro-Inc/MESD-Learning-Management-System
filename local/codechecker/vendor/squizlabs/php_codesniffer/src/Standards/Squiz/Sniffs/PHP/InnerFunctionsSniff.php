@@ -4,14 +4,21 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Squiz\Sniffs\PHP;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
+<<<<<<< HEAD
 use PHP_CodeSniffer\Util\Tokens;
+=======
+>>>>>>> Development
 
 class InnerFunctionsSniff implements Sniff
 {
@@ -42,6 +49,7 @@ class InnerFunctionsSniff implements Sniff
     {
         $tokens = $phpcsFile->getTokens();
 
+<<<<<<< HEAD
         if (isset($tokens[$stackPtr]['conditions']) === false) {
             return;
         }
@@ -64,6 +72,23 @@ class InnerFunctionsSniff implements Sniff
 
         if ($outerFuncToken === null) {
             // Not a nested function.
+=======
+        $function = $phpcsFile->getCondition($stackPtr, T_FUNCTION);
+        if ($function === false) {
+            // Not a nested function.
+            return;
+        }
+
+        $class = $phpcsFile->getCondition($stackPtr, T_ANON_CLASS, false);
+        if ($class !== false && $class > $function) {
+            // Ignore methods in anon classes.
+            return;
+        }
+
+        $prev = $phpcsFile->findPrevious(T_WHITESPACE, ($stackPtr - 1), null, true);
+        if ($tokens[$prev]['code'] === T_EQUAL) {
+            // Ignore closures.
+>>>>>>> Development
             return;
         }
 

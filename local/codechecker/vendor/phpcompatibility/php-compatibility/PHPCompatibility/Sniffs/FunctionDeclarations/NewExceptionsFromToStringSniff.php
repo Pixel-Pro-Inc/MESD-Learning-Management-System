@@ -39,7 +39,11 @@ class NewExceptionsFromToStringSniff extends Sniff
      *
      * @since 9.3.0
      *
+<<<<<<< HEAD
      * @var array<int|string, int|string>
+=======
+     * @var array
+>>>>>>> Development
      */
     private $docblockIgnoreTokens = [
         \T_WHITESPACE => \T_WHITESPACE,
@@ -50,7 +54,11 @@ class NewExceptionsFromToStringSniff extends Sniff
      *
      * @since 9.2.0
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

@@ -34,7 +34,11 @@ final class MessageHelper
      *                                               Defaults to true (error).
      * @param string                      $code      The error code for the message.
      *                                               Defaults to 'Found'.
+<<<<<<< HEAD
      * @param scalar[]                    $data      Optional input for the data replacements.
+=======
+     * @param array                       $data      Optional input for the data replacements.
+>>>>>>> Development
      * @param int                         $severity  Optional. Severity level. Defaults to 0 which will
      *                                               translate to the PHPCS default severity level.
      *
@@ -70,7 +74,11 @@ final class MessageHelper
      *                                               Defaults to true (error).
      * @param string                      $code      The error code for the message.
      *                                               Defaults to 'Found'.
+<<<<<<< HEAD
      * @param scalar[]                    $data      Optional input for the data replacements.
+=======
+     * @param array                       $data      Optional input for the data replacements.
+>>>>>>> Development
      * @param int                         $severity  Optional. Severity level. Defaults to 0 which will
      *                                               translate to the PHPCS default severity level.
      *

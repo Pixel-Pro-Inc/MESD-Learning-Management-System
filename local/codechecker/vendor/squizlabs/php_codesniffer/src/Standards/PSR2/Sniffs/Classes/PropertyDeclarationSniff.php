@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\PSR2\Sniffs\Classes;
@@ -118,6 +122,7 @@ class PropertyDeclarationSniff extends AbstractVariableSniff
             $phpcsFile->addError($error, $stackPtr, 'ScopeMissing', $data);
         }
 
+<<<<<<< HEAD
         /*
          * Note: per PSR-PER section 4.6, the order should be:
          * - Inheritance modifier: `abstract` or `final`.
@@ -182,6 +187,32 @@ class PropertyDeclarationSniff extends AbstractVariableSniff
 
                     $phpcsFile->fixer->endChangeset();
                 }
+=======
+        if ($propertyInfo['scope_specified'] === true && $propertyInfo['is_static'] === true) {
+            $scopePtr  = $phpcsFile->findPrevious(Tokens::$scopeModifiers, ($stackPtr - 1));
+            $staticPtr = $phpcsFile->findPrevious(T_STATIC, ($stackPtr - 1));
+            if ($scopePtr < $staticPtr) {
+                return;
+            }
+
+            $error = 'The static declaration must come after the visibility declaration';
+            $fix   = $phpcsFile->addFixableError($error, $stackPtr, 'StaticBeforeVisibility');
+            if ($fix === true) {
+                $phpcsFile->fixer->beginChangeset();
+
+                for ($i = ($scopePtr + 1); $scopePtr < $stackPtr; $i++) {
+                    if ($tokens[$i]['code'] !== T_WHITESPACE) {
+                        break;
+                    }
+
+                    $phpcsFile->fixer->replaceToken($i, '');
+                }
+
+                $phpcsFile->fixer->replaceToken($scopePtr, '');
+                $phpcsFile->fixer->addContentBefore($staticPtr, $propertyInfo['scope'].' ');
+
+                $phpcsFile->fixer->endChangeset();
+>>>>>>> Development
             }
         }//end if
 

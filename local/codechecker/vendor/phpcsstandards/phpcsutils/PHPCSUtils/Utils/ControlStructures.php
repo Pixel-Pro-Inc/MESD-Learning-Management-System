@@ -199,8 +199,12 @@ final class ControlStructures
      * @param \PHP_CodeSniffer\Files\File $phpcsFile The file being scanned.
      * @param int                         $stackPtr  The position of the token we are checking.
      *
+<<<<<<< HEAD
      * @return array<int, array<string, string|int>>
      *               Array with information about the caught Exception(s).
+=======
+     * @return array Array with information about the caught Exception(s).
+>>>>>>> Development
      *               The returned array will contain the following information for
      *               each caught exception:
      *               ```php

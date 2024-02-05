@@ -44,7 +44,11 @@ class ChangedConcatOperatorPrecedenceSniff extends Sniff
      *
      * @since 9.2.0
      *
+<<<<<<< HEAD
      * @var array<string, true>
+=======
+     * @var array
+>>>>>>> Development
      */
     private $tokensWithLowerPrecedence = [
         'T_BITWISE_AND' => true,
@@ -63,7 +67,11 @@ class ChangedConcatOperatorPrecedenceSniff extends Sniff
      *
      * @since 9.2.0
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

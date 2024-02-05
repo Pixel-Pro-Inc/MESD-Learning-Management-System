@@ -4,7 +4,11 @@
  *
  * @author    Juliette Reinders Folmer <phpcs_nospam@adviesenzo.nl>
  * @copyright 2018-2019 Juliette Reinders Folmer. All rights reserved.
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Tests\Core;
@@ -13,7 +17,10 @@ use PHP_CodeSniffer\Config;
 use PHP_CodeSniffer\Ruleset;
 use PHP_CodeSniffer\Files\DummyFile;
 use PHPUnit\Framework\TestCase;
+<<<<<<< HEAD
 use ReflectionProperty;
+=======
+>>>>>>> Development
 
 abstract class AbstractMethodUnitTest extends TestCase
 {
@@ -42,6 +49,7 @@ abstract class AbstractMethodUnitTest extends TestCase
      * The test case file for a unit test class has to be in the same directory
      * directory and use the same file name as the test class, using the .inc extension.
      *
+<<<<<<< HEAD
      * @beforeClass
      *
      * @return void
@@ -64,6 +72,15 @@ abstract class AbstractMethodUnitTest extends TestCase
         self::setStaticConfigProperty('configDataFile', '');
 
         $config  = new Config();
+=======
+     * @return void
+     */
+    public static function setUpBeforeClass()
+    {
+        $config            = new Config();
+        $config->standards = ['PSR1'];
+
+>>>>>>> Development
         $ruleset = new Ruleset($config);
 
         // Default to a file with the same name as the test class. Extension is property based.
@@ -78,12 +95,17 @@ abstract class AbstractMethodUnitTest extends TestCase
         self::$phpcsFile = new DummyFile($contents, $ruleset, $config);
         self::$phpcsFile->process();
 
+<<<<<<< HEAD
     }//end initializeFile()
+=======
+    }//end setUpBeforeClass()
+>>>>>>> Development
 
 
     /**
      * Clean up after finished test.
      *
+<<<<<<< HEAD
      * @afterClass
      *
      * @return void
@@ -117,6 +139,15 @@ abstract class AbstractMethodUnitTest extends TestCase
         $property->setAccessible(false);
 
     }//end setStaticConfigProperty()
+=======
+     * @return void
+     */
+    public static function tearDownAfterClass()
+    {
+        self::$phpcsFile = null;
+
+    }//end tearDownAfterClass()
+>>>>>>> Development
 
 
     /**

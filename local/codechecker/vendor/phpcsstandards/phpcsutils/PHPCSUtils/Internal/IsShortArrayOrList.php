@@ -114,7 +114,11 @@ final class IsShortArrayOrList
      *
      * @since 1.0.0
      *
+<<<<<<< HEAD
      * @var array<int, array<string, mixed>>
+=======
+     * @var array
+>>>>>>> Development
      */
     private $tokens;
 
@@ -168,7 +172,11 @@ final class IsShortArrayOrList
      *
      * @since 1.0.0
      *
+<<<<<<< HEAD
      * @var array<int|string, int|string>
+=======
+     * @return array <int|string> => <int|string>
+>>>>>>> Development
      */
     private $openBrackets;
 

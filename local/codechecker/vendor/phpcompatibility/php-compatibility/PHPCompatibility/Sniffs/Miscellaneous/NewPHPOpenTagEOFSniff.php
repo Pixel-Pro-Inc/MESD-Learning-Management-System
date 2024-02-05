@@ -47,7 +47,11 @@ class NewPHPOpenTagEOFSniff extends Sniff
      *
      * @since 9.3.0
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {
@@ -62,7 +66,11 @@ class NewPHPOpenTagEOFSniff extends Sniff
             $targets[] = \T_STRING;
         }
 
+<<<<<<< HEAD
         if (\PHP_VERSION_ID >= 70400) {
+=======
+        if (\version_compare(\PHP_VERSION_ID, '70399', '>')) {
+>>>>>>> Development
             $targets[] = \T_OPEN_TAG;
         }
 

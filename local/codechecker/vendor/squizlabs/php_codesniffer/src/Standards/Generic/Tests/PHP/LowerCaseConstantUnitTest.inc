@@ -98,6 +98,7 @@ class TypedThings {
 }
 
 $cl = function (int|FALSE $param = NULL, Type|NULL $obj = new MyObj(FALSE)) : string|FALSE|NULL {};
+<<<<<<< HEAD
 
 // Adding some extra tests to safeguard that function declarations which don't create scope are handled correctly.
 interface InterfaceMethodsWithReturnTypeNoScopeOpener {
@@ -147,3 +148,5 @@ readonly class Properties {
 // Last coding/parse error.
 // This has to be the last test in the file.
 function UnclosedCurly (): FALSE {
+=======
+>>>>>>> Development

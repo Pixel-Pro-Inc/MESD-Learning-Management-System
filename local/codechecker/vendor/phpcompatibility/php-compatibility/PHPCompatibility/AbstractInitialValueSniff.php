@@ -40,7 +40,11 @@ abstract class AbstractInitialValueSniff extends Sniff
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
      * @var array<string, string> Type indicator => suggested partial error phrase.
+=======
+     * @var array<string, string> Type indicator => suggested partial error phrase
+>>>>>>> Development
      */
     protected $initialValueTypes = [
         'const'     => 'when defining constants using the const keyword',
@@ -54,7 +58,11 @@ abstract class AbstractInitialValueSniff extends Sniff
      *
      * @since 10.0.0
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

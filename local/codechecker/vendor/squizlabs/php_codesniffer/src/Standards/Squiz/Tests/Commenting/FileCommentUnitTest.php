@@ -4,7 +4,11 @@
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Squiz\Tests\Commenting;
@@ -46,7 +50,10 @@ class FileCommentUnitTest extends AbstractSniffUnitTest
         case 'FileCommentUnitTest.6.inc':
         case 'FileCommentUnitTest.7.inc':
         case 'FileCommentUnitTest.9.inc':
+<<<<<<< HEAD
         case 'FileCommentUnitTest.10.inc':
+=======
+>>>>>>> Development
             return [1 => 1];
 
         case 'FileCommentUnitTest.5.inc':

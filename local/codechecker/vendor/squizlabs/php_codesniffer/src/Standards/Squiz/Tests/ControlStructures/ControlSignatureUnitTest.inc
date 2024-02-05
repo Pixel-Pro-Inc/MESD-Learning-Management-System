@@ -212,7 +212,11 @@ else :
     echo 'not 1';
 endif;
 
+<<<<<<< HEAD
 // phpcs:set Squiz.ControlStructures.ControlSignature requiredSpacesBeforeColon 0
+=======
+// @codingStandardsChangeSetting Squiz.ControlStructures.ControlSignature requiredSpacesBeforeColon 0
+>>>>>>> Development
 
 if ($a == 5):
     echo "a equals 5";
@@ -305,6 +309,7 @@ $r = match ($x) {
 
 $r = match($x){1 => 1};
 
+<<<<<<< HEAD
 // phpcs:set Squiz.ControlStructures.ControlSignature requiredSpacesBeforeColon 2
 if ($a == 5):
     echo "a equals 5";
@@ -319,6 +324,8 @@ endif;
 // Reset property.
 // phpcs:set Squiz.ControlStructures.ControlSignature requiredSpacesBeforeColon 1
 
+=======
+>>>>>>> Development
 // Intentional parse error. This should be the last test in the file.
 foreach
    // Some unrelated comment.

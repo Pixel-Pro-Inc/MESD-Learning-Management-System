@@ -1046,6 +1046,7 @@ public function ignored() {
  * @return void
  * @throws Exception If any other error occurs. */
 function throwCommentOneLine() {}
+<<<<<<< HEAD
 
 /**
  * When two adjacent pipe symbols are used (by mistake), the sniff should not throw a PHP Fatal error
@@ -1134,3 +1135,5 @@ public function variableOrderMismatch($bar, $baz, $foo) {
  * @return never
  */
 function foo() {}
+=======
+>>>>>>> Development

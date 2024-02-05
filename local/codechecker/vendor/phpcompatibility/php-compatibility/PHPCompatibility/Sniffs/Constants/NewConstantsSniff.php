@@ -38,7 +38,11 @@ class NewConstantsSniff extends Sniff
      *
      * @since 8.1.0
      *
+<<<<<<< HEAD
      * @var array<string, array<string, bool|string>>
+=======
+     * @var array(string => array(string => bool))
+>>>>>>> Development
      */
     protected $newConstants = [
         'E_STRICT' => [
@@ -7705,6 +7709,7 @@ class NewConstantsSniff extends Sniff
             '8.2'       => true,
             'extension' => 'sockets',
         ],
+<<<<<<< HEAD
 
         'CURLINFO_CAPATH' => [
             '8.2'       => false,
@@ -8041,6 +8046,8 @@ class NewConstantsSniff extends Sniff
             '8.3'       => true,
             'extension' => 'sockets',
         ],
+=======
+>>>>>>> Development
     ];
 
 
@@ -8049,7 +8056,11 @@ class NewConstantsSniff extends Sniff
      *
      * @since 8.1.0
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {

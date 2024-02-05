@@ -5,7 +5,11 @@
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @author    Blaine Schmeisser <blainesch@gmail.com>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
+<<<<<<< HEAD
  * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+=======
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+>>>>>>> Development
  */
 
 namespace PHP_CodeSniffer\Standards\Generic\Sniffs\PHP;
@@ -48,7 +52,11 @@ class SyntaxSniff implements Sniff
      * @param int                         $stackPtr  The position of the current token in
      *                                               the stack passed in $tokens.
      *
+<<<<<<< HEAD
      * @return int
+=======
+     * @return void
+>>>>>>> Development
      */
     public function process(File $phpcsFile, $stackPtr)
     {

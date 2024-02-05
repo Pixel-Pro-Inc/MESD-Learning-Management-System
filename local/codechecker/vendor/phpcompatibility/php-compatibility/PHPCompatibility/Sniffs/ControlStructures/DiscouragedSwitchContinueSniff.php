@@ -42,7 +42,11 @@ class DiscouragedSwitchContinueSniff extends Sniff
      *
      * @since 8.2.0
      *
+<<<<<<< HEAD
      * @var array<int|string, int|string>
+=======
+     * @var array
+>>>>>>> Development
      */
     protected $loopStructures = [
         \T_FOR     => \T_FOR,
@@ -57,7 +61,11 @@ class DiscouragedSwitchContinueSniff extends Sniff
      *
      * @since 8.2.0
      *
+<<<<<<< HEAD
      * @var array<int|string, int|string>
+=======
+     * @var array
+>>>>>>> Development
      */
     protected $caseTokens = [
         \T_CASE    => \T_CASE,
@@ -71,7 +79,11 @@ class DiscouragedSwitchContinueSniff extends Sniff
      *
      * @since 8.2.0
      *
+<<<<<<< HEAD
      * @var array<int|string, int|string>
+=======
+     * @var array
+>>>>>>> Development
      */
     protected $acceptedLevelTokens = [
         \T_LNUMBER           => \T_LNUMBER,
@@ -85,7 +97,11 @@ class DiscouragedSwitchContinueSniff extends Sniff
      *
      * @since 8.2.0
      *
+<<<<<<< HEAD
      * @return array<int|string>
+=======
+     * @return array
+>>>>>>> Development
      */
     public function register()
     {
