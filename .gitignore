@@ -59,3 +59,5 @@ jsconfig.json
 /RedirectModule/node_modules
 /.vs/MESD-Learning-Management-System/v17/.wsuo
 /.vs/VSWorkspaceState.json
+/ReportingDashboard/client/.angular/cache/14.2.13
+/ReportingDashboard/client/node_modules
