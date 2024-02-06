@@ -71,6 +71,7 @@ function synchronouslearning_add_instance($moduleinstance, $mform = null) {
 }
 
 function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
+    global $CFG;
     // Prepare the data to send
     profile_load_data($user);
 
@@ -78,7 +79,7 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
         'title' => 'Online Class', 
         'description' => 'Virtual class session facilitated through one gov',
         'location' => 'Virtual Class',
-        'applicationId' => '',
+        'applicationId' => $CFG->applicationId,
         'user' => $user->profile_field_onegovid,
         'isVirtual' => true,
         'virtualPlatform' => 'Webex',
@@ -89,8 +90,8 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
         'state' => 'scheduled',
         'appointmentType' => 'meeting',
         'service' => array(
-            'id' => '',
-            'name' => 'MESD LMS'
+            'id' => $CFG->serverId,
+            'name' => $CFG->serverName
         ),
     );
 
@@ -99,10 +100,12 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
     // Initialize a cURL session
     $ch = curl_init();
 
-    $devUrl = "https://gappoint-acc.gov.bw"; $prodUrl = "https://appoint.gov.bw";
+    $requestDomain = $CFG->appointmentsApiDomain;
+
+    $requestUrl = $requestDomain . 'events/create/self';
 
     // Set the URL, headers, and POST data as JSON
-    curl_setopt($ch, CURLOPT_URL, $prodUrl);
+    curl_setopt($ch, CURLOPT_URL, $requestUrl);
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
