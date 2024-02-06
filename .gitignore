@@ -61,3 +61,5 @@ jsconfig.json
 /.vs/VSWorkspaceState.json
 /ReportingDashboard/client/.angular/cache/14.2.13
 /ReportingDashboard/client/node_modules
+/ReportingDashboard/server/.env
+/RedirectModule/.env
