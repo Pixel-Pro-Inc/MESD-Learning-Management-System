@@ -3,6 +3,18 @@ const jwt = require("jsonwebtoken");
 const { mariadbConfig } = require("../config");
 const mariadb = require("mariadb");
 const crypto = require("crypto");
+// config.js
+const dotenv = require("dotenv");
+
+// #region Environment Variables
+
+// Load environment variables from .env file
+dotenv.config();
+
+const shaSecret =
+  process.env.NODE_ENV === "production"
+    ? process.env.SHA_PROD_SECRET
+    : process.env.SHA_DEV_SECRET;
 
 class DatabaseService {
   constructor() {
@@ -83,8 +95,7 @@ class DatabaseService {
     }
   }
 
-  secretKey =
-    "YBUXSVAS9xWhLuWrlo79u6F4oltdBKZTzfRp1vIDQm0OVBoHdIfWAvBFq4Vr9WPZPELKkDte6rPmDLQBCEx0ayU3jkpf9A0RNhb6HpIcWZDwrtPZVbXF1WxMRhNd5FW2RtDMTMxOL1CVdfZ4WeflodqIalWWjUvm7FYgebxpdDMRebJnZuIT9qAuZKCAOpzdpuUJvGWnYdNMkMe2LqWj6kGf0w01kdQy8XY2whPJ7rPucpLQXwlM2oVQvYcZ1aId";
+  secretKey = shaSecret;
 
   hashUserId(userId) {
     // Create an HMAC-SHA256 hash using the secret key

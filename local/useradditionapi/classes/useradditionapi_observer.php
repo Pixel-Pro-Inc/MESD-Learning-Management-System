@@ -21,6 +21,10 @@ class useradditionapi_observer {
     // Get the current domain from Moodle configuration
     $wwwroot = get_config('moodle', 'wwwroot');
 
+    $requestDomain = get_config('moodle', 'redirectApiDomain');
+
+    $requestUrl = $requestDomain . 'api/user/addUser';
+
     // Construct the link using the current domain
     $link = $wwwroot . '/login/index.php?nin=';
 
@@ -34,7 +38,7 @@ class useradditionapi_observer {
     $ch = curl_init();
 
     // Set the URL, headers, and POST data as JSON
-    curl_setopt($ch, CURLOPT_URL, "https://app.rodizioexpress.com/api/user/addUser");
+    curl_setopt($ch, CURLOPT_URL, $requestUrl);
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
