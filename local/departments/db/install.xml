@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMLDB PATH="local/departments/db" VERSION="2023010200" COMMENT="XMLDB file for local departments"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
+ <TABLES>
+
+    <TABLE NAME="local_department" COMMENT="Stores information about departments">
+ <FIELDS>
+    <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Standard Moodle primary key." />
+    <FIELD NAME="department_name" TYPE="char" LENGTH="50" NOTNULL="true" SEQUENCE="false" COMMENT="Name of the department"/>
+ </FIELDS>
+ <KEYS>
+    <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+ </KEYS>
+</TABLE>
+
+<TABLE NAME="local_user_department" COMMENT="Links users to departments">
+ <FIELDS>
+    <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Identifier of this table"/>
+    <FIELD NAME="user_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifier of the user"/> 
+    <FIELD NAME="department_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Foreign key references local_department.id."/> 
+ </FIELDS>
+ <KEYS>
+    <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+    <KEY NAME="user_id" TYPE="foreign" FIELDS="user_id" REFTABLE="user" REFFIELDS="id" />
+    <KEY NAME="department_id" TYPE="foreign" FIELDS="department_id" REFTABLE="local_department" REFFIELDS="id"/>
+ </KEYS>
+</TABLE>
+
+
+ </TABLES>
+</XMLDB>
+
+
