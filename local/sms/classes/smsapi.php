@@ -4,11 +4,12 @@
  * @package    local_departments
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
+global $CFG;
 
 class smsapi {
     function sendSMS($number, $subject, $message) {
-        $url = 'http://coms-acc.gov.bw/sms';
+
+        $url = $CFG->iamSMSUrl;
 
         $headers = array(
            'Content-Type: application/json',

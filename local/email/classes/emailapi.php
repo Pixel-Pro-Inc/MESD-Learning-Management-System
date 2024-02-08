@@ -4,12 +4,12 @@
  * @package    local_departments
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
+global $CFG;
 
 class emailapi {
     function sendEmailAPI($to, $subject, $message, $attachments = []) {
         // The API endpoint
-        $url = 'https://coms-acc.gov.bw/email';
+        $url = $CFG->iamEmailUrl;
      
         // Prepare the data
         $data = array(
