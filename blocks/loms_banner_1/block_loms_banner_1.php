@@ -27,7 +27,7 @@ class block_loms_banner_1 extends block_base {
             $this->config->image1_shape = LOMS_IMG .'banner/more-1.svg';
 
             $this->config->banner_img2 = LOMS_IMG .'banner/banner-img-2.webp';
-            $this->config->image2_content = 'World <span>renowned</span> learning management system';
+            $this->config->image2_content = 'World <span>renowned</span> LMS';
             $this->config->image2_icon = LOMS_IMG .'icon/award-2.svg';
             $this->config->image2_shape = LOMS_IMG .'banner/more-2.svg';
             
