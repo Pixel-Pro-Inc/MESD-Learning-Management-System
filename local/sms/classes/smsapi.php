@@ -8,7 +8,7 @@ class smsapi {
     function sendSMS($number, $subject, $message) {
         global $CFG;
 
-        $url = $CFG->iamSMSUrl;
+        $url = $CFG->comsSMSUrl;
 
         $headers = array(
            'Content-Type: application/json',

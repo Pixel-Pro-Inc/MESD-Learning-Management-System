@@ -10,7 +10,7 @@ class emailapi {
         global $CFG;
 
         // The API endpoint
-        $url = $CFG->iamEmailUrl;
+        $url = $CFG->comsEmailUrl;
      
         // Prepare the data
         $data = array(
