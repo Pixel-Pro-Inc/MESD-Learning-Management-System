@@ -4,10 +4,11 @@
  * @package    local_departments
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-global $CFG;
 
 class emailapi {
     function sendEmailAPI($to, $subject, $message, $attachments = []) {
+        global $CFG;
+
         // The API endpoint
         $url = $CFG->iamEmailUrl;
      

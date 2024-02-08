@@ -4,10 +4,9 @@
  * @package    local_departments
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-global $CFG;
-
 class smsapi {
     function sendSMS($number, $subject, $message) {
+        global $CFG;
 
         $url = $CFG->iamSMSUrl;
 
