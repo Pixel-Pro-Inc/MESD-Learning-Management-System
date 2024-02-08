@@ -15,19 +15,19 @@ class block_loms_banner_1 extends block_base {
 
         if (empty($this->config)) {
             $this->config = new \stdClass();
-            $this->config->title = 'Build Better <span>Skills</span> With Loms';
-            $this->config->content = 'We Have <span>40k+</span> Online Courses & <span>500k+</span> Online Registered Student. Develop The Skills You Need For Your Top Priorities. Improve Workflows With Actionable Data. Build Better—every Time With The Great Loms Family.';
-            $this->config->btn = 'Find Courses Now';
+            $this->config->title = 'Build Your <span>Future</span> With The MESD LMS';
+            $this->config->content = 'Delivering the <span>21st</span> <span>Century</span> Learner!';
+            $this->config->btn = 'View Your Courses Now';
             $this->config->btn_link = $CFG->wwwroot .'/course';
             $this->config->btn_shape = LOMS_IMG .'banner/more-3.svg';
 
             $this->config->banner_img1 = LOMS_IMG .'banner/banner-img-1.webp';
-            $this->config->image1_content = 'Develop your <span>skill</span> as fast as <span>rocket';
+            $this->config->image1_content = 'Develop your <span>skills</span> as fast as <span>rocket';
             $this->config->image1_icon = LOMS_IMG .'icon/rocket.svg';
             $this->config->image1_shape = LOMS_IMG .'banner/more-1.svg';
 
             $this->config->banner_img2 = LOMS_IMG .'banner/banner-img-2.webp';
-            $this->config->image2_content = 'Got <span>5 star</span> review from <span>3 Million</span> students';
+            $this->config->image2_content = 'World <span>renowned</span> learning management system';
             $this->config->image2_icon = LOMS_IMG .'icon/award-2.svg';
             $this->config->image2_shape = LOMS_IMG .'banner/more-2.svg';
             
