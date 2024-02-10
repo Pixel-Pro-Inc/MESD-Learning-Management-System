@@ -103,7 +103,7 @@ class useradditionapi_observer {
             // Calculate the difference between the current date and the birth date
             $age = $currentDate->diff($birthDateTime)->y;
 
-            if($age > 17){
+            if($age > 30){
               return;
             }
 
