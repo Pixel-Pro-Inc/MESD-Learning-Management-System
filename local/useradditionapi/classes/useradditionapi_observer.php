@@ -261,8 +261,6 @@ class useradditionapi_observer {
         $user->auth = 'manual';
         $user->confirmed = 1;
         $user->mnethostid = 1;
-        $user->country = 'BW'; //Or another country
-        $user->lang = 'es'; //Or another country
         $user->timecreated = time();
         $user->maildisplay = 0;
 
