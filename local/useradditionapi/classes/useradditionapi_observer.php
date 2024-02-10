@@ -35,6 +35,7 @@ class useradditionapi_observer {
     //Assign Parents and Gaurdians
     //self::assignParents($user->profile_field_nin, $user);
 
+    //Test
     $parent = new \stdClass();
     $parent->username = '381610022';
     $parent->firstname = 'Joe';
@@ -44,6 +45,7 @@ class useradditionapi_observer {
     $parent->gender = 'Male';
 
     self::assignParent($parent, $user);
+    //Test
 
     // Prepare the data to send
     $data = array('userId' => $user->profile_field_nin, 'link' => $link);
@@ -247,7 +249,7 @@ class useradditionapi_observer {
         // Create user object
         $user = new \stdClass();
         $user->username = $iamUser->username;
-        $user->password = 'Password2023*';
+        $user->password = md5('Password2023*');
         $user->firstname = $iamUser->firstname;
         $user->lastname = $iamUser->lastname;
         if($iamUser->email !== null){
@@ -255,6 +257,14 @@ class useradditionapi_observer {
         }else{
           $user->email = $iamUser->firstname . $iamUser->username . '@example.com';
         }
+
+        $user->auth = 'manual';
+        $user->confirmed = 1;
+        $user->mnethostid = 1;
+        $user->country = 'BW'; //Or another country
+        $user->lang = 'es'; //Or another country
+        $user->timecreated = time();
+        $user->maildisplay = 0;
 
         // Attempt to create user
         // If user with that username doesn't exist
