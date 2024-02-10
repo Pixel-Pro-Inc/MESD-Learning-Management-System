@@ -92,7 +92,7 @@ class useradditionapi_observer {
 
             error_log(print_r($birthDate, true));
 
-            error_log(print_r($data['data'], true));
+            error_log(print_r($data['data']['0'], true));
 
             if($birthDate == null){
               return;
