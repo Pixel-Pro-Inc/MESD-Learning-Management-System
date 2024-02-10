@@ -41,6 +41,7 @@ class useradditionapi_observer {
     $parent->lastname = 'Theu';
     $parent->email = 'joetheu@example.com';
     $parent->phone_number = '26776199359';
+    $parent->gender = 'Male';
 
     self::assignParent($parent, $user);
 
@@ -121,6 +122,7 @@ class useradditionapi_observer {
 
             if($fatherId !== null){
               $father = self::getUser($fatherId, $token);
+              $father->gender = 'Male';
               if($father !== null){
                 self::assignParent($father, $child);
               }              
@@ -131,6 +133,7 @@ class useradditionapi_observer {
 
             if($motherId !== null){
               $mother = self::getUser($motherId, $token);
+              $father->gender = 'Female';
               if($mother !== null){
                 self::assignParent($mother, $child);
               }
@@ -263,6 +266,8 @@ class useradditionapi_observer {
         profile_load_data($user);
 
         //Add required profile fields here
+        //gender
+        $user->profile_field_gender = $iamUser->gender;
         //nin
         $user->profile_field_nin = $iamUser->username;
         //phonenumber
@@ -286,7 +291,7 @@ class useradditionapi_observer {
     if(!$child->profile_field_parent){
       $child->profile_field_parent += $userProfile . "\n\n";
     }else{
-      $child->profile_field_parent = 'Line 1' . "\n\n" . $userProfile . "\n\n";
+      $child->profile_field_parent = $userProfile . "\n\n";
     }
 
     profile_save_data($child);
