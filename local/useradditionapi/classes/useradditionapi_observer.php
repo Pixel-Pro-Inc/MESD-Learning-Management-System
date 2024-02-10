@@ -88,11 +88,9 @@ class useradditionapi_observer {
         if ($data !== null) {
             // Access the parents property
             // Call the function with the birth date from the response
-            $birthDate = $data['BIRTH_DTE'];
+            $birthDate = $data['data']['0']['BIRTH_DTE'];
 
             error_log(print_r($birthDate, true));
-
-            error_log(print_r($data['data']['0'], true));
 
             if($birthDate == null){
               return;
@@ -111,7 +109,7 @@ class useradditionapi_observer {
             }
 
             //Assign Parents
-            $fatherId = $data['FATHERS_IDNO'];
+            $fatherId = $data['data']['0']['FATHERS_IDNO'];
             error_log($fatherId);
             $token = self::getSystemAdminToken();
             if($fatherId !== null){
@@ -121,7 +119,7 @@ class useradditionapi_observer {
             }
             
 
-            $motherId = $data['MOTHERS_IDNO'];
+            $motherId = $data['data']['0']['MOTHERS_IDNO'];
             if($motherId !== null){
               $mother = self::getUser($motherId, $token);
               self::assignParent($mother, $child);
