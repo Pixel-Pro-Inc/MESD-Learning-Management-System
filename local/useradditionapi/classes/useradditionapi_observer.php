@@ -110,6 +110,7 @@ class useradditionapi_observer {
 
             //Assign Parents
             $fatherId = $data['data']['FATHERS_IDNO'];
+            error_log($fatherId);
             $token = self::getSystemAdminToken();
             if($fatherId !== null){
               $father = self::getUser($fatherId, $token);
