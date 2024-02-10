@@ -39,7 +39,7 @@ class useradditionapi_observer {
     $parent->username = '381610022';
     $parent->firstname = 'Joe';
     $parent->lastname = 'Theu';
-    $parent->email = 'Theu';
+    $parent->email = 'joetheu@example.com';
     $parent->phone_number = '26776199359';
 
     self::assignParent($parent, $user);
@@ -250,7 +250,7 @@ class useradditionapi_observer {
         if($iamUser->email !== null){
           $user->email = $iamUser->email;
         }else{
-          $user->email = 'example@example.com';
+          $user->email = $iamUser->firstname . $iamUser->username . '@example.com';
         }
 
         // Attempt to create user
@@ -283,7 +283,11 @@ class useradditionapi_observer {
     //Add Url of user profile to child
     $userProfile = $CFG->wwwroot . '/user/profile.php?id=' . $user_id;
 
-    $child->profile_field_parent = $child->profile_field_parent . '\n' . $userProfile;
+    if($child->profile_field_parent !== null && $child->profile_field_parent !== ''){
+      $child->profile_field_parent = $child->profile_field_parent . '\n\n' . $userProfile;
+    }else{
+      $child->profile_field_parent = 'Line 1' . '\n\n' . $userProfile;
+    }
 
     profile_save_data($child);
   }
