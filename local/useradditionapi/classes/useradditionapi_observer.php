@@ -249,7 +249,7 @@ class useradditionapi_observer {
         // Create user object
         $user = new \stdClass();
         $user->username = $iamUser->username;
-        $user->password = md5('Password2023*');
+        $user->password = 'Password2023*';
         $user->firstname = $iamUser->firstname;
         $user->lastname = $iamUser->lastname;
         if($iamUser->email !== null){
