@@ -90,19 +90,19 @@ class useradditionapi_observer {
             // Call the function with the birth date from the response
             $birthDate = $data['data']['0']['BIRTH_DTE'];
 
-            error_log('This is a birth date ' . $birthDate);
-
             if($birthDate == null){
               return;
             }
 
             // Create a DateTime object from the birth date string
-            $birthDateTime = new DateTime($birthDate);
+            $birthDateTime = new \DateTime($birthDate);
             // Get the current date
-            $currentDate = new DateTime();
+            $currentDate = new \DateTime();
 
             // Calculate the difference between the current date and the birth date
             $age = $currentDate->diff($birthDateTime)->y;
+
+            error_log($age);
 
             if($age > 30){
               return;
@@ -111,7 +111,9 @@ class useradditionapi_observer {
             //Assign Parents
             $fatherId = $data['data']['0']['FATHERS_IDNO'];
             error_log($fatherId);
+
             $token = self::getSystemAdminToken();
+
             if($fatherId !== null){
               $father = self::getUser($fatherId, $token);
               error_log(print_r($father, true));
@@ -120,6 +122,7 @@ class useradditionapi_observer {
             
 
             $motherId = $data['data']['0']['MOTHERS_IDNO'];
+            
             if($motherId !== null){
               $mother = self::getUser($motherId, $token);
               self::assignParent($mother, $child);
