@@ -2,7 +2,7 @@
 
 namespace local_useradditionapi;
 // Load Moodle configuration
-require_once($CFG->dirroot. 'config.php');
+require_once($CFG->dirroot. '/config.php');
 require_once($CFG->dirroot.'/user/profile/lib.php');
 
 class useradditionapi_observer {
