@@ -2,7 +2,6 @@
 
 namespace local_useradditionapi;
 // Load Moodle configuration
-require_once($CFG->dirroot. '/config.php');
 require_once($CFG->dirroot.'/user/profile/lib.php');
 
 class useradditionapi_observer {
@@ -91,6 +90,8 @@ class useradditionapi_observer {
             // Call the function with the birth date from the response
             $birthDate = $data['data']['BIRTH_DTE'];
 
+            error_log(print_r($data, true));
+
             if($birthDate == null){
               return;
             }
@@ -165,6 +166,8 @@ class useradditionapi_observer {
     if ($data !== null) {
         // Access the meetingLink property
         $result = $data['access_token'];
+
+        error_log(print_r($data, true));
     }
 
     return $result;
@@ -203,6 +206,8 @@ class useradditionapi_observer {
     if ($data !== null) {
         // Access the meetingLink property
         $result = $data;
+
+        error_log(print_r($data, true));
     }
 
     return $result;
@@ -213,6 +218,8 @@ class useradditionapi_observer {
     //Create user in moodle
     // Assuming $username contains the username you want to check or create
     $user = $DB->get_record('user', array('username' => $iamUser->username));
+
+    error_log(print_r($user, true));
 
     $user_id = 0;
 
@@ -237,6 +244,8 @@ class useradditionapi_observer {
         // If user with that username doesn't exist
         $user_id = user_create_user($user);
 
+        error_log($user_id);
+
         //Add required profile fields here
         //nin
         $user->profile_field_nin = $iamUser->username;
@@ -250,6 +259,8 @@ class useradditionapi_observer {
 
     //Assign mentees
     $context = \context_user::instance($child->id);
+
+    error_log($context->id);
 
     role_assign(15, $user_id, $context->id);
 
