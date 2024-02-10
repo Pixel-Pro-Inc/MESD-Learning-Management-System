@@ -90,7 +90,7 @@ class useradditionapi_observer {
             // Call the function with the birth date from the response
             $birthDate = $data['data']['0']['BIRTH_DTE'];
 
-            error_log(print_r($birthDate, true));
+            error_log('This is a birth date ' . $birthDate);
 
             if($birthDate == null){
               return;
