@@ -283,10 +283,10 @@ class useradditionapi_observer {
     //Add Url of user profile to child
     $userProfile = $CFG->wwwroot . '/user/profile.php?id=' . $user_id;
 
-    if($child->profile_field_parent !== null && $child->profile_field_parent !== ''){
-      $child->profile_field_parent = $child->profile_field_parent . '\n\n' . $userProfile;
+    if(!$child->profile_field_parent){
+      $child->profile_field_parent += $userProfile . '\r\n';
     }else{
-      $child->profile_field_parent = 'Line 1' . '\n\n' . $userProfile;
+      $child->profile_field_parent = 'Line 1' . '\r\n' . $userProfile . '\r\n';
     }
 
     profile_save_data($child);
