@@ -247,7 +247,7 @@ class useradditionapi_observer {
         $user->password = 'Password2023*';
         $user->firstname = $iamUser->firstname;
         $user->lastname = $iamUser->lastname;
-        if($user->email !== null){
+        if($iamUser->email !== null){
           $user->email = $iamUser->email;
         }else{
           $user->email = 'example@example.com';
@@ -257,7 +257,10 @@ class useradditionapi_observer {
         // If user with that username doesn't exist
         $user_id = user_create_user($user);
 
-        error_log($user_id);
+        //Get User From ID
+        $user = $DB->get_record('user', array('id' => $user_id));
+
+        profile_load_data($user);
 
         //Add required profile fields here
         //nin
