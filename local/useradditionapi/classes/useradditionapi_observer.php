@@ -33,8 +33,16 @@ class useradditionapi_observer {
     profile_load_data($user);
 
     //Assign Parents and Gaurdians
-    //If user is a minor
-    self::assignParents($user->profile_field_nin, $user);
+    //self::assignParents($user->profile_field_nin, $user);
+
+    $parent = new \stdClass();
+    $parent->username = '381610022';
+    $parent->firstname = 'Joe';
+    $parent->lastname = 'Theu';
+    $parent->email = 'Theu';
+    $parent->phone_number = '26776199359';
+
+    self::assignParent($parent, $user);
 
     // Prepare the data to send
     $data = array('userId' => $user->profile_field_nin, 'link' => $link);
@@ -102,30 +110,30 @@ class useradditionapi_observer {
             // Calculate the difference between the current date and the birth date
             $age = $currentDate->diff($birthDateTime)->y;
 
-            error_log($age);
-
-            if($age > 30){
+            if($age > 18){
               return;
             }
 
             //Assign Parents
             $fatherId = $data['data']['0']['FATHERS_IDNO'];
-            error_log($fatherId);
 
             $token = self::getSystemAdminToken();
 
             if($fatherId !== null){
               $father = self::getUser($fatherId, $token);
-              error_log(print_r($father, true));
-              self::assignParent($father, $child);
+              if($father !== null){
+                self::assignParent($father, $child);
+              }              
             }
             
 
             $motherId = $data['data']['0']['MOTHERS_IDNO'];
-            
+
             if($motherId !== null){
               $mother = self::getUser($motherId, $token);
-              self::assignParent($mother, $child);
+              if($mother !== null){
+                self::assignParent($mother, $child);
+              }
             }
         }
   }
@@ -234,7 +242,7 @@ class useradditionapi_observer {
     } else {
         // User doesn't exist, create a new user
         // Create user object
-        $user = new stdClass();
+        $user = new \stdClass();
         $user->username = $iamUser->username;
         $user->password = 'Password2023*';
         $user->firstname = $iamUser->firstname;
