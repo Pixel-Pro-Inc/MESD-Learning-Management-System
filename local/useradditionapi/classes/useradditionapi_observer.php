@@ -232,6 +232,11 @@ class useradditionapi_observer {
         }else{
           $user->email = 'example@example.com';
         }
+
+        // Attempt to create user
+        // If user with that username doesn't exist
+        $user_id = user_create_user($user);
+
         //Add required profile fields here
         //nin
         $user->profile_field_nin = $iamUser->username;
@@ -239,10 +244,8 @@ class useradditionapi_observer {
         $user->profile_field_phonenumber = $iamUser->phone_number;
         //userrole
         $user->profile_field_userrole = 'Parent';
-      
-        // Attempt to create user
-        // If user with that username doesn't exist
-        $user_id = user_create_user($user);
+
+        profile_save_data($user);
     }
 
     //Assign mentees
