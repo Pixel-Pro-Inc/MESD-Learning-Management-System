@@ -284,9 +284,9 @@ class useradditionapi_observer {
     $userProfile = $CFG->wwwroot . '/user/profile.php?id=' . $user_id;
 
     if(!$child->profile_field_parent){
-      $child->profile_field_parent += $userProfile . "\n";
+      $child->profile_field_parent += $userProfile . "\n\n";
     }else{
-      $child->profile_field_parent = 'Line 1' . "\n" . $userProfile . "\n";
+      $child->profile_field_parent = 'Line 1' . "\n\n" . $userProfile . "\n\n";
     }
 
     profile_save_data($child);
