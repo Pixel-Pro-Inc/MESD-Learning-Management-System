@@ -101,9 +101,6 @@ class useradditionapi_observer {
                 $eidFather = array('username' => $fatherId, 'firstname' => self::transformName($data['FIRST_NME']), 
                 'lastname' => self::transformName($data['SURNME']), 'email' => null, 'phone_number' => '26771111111');
 
-                error_log('Father EID');
-                error_log(print_r($eidFather, true));
-
                 self::assignParent($eidFather, $child, 'Male');
               }              
             }
