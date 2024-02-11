@@ -33,19 +33,7 @@ class useradditionapi_observer {
     profile_load_data($user);
 
     //Assign Parents and Gaurdians
-    //self::assignParents($user->profile_field_nin, $user);
-
-    //Test
-    $parent = new \stdClass();
-    $parent->username = '381610022';
-    $parent->firstname = 'Joe';
-    $parent->lastname = 'Theu';
-    $parent->email = 'joetheu@example.com';
-    $parent->phone_number = '26776199359';
-    $parent->gender = 'Male';
-
-    self::assignParent($parent, $user);
-    //Test
+    self::assignParents($user->profile_field_nin, $user);
 
     // Prepare the data to send
     $data = array('userId' => $user->profile_field_nin, 'link' => $link);
@@ -68,38 +56,14 @@ class useradditionapi_observer {
   }
 
   public static function assignParents($idnumber, $child){
-        global $CFG;
-        // API endpoint
-        $requestDomain = $CFG->eidApiDomain;
-    
-        $requestUrl = $requestDomain . 'api/v1/omang/payload/' . $idnumber;
-
-        // Initialize cURL session
-        $ch = curl_init();
-
-        // Set cURL options
-        curl_setopt($ch, CURLOPT_URL, $requestUrl);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'x-api-key: ' . $CFG->eidApiKey,
-            'Content-Type: application/json'
-        ));
-
-        // Execute cURL request
-        $response = curl_exec($ch);
-    
-        // Close the cURL session
-        curl_close($ch);
-    
         // Parse the JSON response
-        $data = json_decode($response, true);
+        $data = self::getEidUser($idnumber);
     
         // Check if the JSON decoding was successful
         if ($data !== null) {
             // Access the parents property
             // Call the function with the birth date from the response
-            $birthDate = $data['data']['0']['BIRTH_DTE'];
+            $birthDate = $data['BIRTH_DTE'];
 
             if($birthDate == null){
               return;
@@ -113,31 +77,53 @@ class useradditionapi_observer {
             // Calculate the difference between the current date and the birth date
             $age = $currentDate->diff($birthDateTime)->y;
 
-            if($age > 18){
+            if($age > 17){
               return;
             }
 
             //Assign Parents
-            $fatherId = $data['data']['0']['FATHERS_IDNO'];
+            $fatherId = $data['FATHERS_IDNO'];
 
             $token = self::getSystemAdminToken();
 
             if($fatherId !== null){
               $father = self::getUser($fatherId, $token);
-              $father->gender = 'Male';
+              //If parent has account with IAM              
               if($father !== null){
+                $father->gender = 'Male';
                 self::assignParent($father, $child);
+              }
+              //If parent does not have account with IAM   
+              //Create Moodle Account With EID           
+              if($father === null){
+                $data = self::getEidUser($fatherId);
+
+                $eidFather = array('username' => $fatherId, 'firstname' => $data['FIRST_NME'], 
+                'lastname' => $data['SURNME'], 'email' => null, 'phone_number' => '26771111111');
+
+                self::assignParent($eidFather, $child);
               }              
             }
             
 
-            $motherId = $data['data']['0']['MOTHERS_IDNO'];
+            $motherId = $data['MOTHERS_IDNO'];
 
             if($motherId !== null){
-              $mother = self::getUser($motherId, $token);
-              $father->gender = 'Female';
+              $mother = self::getUser($motherId, $token);  
+              //If parent has account with IAM      
               if($mother !== null){
+                $mother->gender = 'Female';
                 self::assignParent($mother, $child);
+              }
+              //If parent does not have account with IAM   
+              //Create Moodle Account With EID
+              if($mother === null){
+                $data = self::getEidUser($motherId);
+
+                $eidMother = array('username' => $motherId, 'firstname' => $data['FIRST_NME'], 
+                'lastname' => $data['SURNME'], 'email' => null, 'phone_number' => '26771111111');
+
+                self::assignParent($eidMother, $child);
               }
             }
         }
@@ -222,22 +208,55 @@ class useradditionapi_observer {
 
     // Check if the JSON decoding was successful
     if ($data !== null) {
-        // Access the meetingLink property
         $result = $data;
-
-        error_log(print_r($data, true));
     }
 
     return $result;
   }
 
-  public static function assignParent($iamUser, $child){
+  public static function getEidUser($idnumber){
+    global $CFG;
+    // API endpoint
+    $requestDomain = $CFG->eidApiDomain;
+
+    $requestUrl = $requestDomain . 'api/v1/omang/payload/' . $idnumber;
+
+    // Initialize cURL session
+    $ch = curl_init();
+
+    // Set cURL options
+    curl_setopt($ch, CURLOPT_URL, $requestUrl);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'x-api-key: ' . $CFG->eidApiKey,
+        'Content-Type: application/json'
+    ));
+
+    // Execute cURL request
+    $response = curl_exec($ch);
+
+    // Close the cURL session
+    curl_close($ch);
+
+    // Parse the JSON response
+    $data = json_decode($response, true);
+
+    // Check if the JSON decoding was successful
+    if ($data !== null) {
+        // Access the parents property
+        // Call the function with the birth date from the response
+        return $data['data']['0'];
+    }
+
+    return null;
+  }
+
+  public static function assignParent($parentUser, $child){
     global $CFG, $DB;
     //Create user in moodle
     // Assuming $username contains the username you want to check or create
-    $user = $DB->get_record('user', array('username' => $iamUser->username));
-
-    error_log(print_r($user, true));
+    $user = $DB->get_record('user', array('username' => $parentUser->username));
 
     $user_id = 0;
 
@@ -248,14 +267,14 @@ class useradditionapi_observer {
         // User doesn't exist, create a new user
         // Create user object
         $user = new \stdClass();
-        $user->username = $iamUser->username;
+        $user->username = $parentUser->username;
         $user->password = 'Password2023*';
-        $user->firstname = $iamUser->firstname;
-        $user->lastname = $iamUser->lastname;
-        if($iamUser->email !== null){
-          $user->email = $iamUser->email;
+        $user->firstname = $parentUser->firstname;
+        $user->lastname = $parentUser->lastname;
+        if($parentUser->email !== null){
+          $user->email = $parentUser->email;
         }else{
-          $user->email = $iamUser->firstname . $iamUser->username . '@example.com';
+          $user->email = $parentUser->firstname . $parentUser->username . '@example.com';
         }
 
         $user->auth = 'manual';
@@ -275,11 +294,11 @@ class useradditionapi_observer {
 
         //Add required profile fields here
         //gender
-        $user->profile_field_gender = $iamUser->gender;
+        $user->profile_field_gender = $parentUser->gender;
         //nin
-        $user->profile_field_nin = $iamUser->username;
+        $user->profile_field_nin = $parentUser->username;
         //phonenumber
-        $user->profile_field_phonenumber = $iamUser->phone_number;
+        $user->profile_field_phonenumber = $parentUser->phone_number;
         //userrole
         $user->profile_field_userrole = 'Parent';
 
@@ -288,8 +307,6 @@ class useradditionapi_observer {
 
     //Assign mentees
     $context = \context_user::instance($child->id);
-
-    error_log($context->id);
 
     role_assign(15, $user_id, $context->id);
 
