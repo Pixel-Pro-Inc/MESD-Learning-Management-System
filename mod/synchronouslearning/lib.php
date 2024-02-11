@@ -76,9 +76,6 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
     // Prepare the data to send
     profile_load_data($user);
 
-    //Convert times to mili seconds
-    error_log('Time: ' . $scheduleTimeOpen);
-
     $user->profile_field_onegovid = '5702a25e-53ea-42d5-96e0-ff2551d5ce5e';
 
     $calendarId = getCalendarId($user->profile_field_onegovid);
@@ -93,8 +90,8 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
         'user' => $user->profile_field_onegovid,
         'isVirtual' => true,
         'virtualPlatform' => 'webex',
-        'startTime' => $scheduleTimeOpen,
-        'endTime' => $scheduleTimeClose,
+        'startTime' => $scheduleTimeOpen * 1000,
+        'endTime' => $scheduleTimeClose * 1000,
         'isRecurring' => false,
         'hasService' => false,
         'state' => 'scheduled',
