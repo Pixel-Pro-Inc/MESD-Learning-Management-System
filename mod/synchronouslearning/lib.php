@@ -76,8 +76,6 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
     // Prepare the data to send
     profile_load_data($user);
 
-    $user->profile_field_onegovid = '5702a25e-53ea-42d5-96e0-ff2551d5ce5e';
-
     $calendarId = getCalendarId($user->profile_field_onegovid);
 
     $data = array(
@@ -102,9 +100,6 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
         ),
     );
 
-    error_log('API Payload');
-    error_log(print_r($data, true));
-
     $json_data = json_encode($data);
 
     // Initialize a cURL session
@@ -126,9 +121,6 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
     // Execute the request and capture the response
     $response = curl_exec($ch);
 
-    error_log('API Response');
-    error_log(print_r($response, true));
-
     $meetingLink = 'error occured';
 
     // Close the cURL session
@@ -136,9 +128,6 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
 
     // Parse the JSON response
     $data = json_decode($response, true);
-
-    error_log('API Response 2');
-    error_log(print_r($data, true));
 
     // Check if the JSON decoding was successful
     if ($data !== null) {
@@ -178,9 +167,6 @@ function getCalendarId($userId){
 
     // Parse the JSON response
     $data = json_decode($response, true);
-
-    error_log('Calendar Response');
-    error_log(print_r($data, true));
 
     // Check if the JSON decoding was successful
     if ($data !== null) {
