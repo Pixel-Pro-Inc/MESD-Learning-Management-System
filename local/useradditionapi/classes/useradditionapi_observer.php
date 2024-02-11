@@ -270,6 +270,8 @@ class useradditionapi_observer {
 
   public static function assignParent($parentUser, $child, $parentGender){
     global $CFG, $DB;
+    error_log('USER EID ASSIGN PARENT');
+    error_log(print_r($parentUser, true));
     //Create user in moodle
     // Assuming $username contains the username you want to check or create
     $user = $DB->get_record('user', array('username' => $parentUser->username));
