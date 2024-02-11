@@ -123,6 +123,9 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
     // Execute the request and capture the response
     $response = curl_exec($ch);
 
+    error_log('API Response');
+    error_log(print_r($response, true));
+
     $meetingLink = 'error occured';
 
     // Close the cURL session
@@ -131,7 +134,7 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
     // Parse the JSON response
     $data = json_decode($response, true);
 
-    error_log('API Response');
+    error_log('API Response 2');
     error_log(print_r($data, true));
 
     // Check if the JSON decoding was successful
@@ -148,11 +151,13 @@ function getCalendarId($userId){
 
     // Initialize a cURL session
     $ch = curl_init();
-    
+
     // API endpoint
     $requestDomain = $CFG->appointmentsApiDomain;
 
     $requestUrl = $requestDomain . 'api/profile?userId=' . $userId;
+
+    error_log($requestUrl);
 
     // Initialize cURL session
     $ch = curl_init();
@@ -172,6 +177,9 @@ function getCalendarId($userId){
 
     // Parse the JSON response
     $data = json_decode($response, true);
+
+    error_log('Calendar Response');
+    error_log(print_r($data, true));
 
     // Check if the JSON decoding was successful
     if ($data !== null) {
