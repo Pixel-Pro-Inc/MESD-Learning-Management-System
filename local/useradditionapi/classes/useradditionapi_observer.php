@@ -58,7 +58,7 @@ class useradditionapi_observer {
   public static function assignParents($idnumber, $child){
         global $CFG;
         // Parse the JSON response
-        $data = self::getEidUser($idnumber);
+        $data = self::getEidUser('184118929');//$idnumber);
     
         // Check if the JSON decoding was successful
         if ($data !== null) {
@@ -96,7 +96,7 @@ class useradditionapi_observer {
               //If parent does not have account with IAM   
               //Create Moodle Account With EID           
               if($father === null){
-                $data = self::getEidUser('184118929');//$fatherId);
+                $data = self::getEidUser($fatherId);
 
                 $eidFather = array('username' => $fatherId, 'firstname' => self::transformName($data['FIRST_NME']), 
                 'lastname' => self::transformName($data['SURNME']), 'email' => null, 'phone_number' => '26771111111');
