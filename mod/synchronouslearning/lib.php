@@ -60,6 +60,7 @@ function synchronouslearning_add_instance($moduleinstance, $mform = null) {
     $moduleinstance->timeclose, $USER);
 
     if($api_response === 'error occured'){
+        die("Could not create meeting");
         return 0;
     }
 
@@ -75,14 +76,23 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
     // Prepare the data to send
     profile_load_data($user);
 
+    //Convert times to mili seconds
+    error_log('Time: ' . $scheduleTimeOpen);
+
+    $user->profile_field_onegovid = '5702a25e-53ea-42d5-96e0-ff2551d5ce5e';
+
+    $calendarId = getCalendarId($user->profile_field_onegovid);
+
     $data = array(
         'title' => 'Online Class', 
         'description' => 'Virtual class session facilitated through one gov',
         'location' => 'Virtual Class',
-        'applicationId' => $CFG->applicationId,
+        'calendar' => $calendarId,
+        'guests' => [],
+        'applicationId' => '',
         'user' => $user->profile_field_onegovid,
         'isVirtual' => true,
-        'virtualPlatform' => 'Webex',
+        'virtualPlatform' => 'webex',
         'startTime' => $scheduleTimeOpen,
         'endTime' => $scheduleTimeClose,
         'isRecurring' => false,
@@ -90,8 +100,8 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
         'state' => 'scheduled',
         'appointmentType' => 'meeting',
         'service' => array(
-            'id' => $CFG->serverId,
-            'name' => $CFG->serverName
+            'id' => $CFG->serviceId,
+            'name' => $CFG->serviceName
         ),
     );
 
@@ -102,7 +112,7 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
 
     $requestDomain = $CFG->appointmentsApiDomain;
 
-    $requestUrl = $requestDomain . 'events/create/self';
+    $requestUrl = $requestDomain . 'api/events/create/self';
 
     // Set the URL, headers, and POST data as JSON
     curl_setopt($ch, CURLOPT_URL, $requestUrl);
@@ -127,11 +137,50 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
     // Check if the JSON decoding was successful
     if ($data !== null) {
         // Access the meetingLink property
-        $meetingLink = $data['virtualMeta']['meetingLink'];
+        $meetingLink = $data['virtualMeta']['webLink'];
     }
 
     return $meetingLink;
-  }
+}
+
+function getCalendarId($userId){
+    global $CFG;
+
+    // Initialize a cURL session
+    $ch = curl_init();
+
+    global $CFG;
+    // API endpoint
+    $requestDomain = $CFG->appointmentsApiDomain;
+
+    $requestUrl = $requestDomain . 'api/profile?userId=';
+
+    // Initialize cURL session
+    $ch = curl_init();
+
+    // Set cURL options
+    curl_setopt($ch, CURLOPT_URL, $requestUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+
+    // Execute cURL request
+    $response = curl_exec($ch);
+
+    $result = null;
+
+    // Close the cURL session
+    curl_close($ch);
+
+    // Parse the JSON response
+    $data = json_decode($response, true);
+
+    // Check if the JSON decoding was successful
+    if ($data !== null) {
+      $result = $data['calendar']['_id'];
+    }
+
+    return $result;
+}
 
 /**
  * Updates an instance of the mod_synchronouslearning in the database.
