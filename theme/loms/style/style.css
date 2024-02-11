@@ -66,7 +66,8 @@ Default Style
 /* Hide the one gov id field. */
 #fitem_id_profile_field_onegovid,
 /* Hide Optional section. */
-#id_moodle_optional {
+#id_moodle_optional,
+.login-container {
   display: none !important;
 }
 

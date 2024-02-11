@@ -40,19 +40,19 @@ class local_autologin {
                         $iamUser = self::getUser($user->profile_field_nin, $token);
 
                         //Update First/Last name and phonenumber, email if not null
-                        $user->firstname = $iamUser->firstname;
-                        $user->lastname = $iamUser->lastname;
-                        if($iamUser->email !== null){
-                            $user->email = $iamUser->email;
+                        $user->firstname = $iamUser['firstname'];
+                        $user->lastname = $iamUser['lastname'];
+                        if($iamUser['email'] !== null){
+                            $user->email = $iamUser['email'];
                         }
 
                         $DB->update_record('user', $user);
 
                         //profile field
                         //Set Profile field for one gov access key
-                        $user->profile_field_phonenumber = $iamUser->phone_number;
+                        $user->profile_field_phonenumber = $iamUser['phone_number'];
                         //Figure it out after meeting with Dan
-                        $user->profile_field_onegovid = ;//$iamUser->phone_number;
+                        $user->profile_field_onegovid = $iamUser['id'];
 
                         profile_save_data($user);                   
                     }                    
@@ -142,7 +142,7 @@ class local_autologin {
     
         // Check if the JSON decoding was successful
         if ($data !== null) {
-            // Access the meetingLink property
+            // Access the property
             $result = $data;
         }
     
