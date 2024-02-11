@@ -83,8 +83,7 @@ class useradditionapi_observer {
             }
 
             //Assign Parents
-            //Test
-            $fatherId = '935512806';//$data['FATHERS_IDNO'];
+            $fatherId = $data['FATHERS_IDNO'];
 
             $token = self::getSystemAdminToken();
 
@@ -97,7 +96,7 @@ class useradditionapi_observer {
               //If parent does not have account with IAM   
               //Create Moodle Account With EID           
               if($father === null){
-                $data = self::getEidUser($fatherId);
+                $data = self::getEidUser('184118929');//$fatherId);
 
                 $eidFather = array('username' => $fatherId, 'firstname' => self::transformName($data['FIRST_NME']), 
                 'lastname' => self::transformName($data['SURNME']), 'email' => null, 'phone_number' => '26771111111');
