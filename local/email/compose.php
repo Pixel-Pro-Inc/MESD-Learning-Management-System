@@ -39,32 +39,32 @@ if ($mform->is_cancelled()) {
     $subject = $data->subject;
     $message = $data->message;
  
-    // Get the uploaded files
-    $uploadedFiles = $_FILES['attachment'];
+    // // Get the uploaded files
+    // $uploadedFiles = $_FILES['attachment'];
  
-    // Re-arrange the uploaded files array
-    $files = $emailapi->reArrayFiles($uploadedFiles);
+    // // Re-arrange the uploaded files array
+    // $files = $emailapi->reArrayFiles($uploadedFiles);
  
     // Loop through each selected user ID
     foreach ($selectedUserIds as $userId) {
         // Get the user record
         $user = $DB->get_record('user', ['id' => $userId]);
  
-        // Loop through each uploaded file
-        foreach ($files as $file) {
-            // Move the uploaded file to a permanent location
-            $destination = "/path/to/your/directory/" . $file['name'];
-            move_uploaded_file($file['tmp_name'], $destination);
+        // // Loop through each uploaded file
+        // foreach ($files as $file) {
+        //     // Move the uploaded file to a permanent location
+        //     $destination = "/path/to/your/directory/" . $file['name'];
+        //     move_uploaded_file($file['tmp_name'], $destination);
  
-            // Add the file path to the attachments array
-            $attachments[] = $destination;
-        }
+        //     // Add the file path to the attachments array
+        //     $attachments[] = $destination;
+        // }
 
         // Send the email
-        $emailapi->sendEmailAPI($user->email, $subject, $message, $attachments);
+        $emailapi->sendEmailAPI($user->email, $subject, $message, []);//$attachments);
  
-        // Clear the attachments array for the next user
-        $attachments = [];
+        //// Clear the attachments array for the next user
+        //$attachments = [];
     }
  
     // Redirect back to the manage page

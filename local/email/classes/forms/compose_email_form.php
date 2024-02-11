@@ -57,15 +57,15 @@ class compose_email_form extends moodleform {
         $mform->addElement('textarea', 'message', "Enter message", 'wrap="virtual" rows="5" cols="10"');
         $mform->addRule('message', 'required', 'required', null, 'client');
 
-        // Set the maximum file size to 200MB
-        $maxbytes = 200 * 1024 * 1024; // 200MB
+        // // Set the maximum file size to 200MB
+        // $maxbytes = 200 * 1024 * 1024; // 200MB
 
-        // Set the total area size to 500MB
-        $areamaxbytes = 500 * 1024 * 1024; // 500MB
+        // // Set the total area size to 500MB
+        // $areamaxbytes = 500 * 1024 * 1024; // 500MB
 
-        // File picker field
-        $mform->addElement('filepicker', 'attachment', 'Attach file', null, array('maxbytes' => $maxbytes, 'areamaxbytes' => $areamaxbytes));
-        $mform->addHelpButton('attachment', 'attachment', 'mod_forum');
+        // // File picker field
+        // $mform->addElement('filepicker', 'attachment', 'Attach file', null, array('maxbytes' => $maxbytes, 'areamaxbytes' => $areamaxbytes));
+        // $mform->addHelpButton('attachment', 'attachment', 'mod_forum');
 
         // Add save changes button and cancel button
         $this->add_action_buttons(true, 'Send email');

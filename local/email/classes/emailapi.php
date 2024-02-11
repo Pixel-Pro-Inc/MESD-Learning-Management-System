@@ -50,23 +50,23 @@ class emailapi {
         return $decodedResponse;
     }
 
-    function reArrayFiles($filePost) {
-        // Check if 'name' key exists and is an array
-        if (!isset($filePost['name']) || !is_array($filePost['name'])) {
-            return array();
-        }
+    // function reArrayFiles($filePost) {
+    //     // Check if 'name' key exists and is an array
+    //     if (!isset($filePost['name']) || !is_array($filePost['name'])) {
+    //         return array();
+    //     }
       
-        $fileArray = array();
-        $fileCount = count($filePost['name']);
-        $fileKey = array_keys($filePost);
+    //     $fileArray = array();
+    //     $fileCount = count($filePost['name']);
+    //     $fileKey = array_keys($filePost);
       
-        for ($i=0; $i<$fileCount; $i++) {
-            foreach ($fileKey as $key) {
-                $fileArray[$i][$key] = $filePost[$key][$i];
-            }
-        }
-        return $fileArray;
-    }
+    //     for ($i=0; $i<$fileCount; $i++) {
+    //         foreach ($fileKey as $key) {
+    //             $fileArray[$i][$key] = $filePost[$key][$i];
+    //         }
+    //     }
+    //     return $fileArray;
+    // }
         
 }
 
