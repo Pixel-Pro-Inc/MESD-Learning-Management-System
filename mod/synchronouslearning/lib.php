@@ -78,7 +78,13 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
 
     $user->profile_field_onegovid = '5702a25e-53ea-42d5-96e0-ff2551d5ce5e';
 
+    error_log('1GOV ID');
+    error_log($user->profile_field_onegovid);
+
     $calendarId = getCalendarId($user->profile_field_onegovid);
+
+    error_log('Calendar ID');
+    error_log($calendarId);
 
     $data = array(
         'title' => 'Online Class', 
@@ -101,6 +107,9 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
             'name' => $CFG->serviceName
         ),
     );
+
+    error_log('API Payload');
+    error_log(print_r($data, true));
 
     $json_data = json_encode($data);
 
@@ -130,6 +139,9 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
 
     // Parse the JSON response
     $data = json_decode($response, true);
+
+    error_log('API Response');
+    error_log(print_r($data, true));
 
     // Check if the JSON decoding was successful
     if ($data !== null) {
