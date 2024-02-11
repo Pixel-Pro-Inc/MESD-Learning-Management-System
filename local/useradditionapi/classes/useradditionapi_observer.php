@@ -206,7 +206,7 @@ class useradditionapi_observer {
     // Check if the JSON decoding was successful
     if ($data !== null) {
 
-      if($data['message'] != null){
+      if($data['message'] !== null){
         return null;
       }
 
