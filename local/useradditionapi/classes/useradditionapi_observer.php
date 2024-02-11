@@ -58,6 +58,8 @@ class useradditionapi_observer {
   public static function assignParents($idnumber, $child){
         // Parse the JSON response
         $data = self::getEidUser($idnumber);
+        error_log('EID CHILD USER');
+        error_log(print_r($data, true));
     
         // Check if the JSON decoding was successful
         if ($data !== null) {
@@ -168,7 +170,7 @@ class useradditionapi_observer {
 
     // Check if the JSON decoding was successful
     if ($data !== null) {
-        // Access the meetingLink property
+        // Access the property
         $result = $data['access_token'];
 
         error_log(print_r($data, true));
