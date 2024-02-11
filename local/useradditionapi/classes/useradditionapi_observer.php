@@ -100,7 +100,8 @@ class useradditionapi_observer {
                 $data = self::getEidUser($fatherId);
 
                 $eidFather = array('username' => $fatherId, 'firstname' => $data['FIRST_NME'], 
-                'lastname' => $data['SURNME'], 'email' => null, 'phone_number' => '26771111111');
+                'lastname' => $data['SURNME'], 'email' => null, 'phone_number' => '26771111111',
+                'gender' => 'Male');
 
                 self::assignParent($eidFather, $child);
               }              
@@ -122,7 +123,8 @@ class useradditionapi_observer {
                 $data = self::getEidUser($motherId);
 
                 $eidMother = array('username' => $motherId, 'firstname' => $data['FIRST_NME'], 
-                'lastname' => $data['SURNME'], 'email' => null, 'phone_number' => '26771111111');
+                'lastname' => $data['SURNME'], 'email' => null, 'phone_number' => '26771111111',
+                'gender' => 'Female');
 
                 self::assignParent($eidMother, $child);
               }
