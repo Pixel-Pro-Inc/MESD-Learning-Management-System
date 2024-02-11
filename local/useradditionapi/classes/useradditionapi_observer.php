@@ -99,10 +99,11 @@ class useradditionapi_observer {
               //Create Moodle Account With EID           
               if($father === null){
                 $data = self::getEidUser($fatherId);
-                error_log('Father EID');
-                error_log(print_r($data, true));
                 $eidFather = array('username' => $fatherId, 'firstname' => $data['FIRST_NME'], 
                 'lastname' => $data['SURNME'], 'email' => null, 'phone_number' => '26771111111');
+
+                error_log('Father EID');
+                error_log(print_r($eidFather, true));
 
                 self::assignParent($eidFather, $child, 'Male');
               }              
@@ -262,6 +263,9 @@ class useradditionapi_observer {
     //Create user in moodle
     // Assuming $username contains the username you want to check or create
     $user = $DB->get_record('user', array('username' => $parentUser->username));
+
+    error_log('USER Moodle ID');
+    error_log(print_r($user, true));
 
     $user_id = 0;
 
