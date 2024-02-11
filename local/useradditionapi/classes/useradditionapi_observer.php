@@ -99,8 +99,8 @@ class useradditionapi_observer {
               //Create Moodle Account With EID           
               if($father === null){
                 $data = self::getEidUser($fatherId);
-                $eidFather = array('username' => $fatherId, 'firstname' => $data['FIRST_NME'], 
-                'lastname' => $data['SURNME'], 'email' => null, 'phone_number' => '26771111111');
+                $eidFather = array('username' => $fatherId, 'firstname' => self::transformName($data['FIRST_NME']), 
+                'lastname' => self::transformName($data['SURNME']), 'email' => null, 'phone_number' => '26771111111');
 
                 error_log('Father EID');
                 error_log(print_r($eidFather, true));
@@ -123,13 +123,23 @@ class useradditionapi_observer {
               if($mother === null){
                 $data = self::getEidUser($motherId);
 
-                $eidMother = array('username' => $motherId, 'firstname' => $data['FIRST_NME'], 
-                'lastname' => $data['SURNME'], 'email' => null, 'phone_number' => '26771111111');
+                $eidMother = array('username' => $motherId, 'firstname' => self::transformName($data['FIRST_NME']), 
+                'lastname' => self::transformName($data['SURNME']), 'email' => null, 'phone_number' => '26771111111');
 
                 self::assignParent($eidMother, $child, 'Female');
               }
             }
         }
+  }
+
+  public static function transformName($value){
+    // Trim to only the first word
+    $value = strstr($value, ' ', true) ?: $value;
+
+    // Capitalize the first letter
+    $value = ucfirst(strtolower($value));
+
+    return $value;
   }
 
   public static function getSystemAdminToken() {
@@ -291,6 +301,9 @@ class useradditionapi_observer {
         $user->mnethostid = 1;
         $user->timecreated = time();
         $user->maildisplay = 0;
+
+        error_log('USER Before Creation Moodle');
+        error_log(print_r($user, true));
 
         // Attempt to create user
         // If user with that username doesn't exist
