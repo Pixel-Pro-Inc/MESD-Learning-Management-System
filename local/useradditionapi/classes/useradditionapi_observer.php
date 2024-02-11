@@ -89,8 +89,6 @@ class useradditionapi_observer {
 
             if($fatherId !== null){
               $father = self::getUser($fatherId, $token);
-              error_log('Father');
-              error_log(print_r($father, true));
               //If parent has account with IAM              
               if($father !== null){
                 self::assignParent($father, $child, 'Male');
@@ -99,6 +97,7 @@ class useradditionapi_observer {
               //Create Moodle Account With EID           
               if($father === null){
                 $data = self::getEidUser($fatherId);
+
                 $eidFather = array('username' => $fatherId, 'firstname' => self::transformName($data['FIRST_NME']), 
                 'lastname' => self::transformName($data['SURNME']), 'email' => null, 'phone_number' => '26771111111');
 
@@ -270,14 +269,9 @@ class useradditionapi_observer {
 
   public static function assignParent($parentUser, $child, $parentGender){
     global $CFG, $DB;
-    error_log('USER EID ASSIGN PARENT');
-    error_log(print_r($parentUser, true));
     //Create user in moodle
     // Assuming $username contains the username you want to check or create
-    $user = $DB->get_record('user', array('username' => $parentUser->username));
-
-    error_log('USER Moodle ID');
-    error_log(print_r($user, true));
+    $user = $DB->get_record('user', array('username' => $parentUser['username']));
 
     $user_id = 0;
 
@@ -288,14 +282,14 @@ class useradditionapi_observer {
         // User doesn't exist, create a new user
         // Create user object
         $user = new \stdClass();
-        $user->username = $parentUser->username;
+        $user->username = $parentUser['username'];
         $user->password = 'Password2023*';
-        $user->firstname = $parentUser->firstname;
-        $user->lastname = $parentUser->lastname;
-        if($parentUser->email !== null){
-          $user->email = $parentUser->email;
+        $user->firstname = $parentUser['firstname'];
+        $user->lastname = $parentUser['lastname'];
+        if($parentUser['email'] !== null){
+          $user->email = $parentUser['email'];
         }else{
-          $user->email = $parentUser->firstname . $parentUser->username . '@example.com';
+          $user->email = $parentUser['firstname'] . $parentUser['username'] . '@example.com';
         }
 
         $user->auth = 'manual';
@@ -303,9 +297,6 @@ class useradditionapi_observer {
         $user->mnethostid = 1;
         $user->timecreated = time();
         $user->maildisplay = 0;
-
-        error_log('USER Before Creation Moodle');
-        error_log(print_r($user, true));
 
         // Attempt to create user
         // If user with that username doesn't exist
@@ -320,9 +311,9 @@ class useradditionapi_observer {
         //gender
         $user->profile_field_gender = $parentGender;
         //nin
-        $user->profile_field_nin = $parentUser->username;
+        $user->profile_field_nin = $parentUser['username'];
         //phonenumber
-        $user->profile_field_phonenumber = $parentUser->phone_number;
+        $user->profile_field_phonenumber = $parentUser['phone_number'];
         //userrole
         $user->profile_field_userrole = 'Parent';
 
