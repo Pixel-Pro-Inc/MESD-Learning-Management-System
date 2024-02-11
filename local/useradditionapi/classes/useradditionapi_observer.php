@@ -89,11 +89,11 @@ class useradditionapi_observer {
 
             if($fatherId !== null){
               $father = self::getUser($fatherId, $token);
+              error_log('I dont want to see this');
+              error_log(print_r($father, true));
               //If parent has account with IAM              
               if($father !== null){
-                error_log('I dont want to see this');
-                $father->gender = 'Male';
-                self::assignParent($father, $child);
+                self::assignParent($father, $child, 'Male');
               }
               //If parent does not have account with IAM   
               //Create Moodle Account With EID           
@@ -101,10 +101,9 @@ class useradditionapi_observer {
                 $data = self::getEidUser($fatherId);
 
                 $eidFather = array('username' => $fatherId, 'firstname' => $data['FIRST_NME'], 
-                'lastname' => $data['SURNME'], 'email' => null, 'phone_number' => '26771111111',
-                'gender' => 'Male');
+                'lastname' => $data['SURNME'], 'email' => null, 'phone_number' => '26771111111');
 
-                self::assignParent($eidFather, $child);
+                self::assignParent($eidFather, $child, 'Male');
               }              
             }
             
@@ -115,8 +114,7 @@ class useradditionapi_observer {
               $mother = self::getUser($motherId, $token);  
               //If parent has account with IAM      
               if($mother !== null){
-                $mother->gender = 'Female';
-                self::assignParent($mother, $child);
+                self::assignParent($mother, $child, 'Female');
               }
               //If parent does not have account with IAM   
               //Create Moodle Account With EID
@@ -124,10 +122,9 @@ class useradditionapi_observer {
                 $data = self::getEidUser($motherId);
 
                 $eidMother = array('username' => $motherId, 'firstname' => $data['FIRST_NME'], 
-                'lastname' => $data['SURNME'], 'email' => null, 'phone_number' => '26771111111',
-                'gender' => 'Female');
+                'lastname' => $data['SURNME'], 'email' => null, 'phone_number' => '26771111111');
 
-                self::assignParent($eidMother, $child);
+                self::assignParent($eidMother, $child, 'Female');
               }
             }
         }
@@ -174,8 +171,6 @@ class useradditionapi_observer {
     if ($data !== null) {
         // Access the property
         $result = $data['access_token'];
-
-        error_log(print_r($data, true));
     }
 
     return $result;
@@ -256,7 +251,7 @@ class useradditionapi_observer {
     return null;
   }
 
-  public static function assignParent($parentUser, $child){
+  public static function assignParent($parentUser, $child, $parentGender){
     global $CFG, $DB;
     //Create user in moodle
     // Assuming $username contains the username you want to check or create
@@ -298,7 +293,7 @@ class useradditionapi_observer {
 
         //Add required profile fields here
         //gender
-        $user->profile_field_gender = $parentUser->gender;
+        $user->profile_field_gender = $parentGender;
         //nin
         $user->profile_field_nin = $parentUser->username;
         //phonenumber
