@@ -88,8 +88,8 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
         'user' => $user->profile_field_onegovid,
         'isVirtual' => true,
         'virtualPlatform' => 'webex',
-        'startTime' => $scheduleTimeOpen * 1000,
-        'endTime' => $scheduleTimeClose * 1000,
+        'startTime' => getAdjustedUnixTime($scheduleTimeOpen * 1000),
+        'endTime' => getAdjustedUnixTime($scheduleTimeClose * 1000),
         'isRecurring' => false,
         'hasService' => false,
         'state' => 'scheduled',
@@ -136,6 +136,25 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
     }
 
     return $meetingLink;
+}
+
+function getAdjustedUnixTime($unixTime){
+    // UTC Unix millisecond timestamp
+    $utcUnixTimestampMs = $unixTime;
+
+    // Convert milliseconds to seconds
+    $utcUnixTimestampSec = $utcUnixTimestampMs / 1000;
+
+    // Add the UTC offset for +2 timezone (in seconds)
+    $utcOffset = 2 * 3600; // +2 hours = 7200 seconds
+
+    // Add the offset to the UTC timestamp
+    $adjustedTimestampSec = $utcUnixTimestampSec + $utcOffset;
+
+    // Convert adjusted timestamp back to milliseconds
+    $adjustedTimestampMs = $adjustedTimestampSec * 1000;
+
+    return $adjustedTimestampMs;
 }
 
 function getCalendarId($userId){
