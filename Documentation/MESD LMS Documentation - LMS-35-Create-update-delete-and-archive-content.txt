@@ -1,0 +1,34 @@
+MESD Documentation LMS-35-Create-update-delete-and-archive-content-(Multi-modal)
+In Moodle, managing content involves creating, updating, deleting, and sometimes archiving materials. Here are step-by-step instructions for these actions:
+1. Create Content:
+•	Log in to Moodle and navigate to the course where you want to add content.
+•	Turn editing on by clicking the "Turn editing on" button.
+ 
+•	In the section where you want to add content, click on "Add an activity or resource."
+ 
+•	Choose the type of content you want to create (e.g., File, Page, URL, etc.).
+•	Configure the settings for the selected resource type, add content, and save.
+2. Update Content:
+•	Navigate to the course with the content you want to update.
+•	Turn editing on.
+•	Locate the content you want to update and click on the pencil/edit icon to edit the name of the content.
+•	Click the three dots and click ‘Edit’ to edit the content information.
+ 
+•	Make the necessary changes to the content.
+•	Click the "Save changes" button.
+3. Delete Content:
+•	Navigate to the course with the content you want to delete.
+•	Turn editing on.
+•	Locate the content you want to delete and click on the three dots and click ‘Delete’.
+ 
+•	Confirm the deletion when prompted.
+4. Archive Content:
+•	Archiving in Moodle is typically done through the backup and restore process:
+•	Navigate to the course you want to archive.
+•	Turn editing on.
+•	In the section where you want to add content, click on "Add an activity or resource."
+•	Choose "Backup" and go through the backup settings
+ 
+•	Download the backup file.
+ 
+•	Optionally, you can restore the backup to a different Moodle instance or course.

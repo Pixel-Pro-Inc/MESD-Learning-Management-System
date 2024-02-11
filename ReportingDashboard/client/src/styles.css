@@ -1,0 +1,107 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@syncfusion/ej2-base/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-buttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-calendars/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-dropdowns/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-inputs/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-navigations/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-popups/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-notifications/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-angular-grids/styles/material.css";
+
+/*Prime ng icons*/
+@import "primeicons/primeicons.css";
+
+* {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --light: #fff;
+  --link-color: #007bff;
+  --accent-color: #cc0000;
+  --secondary-color: #007ecc;
+  --gray: #919aa3;
+  --light-gray: #e5e5e5;
+  --lightest-gray: #ededed;
+  --medium-gray: #606060;
+  --dark-gray: #444;
+  --darkest-gray: #292929;
+
+  --navbar-height: 80px;
+  --animation-duration: 200ms;
+  --animation-timing-curve: ease-in-out;
+  --dash-icon-color: var(--secondary-color);
+}
+
+.text {
+  color: var(--dark-gray);
+}
+
+.btn {
+  background-color: var(--darkest-gray);
+  text-transform: uppercase;
+  border-radius: 0.5rem;
+  color: var(--light);
+  font-weight: bold;
+  cursor: pointer;
+  padding: 1rem;
+  border: none;
+}
+
+.btn:disabled {
+  background-color: var(--medium-gray);
+}
+
+.form-input-group {
+  display: flex;
+  align-items: center;
+}
+
+.check-input {
+  margin-right: 0.75rem;
+}
+
+.company-logo {
+  content: "assets/images/coatofarms.png";
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+@media (max-width: 600px) {
+  .form-group {
+    display: grid !important;
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 1rem !important;
+    padding: 0 1rem !important;
+  }
+
+  .form-group-two-column {
+    display: grid !important;
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 1rem !important;
+    padding: 0 1rem !important;
+  }
+
+  .group-two-column {
+    display: grid !important;
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 1rem !important;
+    padding: 0 1rem !important;
+  }
+
+  .container {
+    width: max-content !important;
+  }
+
+  .title-container {
+    border-bottom: none !important;
+  }
+}

@@ -1,0 +1,99 @@
+<div class="footer-area bg-color-f5faff pt-100 pb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-12 wow animate__animated animate__fadeInUp delay-0-2s">
+                <div class="single-footer-widget pr-40">
+                    {{#footer_logo_visibility}}
+                        <a class="logo" href="{{{ config.wwwroot }}}/">
+                            {{#main_footer_logo}}
+                                <img src="{{main_footer_logo}}" alt="{{sitename}}"  {{#footer_logo_styles}} style="{{{footer_logo_styles}}}" {{/footer_logo_styles}}>
+                            {{/main_footer_logo}}
+
+                            {{^ main_footer_logo }}
+                                <h2  {{#footer_logo_styles}} style="{{{footer_logo_styles}}}" {{/footer_logo_styles}}>{{sitename}}</h2>
+                            {{/main_footer_logo}}
+                        </a>
+                    {{/footer_logo_visibility}}
+
+                    <p>{{{footer_info}}}</p>
+                    <ul class="footer-social">
+                        {{> theme_loms/loms_social_icons }}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="row">
+                    {{#footer_column_1}}
+                        <div class="{{{footer_col_1_class}}} col-lg-4 col-sm-6 wow animate__animated animate__fadeInUp delay-0-4s">
+                            <div class="single-footer-widget">
+
+                                {{#footer_col_1_title}}
+                                    <h3>{{{ footer_col_1_title }}}</h3>
+                                {{/footer_col_1_title}}
+
+                                {{#footer_col_1_body}}
+                                    {{{footer_col_1_body}}}
+                                {{/footer_col_1_body}}
+                            </div>
+                        </div>
+                    {{/footer_column_1}}
+
+                    {{#footer_column_2}}
+                        <div class="{{{footer_col_2_class}}} wow animate__animated animate__fadeInUp delay-0-4s">
+                            <div class="single-footer-widget pl-1">
+                                <h3>{{{ footer_col_2_title }}}</h3>
+                                {{{ footer_col_2_body }}}
+                            </div>
+                        </div>
+                    {{/footer_column_2}}
+                    {{#footer_column_3}}
+                        <div class="{{{footer_col_3_class}}} wow animate__animated animate__fadeInUp delay-0-4s">
+                            <div class="single-footer-widget pl-1">
+                                <h3>{{{ footer_col_3_title }}}</h3>
+                                {{{ footer_col_3_body }}}
+                            </div>
+                        </div>
+                    {{/footer_column_3}}
+                    {{#footer_column_4}}
+                        <div class="{{{footer_col_4_class}}} wow animate__animated animate__fadeInUp delay-0-4s">
+                            <div class="single-footer-widget">
+                                <h3>{{{ footer_col_4_title }}}</h3>
+                                {{{ footer_col_4_body }}}
+                            </div>
+                        </div>
+                    {{/footer_column_4}}
+                    {{#footer_column_5}}
+                        <div class="{{{footer_col_5_class}}} wow animate__animated animate__fadeInUp delay-0-4s">
+                            <div class="single-footer-widget">
+                                <h3>{{{ footer_col_5_title }}}</h3>
+                                {{{ footer_col_5_body }}}
+                            </div>
+                        </div>
+                    {{/footer_column_5}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{#footer_shape_img1}}
+        <img src="{{footer_shape_img1}}" class="shape shape-1" alt="{{sitename}}">
+    {{/footer_shape_img1}}
+
+    {{#footer_shape_img2}}
+        <img src="{{footer_shape_img2}}" class="shape shape-2" alt="{{sitename}}">
+    {{/footer_shape_img2}}
+</div>
+
+<!-- Copyright Area -->
+{{{ output.get_footer_bottom }}}
+
+{{#back_to_top}}
+    <!-- Start Go Top Area -->
+    <div class="go-top">
+        <i class="ri-arrow-up-s-fill"></i>
+        <i class="ri-arrow-up-s-fill"></i>
+    </div>
+    <!-- End Go Top Area -->
+{{/back_to_top}}
+
+{{{ output.standard_end_of_body_html }}}

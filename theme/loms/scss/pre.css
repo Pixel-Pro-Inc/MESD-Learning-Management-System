@@ -1,0 +1,20 @@
+:root {
+  --body-font-family: "Josefin Sans", sans-serif;
+  --body-color: #646464;
+  --main-color: [[setting:brandcolor]];
+  --heading-color: #0D0C0C;
+  --optional-color: [[setting:secondarycolor]];
+  --footerBG: [[setting:footer_bg]];
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --font-size: 16px;
+  --transition: all ease .5s;
+  --border-radius: 5px;
+  --box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+}
+
+body {
+  font-size: var(--font-size);
+  font-family: var(--body-font-family) !important;
+  color: var(--body-color);
+}/*# sourceMappingURL=pre.css.map */
