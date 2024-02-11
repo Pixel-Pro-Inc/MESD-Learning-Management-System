@@ -102,6 +102,9 @@ function sendrequest($scheduleTimeOpen, $scheduleTimeClose, $user){
         ),
     );
 
+    error_log('API Payload');
+    error_log(print_r($data, true));
+
     $json_data = json_encode($data);
 
     // Initialize a cURL session
@@ -156,8 +159,6 @@ function getCalendarId($userId){
     $requestDomain = $CFG->appointmentsApiDomain;
 
     $requestUrl = $requestDomain . 'api/profile?userId=' . $userId;
-
-    error_log($requestUrl);
 
     // Initialize cURL session
     $ch = curl_init();
