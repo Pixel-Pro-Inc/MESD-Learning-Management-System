@@ -91,6 +91,7 @@ class useradditionapi_observer {
               $father = self::getUser($fatherId, $token);
               //If parent has account with IAM              
               if($father !== null){
+                error_log('I dont want to see this');
                 $father->gender = 'Male';
                 self::assignParent($father, $child);
               }
