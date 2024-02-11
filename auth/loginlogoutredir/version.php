@@ -28,4 +28,4 @@ defined('MOODLE_INTERNAL') || die;
 
 $plugin->version = 2023120400;
 $plugin->requires = 2020110900;
-$plugin->component = 'auth_loginlogoutredir';      // Full name of the plugin (used for diagnostics)
+$plugin->component = 'auth_loginlogoutredir';

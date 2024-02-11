@@ -24,6 +24,5 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['auth_loginlogoutredirdescription'] = '<p>Redirect users to specific pages on login and logout based on config.php settings (loginredir and logoutredir)</p>';
 $string['auth_loginlogoutredirsettings'] = 'Settings';
-$string['pluginname'] = 'Login/Logout user redirection';
+$string['pluginname'] = 'Logout user redirection';
