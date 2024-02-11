@@ -26,8 +26,6 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2014103000;        // The current plugin version (Date: YYYYMMDDXX)
-$plugin->requires  = 2014051200;        // Requires this Moodle version
+$plugin->version = 2023120400;
+$plugin->requires = 2020110900;
 $plugin->component = 'auth_loginlogoutredir';      // Full name of the plugin (used for diagnostics)
-$plugin->maturity  = MATURITY_RC;
-$plugin->release   = '1.0 (2014103000)';
