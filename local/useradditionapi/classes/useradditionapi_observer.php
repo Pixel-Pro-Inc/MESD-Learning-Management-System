@@ -58,7 +58,7 @@ class useradditionapi_observer {
   public static function assignParents($idnumber, $child){
         global $CFG;
         // Parse the JSON response
-        $data = self::getEidUser('184118929');//$idnumber);
+        $data = self::getEidUser($idnumber);
     
         // Check if the JSON decoding was successful
         if ($data !== null) {
