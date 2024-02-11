@@ -56,10 +56,9 @@ class useradditionapi_observer {
   }
 
   public static function assignParents($idnumber, $child){
+        global $CFG;
         // Parse the JSON response
         $data = self::getEidUser($idnumber);
-        error_log('EID CHILD USER');
-        error_log(print_r($data, true));
     
         // Check if the JSON decoding was successful
         if ($data !== null) {
@@ -79,7 +78,7 @@ class useradditionapi_observer {
             // Calculate the difference between the current date and the birth date
             $age = $currentDate->diff($birthDateTime)->y;
 
-            if($age > 17){
+            if($age > $CFG->assignParentCuttOff){
               return;
             }
 
