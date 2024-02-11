@@ -89,8 +89,6 @@ class useradditionapi_observer {
 
             if($fatherId !== null){
               $father = self::getUser($fatherId, $token);
-              error_log('I dont want to see this');
-              error_log(print_r($father, true));
               //If parent has account with IAM              
               if($father !== null){
                 self::assignParent($father, $child, 'Male');
@@ -207,7 +205,12 @@ class useradditionapi_observer {
 
     // Check if the JSON decoding was successful
     if ($data !== null) {
-        $result = $data;
+
+      if($data['message'] != null){
+        return null;
+      }
+
+      $result = $data;
     }
 
     return $result;
