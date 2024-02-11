@@ -53,7 +53,7 @@ class DatabaseService {
     }
   }
 
-  async getUserLink(token) {
+  async getUserLinks(token) {
     const decoded = jwt.decode(token);
 
     //Verify token Authenticity
@@ -65,7 +65,20 @@ class DatabaseService {
 
     try {
       const results = await this.query(sql, params);
-      return results.map((result) => result.link);
+
+      //loop through strings
+      //append nin & token
+      let links = results.map((result) => result.link);
+
+      let linksResult = [];
+
+      for (let link of links) {
+        link += this.hashUserId(userId) + "&token=" + token;
+
+        linksResult.push(link);
+      }
+
+      return linksResult;
     } catch (error) {
       console.error("Error querying the database:", error);
       throw error;
