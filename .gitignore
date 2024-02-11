@@ -57,3 +57,5 @@ moodle-plugin-ci.phar
 phpcs.xml
 jsconfig.json
 /RedirectModule/node_modules
+/ReportingDashboard/client/.angular/cache/14.2.13
+/ReportingDashboard/client/node_modules
