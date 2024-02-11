@@ -89,6 +89,8 @@ class useradditionapi_observer {
 
             if($fatherId !== null){
               $father = self::getUser($fatherId, $token);
+              error_log('Father');
+              error_log(print_r($father, true));
               //If parent has account with IAM              
               if($father !== null){
                 self::assignParent($father, $child, 'Male');
@@ -97,7 +99,8 @@ class useradditionapi_observer {
               //Create Moodle Account With EID           
               if($father === null){
                 $data = self::getEidUser($fatherId);
-
+                error_log('Father EID');
+                error_log(print_r($data, true));
                 $eidFather = array('username' => $fatherId, 'firstname' => $data['FIRST_NME'], 
                 'lastname' => $data['SURNME'], 'email' => null, 'phone_number' => '26771111111');
 
