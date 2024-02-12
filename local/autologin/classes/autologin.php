@@ -67,7 +67,7 @@ class local_autologin {
 
     public static function getSystemAdminToken() {
         global $CFG;
-
+    
         $data = array(
             'username' => $CFG->iamSystemAdminUsername, 
             'password' => $CFG->iamSystemAdminPassword
@@ -104,23 +104,23 @@ class local_autologin {
     
         // Check if the JSON decoding was successful
         if ($data !== null) {
-            // Access the meetingLink property
+            // Access the property
             $result = $data['access_token'];
         }
     
         return $result;
-    }
-
-    public static function getUser($idnumber, $token){
+      }
+    
+      public static function getUser($idnumber, $token){
         global $CFG;
         // API endpoint
         $requestDomain = $CFG->iamApiDomain;
     
         $requestUrl = $requestDomain . 'users/?username=' . $idnumber;
-
+    
         // Initialize cURL session
         $ch = curl_init();
-
+    
         // Set cURL options
         curl_setopt($ch, CURLOPT_URL, $requestUrl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -128,10 +128,10 @@ class local_autologin {
             'Authorization: Bearer ' . $token,
             'Content-Type: application/json'
         ));
-
+    
         // Execute cURL request
         $response = curl_exec($ch);
-
+    
         $result = null;
     
         // Close the cURL session
@@ -142,10 +142,14 @@ class local_autologin {
     
         // Check if the JSON decoding was successful
         if ($data !== null) {
-            // Access the property
-            $result = $data;
+    
+          if($data['message'] !== null){
+            return null;
+          }
+    
+          $result = $data;
         }
     
         return $result;
-    }
+      }
 }
