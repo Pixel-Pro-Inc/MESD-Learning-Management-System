@@ -58,7 +58,7 @@ class DatabaseService {
 
     //Verify token Authenticity
 
-    let userId = decoded.preferred_username;
+    let userId = decoded ? decoded.preferred_username : token;
 
     const sql = "SELECT link FROM user_links WHERE user_id = ?";
     const params = [userId];
