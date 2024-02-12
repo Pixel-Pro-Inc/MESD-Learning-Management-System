@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const linkPreview = require("link-preview-js");
 const DatabaseService = require("../services/databaseService");
+const url = require("url");
 
 const databaseService = new DatabaseService();
 
@@ -12,7 +13,8 @@ async function fetchLinkPreviews(userLinks) {
 
   for (const link of userLinks) {
     try {
-      const data = await linkPreview.getLinkPreview(link);
+      const domain = url.parse(link).protocol + "//" + url.parse(link).hostname;
+      const data = await linkPreview.getLinkPreview(domain);
       linkPreviews.push(data);
     } catch (error) {
       console.error(`Error fetching link preview for ${link}:`, error);
