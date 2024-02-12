@@ -35,17 +35,9 @@ class local_autologin {
                     //Get System Admin Token
                     $token = self::getSystemAdminToken();
 
-                    error_log('System Admin Token:');
-
-                    error_log($token);
-
                     if($token !== 'error occured'){
                         //Lookup user by username
                         $iamUser = self::getUser($user->profile_field_nin, $token);
-
-                        error_log('IAM User:');
-
-                        error_log(print_r($iamUser, true));
 
                         //Update First/Last name and phonenumber, email if not null
                         $user->firstname = $iamUser['firstname'];
