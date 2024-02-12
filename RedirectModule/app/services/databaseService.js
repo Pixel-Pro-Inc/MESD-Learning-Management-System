@@ -58,7 +58,7 @@ class DatabaseService {
 
     //Verify token Authenticity
 
-    let userId = decoded ? decoded.preferred_username : token;
+    let userId = decoded.preferred_username;
 
     const sql = "SELECT link FROM user_links WHERE user_id = ?";
     const params = [userId];
@@ -85,8 +85,22 @@ class DatabaseService {
     }
   }
 
+  async getUserLinksOnly(userId) {
+    const sql = "SELECT link FROM user_links WHERE user_id = ?";
+    const params = [userId];
+
+    try {
+      const results = await this.query(sql, params);
+
+      return results.map((result) => result.link);
+    } catch (error) {
+      console.error("Error querying the database:", error);
+      throw error;
+    }
+  }
+
   async addUser(userId, links) {
-    const existingLinks = await this.getUserLinks(userId);
+    const existingLinks = await this.getUserLinksOnly(userId);
 
     // Combine existing links with new links, ensuring no duplicates
     const uniqueLinks = Array.from(new Set([...existingLinks, ...links]));

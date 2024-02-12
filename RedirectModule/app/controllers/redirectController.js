@@ -33,6 +33,12 @@ router.get("/:token", async (req, res) => {
       return res.status(404).send("User not found or no links available");
     }
 
+    if (userLinks.length === 1) {
+      // Redirect to the single link available
+      res.redirect(userLinks[0].url);
+      return; // Make sure to return to avoid further execution
+    }
+
     // Fetch link previews for each link one by one
     const linkPreviews = await fetchLinkPreviews(userLinks);
 
