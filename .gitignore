@@ -63,3 +63,5 @@ jsconfig.json
 /ReportingDashboard/client/node_modules
 /ReportingDashboard/server/.env
 /RedirectModule/.env
+/RedirectAPI/.vs/API
+/RedirectAPI/.vs/ProjectEvaluation
