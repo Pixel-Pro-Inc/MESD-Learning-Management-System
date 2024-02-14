@@ -1819,3 +1819,11 @@ button, input {
 .stickyfooter {
     z-index: 99999;
 }
+
+.user_setting.loms-settings-nav {
+    display: none !important;
+}
+  
+.site-admin-active .user_setting.loms-settings-nav {
+    display: inline-block !important;
+}

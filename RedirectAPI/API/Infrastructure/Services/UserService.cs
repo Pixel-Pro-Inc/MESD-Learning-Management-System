@@ -12,13 +12,20 @@ namespace API.Infrastructure.Services
 {
     public class UserService : IUserService
     {
-        private readonly string IAM_DOMAIN = Environment.GetEnvironmentVariable("IAM_DOMAIN");
-        private readonly string SHA_SECRET = Environment.GetEnvironmentVariable("SHA_SECRET");
+        private readonly string IAM_DOMAIN;
+        private readonly string SHA_SECRET;
         private readonly IHttpClientService _httpClientService;
         private readonly RedirectDbContext _redirectDbContext;
 
         public UserService(IHttpClientService httpClientService, RedirectDbContext redirectDbContext)
         {
+            var configuration = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json")
+            .Build();
+
+            IAM_DOMAIN = configuration["IAM_DOMAIN"];
+            SHA_SECRET = configuration["SHA_SECRET"];
+
             _httpClientService = httpClientService;
             _redirectDbContext = redirectDbContext;
         }
@@ -27,7 +34,8 @@ namespace API.Infrastructure.Services
         {
             try
             {
-                if (!await _redirectDbContext.Users.AnyAsync(user => user.Link == userDto.Link))
+                if (!await _redirectDbContext.Users.AnyAsync(user => user.Link == userDto.Link
+                && user.UserId == userDto.UserId))
                 {
                     return new ResultObject<string>()
                     {
@@ -48,7 +56,7 @@ namespace API.Infrastructure.Services
             {
                 return new ResultObject<string>()
                 {
-                    Error = "Something went wrong"
+                    Error = $"Something went wrong: {ex.Message}"
                 };
             }
         }
@@ -57,7 +65,8 @@ namespace API.Infrastructure.Services
         {
             try
             {
-                if(await _redirectDbContext.Users.AnyAsync(user => user.Link == userDto.Link))
+                if(await _redirectDbContext.Users.AnyAsync(user => user.Link == userDto.Link 
+                && user.UserId == userDto.UserId))
                 {
                     return new ResultObject<string>()
                     {
@@ -78,7 +87,7 @@ namespace API.Infrastructure.Services
             {
                 return new ResultObject<string>()
                 {
-                    Error = "Something went wrong"
+                    Error = $"Something went wrong: {ex.Message}"
                 };
             }
         }
@@ -117,11 +126,11 @@ namespace API.Infrastructure.Services
                     Value = links
                 };
             }
-            catch
+            catch(Exception ex)
             {
                 return new ResultObject<IEnumerable<string>>()
                 {
-                    Error = "User not found"
+                    Error = $"User not found {ex.Message}"
                 };
             }
         }
