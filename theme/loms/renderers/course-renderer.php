@@ -50,8 +50,11 @@ class theme_loms_core_course_renderer extends core_course_renderer {
 
         $loms_cat = $coursecat->id;
         $loms_cat_summary_unclean = $chelper->get_category_formatted_description($coursecat);
-        $loms_cat_summary = preg_replace("/<img[^>]+\>/i", " ", $loms_cat_summary_unclean);
-        $children_courses = $coursecat->get_courses();
+        if ($loms_cat_summary_unclean !== null) {
+            $loms_cat_summary = preg_replace("/<img[^>]+\>/i", " ", $loms_cat_summary_unclean);
+        } else {
+            $loms_cat_summary = '';
+        }        $children_courses = $coursecat->get_courses();
         $loms_items_count = '';
 
         if ($coursecat->get_children_count() > 0) {

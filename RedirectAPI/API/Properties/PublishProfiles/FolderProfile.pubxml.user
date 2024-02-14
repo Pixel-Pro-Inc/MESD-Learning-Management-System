@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\pixel\source\repos\MESD-Learning-Management-System\RedirectAPI\API\bin\Release\net7.0\publish\</_PublishTargetUrl>
-    <History>True|2024-02-14T11:32:08.1279135Z;True|2024-02-14T13:15:15.4938523+02:00;True|2024-02-14T01:58:11.9423683+02:00;</History>
+    <History>True|2024-02-14T12:15:20.6348149Z;True|2024-02-14T13:32:08.1279135+02:00;True|2024-02-14T13:15:15.4938523+02:00;True|2024-02-14T01:58:11.9423683+02:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

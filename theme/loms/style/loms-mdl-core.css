@@ -1785,4 +1785,12 @@ button, input {
 
 .stickyfooter {
   z-index: 99999;
-}/*# sourceMappingURL=loms-mdl-core.css.map */
+}
+
+.user_setting.loms-settings-nav {
+  display: none !important;
+}
+
+.site-admin-active .user_setting.loms-settings-nav {
+  display: inline-block !important;
+}
