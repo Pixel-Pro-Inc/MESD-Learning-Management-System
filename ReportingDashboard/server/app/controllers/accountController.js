@@ -13,6 +13,8 @@ const iamDomain =
     ? process.env.IAM_PROD_DOMAIN
     : process.env.IAM_DEV_DOMAIN;
 
+/** 
+ * Login endpoint*/   
 router.post("/login", async (req, res) => {
 
   try {
@@ -116,25 +118,23 @@ async function validateToken(token) {
 }
 
 
-router.get("/sso/:token", async (req, res) => {
-  const token = req.params.token;
+router.get("/sso", async (req, res) => {
+  const token = req.query.token;
 
   try {
     let user = await validateToken(token);
 
     if (user == null) {
       res.status(400).json('Something went wrong');
-    }
-
-    if (!user.realm_access.roles.includes("CUSTOMER")) {
+    } else if (!user.realm_access.roles.includes("CUSTOMER")) {
       res.status(400).json('You Are Not Authorized To Use This Platform');
+    } else {
+      res.json({
+        token: token,
+        firstname: user.given_name,
+        lastname: user.family_name,
+      });
     }
-
-    res.json({
-      token: token,
-      firstname: user.given_name,
-      lastname: user.family_name,
-    });
   } catch (error) {
     console.error("Internal Server Error:", error);
     res.status(500).send("Internal Server Error");
