@@ -19,13 +19,12 @@
 # Temporary files including undo
 *~
 #
-/lib/editor/tinymce/extra/tools/temp/
+/config.php
 /tags
 /TAGS
 /cscope.*
 /.patches/
 /.idea/
-/.vs
 .phpstorm.*
 /nbproject/
 CVS
@@ -54,6 +53,7 @@ moodle-plugin-ci.phar
 /admin/tool/componentlibrary/docs
 /admin/tool/componentlibrary/hugo/site/data/my-index.json
 .hugo_build.lock
+/.vs
 phpcs.xml
 jsconfig.json
 
@@ -62,3 +62,12 @@ jsconfig.json
 /ReportingDashboard/client/.angular/cache/14.2.13/babel-webpack
 /ReportingDashboard/client/node_modules
 /mydatabase/container-moodle.pem
+/RedirectModule/node_modules
+/.vs/MESD-Learning-Management-System/v17/.wsuo
+/.vs/VSWorkspaceState.json
+/ReportingDashboard/client/.angular/cache/14.2.13
+/ReportingDashboard/client/node_modules
+/ReportingDashboard/server/.env
+/RedirectModule/.env
+/RedirectAPI/.vs/API
+/RedirectAPI/.vs/ProjectEvaluation

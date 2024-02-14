@@ -1,0 +1,128 @@
+.content-container {
+  padding: 0 2rem;
+}
+
+.title-container {
+  border-bottom: 1px solid var(--light-gray);
+  padding: 1rem 0;
+}
+
+/*Cards*/
+.card-container {
+  margin-top: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+hr {
+  margin-top: 1rem;
+}
+
+.dash-card {
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  margin: 1rem;
+  background-color: var(--light);
+  border-radius: 0.2rem;
+  max-width: 400px;
+  min-width: 300px;
+  cursor: pointer;
+  transition: all var(--animation-duration) var(--animation-timing-curve);
+}
+
+.dash-card:hover {
+  transform: scale(1.1);
+}
+
+.dash-card-graph {
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--light);
+  border-radius: 0.2rem;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.dash-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dash-card-body {
+  padding: 1rem;
+}
+
+.dash-card-icon {
+  fill: var(--dash-icon-color);
+  height: 50px;
+  width: 50px;
+}
+
+.text-pill {
+  background-color: var(--darkest-gray);
+  border-radius: 0.3rem;
+  height: fit-content;
+  width: fit-content;
+}
+
+.dash-card-header-text {
+  font-weight: 400;
+  font-size: 0.6rem;
+  color: var(--light);
+  padding: 0 0.2rem 0 0.2rem;
+}
+
+.dash-card-main-content {
+  font-weight: 600;
+  font-size: 2.25rem;
+  margin: 1rem 0;
+}
+
+.dash-card-small-content {
+  font-weight: 300;
+  font-size: 0.75rem;
+}
+
+.text-green {
+  color: #28a745;
+}
+
+.text-red {
+  color: #dc3545;
+}
+/*Graphs*/
+.graphs {
+  display: flex;
+  margin-top: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.graph-card {
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  min-width: 300px;
+  max-width: 525px;
+  background-color: var(--light);
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+/*Other*/
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .mobile {
+    display: block;
+  }
+
+  .pc {
+    display: none;
+  }
+}
