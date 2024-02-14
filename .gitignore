@@ -66,3 +66,4 @@ jsconfig.json
 /RedirectAPI/.vs/API
 /RedirectAPI/.vs/ProjectEvaluation
 /RedirectAPI/API/appsettings.json
+/RedirectAPI/API/Properties/PublishProfiles/FolderProfile.pubxml.user
