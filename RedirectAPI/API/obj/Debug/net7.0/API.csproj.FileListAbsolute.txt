@@ -61,3 +61,4 @@ C:\Users\pixel\source\repos\MESD-Learning-Management-System\RedirectAPI\API\bin\
 C:\Users\pixel\source\repos\MESD-Learning-Management-System\RedirectAPI\API\obj\Debug\net7.0\API.RazorAssemblyInfo.cache
 C:\Users\pixel\source\repos\MESD-Learning-Management-System\RedirectAPI\API\obj\Debug\net7.0\API.RazorAssemblyInfo.cs
 C:\Users\pixel\source\repos\MESD-Learning-Management-System\RedirectAPI\API\bin\Debug\net7.0\API.staticwebassets.runtime.json
+C:\Users\pixel\source\repos\MESD-Learning-Management-System\RedirectAPI\API\bin\Debug\net7.0\appsettings.json

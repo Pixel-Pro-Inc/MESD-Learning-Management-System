@@ -61,3 +61,4 @@ C:\Users\pixel\source\repos\MESD-Learning-Management-System\RedirectAPI\API\obj\
 C:\Users\pixel\source\repos\MESD-Learning-Management-System\RedirectAPI\API\obj\Release\net7.0\API.pdb
 C:\Users\pixel\source\repos\MESD-Learning-Management-System\RedirectAPI\API\obj\Release\net7.0\API.genruntimeconfig.cache
 C:\Users\pixel\source\repos\MESD-Learning-Management-System\RedirectAPI\API\obj\Release\net7.0\ref\API.dll
+C:\Users\pixel\source\repos\MESD-Learning-Management-System\RedirectAPI\API\bin\Release\net7.0\appsettings.json

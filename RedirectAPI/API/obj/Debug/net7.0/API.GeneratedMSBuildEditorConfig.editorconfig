@@ -9,13 +9,13 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = API
 build_property.RootNamespace = API
-build_property.ProjectDir = c:\Users\pixel\source\repos\MESD-Learning-Management-System\RedirectAPI\API\
+build_property.ProjectDir = C:\Users\pixel\source\repos\MESD-Learning-Management-System\RedirectAPI\API\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\pixel\source\repos\MESD-Learning-Management-System\RedirectAPI\API
+build_property.MSBuildProjectDirectory = C:\Users\pixel\source\repos\MESD-Learning-Management-System\RedirectAPI\API
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/pixel/source/repos/MESD-Learning-Management-System/RedirectAPI/API/Presentation/RedirectController/LinkView.cshtml]
+[C:/Users/pixel/source/repos/MESD-Learning-Management-System/RedirectAPI/API/Presentation/RedirectController/LinkView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UHJlc2VudGF0aW9uXFJlZGlyZWN0Q29udHJvbGxlclxMaW5rVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
