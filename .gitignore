@@ -58,3 +58,7 @@ phpcs.xml
 jsconfig.json
 
 .vs/
+/ReportingDashboard/client/.angular/cache/14.2.13/angular-webpack/5824ce1ead41ed4edddcebc70f8ddd010f10566a
+/ReportingDashboard/client/.angular/cache/14.2.13/babel-webpack
+/ReportingDashboard/client/node_modules
+/mydatabase/container-moodle.pem
