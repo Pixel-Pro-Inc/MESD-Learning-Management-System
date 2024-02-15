@@ -6,7 +6,7 @@ $CFG = new stdClass();
 
 $CFG->dbtype    = 'mariadb';
 $CFG->dblibrary = 'native';
-$CFG->dbhost    = $_SERVER['MOODLE_DB_HOST'];
+$CFG->dbhost    = $_ENV['MOODLE_DB_HOST'];
 $CFG->dbname    = 'moodle';
 $CFG->dbuser    = 'admin';
 $CFG->dbpass    = 'Password';
