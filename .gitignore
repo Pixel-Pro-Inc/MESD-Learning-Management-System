@@ -73,3 +73,8 @@ jsconfig.json
 /RedirectAPI/API/bin/*
 /RedirectAPI/API/obj/Release/net7.0/API.assets.cache
 /RedirectAPI/API/obj/Release/net7.0/API.GeneratedMSBuildEditorConfig.editorconfig
+/RedirectAPI/API/obj/Debug/net7.0/project.razor.vscode.bin
+/RedirectAPI/API/obj/API.csproj.nuget.dgspec.json
+/RedirectAPI/API/obj/API.csproj.nuget.g.props
+/RedirectAPI/API/obj/project.assets.json
+/RedirectAPI/API/obj/project.nuget.cache
