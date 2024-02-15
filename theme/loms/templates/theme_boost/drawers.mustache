@@ -104,6 +104,11 @@
 
                                         <div class="loms-main">
                                             {{{ output.course_content_header }}}
+
+                                            {{#headercontent}}
+                                                {{> core/activity_header }}
+                                            {{/headercontent}}
+
                                             
                                             {{#output.if_blog}}
                                                 <div class="blog-area">

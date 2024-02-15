@@ -61,16 +61,16 @@ class lomsCourseHandler {
         $course_price = '';
         $course_currency = '';
         foreach($enrolInstances as $singleenrolInstances){
-        if($singleenrolInstances->enrol == 'paypal'){
-            $course_price = $singleenrolInstances->cost;
-            $course_currency = $singleenrolInstances->currency;
-        }elseif($singleenrolInstances->enrol == 'fee'){
-            $course_price = $singleenrolInstances->cost;
-            $course_currency = $singleenrolInstances->currency;
-        }else{
-            $course_price = '';
-            $course_currency = '';
-        }
+            if($singleenrolInstances->enrol == 'paypal'){
+                $course_price = $singleenrolInstances->cost;
+                $course_currency = $singleenrolInstances->currency;
+            }elseif($singleenrolInstances->enrol == 'fee'){
+                $course_price = $singleenrolInstances->cost;
+                $course_currency = $singleenrolInstances->currency;
+            }else{
+                $course_price = '';
+                $course_currency = '';
+            }
         }
         
 

@@ -63,7 +63,9 @@ jsconfig.json
 /ReportingDashboard/client/node_modules
 /ReportingDashboard/server/.env
 /RedirectModule/.env
-/RedirectAPI/API/obj/Debug/net7.0
-/RedirectAPI/API/Properties/PublishProfiles
+/RedirectAPI/.vs/API
+/RedirectAPI/.vs/ProjectEvaluation
 /RedirectAPI/API/appsettings.json
-/RedirectAPI/.vs
+/RedirectAPI/API/Properties/PublishProfiles/FolderProfile.pubxml.user
+/RedirectAPI/API/obj/Debug/net7.0/API.assets.cache
+/RedirectAPI/API/obj/Debug/net7.0/API.GeneratedMSBuildEditorConfig.editorconfig

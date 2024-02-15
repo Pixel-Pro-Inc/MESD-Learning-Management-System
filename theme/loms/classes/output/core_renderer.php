@@ -183,6 +183,17 @@ class core_renderer extends \core_renderer {
     }
 
     /**
+     * Current user
+     *
+     * @return string
+     */
+    public function loms_is_siteadmin() {
+        if(is_siteadmin()){
+            return 'site-admin-active';
+        }
+    }
+
+    /**
      * if course page
      *
      * @return string
