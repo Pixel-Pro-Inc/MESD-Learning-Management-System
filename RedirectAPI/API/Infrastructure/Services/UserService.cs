@@ -34,16 +34,16 @@ namespace API.Infrastructure.Services
         {
             try
             {
-                if (!await _redirectDbContext.Users.AnyAsync(user => user.Link == userDto.Link
-                && user.UserId == userDto.UserId))
-                {
+                AppUser appUser = await _redirectDbContext.Users.FirstOrDefaultAsync(user => user.Link == userDto.Link
+                && user.UserId == userDto.UserId);
+
+                if (appUser == null)
                     return new ResultObject<string>()
                     {
                         Error = "Link Already Doesn't Exist"
                     };
-                }
 
-                _redirectDbContext.Users.Remove(new AppUser() { Link = userDto.Link, UserId = userDto.UserId });
+                _redirectDbContext.Users.Remove(appUser);
 
                 _redirectDbContext.SaveChanges();
 
