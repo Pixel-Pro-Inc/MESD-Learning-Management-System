@@ -11,14 +11,16 @@ import { AccountService } from '../../services/account-service/account.service';
 export class NavComponent implements OnInit {
   @Input() ShowMenu: Boolean;
   @Output() toggle = new EventEmitter();
-  user: UserDto;
+  user: any;
 
   constructor(
     private routerService: Router,
     private accountService: AccountService
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.user = JSON.parse(localStorage.getItem('user'));
+  }
 
   backwards() {
     window.history.back();
