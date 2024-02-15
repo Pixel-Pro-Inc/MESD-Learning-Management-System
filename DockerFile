@@ -1,4 +1,4 @@
-# Use an official PHP and Apache base image
+# Ubuntu Base Image
 FROM ubuntu:22.04
 
 # Set environment variables
@@ -15,7 +15,7 @@ RUN git clone -b Development $MOODLE_URL /var/www/html/MESD-Learning-Management-
 
 # Install additional PHP extensions and dependencies
 RUN apt-get update && \
-    apt-get install -y \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
         apache2 \
         php \
         php-mysql \
@@ -32,13 +32,13 @@ RUN apt-get update && \
 # Set the working directory to /var/www/html/moodle
 WORKDIR /var/www/html/MESD-Learning-Management-System
 
-#Create moodle data folder copy from base
+# Create moodle data folder copy from base
 RUN chmod 0777 /var/www/html
 COPY moodledata /var/www/html/moodledata
 RUN chmod -R 755 /var/www/html
 RUN chown -R www-data:www-data /var/www/html
 
-#Update php.ini && 000-default.conf
+# Update php.ini && 000-default.conf
 # Remove existing php.ini
 RUN rm /etc/php/8.1/apache2/php.ini
 
@@ -51,8 +51,20 @@ RUN rm /etc/apache2/sites-enabled/000-default.conf
 # Replace 000-default.conf with the one from the root repo folder
 COPY 000-default.conf /etc/apache2/sites-enabled/000-default.conf
 
+RUN rm /etc/apache2/sites-available/000-default.conf
+
+# Replace 000-default.conf with the one from the root repo folder
+COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
+
+# Remove start apache
+RUN service apache2 start
+
+# Remove restart apache
+RUN service apache2 restart
+
 # Expose port 80
 EXPOSE 80
+EXPOSE 443
 
 # Start Apache web server
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
