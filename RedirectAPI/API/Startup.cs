@@ -12,8 +12,6 @@ namespace API
 
         public Startup(IConfiguration config)
         {
-            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
-
             _config = config;
         }
 
