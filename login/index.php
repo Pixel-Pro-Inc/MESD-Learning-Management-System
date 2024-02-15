@@ -32,6 +32,8 @@ redirect_if_major_upgrade_required();
 //Auto Login
 require_once($CFG->dirroot . '/local/autologin/classes/autologin.php');
 
+die($_SERVER['MOODLE_DB_HOST']);
+
 // Instantiate the local_autologin class.
 $autologin = new local_autologin();
 
