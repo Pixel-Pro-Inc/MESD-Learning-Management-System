@@ -12,20 +12,14 @@ namespace API.Infrastructure.Services
 {
     public class UserService : IUserService
     {
-        private readonly string IAM_DOMAIN;
-        private readonly string SHA_SECRET;
+        private readonly string IAM_DOMAIN = Environment.GetEnvironmentVariable("IAM_DOMAIN");
+        private readonly string SHA_SECRET = Environment.GetEnvironmentVariable("SHA_SECRET");
         private readonly IHttpClientService _httpClientService;
         private readonly RedirectDbContext _redirectDbContext;
 
+
         public UserService(IHttpClientService httpClientService, RedirectDbContext redirectDbContext)
         {
-            var configuration = new ConfigurationBuilder()
-            .AddJsonFile("appsettings.json")
-            .Build();
-
-            IAM_DOMAIN = configuration["IAM_DOMAIN"];
-            SHA_SECRET = configuration["SHA_SECRET"];
-
             _httpClientService = httpClientService;
             _redirectDbContext = redirectDbContext;
         }
