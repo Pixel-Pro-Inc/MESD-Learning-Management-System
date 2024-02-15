@@ -25,7 +25,7 @@ $CFG->admin     = 'admin';
 //Environment Variables For Our Custom Plugins Go Here
 $CFG->logoutredir = 'https://uatportal.gov.bw/';
 $CFG->shaSecret = 'secret';
-$CFG->redirectApiDomain = 'http://13.49.145.105:80/';
+$CFG->redirectApiDomain = 'http://127.0.0.1:5000/';
 //IAM API
 $CFG->iamApiDomain = "https://gateway-cus-acc.gov.bw/";
 $CFG->iamSystemAdminUsername = "lms_admin";
