@@ -1,0 +1,12 @@
+MESD Documentation LMS-82-View-print-download-Schools-and-Regional-Staff-profiling
+
+Here is a guide to view, print, or download profiles of schools and regional staff:
+1.	Login to the Executive reporting dashboard: Access the reporting dashboard platform using your credentials.
+2.	Navigate to the Profiling Section: The Profiling section contains information about schools and regional staff.
+ 
+3.	Access User Profiles: Once you're in the Profiling section, you should be able to view user profiles. Click on the filter icon to find specific user profiles
+ 
+4.	Printing: To print, you can use the export function or use your web print functionality. To print on windows, use “Ctrl + P” or on mac, “Command + P”.
+5.	Exporting Data/Download: This allows you to export user data, including profiles, in Excel format.
+ 
+

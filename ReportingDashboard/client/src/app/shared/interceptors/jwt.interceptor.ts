@@ -10,21 +10,21 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
-  constructor(/*private preferencesService: PreferencesService*/) {}
+  constructor() { }
 
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    // if (this.preferencesService.getPreferences().user != null) {
-    //   let token = this.preferencesService.getPreferences().user.token;
+    if (localStorage.getItem('user') != null) {
+      let token = JSON.parse(localStorage.getItem('user')).token;
 
-    //   request = request.clone({
-    //     setHeaders: {
-    //       Authorization: `Bearer ${token}`,
-    //     },
-    //   });
-    // }
+      request = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    }
 
     return next.handle(request);
   }

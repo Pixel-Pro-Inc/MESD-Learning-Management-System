@@ -15,46 +15,42 @@
         <form [formGroup]="loginForm">
           <div class="form-control-group">
             <label class="text form-text">Username</label>
-            <app-text-input
-              [type]="'text'"
-              id="'username"
-              [formControl]="loginForm.controls['username']"
-              [label]="'username'"
-              [placeholder]="'Username'"
-              class="form-control-container"
-            ></app-text-input>
+            <app-text-input [type]="'text'" id="'username" [formControl]="loginForm.controls['username']"
+              [label]="'username'" [placeholder]="'Username'" class="form-control-container"></app-text-input>
           </div>
           <div class="form-control-group">
             <label class="text">Password</label>
-            <app-text-input
-              [type]="'password'"
-              id="'password'"
-              [formControl]="loginForm.controls['password']"
-              [label]="'password'"
-              [placeholder]="'*************'"
-            ></app-text-input>
+            <app-text-input [type]="'password'" id="'password'" [formControl]="loginForm.controls['password']"
+              [label]="'password'" [placeholder]="'*************'"></app-text-input>
           </div>
-          <app-btn
-            [label]="'Sign in'"
-            [disabled]="!loginForm.valid"
-            (click)="loginForm.valid && login()"
-          ></app-btn>
+          <app-btn [label]="'Sign in'" [disabled]="!loginForm.valid" (click)="loginForm.valid && login()"></app-btn>
           <div class="link-group">
             <p class="text">
               Don't have an account?
-              <a href="https://1gov.gov.bw/" class="forgot-password-link"
-                >Create Account</a
-              >
+              <a href="https://1gov.gov.bw/" class="forgot-password-link">Create Account</a>
             </p>
             <p class="text">
               Forgot password?
-              <a href="https://1gov.gov.bw/" class="forgot-password-link"
-                >Reset Password</a
-              >
+              <a href="https://1gov.gov.bw/" class="forgot-password-link">Reset Password</a>
             </p>
           </div>
         </form>
       </div>
     </article>
   </article>
+  <p-dialog [(visible)]="otpVisible">
+    <ng-template pTemplate="headless">
+      <div class="form-container">
+        <h2 class="text">Please enter your OTP</h2>
+        <form [formGroup]="otpForm">
+          <div class="form-control-group">
+            <label class="text form-text">OTP</label>
+            <app-text-input [type]="'text'" id="'otp" [formControl]="otpForm.controls['otp']" [label]="'otp'"
+              [placeholder]="'OTP'" class="form-control-container"></app-text-input>
+          </div>
+          <app-btn [label]="'Submit'" [disabled]="!otpForm.valid" (click)="otpForm.valid && otp()"></app-btn>
+        </form>
+      </div>
+    </ng-template>
+  </p-dialog>
 </body>
