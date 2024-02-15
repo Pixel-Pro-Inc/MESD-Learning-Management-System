@@ -13,6 +13,8 @@ const iamDomain =
     ? process.env.IAM_PROD_DOMAIN
     : process.env.IAM_DEV_DOMAIN;
 
+/** 
+ * Login endpoint*/   
 router.post("/login", async (req, res) => {
 
   try {
@@ -105,60 +107,34 @@ async function validateToken(token) {
       },
     };
 
-    axios(config)
-      .then(async function (response) {
-        let token = response.data.access_token;
-        let refreshToken = response.data.refresh_token;
-        let expiryTime = response.data.expires_in;
+    let response = await axios(config);
 
-        let user = await validateToken(token);
-
-        if (user == null) {
-          res.status(400).json('Something went wrong');
-        }
-
-        if (!user.realm_access.roles.includes("CUSTOMER")) {
-          res.status(400).json('You Are Not Authorized To Use This Platform');
-        }
-
-        res.json({
-          token: token,
-          refreshToken: refreshToken,
-          expiryTime: expiryTime,
-          firstname: user.given_name,
-          lastname: user.family_name,
-        });
-      })
-      .catch(function (error) {
-        res.status(400).json('Invalid OTP');
-      });
+    return response.data;
   } catch (error) {
     // Handle errors
     console.error('Error:', error);
-    throw error;
+    return null;
   }
 }
 
 
-router.get("/sso/:token", async (req, res) => {
-  const token = req.params.token;
+router.get("/sso", async (req, res) => {
+  const token = req.query.token;
 
   try {
     let user = await validateToken(token);
 
     if (user == null) {
       res.status(400).json('Something went wrong');
-    }
-
-    if (!user.realm_access.roles.includes("CUSTOMER")) {
+    } else if (!user.realm_access.roles.includes("CUSTOMER")) {
       res.status(400).json('You Are Not Authorized To Use This Platform');
+    } else {
+      res.json({
+        token: token,
+        firstname: user.given_name,
+        lastname: user.family_name,
+      });
     }
-
-    res.json({
-      token: token,
-      firstname: user.given_name,
-      lastname: user.family_name,
-    });
   } catch (error) {
     console.error("Internal Server Error:", error);
     res.status(500).send("Internal Server Error");
