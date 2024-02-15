@@ -14,8 +14,20 @@ RUN apt-get update && \
 RUN git clone -b Development $MOODLE_URL /var/www/html/MESD-Learning-Management-System
 
 # Install additional PHP extensions and dependencies
-RUN apt-get update
-RUN apt-get install apache2 mariadb-server php php-mysql libapache2-mod-php php-gd php-xmlrpc php-mbstring php-soap php-intl php-zip php-curl php-xml
+RUN apt-get update && \
+    apt-get install -y \
+        apache2 \
+        php \
+        php-mysql \
+        libapache2-mod-php \
+        php-gd \
+        php-xmlrpc \
+        php-mbstring \
+        php-soap \
+        php-intl \
+        php-zip \
+        php-curl \
+        php-xml
 
 # Set the working directory to /var/www/html/moodle
 WORKDIR /var/www/html/MESD-Learning-Management-System
