@@ -69,3 +69,4 @@ jsconfig.json
 /RedirectAPI/API/Properties/PublishProfiles/FolderProfile.pubxml.user
 /RedirectAPI/API/obj/Debug/net7.0/API.assets.cache
 /RedirectAPI/API/obj/Debug/net7.0/API.GeneratedMSBuildEditorConfig.editorconfig
+/RedirectAPI/API/obj/Debug/net7.0/API.AssemblyInfo.cs
