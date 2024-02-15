@@ -72,3 +72,4 @@ jsconfig.json
 /RedirectAPI/API/bin/*
 /RedirectAPI/API/obj/Release/net7.0/API.assets.cache
 /RedirectAPI/API/obj/Release/net7.0/API.GeneratedMSBuildEditorConfig.editorconfig
+/.data/db
