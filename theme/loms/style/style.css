@@ -42,18 +42,18 @@ Default Style
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@800&display=swap");
 :root {
-  --body-font-family: "Josefin Sans", sans-serif;
-  --body-color: #646464;
-  --main-color: [[setting:brandcolor]];
-  --heading-color: #0D0C0C;
-  --optional-color: [[setting:secondarycolor]];
-  --footerBG: [[setting:footer_bg]];
-  --white-color: #ffffff;
-  --black-color: #000000;
-  --font-size: 16px;
-  --transition: all ease .5s;
-  --border-radius: 5px;
-  --box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+    --body-font-family: "Lato", sans-serif;
+    --body-color: #646464;
+    --main-color: [[setting:brandcolor]];
+    --heading-color: #0D0C0C;
+    --optional-color: [[setting:secondarycolor]];
+    --footerBG: [[setting:footer_bg]];
+    --white-color: #ffffff;
+    --black-color: #000000;
+    --font-size: 16px;
+    --transition: all ease .5s;
+    --border-radius: 5px;
+    --box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
 }
 
 /* These fields are only available on the user's Edit Profile page.
