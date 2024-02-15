@@ -8,11 +8,19 @@ namespace API
     public class Startup
     {
         private readonly IConfiguration _config;
-        private readonly string DB_Connection_String = Environment.GetEnvironmentVariable("DB_Connection_String");
+        private readonly string DB_Connection_String;
 
         public Startup(IConfiguration config)
         {
+            var configuration = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json")
+            .Build();
+
+            // Get values from appsettings.json
+            DB_Connection_String = configuration["DB_Connection_String"];
+
             CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
+
             _config = config;
         }
 

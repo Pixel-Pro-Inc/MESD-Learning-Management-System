@@ -56,12 +56,6 @@ moodle-plugin-ci.phar
 /.vs
 phpcs.xml
 jsconfig.json
-
-.vs/
-/ReportingDashboard/client/.angular/cache/14.2.13/angular-webpack/5824ce1ead41ed4edddcebc70f8ddd010f10566a
-/ReportingDashboard/client/.angular/cache/14.2.13/babel-webpack
-/ReportingDashboard/client/node_modules
-/mydatabase/container-moodle.pem
 /RedirectModule/node_modules
 /.vs/MESD-Learning-Management-System/v17/.wsuo
 /.vs/VSWorkspaceState.json
@@ -71,3 +65,11 @@ jsconfig.json
 /RedirectModule/.env
 /RedirectAPI/.vs/API
 /RedirectAPI/.vs/ProjectEvaluation
+/RedirectAPI/API/appsettings.json
+/RedirectAPI/API/Properties/PublishProfiles/FolderProfile.pubxml.user
+/RedirectAPI/API/obj
+/RedirectAPI/API/bin
+/RedirectAPI/API/obj/*
+/RedirectAPI/API/bin/*
+/RedirectAPI/API/obj/Release/net7.0/API.assets.cache
+/RedirectAPI/API/obj/Release/net7.0/API.GeneratedMSBuildEditorConfig.editorconfig

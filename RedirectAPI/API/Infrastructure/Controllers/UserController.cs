@@ -13,9 +13,20 @@ namespace API.Infrastructure.Controllers
         }
 
         [HttpPost("addUser")]
-        public async Task<ActionResult> Register(AddUserDto addUserDto)
+        public async Task<ActionResult> AddUser(AddUserDto addUserDto)
         {
             ResultObject<string> resultObject = await _userService.AddUser(addUserDto);
+
+            if (resultObject.Error != null)
+                return BadRequest(resultObject.Error);
+
+            return Ok(resultObject.Value);
+        }
+
+        [HttpPost("removeUrl")]
+        public async Task<ActionResult> RemoveUrl(AddUserDto addUserDto)
+        {
+            ResultObject<string> resultObject = await _userService.RemoveUrl(addUserDto);
 
             if (resultObject.Error != null)
                 return BadRequest(resultObject.Error);

@@ -132,7 +132,7 @@
 
 		// Top Courses Slide JS
 		$('.top-courses-slide').owlCarousel({
-			loop: true,
+			loop: false,
 			margin: 15,
 			nav: true,
 			dots: false,
@@ -167,7 +167,7 @@
 		
 		// Selection Courses Slide JS
 		$('.selection-courses-slide').owlCarousel({
-			loop: true,
+			loop: false,
 			margin: 15,
 			nav: true,
 			dots: false,
@@ -202,7 +202,7 @@
 
 		// Instructor Slide JS
 		$('.instructor-slide').owlCarousel({
-			loop: true,
+			loop: false,
 			margin: 7,
 			nav: true,
 			dots: false,
