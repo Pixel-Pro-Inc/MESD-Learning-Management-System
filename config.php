@@ -13,12 +13,12 @@ $CFG->dbpass    = 'Password';
 $CFG->prefix    = 'mdl_';
 $CFG->dboptions = array (
   'dbpersist' => 0,
-  'dbport' => 3306,
+  'dbport' => getenv('MOODLE_DB_PORT'),
   'dbsocket' => '',
   'dbcollation' => 'utf8mb4_unicode_ci',
 );
 
-$CFG->wwwroot   = 'http://localhost:8080';
+$CFG->wwwroot   = 'http://localhost:' . getenv('wwwrooturl');
 $CFG->dataroot  = '/var/www/html/moodledata';
 $CFG->admin     = 'admin';
 
