@@ -11,19 +11,21 @@ ARG DEBIAN_FRONTEND=noninteractive
 WORKDIR /var/www/html
 
 RUN apt-get update \
-    && apt-get -qq install graphviz aspell ghostscript libpspell-dev libpng-dev libicu-dev libxml2-dev libldap2-dev sudo netcat unzip libssl-dev zlib1g-dev libjpeg-dev libfreetype6-dev libzip-dev \
+    && apt-get -qq install git graphviz aspell ghostscript libpspell-dev libpng-dev libicu-dev libxml2-dev libldap2-dev sudo netcat unzip libssl-dev zlib1g-dev libjpeg-dev libfreetype6-dev libzip-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) pspell gd intl xml xmlrpc ldap zip soap mysqli opcache \
     && pecl install redis \
     && docker-php-ext-enable redis \
-    && curl -L https://github.com/moodle/moodle/archive/v${MOODLE_VERSION}.tar.gz | tar xz --strip=1 \
+    # && curl -L https://github.com/moodle/moodle/archive/v${MOODLE_VERSION}.tar.gz | tar xz --strip=1 \
+    && git clone -b Development https://github.com/Pixel-Pro-Inc/MESD-Learning-Management-System.git MESD \
     && mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" \
-    && mkdir -p /moodledata /var/local/cache \
-    && chown -R www-data /moodledata \
-    && chmod -R 0777 /moodledata /var/local/cache \
-    && chmod -R 0777 /var/www/html \
-    && chown -R www-data /var/www/html \
-    && mkdir /docker-entrypoint.d
+    # && mkdir -p /moodledata /var/local/cache \
+    && mkdir -p /MESD/moodledata /var/local/cache \
+    && chown -R www-data /MESD/moodledata \
+    && chmod -R 0777 /MESD/moodledata /var/local/cache \
+    && chmod -R 0755 /var/www/html/MESD \
+    && chown -R www-data:www-data /var/www/html \
+    && mkdir -p /MESD/docker-entrypoint.d
 
 # see https://secure.php.net/manual/en/opcache.installation.php
 RUN { \
@@ -53,15 +55,15 @@ RUN set -eux; \
 # (replace all instances of "%h" with "%a" in LogFormat)
     find /etc/apache2 -type f -name '*.conf' -exec sed -ri 's/([[:space:]]*LogFormat[[:space:]]+"[^"]*)%h([^"]*")/\1%a\2/g' '{}' +
 
-COPY config.php /var/www/html/
-COPY docker-entrypoint.sh /docker-entrypoint.d/docker-entrypoint.sh
+COPY config.php /var/www/html/MESD/config.php
+COPY docker-entrypoint.sh /MESD/docker-entrypoint.d/docker-entrypoint.sh
 COPY custom-php.ini $PHP_INI_DIR/conf.d/
 
-RUN mkdir -p /var/www/html/admin/tool/heartbeat \
-    && curl -L https://github.com/catalyst/moodle-tool_heartbeat/tarball/master | tar zx --strip-components=1 -C /var/www/html/admin/tool/heartbeat
+# RUN mkdir -p /var/www/html/admin/tool/heartbeat \
+#     && curl -L https://github.com/catalyst/moodle-tool_heartbeat/tarball/master | tar zx --strip-components=1 -C /var/www/html/admin/tool/heartbeat
 
-VOLUME /moodledata
+VOLUME /MESD/moodledata
 EXPOSE 80
-RUN chmod +x /docker-entrypoint.d/docker-entrypoint.sh
-ENTRYPOINT ["/docker-entrypoint.d/docker-entrypoint.sh"]
+RUN chmod +x /MESD/docker-entrypoint.d/docker-entrypoint.sh
+ENTRYPOINT ["/MESD/docker-entrypoint.d/docker-entrypoint.sh"]
 CMD ["apachectl", "-e", "info", "-D", "FOREGROUND"]

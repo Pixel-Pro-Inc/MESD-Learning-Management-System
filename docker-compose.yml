@@ -8,6 +8,7 @@ services:
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=Password
     volumes:
+      - ./moodle.sql:/docker-entrypoint-initdb.d/moodle.sql
       - ./.data/db:/var/lib/mysql
     ports:
       - 3309:3306

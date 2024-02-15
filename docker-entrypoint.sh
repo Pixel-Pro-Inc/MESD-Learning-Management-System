@@ -171,7 +171,7 @@ fi
 if [ ! -e "$MOODLE_SHARED/installed" -a ! -f "$MOODLE_SHARED/install.lock" ]; then
     echo "Moodle database is not initialized. Initializing..."
     touch $MOODLE_SHARED/install.lock
-    sudo -E -u www-data php admin/cli/install_database.php \
+    sudo -E -u www-data php MESD/admin/cli/install_database.php \
         --agree-license \
         --lang "$MOODLE_SITE_LANG" \
         --adminuser=$MOODLE_ADMIN_USER \
@@ -180,22 +180,22 @@ if [ ! -e "$MOODLE_SHARED/installed" -a ! -f "$MOODLE_SHARED/install.lock" ]; th
         --fullname="$MOODLE_SITE_FULLNAME" \
         --shortname="$MOODLE_SITE_SHORTNAME"
     if [ -n $SMTP_HOST ]; then
-        sudo -E -u www-data php admin/cli/cfg.php --name=smtphosts --set=$SMTP_HOST
+        sudo -E -u www-data php MESD/admin/cli/cfg.php --name=smtphosts --set=$SMTP_HOST
     fi
     if [ -n $SMTP_USER ]; then
-        sudo -E -u www-data php admin/cli/cfg.php --name=smtpuser --set=$SMTP_USER
+        sudo -E -u www-data php MESD/admin/cli/cfg.php --name=smtpuser --set=$SMTP_USER
     fi
     if [ -n $SMTP_PASS ]; then
-        sudo -E -u www-data php admin/cli/cfg.php --name=smtppass --set=$SMTP_PASS
+        sudo -E -u www-data php MESD/admin/cli/cfg.php --name=smtppass --set=$SMTP_PASS
     fi
     if [ -n $SMTP_SECURITY ]; then
-        sudo -E -u www-data php admin/cli/cfg.php --name=smtpsecure --set=$SMTP_SECURITY
+        sudo -E -u www-data php MESD/admin/cli/cfg.php --name=smtpsecure --set=$SMTP_SECURITY
     fi
     if [ -n $SMTP_AUTH_TYPE ]; then
-        sudo -E -u www-data php admin/cli/cfg.php --name=smtpauthtype --set=$SMTP_AUTH_TYPE
+        sudo -E -u www-data php MESD/admin/cli/cfg.php --name=smtpauthtype --set=$SMTP_AUTH_TYPE
     fi
     if [ -n $MOODLE_NOREPLY_ADDRESS ]; then
-        sudo -E -u www-data php admin/cli/cfg.php --name=noreplyaddress --set=$MOODLE_NOREPLY_ADDRESS
+        sudo -E -u www-data php MESD/admin/cli/cfg.php --name=noreplyaddress --set=$MOODLE_NOREPLY_ADDRESS
     fi
 
     touch $MOODLE_SHARED/installed
@@ -229,7 +229,7 @@ if [ "$MOODLE_UPDATE" = 'true' -a ! -f "$MOODLE_SHARED/update.lock" ]; then
 fi
 
 # Run additional init scripts
-DIR=/docker-entrypoint.d
+DIR=/MESD/docker-entrypoint.d
 
 if [[ -d "$DIR"  ]]
 then
