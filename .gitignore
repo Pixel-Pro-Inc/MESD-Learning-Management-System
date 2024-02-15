@@ -63,3 +63,7 @@ jsconfig.json
 /ReportingDashboard/client/node_modules
 /ReportingDashboard/server/.env
 /RedirectModule/.env
+/RedirectAPI/API/obj/Debug/net7.0
+/RedirectAPI/API/Properties/PublishProfiles
+/RedirectAPI/API/appsettings.json
+/RedirectAPI/.vs
