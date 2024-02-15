@@ -67,6 +67,9 @@ jsconfig.json
 /RedirectAPI/.vs/ProjectEvaluation
 /RedirectAPI/API/appsettings.json
 /RedirectAPI/API/Properties/PublishProfiles/FolderProfile.pubxml.user
-/RedirectAPI/API/obj/Debug/net7.0/API.assets.cache
-/RedirectAPI/API/obj/Debug/net7.0/API.GeneratedMSBuildEditorConfig.editorconfig
-/RedirectAPI/API/obj/Debug/net7.0/API.AssemblyInfo.cs
+/RedirectAPI/API/obj
+/RedirectAPI/API/bin
+/RedirectAPI/API/obj/*
+/RedirectAPI/API/bin/*
+/RedirectAPI/API/obj/Release/net7.0/API.assets.cache
+/RedirectAPI/API/obj/Release/net7.0/API.GeneratedMSBuildEditorConfig.editorconfig
