@@ -1,0 +1,46 @@
+# Use an official PHP and Apache base image
+FROM ubuntu:22.04
+
+# Set environment variables
+ENV MOODLE_URL=https://github.com/Pixel-Pro-Inc/MESD-Learning-Management-System.git
+
+# Install git and other dependencies
+RUN apt-get update && \
+    apt-get install -y git && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Clone your MESD LMS repository
+RUN git clone -b Development $MOODLE_URL /var/www/html/MESD-Learning-Management-System
+
+# Install additional PHP extensions and dependencies
+RUN apt-get update
+RUN apt-get install apache2 mariadb-server php php-mysql libapache2-mod-php php-gd php-xmlrpc php-mbstring php-soap php-intl php-zip php-curl php-xml
+
+# Set the working directory to /var/www/html/moodle
+WORKDIR /var/www/html/MESD-Learning-Management-System
+
+#Create moodle data folder copy from base
+RUN chmod 0777 /var/www/html
+COPY moodledata /var/www/html/moodledata
+RUN chmod -R 755 /var/www/html
+RUN chown -R www-data:www-data /var/www/html
+
+#Update php.ini && 000-default.conf
+# Remove existing php.ini
+RUN rm /etc/php/8.1/apache2/php.ini
+
+# Replace php.ini with the one from the root repo folder
+COPY php.ini /etc/php/8.1/apache2/php.ini
+
+# Remove existing 000-default.conf
+RUN rm /etc/apache2/sites-enabled/000-default.conf
+
+# Replace 000-default.conf with the one from the root repo folder
+COPY 000-default.conf /etc/apache2/sites-enabled/000-default.conf
+
+# Expose port 80
+EXPOSE 80
+
+# Start Apache web server
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
