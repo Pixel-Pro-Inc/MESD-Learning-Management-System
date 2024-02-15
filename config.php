@@ -6,7 +6,7 @@ $CFG = new stdClass();
 
 $CFG->dbtype    = 'mariadb';
 $CFG->dblibrary = 'native';
-$CFG->dbhost    = db;
+$CFG->dbhost    = getenv('MOODLE_DB_HOST');
 $CFG->dbname    = 'moodle';
 $CFG->dbuser    = 'admin';
 $CFG->dbpass    = 'Password';
@@ -18,7 +18,7 @@ $CFG->dboptions = array (
   'dbcollation' => 'utf8mb4_unicode_ci',
 );
 
-$CFG->wwwroot   = 'http://localhost';
+$CFG->wwwroot   = 'http://localhost:8080';
 $CFG->dataroot  = '/var/www/html/moodledata';
 $CFG->admin     = 'admin';
 
