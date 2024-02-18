@@ -18,7 +18,7 @@ $CFG->dboptions = array (
   'dbcollation' => 'utf8mb4_unicode_ci',
 );
 
-$CFG->wwwroot   = 'http://localhost:' . getenv('wwwrooturl');
+$CFG->wwwroot   = 'http://localhost:' . getenv('SITE_PORT');
 $CFG->dataroot  = '/var/www/html/moodledata';
 $CFG->admin     = 'admin';
 

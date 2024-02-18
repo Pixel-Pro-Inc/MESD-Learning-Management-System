@@ -29,7 +29,7 @@ RUN apt-get update && \
         php-curl \
         php-xml
 
-# Set the working directory to /var/www/html/moodle
+# Set the working directory to /var/www/html/MESD-Learning-Management-System
 WORKDIR /var/www/html/MESD-Learning-Management-System
 
 # Create moodle data folder copy from base
