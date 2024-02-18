@@ -37,4 +37,20 @@ services:
     environment:
       - MOODLE_DB_HOST=db
       - MOODLE_DB_PORT=3306
-      - SITE_PORT=8080
+      - SITE_PORT=8080 
+  server:
+    build:
+      context: RedirectAPI
+     # target: final
+      dockerfile: Dockerfile
+    environment:
+      - DB_Connection_String=server=redirectdb;port=3306;user=root;password=Password;database=users;
+      - IAM_DOMAIN=https://gateway-cus-acc.gov.bw/
+      - SHA_SECRET=secret
+    ports:
+      - 5000:80
+  redirectdb:
+    image: redirect-api-db
+    expose:
+      - 3306
+    
