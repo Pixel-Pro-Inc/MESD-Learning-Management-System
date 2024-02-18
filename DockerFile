@@ -1,17 +1,14 @@
 # Ubuntu Base Image
 FROM ubuntu:22.04
 
-# Set environment variables
-ENV MOODLE_URL=https://github.com/Pixel-Pro-Inc/MESD-Learning-Management-System.git
-
 # Install git and other dependencies
 RUN apt-get update && \
     apt-get install -y git && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Clone your MESD LMS repository
-RUN git clone -b Development $MOODLE_URL /var/www/html/MESD-Learning-Management-System
+# Copy necessary files from the root project folder
+COPY . /var/www/html/MESD-Learning-Management-System
 
 # Install additional PHP extensions and dependencies
 RUN apt-get update && \
