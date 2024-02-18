@@ -53,4 +53,17 @@ services:
     image: redirect-api-db
     expose:
       - 3306
-    
+  reportingdashboard:
+    build:
+      context: ReportingDashboard/server
+     # target: final
+      dockerfile: Dockerfile
+    environment:
+      - SERVER_DEV_PORT=3000
+      - DB_DEV_USER=admin
+      - DB_DEV_PASSWORD=Password
+      - DB_DEV_HOST=db
+      - DB_DEV_PORT=3306
+      - IAM_DEV_DOMAIN=https://gateway-cus-acc.gov.bw/
+    ports:
+      - 3000:3000
