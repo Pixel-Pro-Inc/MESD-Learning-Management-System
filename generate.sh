@@ -48,6 +48,7 @@ cat <<EOF >> docker-compose.yml
       # - DB_DEV_HOST=db
       - DB_DEV_PORT=3306
       - IAM_DEV_DOMAIN=https://gateway-cus-acc.gov.bw/
+      - NUM_INSTANCES=NUM_INSTANCES
     ports:
       - 3000:3000
 EOF
