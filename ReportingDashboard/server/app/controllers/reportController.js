@@ -8,7 +8,7 @@ const gradeDataService = new GradeDataService();
 
 router.get("/users", async (req, res) => {
   try {
-    const users = await userDataService.fetchAndConsolidateUserData(3306, 1500);
+    const users = await userDataService.fetchAndConsolidateUserData(10);
 
     if (!users) {
       return res.status(404).send("Something went wrong");
@@ -24,7 +24,7 @@ router.get("/users", async (req, res) => {
 
 router.get("/grades", async (req, res) => {
   try {
-    const grades = await gradeDataService.fetchAndConsolidateGradeData(3306, 1);
+    const grades = await gradeDataService.fetchAndConsolidateGradeData(10);
 
     res.json(grades);
   } catch (error) {

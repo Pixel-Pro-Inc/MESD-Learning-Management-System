@@ -98,7 +98,7 @@ class GradeDataService {
   }
 
   // Function to fetch and consolidate all user info data and field data
-  async fetchAndConsolidateGradeData(startingPort, numDatabases) {
+  async fetchAndConsolidateGradeData(numDatabases) {
     let allGrades = [];
 
     for (let index = 0; index < numDatabases; index++) {
@@ -107,7 +107,7 @@ class GradeDataService {
 
         let config = dbConfig;
 
-        config.port = startingPort + index;
+        config.host = index == 0 ? "db" : "db" + index;
 
         const grades = await this.getGrades(config);
 
