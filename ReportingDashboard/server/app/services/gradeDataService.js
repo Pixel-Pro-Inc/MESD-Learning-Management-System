@@ -172,6 +172,7 @@ class GradeDataService {
 
         allGrades.push(collection);
       } catch (error) {
+        console.error(error);
         continue;
       }
     }

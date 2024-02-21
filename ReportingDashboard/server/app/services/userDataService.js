@@ -141,6 +141,7 @@ class UserDataService {
           }
         });
       } catch (error) {
+        console.error(error);
         continue;
       }
     }
