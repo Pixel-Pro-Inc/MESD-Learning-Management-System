@@ -6,3 +6,5 @@
 /.vs
 /.github
 /.grunt
+/node_modules
+/.data

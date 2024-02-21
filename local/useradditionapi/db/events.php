@@ -13,4 +13,9 @@ $observers = [
         'callback' => '\local_useradditionapi\useradditionapi_observer::usercreated',
         'priority' => 9999,
     ],
+    [
+        'eventname' => '\core\event\user_deleted',
+        'callback' => '\local_useradditionapi\useradditionapi_observer::userdeleted',
+        'priority' => 9999,
+    ],
 ];

@@ -21,8 +21,8 @@ httpsServer.listen(serverPort, () => {
   console.log(`Server is running on https://localhost:${serverPort}`);
 });
 
-app.use(express.static(path.join(__dirname, "../../client/wwwroot")));
+app.use(express.static(path.join(__dirname, "./wwwroot")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../client/wwwroot/index.html"));
+  res.sendFile(path.join(__dirname, "./wwwroot/index.html"));
 });

@@ -18,14 +18,14 @@ $CFG->dboptions = array (
   'dbcollation' => 'utf8mb4_unicode_ci',
 );
 
-$CFG->wwwroot   = 'http://localhost:' . getenv('wwwrooturl');
+$CFG->wwwroot   = 'http://localhost:' . getenv('SITE_PORT');
 $CFG->dataroot  = '/var/www/html/moodledata';
 $CFG->admin     = 'admin';
 
 //Environment Variables For Our Custom Plugins Go Here
 $CFG->logoutredir = 'https://uatportal.gov.bw/';
 $CFG->shaSecret = 'secret';
-$CFG->redirectApiDomain = 'http://127.0.0.1:5000/';
+$CFG->redirectApiDomain = 'http://server:80/';
 //IAM API
 $CFG->iamApiDomain = "https://gateway-cus-acc.gov.bw/";
 $CFG->iamSystemAdminUsername = "lms_admin";

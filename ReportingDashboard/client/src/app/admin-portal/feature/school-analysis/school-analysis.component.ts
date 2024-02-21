@@ -17,58 +17,7 @@ export class SchoolAnalysisComponent implements OnInit {
     private toastService: ToastrService,
     private busyService: BusyService
   ) {}
-  allGrades = [
-    [
-      {
-        course: 'Computer Science with Finance',
-        level: '',
-        organization: 'MESD LMS Development Site',
-        averageGrade: 20.765765765765767,
-      },
-      {
-        course: 'Computer Science with Finance',
-        level: 'Standard 1',
-        organization: 'MESD LMS Development Site',
-        averageGrade: 25.4,
-      },
-      {
-        course: 'Algorithms',
-        level: '',
-        organization: 'MESD LMS Development Site',
-        averageGrade: 14.882352941176471,
-      },
-      {
-        course: 'Algorithms',
-        level: 'Level 400',
-        organization: 'MESD LMS Development Site',
-        averageGrade: 13.4,
-      },
-      {
-        course: 'Algorithms',
-        level: 'Standard 1',
-        organization: 'MESD LMS Development Site',
-        averageGrade: 15.2,
-      },
-      {
-        course: 'INTRODUCTION TO BIOLOGY',
-        level: '',
-        organization: 'MESD LMS Development Site',
-        averageGrade: -4.5,
-      },
-      {
-        course: 'INTRODUCTION TO BIOLOGY',
-        level: 'Standard 1',
-        organization: 'MESD LMS Development Site',
-        averageGrade: -3.8,
-      },
-      {
-        course: 'Computer Science with Finance',
-        level: 'Level 400',
-        organization: 'MESD LMS Development Site',
-        averageGrade: 0,
-      },
-    ],
-  ];
+  allGrades = [];
 
   grades = [];
 
@@ -94,6 +43,8 @@ export class SchoolAnalysisComponent implements OnInit {
 
     this.reportService.getGrades().subscribe(
       (response) => {
+        this.busyService.idle();
+
         let x: any = response;
         this.allGrades = x;
 
@@ -110,8 +61,6 @@ export class SchoolAnalysisComponent implements OnInit {
           }
           count++;
         });
-
-        this.busyService.idle();
       },
       (error) => {
         this.busyService.idle();
