@@ -79,17 +79,52 @@ export class ProfilingComponent implements OnInit {
     doc.save('users.pdf');
   }
 
+  // exportExcel() {
+  //   import('xlsx').then((xlsx) => {
+  //     const worksheet = xlsx.utils.json_to_sheet(this.users);
+  //     const workbook = { Sheets: { data: worksheet }, SheetNames: ['data'] };
+  //     const excelBuffer: any = xlsx.write(workbook, {
+  //       bookType: 'xlsx',
+  //       type: 'array',
+  //     });
+  //     this.saveAsExcelFile(excelBuffer, 'products');
+  //   });
+  // }
+
   exportExcel() {
     import('xlsx').then((xlsx) => {
-      const worksheet = xlsx.utils.json_to_sheet(this.users);
+      // Define the columns you want to include in the Excel file
+      const columnsToExport = ['idnumber', 'userrole', 'firstname', 'lastname', 'email', 'gender', 'dateofbirth', 'phonenumber', 'organization', 'classname', 'level']; // Replace with actual column names
+  
+      // Map over the users array and create a new array with only the desired columns
+      const filteredUsers = this.users.map(user => {
+        return columnsToExport.reduce((obj, key) => {
+          if (user.hasOwnProperty(key)) {
+            obj[key] = user[key];
+          }
+          return obj;
+        }, {});
+      });
+  
+      // Convert the filtered data to a worksheet
+      const worksheet = xlsx.utils.json_to_sheet(filteredUsers);
+  
+      // Create a workbook and add the worksheet to it
       const workbook = { Sheets: { data: worksheet }, SheetNames: ['data'] };
+  
+      // Write the workbook to an Excel file
       const excelBuffer: any = xlsx.write(workbook, {
         bookType: 'xlsx',
         type: 'array',
       });
+  
+      // Save the Excel file
       this.saveAsExcelFile(excelBuffer, 'products');
     });
   }
+  
+
+
   saveAsExcelFile(buffer: any, fileName: string): void {
     let EXCEL_TYPE =
       'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
