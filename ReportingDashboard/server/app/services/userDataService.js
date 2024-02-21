@@ -136,7 +136,7 @@ class UserDataService {
             }
           });
 
-          if (!allUsers.includes(user)) {
+          if (!allUsers.includes(user) && !user.deleted) {
             allUsers.push(user);
           }
         });
