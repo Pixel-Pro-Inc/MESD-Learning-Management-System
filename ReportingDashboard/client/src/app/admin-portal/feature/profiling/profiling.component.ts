@@ -79,22 +79,10 @@ export class ProfilingComponent implements OnInit {
     doc.save('users.pdf');
   }
 
-  // exportExcel() {
-  //   import('xlsx').then((xlsx) => {
-  //     const worksheet = xlsx.utils.json_to_sheet(this.users);
-  //     const workbook = { Sheets: { data: worksheet }, SheetNames: ['data'] };
-  //     const excelBuffer: any = xlsx.write(workbook, {
-  //       bookType: 'xlsx',
-  //       type: 'array',
-  //     });
-  //     this.saveAsExcelFile(excelBuffer, 'products');
-  //   });
-  // }
-
   exportExcel() {
     import('xlsx').then((xlsx) => {
       // Define the columns you want to include in the Excel file
-      const columnsToExport = ['idnumber', 'userrole', 'firstname', 'lastname', 'email', 'gender', 'dateofbirth', 'phonenumber', 'organization', 'classname', 'level']; // Replace with actual column names
+      const columnsToExport = ['idnumber', 'userrole', 'firstname', 'lastname', 'email', 'gender', 'phonenumber', 'organization', 'classname', 'level']; // Replace with actual column names
   
       // Map over the users array and create a new array with only the desired columns
       const filteredUsers = this.users.map(user => {
