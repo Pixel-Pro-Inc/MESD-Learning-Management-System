@@ -101,14 +101,14 @@ class UserDataService {
   }
 
   // Function to fetch and consolidate all user info data and field data
-  async fetchAndConsolidateUserData(startingPort, numDatabases) {
+  async fetchAndConsolidateUserData(numDatabases) {
     let allUsers = [];
 
     for (let index = 0; index < numDatabases; index++) {
       try {
         let config = dbConfig;
 
-        config.port = startingPort + index;
+        config.host = index == 0 ? "db" : "db" + index;
 
         const users = await this.getUsers(config);
 
@@ -136,11 +136,12 @@ class UserDataService {
             }
           });
 
-          if (!allUsers.includes(user)) {
+          if (!allUsers.includes(user) && !user.deleted) {
             allUsers.push(user);
           }
         });
       } catch (error) {
+        console.error(error);
         continue;
       }
     }
