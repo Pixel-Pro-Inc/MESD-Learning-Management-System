@@ -71,9 +71,6 @@ router.post("/otp", async (req, res) => {
 
         let user = await validateToken(token);
 
-        // Call the function to refresh the token and reset the timer
-        scheduleTokenRefresh(refresh_token);
-
         if (user == null) {
           res.status(400).json('Something went wrong');
         }
@@ -144,89 +141,23 @@ router.get("/sso", async (req, res) => {
   }
 });
 
-// let refreshTokenTimeout;
-
-// async function refreshTokenAndResetTimer() {
-//   try {
-//     // Call the refreshToken method from Postman
-//     const config = {
-//       method: 'post',
-//       url: iamDomain + 'auth/refresh-token?token=' + refresh_token,
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//     };
-
-//     // Make the POST request using axios to refresh the token
-//     const response = await axios(config);
-
-//     // Extract the new token and refresh token from the response
-//     const newToken = response.data.access_token;
-//     const newRefreshToken = response.data.refresh_token;
-
-//     // // Update the token in your application (e.g., in the user's session)
-//     // // This is a placeholder and should be replaced with your actual logic
-//     // updateTokenInSession(newToken, newRefreshToken);
-
-//     res.json({
-//       token: newToken,
-//       refreshToken: newRefreshToken
-//     });
-
-//     // Reset the timer for the next refresh
-//     clearTimeout(refreshTokenTimeout);
-//     refreshTokenTimeout = setTimeout(refreshTokenAndResetTimer, 1 * 60 * 1000); //   29 minutes in milliseconds
-//   } catch (error) {
-//     console.error('Error refreshing token:', error);
-//     // Handle token refresh failure (e.g., retry, notify user, etc.)
-//   }
-// }
-
-// router.post("/refresh-token", async (req, res) => {
-//   try {
-//     // Extract the refresh token from the request body
-//     const refresh_token = req.body.refresh_token;
-
-//     // Define the config for the POST request to refresh the token
-//     const config = {
-//       method: 'post',
-//       url: iamDomain + 'auth/refresh-token?token=' + refresh_token,
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//     };
-
-//     // Make the POST request using axios to refresh the token
-//     const response = await axios(config);
-
-//     // Extract the new token and refresh token from the response
-//     const token = response.data.access_token;
-//     const refreshToken = response.data.refresh_token;
-
-//     // Send the new token and refresh token back to the client
-//     res.json({
-//       token: token,
-//       refreshToken: refreshToken
-//     });
-//   } catch (error) {
-//     console.error('Error refreshing token:', error);
-//     // Handle token refresh failure (e.g., retry, notify user, etc.)
-//     res.status(500).json({ error: 'Failed to refresh token' });
-//   }
-// });
-
 router.post("/refresh-token", async (req, res) => {
   try {
     // Extract the refresh token from the request body
     const refresh_token = req.body.refresh_token;
 
     // Call the asynchronous function to refresh the token
-    const { newToken, newRefreshToken } = await refreshToken(refresh_token);
+    const { newToken, newRefreshToken, expiryTime } = await refreshToken(refresh_token);
+
+    let user = await validateToken(newToken);
 
     // Send the new token and refresh token back to the client
     res.json({
       token: newToken,
-      refreshToken: newRefreshToken
+      refreshToken: newRefreshToken,
+      expiryTime: expiryTime,
+      firstname: user.given_name,
+      lastname: user.family_name,
     });
   } catch (error) {
     console.error('Error refreshing token:', error);
@@ -247,37 +178,19 @@ async function refreshToken(refresh_token) {
 
     // Make the POST request using axios to refresh the token
     const response = await axios(config);
+    console.error(response);
 
     // Extract the new token and refresh token from the response
     const newToken = response.data.access_token;
     const newRefreshToken = response.data.refresh_token;
-
-    // Update the token in your application (e.g., in the user's session)
-    // This is a placeholder and should be replaced with your actual logic
-    // updateTokenInSession(newToken, newRefreshToken);
+    const expiryTime = response.data.expires_in;
 
     // Return the new tokens
-    return { newToken, newRefreshToken };
+    return { newToken, newRefreshToken, expiryTime };
   } catch (error) {
     console.error('Error refreshing token:', error);
     throw error; // Re-throw the error to be handled by the route handler
   }
 }
-
-function scheduleTokenRefresh(refresh_token) {
-  clearTimeout(refreshTokenTimeout);
-  refreshTokenTimeout = setTimeout(() => {
-    refreshToken(refresh_token).then(({ newToken, newRefreshToken }) => {
-      // Update the token in your application (e.g., in the user's session)
-      // This is a placeholder and should be replaced with your actual logic
-      // updateTokenInSession(newToken, newRefreshToken);
-    }).catch(error => {
-      console.error('Error scheduling token refresh:', error);
-      // Handle scheduling errors
-    });
-  }, 1 * 60 * 1000); //   1 minute in milliseconds
-}
-
-
 
 module.exports = router;
