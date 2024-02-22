@@ -137,11 +137,13 @@ class useradditionapi_observer {
               //Create Moodle Account With EID           
               if($father === null){
                 $data = self::getEidUser($fatherId);
-
-                $eidFather = array('username' => $fatherId, 'firstname' => self::transformName($data['FIRST_NME']), 
-                'lastname' => self::transformName($data['SURNME']), 'email' => null, 'phone_number' => '26771111111');
-
-                self::assignParent($eidFather, $child, 'Male');
+                
+                if($data['DEATH_CERT_NO'] === null){
+                  $eidFather = array('username' => $fatherId, 'firstname' => self::transformName($data['FIRST_NME']), 
+                  'lastname' => self::transformName($data['SURNME']), 'email' => null, 'phone_number' => '26771111111');
+  
+                  self::assignParent($eidFather, $child, 'Male');
+                }
               }              
             }
             
@@ -159,10 +161,13 @@ class useradditionapi_observer {
               if($mother === null){
                 $data = self::getEidUser($motherId);
 
-                $eidMother = array('username' => $motherId, 'firstname' => self::transformName($data['FIRST_NME']), 
+                if($data['DEATH_CERT_NO'] === null){
+                  $eidMother = array('username' => $motherId, 'firstname' => self::transformName($data['FIRST_NME']), 
                 'lastname' => self::transformName($data['SURNME']), 'email' => null, 'phone_number' => '26771111111');
 
                 self::assignParent($eidMother, $child, 'Female');
+                }
+
               }
             }
         }
