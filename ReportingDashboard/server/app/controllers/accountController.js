@@ -14,7 +14,7 @@ const iamDomain =
     : process.env.IAM_DEV_DOMAIN;
 
 /** 
- * Login endpoint*/   
+ * Login endpoint*/
 router.post("/login", async (req, res) => {
 
   try {
@@ -126,7 +126,7 @@ router.get("/sso", async (req, res) => {
 
     if (user == null) {
       res.status(400).json('Something went wrong');
-    } else if (!user.realm_access.roles.includes("CUSTOMER")) {
+    } else if (!user.realm_access.roles.includes(process.env.ACCEPTED_ROLE)) {
       res.status(400).json('You Are Not Authorized To Use This Platform');
     } else {
       res.json({
