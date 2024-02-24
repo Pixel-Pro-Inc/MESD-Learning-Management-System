@@ -14,7 +14,7 @@ const iamDomain =
     : process.env.IAM_DEV_DOMAIN;
 
 /** 
- * Login endpoint*/   
+ * Login endpoint*/
 router.post("/login", async (req, res) => {
 
   try {
@@ -140,5 +140,57 @@ router.get("/sso", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
+router.post("/refresh-token", async (req, res) => {
+  try {
+    // Extract the refresh token from the request body
+    const refresh_token = req.body.refresh_token;
+
+    // Call the asynchronous function to refresh the token
+    const { newToken, newRefreshToken, expiryTime } = await refreshToken(refresh_token);
+
+    let user = await validateToken(newToken);
+
+    // Send the new token and refresh token back to the client
+    res.json({
+      token: newToken,
+      refreshToken: newRefreshToken,
+      expiryTime: expiryTime,
+      firstname: user.given_name,
+      lastname: user.family_name,
+    });
+  } catch (error) {
+    console.error('Error refreshing token:', error);
+    res.status(500).json({ error: 'Failed to refresh token' });
+  }
+});
+
+async function refreshToken(refresh_token) {
+  try {
+    // Define the config for the POST request to refresh the token
+    const config = {
+      method: 'post',
+      url: iamDomain + 'auth/refresh-token?token=' + refresh_token,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    // Make the POST request using axios to refresh the token
+    const response = await axios(config);
+    console.error(response);
+
+    // Extract the new token and refresh token from the response
+    const newToken = response.data.access_token;
+    const newRefreshToken = response.data.refresh_token;
+    const expiryTime = response.data.expires_in;
+
+    // Return the new tokens
+    return { newToken, newRefreshToken, expiryTime };
+  } catch (error) {
+    console.error('Error refreshing token:', error);
+    throw error; // Re-throw the error to be handled by the route handler
+  }
+}
 
 module.exports = router;

@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { LoginDto } from 'src/app/shared/models/login-dto';
 import { AccountService } from 'src/app/shared/services/account-service/account.service';
 import { BusyService } from 'src/app/shared/services/busy-service/busy.service';
+import { SessionManagementService } from 'src/app/shared/services/session-management-service/session-management.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
     private toastService: ToastrService,
     private busyService: BusyService,
     private routerService: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private sessionManagementService: SessionManagementService
 
   ) {
     this.route.queryParams.subscribe(params => {
@@ -35,6 +37,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
+
   }
 
   initializeForm() {
@@ -103,6 +106,8 @@ export class LoginComponent implements OnInit {
         //Store user
         localStorage.setItem('user', JSON.stringify(response));
         //Navigate to reports
+        let x: any = response;
+        this.sessionManagementService.startTimer(x.expiryTime * 1000);
         this.routerService.navigateByUrl('/report-portal');
       },
       (error) => {
