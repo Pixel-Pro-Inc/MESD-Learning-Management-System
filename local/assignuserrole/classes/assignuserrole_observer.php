@@ -59,12 +59,7 @@ class assignuserrole_observer {
       default:
         return;
     }
-
-    $logMessage = print_r($user, true);
-
-    // Log the string to the error log
-    error_log($logMessage);
-
+    
     $userid = $user->id;
 
     // Get the system context

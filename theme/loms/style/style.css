@@ -71,6 +71,10 @@ Default Style
   display: none !important;
 }
 
+#id_grade .form-control{
+  border: 1px solid;
+}
+
 a {
   transition: var(--transition);
   color: var(--body-color);
