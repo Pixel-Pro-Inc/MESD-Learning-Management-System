@@ -13,7 +13,8 @@ class GradeDataService {
           return;
         }
 
-        connection.query(`SELECT * FROM mdl_grade_grades`, (error, results) => {
+        // Updated SQL query to exclude grades that are zero or null
+        connection.query(`SELECT * FROM mdl_grade_grades WHERE finalgrade >  0`, (error, results) => {
           connection.end();
           if (error) {
             reject(error);
@@ -24,6 +25,8 @@ class GradeDataService {
       });
     });
   }
+
+
 
   // Function to connect to a MySQL database and fetch data
   async getGradeItems(config) {
