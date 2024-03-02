@@ -320,6 +320,8 @@ class useradditionapi_observer {
     if ($user) {
         // User already exists, get the user ID
         $user_id = $user->id;
+        error_log('User Exits Here They Are!!!');
+        error_log(print_r($user, true));
     } else {
         // User doesn't exist, create a new user
         // Create user object
@@ -346,6 +348,9 @@ class useradditionapi_observer {
 
         //Get User From ID
         $user = $DB->get_record('user', array('id' => $user_id));
+
+        error_log('We just created a user here they are!!!');
+        error_log(print_r($user, true));
 
         profile_load_data($user);
 
