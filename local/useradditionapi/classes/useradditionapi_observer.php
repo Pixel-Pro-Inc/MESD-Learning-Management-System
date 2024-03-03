@@ -99,6 +99,9 @@ class useradditionapi_observer {
         global $CFG;
         // Parse the JSON response
         $data = self::getEidUser($idnumber);
+
+        error_log('Assign Parents Called!!!');
+        error_log(print_r($child->firstname, true));
     
         // Check if the JSON decoding was successful
         if ($data !== null) {
