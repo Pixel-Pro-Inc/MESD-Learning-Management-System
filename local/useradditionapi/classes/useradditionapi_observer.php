@@ -159,7 +159,7 @@ class useradditionapi_observer {
             }
 
             error_log('USER DATA!!!');
-            error_log($data);            
+            error_log(print_r($data, true));            
 
             $motherId = $data['MOTHERS_IDNO'];
 
