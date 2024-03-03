@@ -131,6 +131,8 @@ class useradditionapi_observer {
               return;
             }
 
+            error_log('PERSONS AGE PASSED CUTOFF!!!');
+
             //Assign Parents
             $fatherId = $data['FATHERS_IDNO'];
 
