@@ -311,9 +311,18 @@ class useradditionapi_observer {
 
   public static function assignParent($parentUser, $child, $parentGender){
     global $CFG, $DB;
+    error_log('CHILD!!!');
+    error_log(print_r($child->firstname, true));
+
+    error_log('PARENT!!!');
+    error_log(print_r($parentUser['firstname'], true));
+
     //Create user in moodle
     // Assuming $username contains the username you want to check or create
     $user = $DB->get_record('user', array('username' => $parentUser['username']));
+
+    error_log('User Lookup Result!!!');
+    error_log(print_r($user, true));
 
     $user_id = 0;
 
