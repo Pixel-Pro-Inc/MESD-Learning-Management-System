@@ -121,6 +121,12 @@ class useradditionapi_observer {
             // Calculate the difference between the current date and the birth date
             $age = $currentDate->diff($birthDateTime)->y;
 
+            error_log('PERSONS AGE!!!');
+            error_log($age);
+
+            error_log('PERSONS AGE CUTOFF!!!');
+            error_log($CFG->assignParentCuttOff);
+
             if($age > $CFG->assignParentCuttOff){
               return;
             }
