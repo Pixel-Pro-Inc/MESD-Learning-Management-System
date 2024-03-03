@@ -161,8 +161,14 @@ class useradditionapi_observer {
 
             $motherId = $data['MOTHERS_IDNO'];
 
+            error_log('MOTHERS ID NUMBER!!!');
+            error_log($motherId);
+
             if($motherId !== null){
               $mother = self::getUser($motherId, $token);  
+
+              error_log('MOTHERS IAM!!!');
+              error_log($mother);
               //If parent has account with IAM      
               if($mother !== null){
                 self::assignParent($mother, $child, 'Female');
