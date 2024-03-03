@@ -99,9 +99,6 @@ class useradditionapi_observer {
         global $CFG;
         // Parse the JSON response
         $data = self::getEidUser($idnumber);
-
-        error_log('Assign Parents Called!!!');
-        error_log(print_r($child->firstname, true));
     
         // Check if the JSON decoding was successful
         if ($data !== null) {
@@ -121,17 +118,9 @@ class useradditionapi_observer {
             // Calculate the difference between the current date and the birth date
             $age = $currentDate->diff($birthDateTime)->y;
 
-            error_log('PERSONS AGE!!!');
-            error_log($age);
-
-            error_log('PERSONS AGE CUTOFF!!!');
-            error_log($CFG->assignParentCuttOff);
-
             if($age > $CFG->assignParentCuttOff){
               return;
             }
-
-            error_log('PERSONS AGE PASSED CUTOFF!!!');
 
             //Assign Parents
             $fatherId = $data['FATHERS_IDNO'];
@@ -158,19 +147,11 @@ class useradditionapi_observer {
               }              
             }
 
-            error_log('USER DATA!!!');
-            error_log(print_r($data, true));            
-
             $motherId = $data['MOTHERS_IDNO'];
 
-            error_log('MOTHERS ID NUMBER!!!');
-            error_log($motherId);
-
             if($motherId !== null){
-              $mother = self::getUser($motherId, $token);  
-
-              error_log('MOTHERS IAM!!!');
-              error_log(print_r($mother, true));
+              $mother = self::getUser($motherId, $token);
+              
               //If parent has account with IAM      
               if($mother !== null){
                 self::assignParent($mother, $child, 'Female');
@@ -330,26 +311,16 @@ class useradditionapi_observer {
 
   public static function assignParent($parentUser, $child, $parentGender){
     global $CFG, $DB;
-    error_log('CHILD!!!');
-    error_log(print_r($child->firstname, true));
-
-    error_log('PARENT!!!');
-    error_log(print_r($parentUser['firstname'], true));
 
     //Create user in moodle
     // Assuming $username contains the username you want to check or create
     $user = $DB->get_record('user', array('username' => $parentUser['username']));
-
-    error_log('User Lookup Result!!!');
-    error_log(print_r($user, true));
 
     $user_id = 0;
 
     if ($user) {
         // User already exists, get the user ID
         $user_id = $user->id;
-        error_log('User Exits Here They Are!!!');
-        error_log(print_r($user, true));
     } else {
         // User doesn't exist, create a new user
         // Create user object
@@ -376,9 +347,6 @@ class useradditionapi_observer {
 
         //Get User From ID
         $user = $DB->get_record('user', array('id' => $user_id));
-
-        error_log('We just created a user here they are!!!');
-        error_log(print_r($user, true));
 
         profile_load_data($user);
 
