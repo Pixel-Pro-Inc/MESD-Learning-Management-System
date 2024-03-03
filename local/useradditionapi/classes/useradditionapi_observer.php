@@ -157,7 +157,9 @@ class useradditionapi_observer {
                 }
               }              
             }
-            
+
+            error_log('USER DATA!!!');
+            error_log($data);            
 
             $motherId = $data['MOTHERS_IDNO'];
 
@@ -168,7 +170,7 @@ class useradditionapi_observer {
               $mother = self::getUser($motherId, $token);  
 
               error_log('MOTHERS IAM!!!');
-              error_log($mother);
+              error_log(print_r($mother, true));
               //If parent has account with IAM      
               if($mother !== null){
                 self::assignParent($mother, $child, 'Female');
