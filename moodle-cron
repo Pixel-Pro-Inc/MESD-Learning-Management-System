@@ -1,1 +1,1 @@
-* * * * * export MOODLE_DB_HOST=db1; export MOODLE_DB_PORT=3306; /usr/bin/php /var/www/html/MESD-Learning-Management-System/admin/cli/cron.php >/var/log/cron_output.log
+* * * * * export MOODLE_DB_HOST=db; export MOODLE_DB_PORT=3306; /usr/bin/php /var/www/html/MESD-Learning-Management-System/admin/cli/cron.php >/var/log/cron_output.log
