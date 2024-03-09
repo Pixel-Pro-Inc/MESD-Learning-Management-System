@@ -20,6 +20,7 @@ RUN chmod -R  755 /var/www/html
 RUN chown -R www-data:www-data /var/www/html
 
 # Setup Moodle Cron
+RUN chmod +x setup_cron_environment.sh
 COPY moodle-cron /etc/cron.d/moodle-cron
 RUN chmod   0644 /etc/cron.d/moodle-cron
 RUN crontab /etc/cron.d/moodle-cron
