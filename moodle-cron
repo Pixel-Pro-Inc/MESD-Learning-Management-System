@@ -1,1 +1,1 @@
-* * * * * /var/www/html/MESD-Learning-Management-System/setup_cron_environment.sh
+* * * * * . /etc/environment /usr/bin/php /var/www/html/MESD-Learning-Management-System/admin/cli/cron.php >/var/log/cron_output.log
