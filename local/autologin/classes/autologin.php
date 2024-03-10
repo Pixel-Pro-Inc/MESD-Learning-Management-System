@@ -38,6 +38,7 @@ class local_autologin {
                     if($token !== 'error occured'){
                         //Lookup user by username
                         $iamUser = self::getUser($user->profile_field_nin, $token);
+                        $eidUser = self::getEidUser($user->profile_field_nin);
 
                         //Update First/Last name and phonenumber, email if not null
                         $user->firstname = $iamUser['firstname'];
@@ -46,12 +47,25 @@ class local_autologin {
                             $user->email = $iamUser['email'];
                         }
 
+                        if($eidUser !== null){
+                            $user->city = self::transformName($eidUser['APPLICATION_PLACE_NME']);
+                        }
+
                         $DB->update_record('user', $user);
 
                         //profile field
-                        //Set Profile field for one gov access key
                         $user->profile_field_phonenumber = $iamUser['phone_number'];
-                        //Figure it out after meeting with Dan
+
+                        if($eidUser !== null){
+                            //Convert to unix time
+                            $birthDate = $eidUser['BIRTH_DTE'];
+
+                            $unixTime = strtotime($birthDate);
+
+                            $user->profile_field_dateofbirth = $unixTime;
+                        }
+                        
+                        //Set Profile field for one gov access key
                         $user->profile_field_onegovid = $iamUser['id'];
 
                         profile_save_data($user);                   
@@ -64,6 +78,54 @@ class local_autologin {
             }
         }
     }
+
+    public static function transformName($value){
+        // Trim to only the first word
+        $value = strstr($value, ' ', true) ?: $value;
+    
+        // Capitalize the first letter
+        $value = ucfirst(strtolower($value));
+    
+        return $value;
+      }
+
+    public static function getEidUser($idnumber){
+        global $CFG;
+        // API endpoint
+        $requestDomain = $CFG->eidApiDomain;
+    
+        $requestUrl = $requestDomain . 'api/v1/omang/payload/' . $idnumber;
+    
+        // Initialize cURL session
+        $ch = curl_init();
+    
+        // Set cURL options
+        curl_setopt($ch, CURLOPT_URL, $requestUrl);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'x-api-key: ' . $CFG->eidApiKey,
+            'Content-Type: application/json'
+        ));
+    
+        // Execute cURL request
+        $response = curl_exec($ch);
+    
+        // Close the cURL session
+        curl_close($ch);
+    
+        // Parse the JSON response
+        $data = json_decode($response, true);
+    
+        // Check if the JSON decoding was successful
+        if ($data !== null) {
+            // Access the parents property
+            // Call the function with the birth date from the response
+            return $data['data']['0'];
+        }
+    
+        return null;
+      }
 
     public static function getSystemAdminToken() {
         global $CFG;
