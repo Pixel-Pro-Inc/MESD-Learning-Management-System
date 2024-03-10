@@ -73,7 +73,6 @@ for ((i=0; i<NUM_INSTANCES; i++)); do
       - MOODLE_DB_HOST=db
       - MOODLE_DB_PORT=3306
       - SITE_PORT=$PORT_WEB
-    entrypoint: ["/bin/bash", "/var/www/html/MESD-Learning-Management-System/entrypoint.sh"]
   db:
     image: mariadb:10.11.7
     environment:
@@ -103,7 +102,6 @@ EOF
       - MOODLE_DB_HOST=db$i
       - MOODLE_DB_PORT=3306
       - SITE_PORT=$PORT_WEB
-    entrypoint: ["/bin/bash", "/var/www/html/MESD-Learning-Management-System/entrypoint.sh"]
   db$i:
     image: mariadb:10.11.7
     environment:

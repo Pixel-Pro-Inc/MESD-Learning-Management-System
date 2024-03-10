@@ -48,7 +48,6 @@ services:
       - MOODLE_DB_HOST=db
       - MOODLE_DB_PORT=3306
       - SITE_PORT=8080
-    entrypoint: ["/bin/bash", "/var/www/html/MESD-Learning-Management-System/entrypoint.sh"]
   db:
     image: mariadb:10.11.7
     environment:
@@ -75,7 +74,6 @@ services:
       - MOODLE_DB_HOST=db1
       - MOODLE_DB_PORT=3306
       - SITE_PORT=8081
-    entrypoint: ["/bin/bash", "/var/www/html/MESD-Learning-Management-System/entrypoint.sh"]
   db1:
     image: mariadb:10.11.7
     environment:
