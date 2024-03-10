@@ -44,11 +44,9 @@ EXPOSE  80
 EXPOSE  443
 
 #Setup Supervisord process manager
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
 RUN chmod +x entrypoint.sh
 
-ENTRYPOINT ["/var/www/html/MESD-Learning-Management-System/entrypoint.sh"]
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Start supervisord
 CMD ["/usr/bin/supervisord"]
