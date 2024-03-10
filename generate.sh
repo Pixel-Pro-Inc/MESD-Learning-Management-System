@@ -65,7 +65,7 @@ for ((i=0; i<NUM_INSTANCES; i++)); do
       context: .
       dockerfile: Dockerfile
       network: host
-    entrypoint: ["entrypoint.sh"]
+    entrypoint: ["/var/www/html/MESD-Learning-Management-System/entrypoint.sh"]
     ports:
       - "$PORT_WEB:80"
     links:
