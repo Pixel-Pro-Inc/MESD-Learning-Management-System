@@ -48,6 +48,7 @@ services:
       - MOODLE_DB_HOST=db
       - MOODLE_DB_PORT=3306
       - SITE_PORT=8080
+      - SITE_DOMAIN=http://13.49.225.7
   db:
     image: mariadb:10.11.7
     environment:
@@ -74,6 +75,7 @@ services:
       - MOODLE_DB_HOST=db1
       - MOODLE_DB_PORT=3306
       - SITE_PORT=8081
+      - SITE_DOMAIN=http://13.49.225.7
   db1:
     image: mariadb:10.11.7
     environment:
