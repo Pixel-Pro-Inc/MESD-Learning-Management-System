@@ -47,7 +47,6 @@ EXPOSE  443
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN chmod +x entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
 
 # Start supervisord
 CMD ["/usr/bin/supervisord"]
