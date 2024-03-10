@@ -31,7 +31,7 @@ services:
       # - DB_DEV_HOST=db
       - DB_DEV_PORT=3306
       - IAM_DEV_DOMAIN=https://gateway-cus-acc.gov.bw/
-      - NUM_INSTANCES=NUM_INSTANCES
+      - NUM_DBS=2
     ports:
       - 3000:3000
   web:
@@ -48,6 +48,7 @@ services:
       - MOODLE_DB_HOST=db
       - MOODLE_DB_PORT=3306
       - SITE_PORT=8080
+      - SITE_DOMAIN=http://13.49.225.7
   db:
     image: mariadb:10.11.7
     environment:
@@ -74,6 +75,7 @@ services:
       - MOODLE_DB_HOST=db1
       - MOODLE_DB_PORT=3306
       - SITE_PORT=8081
+      - SITE_DOMAIN=http://13.49.225.7
   db1:
     image: mariadb:10.11.7
     environment:

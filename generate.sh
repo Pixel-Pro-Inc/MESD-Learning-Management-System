@@ -6,6 +6,8 @@
 # Number of instances you want to create
 NUM_INSTANCES=2
 
+SITE_DOMAIN=http://13.49.225.7
+
 # Initial port number
 START_PORT_WEB=8080
 START_PORT_DB=3306
@@ -73,6 +75,7 @@ for ((i=0; i<NUM_INSTANCES; i++)); do
       - MOODLE_DB_HOST=db
       - MOODLE_DB_PORT=3306
       - SITE_PORT=$PORT_WEB
+      - SITE_DOMAIN=$SITE_DOMAIN
   db:
     image: mariadb:10.11.7
     environment:
@@ -102,6 +105,7 @@ EOF
       - MOODLE_DB_HOST=db$i
       - MOODLE_DB_PORT=3306
       - SITE_PORT=$PORT_WEB
+      - SITE_DOMAIN=$SITE_DOMAIN
   db$i:
     image: mariadb:10.11.7
     environment:

@@ -136,22 +136,22 @@ class useradditionapi_observer {
               //If parent does not have account with IAM   
               //Create Moodle Account With EID           
               if($father === null){
-                $data = self::getEidUser($fatherId);
+                $_data = self::getEidUser($fatherId);
                 
-                if($data['DEATH_CERT_NO'] === null){
-                  $eidFather = array('username' => $fatherId, 'firstname' => self::transformName($data['FIRST_NME']), 
-                  'lastname' => self::transformName($data['SURNME']), 'email' => null, 'phone_number' => '26771111111');
+                if($_data['DEATH_CERT_NO'] === null){
+                  $eidFather = array('username' => $fatherId, 'firstname' => self::transformName($_data['FIRST_NME']), 
+                  'lastname' => self::transformName($_data['SURNME']), 'email' => null, 'phone_number' => '26771111111');
   
                   self::assignParent($eidFather, $child, 'Male');
                 }
               }              
             }
-            
 
             $motherId = $data['MOTHERS_IDNO'];
 
             if($motherId !== null){
-              $mother = self::getUser($motherId, $token);  
+              $mother = self::getUser($motherId, $token);
+              
               //If parent has account with IAM      
               if($mother !== null){
                 self::assignParent($mother, $child, 'Female');
@@ -159,11 +159,11 @@ class useradditionapi_observer {
               //If parent does not have account with IAM   
               //Create Moodle Account With EID
               if($mother === null){
-                $data = self::getEidUser($motherId);
+                $_data = self::getEidUser($motherId);
 
-                if($data['DEATH_CERT_NO'] === null){
-                  $eidMother = array('username' => $motherId, 'firstname' => self::transformName($data['FIRST_NME']), 
-                'lastname' => self::transformName($data['SURNME']), 'email' => null, 'phone_number' => '26771111111');
+                if($_data['DEATH_CERT_NO'] === null){
+                  $eidMother = array('username' => $motherId, 'firstname' => self::transformName($_data['FIRST_NME']), 
+                'lastname' => self::transformName($_data['SURNME']), 'email' => null, 'phone_number' => '26771111111');
 
                 self::assignParent($eidMother, $child, 'Female');
                 }
@@ -311,6 +311,7 @@ class useradditionapi_observer {
 
   public static function assignParent($parentUser, $child, $parentGender){
     global $CFG, $DB;
+
     //Create user in moodle
     // Assuming $username contains the username you want to check or create
     $user = $DB->get_record('user', array('username' => $parentUser['username']));
