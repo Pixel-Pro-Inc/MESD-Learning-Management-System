@@ -71,7 +71,7 @@ Default Style
   display: none !important;
 }
 
-#id_grade .form-control{
+#id_grade{
   border: 1px solid;
 }
 
