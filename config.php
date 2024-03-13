@@ -36,7 +36,7 @@ $CFG->comsEmailUrl = 'https://coms.gov.bw/email';
 //EID API
 $CFG->eidApiDomain = 'http://idverification-acc.gov.bw:8081/';
 $CFG->eidApiKey = 'KLBzNwGVZMRF9c65MOMV7Cl8rhIMTu4z';
-$CFG->assignParentCuttOff = 21;
+$CFG->assignParentCuttOff = 17;
 //Appointments API
 $CFG->serviceId = '65c4835b625a7be036df5be6';
 $CFG->serviceName = 'MESD-LMS';
