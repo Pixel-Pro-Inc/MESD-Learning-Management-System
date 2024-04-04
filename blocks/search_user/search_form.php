@@ -22,7 +22,7 @@ class search_form extends moodleform {
         $usernames[0] = '';
         
         foreach ($allusers as $user) {
-            if(fullname($user) !== 'Guest user'){
+            if($user->id !== 1){
                 $usernames[$user->id] = fullname($user);
             }
         }
@@ -31,7 +31,7 @@ class search_form extends moodleform {
             'multiple' => false,                                              
             'noselectionstring' => get_string('allareas', 'search'),  
             'placeholder' => 'Select a user'                                                          
-         );
+        );
                 
         $mform->addElement('autocomplete', 'search_user', 'Selected User', $usernames, '', $options);
         $mform->addRule('search_user', get_string('required'), 'required', null, 'client');
