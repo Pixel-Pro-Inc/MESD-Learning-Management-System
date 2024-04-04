@@ -10,7 +10,7 @@ require_once("$CFG->libdir/formslib.php");
 class search_form extends moodleform {
 
     function definition() {
-        global $CFG, $DB;
+        global $DB;
         
         $mform = $this->_form; // Don't forget the underscore! 
         
@@ -29,11 +29,10 @@ class search_form extends moodleform {
             'multiple' => false,                                              
             'noselectionstring' => get_string('allareas', 'search'),  
             'placeholder' => 'Select a user'                                                          
-         );        
-        $autocomplete = $mform->addElement('autocomplete', 'search_user', 'Selected User', $usernames, '', $options);
+         );
+                
+        $mform->addElement('autocomplete', 'search_user', 'Selected User', $usernames, '', $options);
         $mform->addRule('search_user', get_string('required'), 'required', null, 'client');
-
-        $autocomplete->setValue('');
 
         $this->add_action_buttons(false, 'Go to profile');
     }
