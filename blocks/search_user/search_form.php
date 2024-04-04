@@ -14,7 +14,8 @@ class search_form extends moodleform {
         
         $mform = $this->_form; // Don't forget the underscore! 
         
-        $allusers = $DB->get_records('user');
+        // Get all users who haven't been deleted
+        $allusers = $DB->get_records_select('user', 'deleted = ?', array(0));
 
         $usernames = array();
         foreach ($allusers as $user) {
@@ -25,10 +26,10 @@ class search_form extends moodleform {
             'multiple' => false,                                              
             'noselectionstring' => get_string('allareas', 'search'),                                                            
          );        
-        $mform->addElement('autocomplete', 'search_user', 'User', $usernames, $options);
+        $mform->addElement('autocomplete', 'search_user', 'User', $usernames, '', $options);
         $mform->addRule('search_user', get_string('required'), 'required', null, 'client');
 
         $this->add_action_buttons(false, 'Go to profile');
     }
 }
-   
+?>
