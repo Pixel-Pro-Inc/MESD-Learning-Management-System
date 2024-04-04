@@ -18,8 +18,9 @@ class search_form extends moodleform {
         $allusers = $DB->get_records_select('user', 'deleted = ?', array(0));
 
         $usernames = array();
+        $usernames[0] = '';
         foreach ($allusers as $user) {
-            $usernames[$user->id] = fullname($user) . ' - ' . $user->email;
+            $usernames[$user->id] = fullname($user);
         }
 
         $options = array(                                                                                                    
