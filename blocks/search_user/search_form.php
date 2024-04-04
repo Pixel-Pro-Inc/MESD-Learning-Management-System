@@ -22,7 +22,7 @@ class search_form extends moodleform {
         $usernames[0] = '';
         
         foreach ($allusers as $user) {
-            if($user->id !== 1){
+            if($user->id != 1){
                 $usernames[$user->id] = fullname($user);
             }
         }
