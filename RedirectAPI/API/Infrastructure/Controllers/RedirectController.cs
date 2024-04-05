@@ -25,7 +25,7 @@ namespace API.Infrastructure.Controllers
                 return BadRequest(resultObject.Error);
 
             if(resultObject.Value.Count() == 0)
-                return BadRequest("User not found");
+                return View("~/Presentation/RedirectController/UserNotFound.cshtml");
 
             if (resultObject.Value.Count() == 1)
                 return new RedirectResult(resultObject.Value.First());
