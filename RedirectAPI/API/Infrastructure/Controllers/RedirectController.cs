@@ -22,7 +22,14 @@ namespace API.Infrastructure.Controllers
             ResultObject<IEnumerable<string>> resultObject = await _userService.GetUserLinks(token);
 
             if (resultObject.Error != null)
-                return BadRequest(resultObject.Error);
+                if (resultObject.Error.Contains("User"))
+                {
+                    return View("~/Presentation/RedirectController/UserNotFound.cshtml");
+                }
+                else
+                {
+                    return BadRequest(resultObject.Error);
+                }
 
             if(resultObject.Value.Count() == 0)
                 return View("~/Presentation/RedirectController/UserNotFound.cshtml");
