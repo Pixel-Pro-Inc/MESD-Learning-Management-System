@@ -1,0 +1,76 @@
+MESD Documentation LMS-66-View-grade-students-Assessment
+
+As an instructor or a person with grading permissions in Moodle, you can view and grade students' assessments using the built-in grading tools. Here is a general guide:
+Viewing and Grading Assessments:
+1.	Login to Moodle:
+•	Go to your Moodle site and log in with your instructor credentials.
+2.	Navigate to the Course:
+•	Find and click on the course where you want to view and grade assessments.
+3.	Locate the Assessment:
+•	Look for the assessment or assignment in the course content. It might be in a specific section or within a module.
+4.	Access the Assessment:
+•	Click on the assessment title to open it.
+5.	View Submissions:
+•	You should see a list of student submissions. Click on a student's name to view their submission.
+6.	Review Submission:
+•	Review the student's work. Depending on the type of assessment, you may see uploaded files, text entries, or other submission types.
+7.	Grade the Assessment:
+•	Moodle provides grading tools depending on the type of assessment. This may include rubrics, grading scales, or simple point assignments.
+8.	Provide Feedback:
+•	If your institution has enabled it, you can provide feedback to the student directly within Moodle. This feedback can be in the form of comments, annotations, or attached files.
+9.	Save or Submit Grade:
+•	After reviewing and grading, save or submit the grade. The exact process may vary based on your institution's Moodle setup.
+10.	Navigate to the Next Submission:
+•	Use the navigation options to move to the next student's submission and repeat the grading process.
+11.	Review Grades:
+•	You can review and manage grades for all students in the gradebook. Navigate to the gradebook from the course menu to see an overview of all grades.
+Grader report
+All the grades for each student in a course can be found in the course gradebook, or 'Grader report', accessed from the Course navigation.
+The grader report collects items that have been graded from the various parts of Moodle that are assessed, and allows you to view and change them as well as sort them out into categories and calculate totals in various ways. When you add an assessed item in a Moodle course, the gradebook automatically creates space for the grades it will produce and also adds the grades themselves as they are generated, either by the system or by you.
+The grades displayed are initially displayed as the raw marks from the assessments themselves, so will depend on how you set those up e.g. an essay out of 36 will appear as however many raw marks that student got, not a percentage (although this can be changed later, see below).
+Note that various default options for the gradebook are set at system level by the administrator in and can be marked as being overridable by you, or fixed. This means that the options will not always be set up the same way for every user when they see the grader report for the first time.
+Display
+Along the top of the grader report are several rows: first the course, then the category, then the columns for each graded activity (for example: Assignment, Quiz, Lesson). Any activities settings which were left "uncategorised" will appear in the general category which is named after the course by default (any category name can be changed).
+ 
+From the three dots next to a category name you can select to
+•	show grades only
+•	show grade totals
+•	show grades and totals.
+ 
+Collapse columns by clicking the three dots next to a grade item. Collapsed columns show with a + sign. Click the + to expand them again one at a time. From the Collapsed columns link on the right, quickly see and search how many columns are collapsed.
+ 
+The three dots next to a grade item also allows you to:
+•	switch to Single view.
+•	change the order (ascending/descending).
+ 
+
+Scrolling through the gradebook
+The gradebook allows for smooth and stable scrolling horizontally and vertically through grades. It uses the whole window, making it accessible on all platforms.( Note: horizontal scrolling is at the bottom of the browser window, and there is no horizontal scrollbar at the top.)
+ 
+Scrolling in all directions
+
+Searching and filtering the Grader report
+•	If you change the course settings Group mode to Visible groups or Separate groups a drop-down menu will appear in the gradebook to allow you to filter your students by groups.
+•	You can search easily by starting to type the first few letters of the name of the person (or email or ID number or other user identity item) or group you wish to find.
+ 
+Records per page
+At the bottom of the Grader report, you can select to show 20, 100 or All students on the page.
+If you change the setting, it is remembered and applied to the Grader report in all your other courses. If there are more than 5000 students, then All will show 5000, with pagination to show the rest.
+Viewing and editing grades
+Note: Editing anything in the gradebook refers to editing the grades only and none of the available operations bear any relationship to editing the main course page i.e. the appearance of your course page cannot be influenced by anything you do in the gradebook. The "Turn editing on" button functions separately from the main course one, so editing can be on in the gradebook, but simultaneously off when you switch back to course view. This is because editing grades and editing the course page are separate capabilities. Roles such as 'non-editing teacher' may only have one or the other.
+Viewing Assignment feedback
+•	If you have a given feedback to a learner in an assignment, an asterisk icon will display. Click the three dots in that column to view the feedback in a modal window.
+ 
+Altering the grades
+You can click "Turn editing on" at the top right to enter grades directly in the grader report. When you are done, click 'Save changes'. From the cell actions menu (...) you can also follow the link 'Edit grade' to set the grade, its written feedback and a number of other attributes.
+Note: If you enter grades directly in the grader report, they are then shown with an overridden icon to indicate grades which have been manually changed.
+Altering the grades using Single View
+The single view interface allows you to enter grades in bulk for a specific grade item or a specific user. To change a specific grade or all grades, click on the Override checkbox by the specific grade row or use the Override All action to check every row. If you wish to override all grades with a set grade, select Bulk insert grades from the Actions menu and enter the grade that you wish to insert. You can select whether to fill the grade for just empty grades or for all grades from the dropdown list. Click on Save and you will now see in the Grader Report that all grades the specific item/user have been overridden with the grade/grades that you entered.
+Hiding columns or individual grades
+With edit mode enabled, clicking the three dots next to a grade item will give you the option to hide or lock that item (along with options to edit it and view the grade analysis).
+Recalculating
+If you change any part of an assessment e.g. alter the maximum grade for one of the questions in a quiz, you may find that the columns do not yet reflect the change you have made. Click Turn editing on twice to force the gradebook to re-check.
+Gradebook capabilities
+There is just one gradebook capability, View the grader report, which is allowed for the default roles of manager, teacher and non-editing teacher.
+
+

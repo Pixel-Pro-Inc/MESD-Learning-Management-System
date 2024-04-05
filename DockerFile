@@ -1,0 +1,52 @@
+# Ubuntu Base Image
+FROM ubuntu:22.04
+
+# Install git and other dependencies
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y git apache2 php cron php-mysql libapache2-mod-php php-gd php-xmlrpc php-mbstring php-soap php-intl php-zip php-curl php-xml supervisor && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set the working directory to /var/www/html/MESD-Learning-Management-System
+WORKDIR /var/www/html/MESD-Learning-Management-System
+
+# Copy necessary files from the root project folder
+COPY . /var/www/html/MESD-Learning-Management-System
+
+# Create moodle data folder copy from base
+RUN chmod  0777 /var/www/html
+COPY moodledata /var/www/html/moodledata
+RUN chmod -R  755 /var/www/html/moodledata
+RUN chown -R www-data:www-data /var/www/html/moodledata
+
+# Setup Moodle Cron
+COPY moodle-cron /etc/cron.d/moodle-cron
+RUN chmod   0644 /etc/cron.d/moodle-cron
+RUN crontab /etc/cron.d/moodle-cron
+
+# Update php.ini &&  000-default.conf
+# Remove existing php.ini
+RUN rm /etc/php/8.1/apache2/php.ini
+
+# Replace php.ini with the one from the root repo folder
+COPY php.ini /etc/php/8.1/apache2/php.ini
+
+# Replace config.php with the one from the root repo folder
+COPY config.php /var/www/html/MESD-Learning-Management-System/config.php
+
+# Replace  000-default.conf with the one from the root repo folder
+RUN rm /etc/apache2/sites-enabled/000-default.conf
+COPY  000-default.conf /etc/apache2/sites-available/000-default.conf
+RUN ln -s /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-enabled/
+
+# Expose port  80
+EXPOSE  80
+EXPOSE  443
+
+#Setup Supervisord process manager
+RUN chmod +x entrypoint.sh
+
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Start supervisord
+CMD ["/usr/bin/supervisord"]
