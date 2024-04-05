@@ -36,6 +36,8 @@ cat <<EOF >> docker-compose.yml
     build:
       context: RedirectAPI/DbServer
       dockerfile: Dockerfile
+    volumes:
+      - ./.data/db-redirect:/var/lib/mysql
     expose:
       - 3306
   reportingdashboard:

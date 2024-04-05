@@ -4,7 +4,7 @@ services:
   server:
     build:
       context: RedirectAPI
-     # target: final
+      # target: final
       dockerfile: Dockerfile
     environment:
       - DB_Connection_String=server=redirectdb;port=3306;user=root;password=Password;database=users;
@@ -22,7 +22,7 @@ services:
   reportingdashboard:
     build:
       context: ReportingDashboard/server
-     # target: final
+      # target: final
       dockerfile: Dockerfile
     environment:
       - SERVER_DEV_PORT=3000
