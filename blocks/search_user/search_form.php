@@ -33,7 +33,7 @@ class search_form extends moodleform {
             'placeholder' => 'Select a user'                                                          
         );
                 
-        $mform->addElement('autocomplete', 'search_user', 'Selected User', $usernames, '', $options);
+        $mform->addElement('autocomplete', 'search_user', 'User', $usernames, '', $options);
         $mform->addRule('search_user', get_string('required'), 'required', null, 'client');
 
         $this->add_action_buttons(false, 'Go to profile');
