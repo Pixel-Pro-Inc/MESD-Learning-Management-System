@@ -27,7 +27,7 @@ if (!empty($courseId)) {
       $context = context_course::instance($course->id);
 
       // Get only learners (students) enrolled in the course
-      $enrolled_users = get_enrolled_users($context, 'moodle/badges:earnbadge', 0, 'u.id, u.firstname, u.lastname, u.email');
+      $enrolled_users = get_enrolled_users($context, 'local/viewotherlearners:student', 0, 'u.id, u.firstname, u.lastname, u.email');
       
       if (!empty($enrolled_users)) {
           echo '<h2>Enrolled Learners in ' . $course->fullname . '</h2>';
