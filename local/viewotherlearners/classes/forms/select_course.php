@@ -13,16 +13,14 @@ class select_course extends moodleform {
         global $DB;
         
         $mform = $this->_form; // Don't forget the underscore! 
-        
-        global $USER, $DB;
 
-        // Get all courses that the user is enrolled in
-        $courses = enrol_get_users_courses($USER->id);
+        // Get all courses from the database
+        $courses = $DB->get_records('course', array(), '', 'id, fullname');
 
         // Create an array of options for the select element
         $options = array('multiple' => false);
         foreach ($courses as $course) {
-        $options[$course->id] = format_string($course->fullname);
+            $options[$course->id] = format_string($course->fullname);
         }
 
         // Add the select element to the form
