@@ -45,69 +45,21 @@ class block_view_learners extends block_base
 
     
     public function get_content() {
-        global $DB, $USER;
-       
+        global $CFG;
+     
         if ($this->content !== NULL) {
-        return $this->content;
+            return $this->content;
         }
-       
-        // Fetch the enrolment instance IDs that the user is enrolled in.
-        $sql = "SELECT DISTINCT ue.enrolid FROM {user_enrolments} ue 
-            JOIN {enrol} e ON e.id = ue.enrolid 
-            WHERE ue.userid = :userid AND e.status = :status";
-        $params = ['userid' => $USER->id, 'status' => ENROL_INSTANCE_ENABLED];
-        $enrolmentInstanceIds = $DB->get_fieldset_sql($sql, $params);
-       
-        // Fetch all courses that the user is enrolled in.
-        $courseIds = [];
-        foreach ($enrolmentInstanceIds as $enrolmentInstanceId) {
-        $courseIds[] = $DB->get_field('enrol', 'courseid', ['id' => $enrolmentInstanceId]);
-        }
-       
-        // Fetch all courses under each course category.
-        $courses = [];
-        foreach ($courseIds as $courseId) {
-        $courses[] = $DB->get_record('course', ['id' => $courseId]);
-        }
-       
-        // Generate the HTML to display the courses.
-        $courseList = '';
-        foreach ($courses as $course) {
-        // Fetch the students for the course.
-        $context = context_course::instance($course->id);
-        $students = get_enrolled_users($context, '', 0, 'u.*', null, null, null, null, false);
-       
-        // Generate the HTML for the course and its students.
-        $courseList .= '<label>' . $course->fullname . '</label>';
-        $courseList .= '<select class="course-dropdown" data-courseid="'.$course->id.'">';
-        $courseList .= '<option value="">View Learners</option>';
-        foreach ($students as $student) {
-        $courseList .= '<option value="'.$student->id.'">'.$student->firstname.' '.$student->lastname.'</option>';
-        }
-        $courseList .= '</select>';
-        }
-       
+     
         $this->content = new stdClass;
-        $this->content->text = $courseList;
-       
+        $this->content->text = '';
+        $this->content->footer = '';
+     
+        // Add links to the block content
+        $this->content->text .= '<a href="'.$CFG->wwwroot.'/local/viewotherlearners/view_learners.php" class="btn btn-default">View Other Learners</a>';
+     
         return $this->content;
     }
-
-    // function applicable_formats() {
-    //     global $CFG;
-     
-    //     // Get the system context.
-    //     $context = context_system::instance();
-     
-    //     // Check if the user has the required capability.
-    //     if (has_capability('block/view_learners:useviewlearners', $context)) {
-    //         // The block can be added to any page.
-    //         return parent::applicable_formats();
-    //     } else {
-    //         // The block cannot be added to any page.
-    //         return array();
-    //     }
-    // }
 
     function check_visibility() {
         // Get the context of the block.
@@ -121,8 +73,5 @@ class block_view_learners extends block_base
             // The block is not visible.
             return false;
         }
-     }
-     
-       
-
+    }
 }
