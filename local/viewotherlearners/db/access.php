@@ -17,18 +17,18 @@
 /**
  * Capability definitions for this module.
  *
- * @package   local_sms
+ * @package   local_viewotherlearners
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$capabilities = [
-    'local/sms:composesms' => [
-        'riskbitmask' => RISK_SPAM,
-        'captype' => 'create',
-        'contextlevel' => CONTEXT_SYSTEM,
-        'archetypes' => [
-            'manager' => CAP_ALLOW,
-        ],
-    ],
-];
+// $capabilities = [
+//     'local/sms:composesms' => [
+//         'riskbitmask' => RISK_SPAM,
+//         'captype' => 'create',
+//         'contextlevel' => CONTEXT_SYSTEM,
+//         'archetypes' => [
+//             'manager' => CAP_ALLOW,
+//         ],
+//     ],
+// ];
  
