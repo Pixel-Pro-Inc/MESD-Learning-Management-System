@@ -8,5 +8,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_viewotherlearners';
-$plugin->version = 2023011202; // YYYYMMDDHH (year, month, day, hour)
+$plugin->version = 2024040000; // YYYYMMDDHH (year, month, day, hour)
 $plugin->requires = 2020111200; // Moodle version required
