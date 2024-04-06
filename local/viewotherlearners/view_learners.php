@@ -24,16 +24,16 @@ echo $OUTPUT->header();
 
 $mform->display();
 
-// // Handle form submission
-// if ($mform->is_cancelled()) {
+// Handle form submission
+if ($mform->is_cancelled()) {
 
-//     // Go back to manage page
-//     redirect($CFG->wwwroot . '/my', 'You cancelled');
-// } else if ($data = $mform->get_data()) {
+    // Go back to manage page
+    redirect($CFG->wwwroot . '/my', 'You cancelled');
+} else if ($data = $mform->get_data()) {
 
-//     // Redirect to compose.php with the selected course ID in the URL
-//     redirect($CFG->wwwroot . '/local/sms/compose.php?courseid=' . $data->course_select);
-// }
+    // Redirect to compose.php with the selected course ID in the URL
+    redirect($CFG->wwwroot . '/local/viewotherlearners/learner_list.php?courseid=' . $data->course_select);
+}
  
 
 echo $OUTPUT->footer();

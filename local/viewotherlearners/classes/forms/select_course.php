@@ -29,6 +29,6 @@ class select_course extends moodleform {
         $mform->addElement('select', 'course_select', 'Select course', $options);
         
         // Add save changes button and cancel button
-        $this->add_action_buttons();
+        $this->add_action_buttons(false, "View Learners");
     }
 }
