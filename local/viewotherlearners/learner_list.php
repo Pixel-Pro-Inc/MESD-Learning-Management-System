@@ -217,30 +217,6 @@ if (!empty($downloadoptions)) {
     $displaylist[] = [get_string('downloadas', 'table') => $downloadoptions];
 }
 
-if ($context->id != $frontpagectx->id) {
-    $instances = $manager->get_enrolment_instances();
-    $plugins = $manager->get_enrolment_plugins(false);
-    foreach ($instances as $key => $instance) {
-        if (!isset($plugins[$instance->enrol])) {
-            // Weird, some broken stuff in plugin.
-            continue;
-        }
-        $plugin = $plugins[$instance->enrol];
-        $bulkoperations = $plugin->get_bulk_operations($manager);
-
-        $pluginoptions = [];
-        foreach ($bulkoperations as $key => $bulkoperation) {
-            $params = ['plugin' => $plugin->get_name(), 'operation' => $key];
-            $url = new moodle_url('bulkchange.php', $params);
-            $pluginoptions[$url->out(false)] = $bulkoperation->get_title();
-        }
-        if (!empty($pluginoptions)) {
-            $name = get_string('pluginname', 'enrol_' . $plugin->get_name());
-            $displaylist[] = [$name => $pluginoptions];
-        }
-    }
-}
-
 $selectactionparams = array(
     'id' => 'formactionid',
     'class' => 'ml-2',
