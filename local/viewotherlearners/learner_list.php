@@ -82,23 +82,13 @@ if ($node) {
     $node->force_open();
 }
 
+$course = get_course($courseid);
+
 echo $OUTPUT->header();
 
+echo '<h2>Enrolled Learners in ' . $course->fullname . '</h2>';
+
 $participanttable = new \core_user\table\participants("user-index-participants-{$course->id}");
-
-// Manage enrolments.
-$manager = new course_enrolment_manager($PAGE, $course);
-$enrolbuttons = $manager->get_manual_enrol_buttons();
-$enrolrenderer = $PAGE->get_renderer('core_enrol');
-$enrolbuttonsout = '';
-foreach ($enrolbuttons as $enrolbutton) {
-    $enrolbuttonsout .= $enrolrenderer->render($enrolbutton);
-}
-
-echo $OUTPUT->render_participants_tertiary_nav($course, html_writer::div($enrolbuttonsout, '', [
-    'data-region' => 'wrapper',
-    'data-table-uniqueid' => $participanttable->uniqueid,
-]));
 
 $filterset = new \core_user\table\participants_filterset();
 $filterset->add_filter(new integer_filter('courseid', filter::JOINTYPE_DEFAULT, [(int)$course->id]));
@@ -276,17 +266,4 @@ echo '</form>';
 
 $PAGE->requires->js_call_amd('core_user/participants', 'init', [$bulkoptions]);
 echo '</div>';  // Userlist.
-
-$enrolrenderer = $PAGE->get_renderer('core_enrol');
-// Need to re-generate the buttons to avoid having elements with duplicate ids on the page.
-$enrolbuttons = $manager->get_manual_enrol_buttons();
-$enrolbuttonsout = '';
-foreach ($enrolbuttons as $enrolbutton) {
-    $enrolbuttonsout .= $enrolrenderer->render($enrolbutton);
-}
-echo html_writer::div($enrolbuttonsout, 'd-flex justify-content-end', [
-    'data-region' => 'wrapper',
-    'data-table-uniqueid' => $participanttable->uniqueid,
-]);
-
 echo $OUTPUT->footer();
