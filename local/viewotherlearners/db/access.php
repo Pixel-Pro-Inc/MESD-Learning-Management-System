@@ -26,9 +26,7 @@
          'riskbitmask' => RISK_SPAM,
          'captype' => 'create',
          'contextlevel' => CONTEXT_SYSTEM,
-         'archetypes' => [
-             'learner' => CAP_ALLOW,
-         ],
+         'archetypes' => [],
      ],
  ];
  
