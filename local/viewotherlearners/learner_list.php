@@ -29,7 +29,7 @@ define('DEFAULT_PAGE_SIZE', (!empty($participantsperpage) ? $participantsperpage
 $page         = optional_param('page', 0, PARAM_INT); // Which page to show.
 $perpage      = optional_param('perpage', DEFAULT_PAGE_SIZE, PARAM_INT); // How many per page.
 $contextid    = optional_param('contextid', 0, PARAM_INT); // One of this or.
-$courseid     = optional_param('id', 0, PARAM_INT); // This are required.
+$courseid     = optional_param('courseid', 0, PARAM_INT); // This are required.
 $newcourse    = optional_param('newcourse', false, PARAM_BOOL);
 $roleid       = optional_param('roleid', 0, PARAM_INT);
 $urlgroupid   = optional_param('group', 0, PARAM_INT);
