@@ -6,7 +6,7 @@
  */
 
 require_once(__DIR__ . '/../../config.php');
-//require_once($CFG->dirroot . '/local/sms/classes/forms/select_course.php');
+require_once($CFG->dirroot . '/local/viewotherlearners/classes/forms/select_course.php');
 require_login();
 
 $context = context_system::instance();
@@ -18,13 +18,11 @@ $PAGE->set_context(context_system::instance());
 $PAGE->set_title('View Other Learners');
 $PAGE->set_heading('View Other Learners');
 
-// $mform = new select_course();
+$mform = new select_course();
 
 echo $OUTPUT->header();
 
-echo("view other learners");
-
-// $mform->display();
+$mform->display();
 
 // // Handle form submission
 // if ($mform->is_cancelled()) {
