@@ -82,8 +82,6 @@ if ($node) {
     $node->force_open();
 }
 
-$course = get_course($courseid);
-
 echo $OUTPUT->header();
 
 echo '<h2>Enrolled Learners in ' . $course->fullname . '</h2>';
