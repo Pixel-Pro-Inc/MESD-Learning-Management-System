@@ -20,7 +20,9 @@ class select_course extends moodleform {
         // Create an array of options for the select element
         $options = array('multiple' => false);
         foreach ($courses as $course) {
+          if($course->id != 1){
             $options[$course->id] = format_string($course->fullname);
+          }
         }
 
         // Add the select element to the form
