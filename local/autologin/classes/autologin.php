@@ -122,8 +122,11 @@ class local_autologin {
         // Parse the JSON response
         $data = json_decode($response, true);
 
+        error_log('E1');
+
         // Check if the JSON decoding was successful
         if ($data !== null) {
+            error_log('E2');
            if($data['realm_access'] !== null){
             error_log('Does he have the role?');
             error_log(in_array('ONEGOV-DEV-USER-ROLE'/*'LMS_SUPERADMIN'*/, $data['realm_access']['roles']));
