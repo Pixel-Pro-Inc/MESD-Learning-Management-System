@@ -120,11 +120,11 @@ class local_autologin {
         // Parse the JSON response
         $data = json_decode($response, true);
 
-        error_log(print_r($data, true));
+        error_log(print_r($data, false));
 
-        error_log(print_r($data['realm_access'], true));
+        error_log(print_r($data['realm_access'], false));
 
-        error_log(print_r($data['realm_access']['roles'], true));
+        error_log(print_r($data['realm_access']['roles'], false));
 
         // Check if the JSON decoding was successful
         if ($data !== null) {
