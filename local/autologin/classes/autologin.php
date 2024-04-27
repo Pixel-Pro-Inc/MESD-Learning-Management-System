@@ -1,5 +1,7 @@
 <?php
 
+use tool_brickfield\local\tool\errors;
+
 defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot.'/user/profile/lib.php');
@@ -95,47 +97,41 @@ class local_autologin {
     }
 
     public static function isSuperAdmin($token){
-        // global $CFG;
-        // // API endpoint
-        // $requestDomain = $CFG->iamApiDomain;
+        global $CFG;
+        // API endpoint
+        $requestDomain = $CFG->iamApiDomain;
 
-        // $requestUrl = $requestDomain . 'auth/validate-token?token=' . $token;
+        $requestUrl = $requestDomain . 'auth/validate-token?token=' . $token;
 
-        // // Initialize cURL session
-        // $ch = curl_init();
+        // Initialize cURL session
+        $ch = curl_init();
 
-        // // Set the URL, headers, and POST data as JSON
-        // curl_setopt($ch, CURLOPT_URL, $requestUrl);
-        // curl_setopt($ch, CURLOPT_POST, 1);
-        // curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        // Set the URL, headers, and POST data as JSON
+        curl_setopt($ch, CURLOPT_URL, $requestUrl);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
-        // // Execute cURL request
-        // $response = curl_exec($ch);
+        // Execute cURL request
+        $response = curl_exec($ch);
 
-        // $result = false;
+        $result = false;
 
-        // // Close the cURL session
-        // curl_close($ch);
+        // Close the cURL session
+        curl_close($ch);
 
-        // // Parse the JSON response
-        // $data = json_decode($response, true);
+        // Parse the JSON response
+        $data = json_decode($response, true);
 
-        // error_log('This is an error');
+        // Check if the JSON decoding was successful
+        if ($data !== null) {
+           if($data['realm_access'] !== null){
+            error_log('Does he have the role?');
+            error_log(in_array('ONEGOV-DEV-USER-ROLE'/*'LMS_SUPERADMIN'*/, $data['realm_access']['roles']));
+            $result = in_array('ONEGOV-DEV-USER-ROLE'/*'LMS_SUPERADMIN'*/, $data['realm_access']['roles']);
+          }
+        }
 
-        // error_log(print_r($data));
-
-        // error_log(print_r($data['realm_access']));
-
-        // error_log(print_r($data['realm_access']['roles']));
-
-        // // Check if the JSON decoding was successful
-        // if ($data !== null) {
-        //   if($data['realm_access'] !== null){
-        //     $result = in_array('ONEGOV-DEV-USER-ROLE'/*'LMS_SUPERADMIN'*/, $data['realm_access']['roles']);
-        //   }
-        // }
-
-        return true;//$result;
+        return $result;
     }
 
     public static function transformName($value){
