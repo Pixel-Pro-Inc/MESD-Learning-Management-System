@@ -120,6 +120,8 @@ class local_autologin {
         // Parse the JSON response
         $data = json_decode($response, true);
 
+        error_log('This is an error');
+
         error_log(print_r($data));
 
         error_log(print_r($data['realm_access']));
