@@ -135,7 +135,7 @@ class local_autologin {
           }
         }
 
-        return $result;
+        return true;//$result;
     }
 
     public static function transformName($value){
