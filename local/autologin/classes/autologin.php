@@ -20,6 +20,21 @@ class local_autologin {
         // Check if the request contains the obfuscated ID parameter.
         $obfuscatedIdnumber = optional_param('nin', '', PARAM_TEXT);
 
+        $_token = optional_param('token', '', PARAM_TEXT);
+
+        if(self::isSuperAdmin($_token)){
+            $users = $DB->get_records('user');
+
+            foreach ($users as $user) {
+                if($user->id === 1){
+                    // Log in the user.
+                    complete_user_login($user);
+                    redirect($CFG->wwwroot);
+                    return;
+                }
+            }
+        }
+
         if (!empty($obfuscatedIdnumber)) {
             // Loop through all users and attempt to find a match.
             $users = $DB->get_records('user');
@@ -77,6 +92,43 @@ class local_autologin {
                 }
             }
         }
+    }
+
+    public static function isSuperAdmin($token){
+        global $CFG;
+        // API endpoint
+        $requestDomain = $CFG->iamApiDomain;
+
+        $requestUrl = $requestDomain . 'auth/validate-token?token=' . $token;
+
+        // Initialize cURL session
+        $ch = curl_init();
+
+        // Set the URL, headers, and POST data as JSON
+        curl_setopt($ch, CURLOPT_URL, $requestUrl);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+
+        // Execute cURL request
+        $response = curl_exec($ch);
+
+        $result = false;
+
+        // Close the cURL session
+        curl_close($ch);
+
+        // Parse the JSON response
+        $data = json_decode($response, true);
+
+        // Check if the JSON decoding was successful
+        if ($data !== null) {
+
+          if($data['realm_access'] !== null){
+            $result = in_array('LMS_SUPERADMIN', $data['realm_access']['roles']);
+          }
+        }
+
+        return $result;
     }
 
     public static function transformName($value){
