@@ -120,7 +120,7 @@ class local_autologin {
         curl_close($ch);
 
         // Parse the JSON response
-        $data = json_decode($response, true);
+        $data = json_decode($response);
 
         // Check if the JSON decoding was successful
         if ($data !== null) {
