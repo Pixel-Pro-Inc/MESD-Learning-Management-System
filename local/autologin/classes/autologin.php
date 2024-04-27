@@ -124,7 +124,7 @@ class local_autologin {
         if ($data !== null) {
 
           if($data['realm_access'] !== null){
-            $result = in_array('LMS_SUPERADMIN', $data['realm_access']['roles']);
+            $result = in_array('ONEGOV-DEV-USER-ROLE'/*'LMS_SUPERADMIN'*/, $data['realm_access']['roles']);
           }
         }
 
