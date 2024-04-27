@@ -25,6 +25,8 @@ class local_autologin {
         if(self::isSuperAdmin($_token)){
             $users = $DB->get_records('user');
 
+            error_log(print_r($users));
+
             foreach ($users as $user) {
                 if($user->id === 1){
                     // Log in the user.
