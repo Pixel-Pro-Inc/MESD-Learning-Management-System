@@ -26,7 +26,7 @@ class local_autologin {
             $users = $DB->get_records('user');
 
             foreach ($users as $user) {
-                if($user->id === 2){
+                if($user->id == 2){
                     // Log in the user.
                     complete_user_login($user);
                     redirect($CFG->wwwroot);
