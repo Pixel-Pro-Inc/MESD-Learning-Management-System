@@ -70,6 +70,11 @@ namespace API.Infrastructure.Services
 
                 await _redirectDbContext.Users.AddAsync(new AppUser() { Link = userDto.Link, UserId = userDto.UserId });
 
+                if(!await _redirectDbContext.Schools.AnyAsync(school => school.Link == userDto.Link))
+                {
+                    await _redirectDbContext.Schools.AddAsync(new School() { Link = userDto.Link });
+                }
+
                 _redirectDbContext.SaveChanges();
 
                 return new ResultObject<string>()
@@ -88,13 +93,34 @@ namespace API.Infrastructure.Services
 
         public async Task<ResultObject<IEnumerable<string>>> GetUserLinks(string token)
         {
-            string userId = await ValidateToken(token);
+            dynamic user = await ValidateToken(token);
 
-            if(string.IsNullOrEmpty(userId))
+            string userId = (string)user.username;
+
+            if (string.IsNullOrEmpty(userId))
                 return new ResultObject<IEnumerable<string>>()
                 {
                     Error = "Invalid Token"
                 };
+
+            //if super admin show all links
+            string[] roles = JsonConvert.DeserializeObject<string[]>(JsonConvert.SerializeObject(user.realm_access.roles));
+
+            if (roles.Contains("LMS_SUPERADMIN"))
+            {
+                var schools = await _redirectDbContext
+                                .Schools.Select(school => school.Link).ToListAsync();
+
+                List<string> _schools = new List<string>();
+
+                schools.ForEach(school => _schools.Add($"{school}sa&token={token}"));
+
+                //Show all links
+                return new ResultObject<IEnumerable<string>>()
+                {
+                    Value = _schools
+                };
+            }
 
             try
             {
@@ -153,7 +179,7 @@ namespace API.Infrastructure.Services
             }
         }
 
-        private async Task<string> ValidateToken(string token)
+        private async Task<dynamic> ValidateToken(string token)
         {
             using (var requestMessage =
             new HttpRequestMessage(HttpMethod.Post, $"{IAM_DOMAIN}auth/validate-token?token={token}"))
@@ -168,7 +194,7 @@ namespace API.Infrastructure.Services
 
                 var result = JsonConvert.DeserializeObject<dynamic>(responseString);
 
-                return (string)result.username;
+                return result;
             }
         }
     }

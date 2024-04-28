@@ -1,5 +1,5 @@
 const express = require("express");
-const axios = require('axios');
+const axios = require("axios");
 const router = express.Router();
 const dotenv = require("dotenv");
 
@@ -13,22 +13,21 @@ const iamDomain =
     ? process.env.IAM_PROD_DOMAIN
     : process.env.IAM_DEV_DOMAIN;
 
-/** 
+/**
  * Login endpoint*/
 router.post("/login", async (req, res) => {
-
   try {
     //Take user credentials and handle login from 1Gov
     const postData = req.body;
 
     // Define the config for the POST request
     const config = {
-      method: 'post',
-      url: iamDomain + 'auth/login/sms',
+      method: "post",
+      url: iamDomain + "auth/login/sms",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      data: postData
+      data: postData,
     };
 
     // Make the POST request using axios
@@ -39,7 +38,7 @@ router.post("/login", async (req, res) => {
         res.json(response.data);
       })
       .catch(function (error) {
-        res.status(400).json('Invalid Credentials');
+        res.status(400).json("Invalid Credentials");
       });
   } catch (error) {
     console.error("Internal Server Error:", error);
@@ -54,12 +53,12 @@ router.post("/otp", async (req, res) => {
 
     // Define the config for the POST request
     const config = {
-      method: 'post',
-      url: iamDomain + 'auth/validate/otp',
+      method: "post",
+      url: iamDomain + "auth/validate/otp",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      data: postData
+      data: postData,
     };
 
     // Make the POST request using axios
@@ -72,11 +71,11 @@ router.post("/otp", async (req, res) => {
         let user = await validateToken(token);
 
         if (user == null) {
-          res.status(400).json('Something went wrong');
+          res.status(400).json("Something went wrong");
         }
 
-        if (!user.realm_access.roles.includes("CUSTOMER")) {
-          res.status(400).json('You Are Not Authorized To Use This Platform');
+        if (!user.realm_access.roles.includes(process.env.ACCEPTED_ROLE)) {
+          res.status(400).json("You Are Not Authorized To Use This Platform");
         }
 
         res.json({
@@ -88,7 +87,7 @@ router.post("/otp", async (req, res) => {
         });
       })
       .catch(function (error) {
-        res.status(400).json('Invalid OTP');
+        res.status(400).json("Invalid OTP");
       });
   } catch (error) {
     console.error("Internal Server Error:", error);
@@ -100,10 +99,10 @@ async function validateToken(token) {
   try {
     // Define the config for the POST request
     const config = {
-      method: 'post',
-      url: iamDomain + 'auth/validate-token?token=' + token,
+      method: "post",
+      url: iamDomain + "auth/validate-token?token=" + token,
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     };
 
@@ -112,11 +111,10 @@ async function validateToken(token) {
     return response.data;
   } catch (error) {
     // Handle errors
-    console.error('Error:', error);
+    console.error("Error:", error);
     return null;
   }
 }
-
 
 router.get("/sso", async (req, res) => {
   const token = req.query.token;
@@ -125,9 +123,9 @@ router.get("/sso", async (req, res) => {
     let user = await validateToken(token);
 
     if (user == null) {
-      res.status(400).json('Something went wrong');
+      res.status(400).json("Something went wrong");
     } else if (!user.realm_access.roles.includes(process.env.ACCEPTED_ROLE)) {
-      res.status(400).json('You Are Not Authorized To Use This Platform');
+      res.status(400).json("You Are Not Authorized To Use This Platform");
     } else {
       res.json({
         token: token,
@@ -147,7 +145,9 @@ router.post("/refresh-token", async (req, res) => {
     const refresh_token = req.body.refresh_token;
 
     // Call the asynchronous function to refresh the token
-    const { newToken, newRefreshToken, expiryTime } = await refreshToken(refresh_token);
+    const { newToken, newRefreshToken, expiryTime } = await refreshToken(
+      refresh_token
+    );
 
     let user = await validateToken(newToken);
 
@@ -160,8 +160,8 @@ router.post("/refresh-token", async (req, res) => {
       lastname: user.family_name,
     });
   } catch (error) {
-    console.error('Error refreshing token:', error);
-    res.status(500).json({ error: 'Failed to refresh token' });
+    console.error("Error refreshing token:", error);
+    res.status(500).json({ error: "Failed to refresh token" });
   }
 });
 
@@ -169,10 +169,10 @@ async function refreshToken(refresh_token) {
   try {
     // Define the config for the POST request to refresh the token
     const config = {
-      method: 'post',
-      url: iamDomain + 'auth/refresh-token?token=' + refresh_token,
+      method: "post",
+      url: iamDomain + "auth/refresh-token?token=" + refresh_token,
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     };
 
@@ -188,7 +188,7 @@ async function refreshToken(refresh_token) {
     // Return the new tokens
     return { newToken, newRefreshToken, expiryTime };
   } catch (error) {
-    console.error('Error refreshing token:', error);
+    console.error("Error refreshing token:", error);
     throw error; // Re-throw the error to be handled by the route handler
   }
 }

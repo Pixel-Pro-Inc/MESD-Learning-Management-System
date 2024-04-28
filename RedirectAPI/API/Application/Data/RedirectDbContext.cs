@@ -12,5 +12,6 @@ namespace API.Application.Data
 
         // DbSet properties represent database tables
         public DbSet<AppUser> Users { get; set; }
+        public DbSet<School> Schools { get; set; }
     }
 }
