@@ -122,6 +122,8 @@ class local_autologin {
         // Close cURL session
         curl_close($ch);
 
+        $result = false;
+
         // Check if request was successful
         if ($response === false) {
             error_log('Error: ' . curl_error($ch));
@@ -136,22 +138,12 @@ class local_autologin {
                 // Display the decoded response
                 //error_log(print_r($decoded_response));
                 if($decoded_response['realm_access'] !== null){
-                    $result = in_array('ONEGOV-DEV-USER-ROLEQWERT'/*'LMS_SUPERADMIN'*/, $decoded_response['realm_access']['roles']);
-                    error_log($result);
+                    $result = in_array('ONEGOV-DEV-USER-ROLE'/*'LMS_SUPERADMIN'*/, $decoded_response['realm_access']['roles']);
                 }
             }
         }
 
-        //eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJsLU1xN0RmZ3pmanhWYnYyMk9EdTVySkswakpLNUZxb0Raa3BFLVFraVdZIn0.eyJleHAiOjE3MTQzMDU5NTQsImlhdCI6MTcxNDMwNDE1NCwianRpIjoiZTgwNDc2MWYtMDdiZi00ZTdlLTlmZTctN2RmODdhZmVkMTcyIiwiaXNzIjoiaHR0cHM6Ly9pYW0tYWNjLmdvdi5idy9yZWFsbXMvY3VzdG9tZXIiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTcwMmEyNWUtNTNlYS00MmQ1LTk2ZTAtZmYyNTUxZDVjZTVlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY3VzdG9tZXItY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6IjE1MzZiNzFhLTI0YTMtNDNmNS1hNDlmLTJiZDhhZWEyZGJhYiIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJDVVNUT01FUiIsIk9ORUdPVi1ERVYtVVNFUi1ST0xFIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLWN1c3RvbWVyIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwic2lkIjoiMTUzNmI3MWEtMjRhMy00M2Y1LWE0OWYtMmJkOGFlYTJkYmFiIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJuYW1lIjoiWWV3byBUaGV1IiwicHJlZmVycmVkX3VzZXJuYW1lIjoiMTg0MTE4OTIwIiwiZ2l2ZW5fbmFtZSI6Illld28iLCJmYW1pbHlfbmFtZSI6IlRoZXUiLCJlbWFpbCI6Inlld290aGV1QHBpeGVscHJvLmNvLmJ3In0.OvvW8fds8k5_YA0kHRHbEBI3X1zg_UaHSq443TDltEzSV7802iwzrfvmbHsTEy2MDJfCqGnRL2a_PnoHxtZtzW8SkHnXq3At8j0jLMAbzaxJumUepfw5Z6xqDikGftdQ5lbelrY0Qey-CggPwedM51q-Uz_pJamWRbhbBRPIui7wf4HcFG4L5dEkBRNJrYkJ336AZewW9R5wfZK8mmyX993QifZMscRX62f-l9jw_LnXToAJdcTSoexL4q4wbL1ISdiYGkj7GHlGpqPaVmwwG1mCTmEuOxs4dGNS_mODjMkI0bZ52KwHym5IxEJsKdLK8QFX1tHLM6GzrAg3KLCwUw
-
-        // Check if the JSON decoding was successful
-        //if ($data !== null) {            
-        //   if($data['realm_access'] !== null){
-        //    $result = in_array('ONEGOV-DEV-USER-ROLE'/*'LMS_SUPERADMIN'*/, $data['realm_access']['roles']);
-        //  }
-        //}
-
-        //return $result;
+        return $result;
     }
 
     public static function transformName($value){
