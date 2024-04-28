@@ -135,8 +135,6 @@ class local_autologin {
             if ($decoded_response === null) {
                 error_log('Error decoding JSON: ' . json_last_error_msg());
             } else {
-                // Display the decoded response
-                //error_log(print_r($decoded_response));
                 if($decoded_response['realm_access'] !== null){
                     $result = in_array('LMS_SUPERADMIN', $decoded_response['realm_access']['roles']);
                 }

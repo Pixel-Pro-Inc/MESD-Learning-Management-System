@@ -104,17 +104,21 @@ namespace API.Infrastructure.Services
                 };
 
             //if super admin show all links
-            string[] roles = (string[])user.realm_access.roles;
+            string[] roles = JsonConvert.DeserializeObject<string[]>(JsonConvert.SerializeObject(user.realm_access.roles));
 
             if (roles.Contains("LMS_SUPERADMIN"))
             {
                 var schools = await _redirectDbContext
                                 .Schools.Select(school => school.Link).ToListAsync();
 
+                List<string> _schools = new List<string>();
+
+                schools.ForEach(school => _schools.Add($"{school}sa&token={token}"));
+
                 //Show all links
                 return new ResultObject<IEnumerable<string>>()
                 {
-                    Value = schools
+                    Value = _schools
                 };
             }
 
