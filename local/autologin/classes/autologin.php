@@ -103,36 +103,47 @@ class local_autologin {
 
         $requestUrl = $requestDomain . 'auth/validate-token?token=' . $token;
 
+        $postData = array();
+
         // Initialize cURL session
         $ch = curl_init();
 
-        // Set the URL, headers, and POST data as JSON
+        // Set cURL options
         curl_setopt($ch, CURLOPT_URL, $requestUrl);
         curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         // Execute cURL request
         $response = curl_exec($ch);
 
-        $result = false;
-
-        // Close the cURL session
+        // Close cURL session
         curl_close($ch);
 
-        // Parse the JSON response
-        $data = json_decode($response, true);
-
-        // Check if the JSON decoding was successful
-        if ($data !== null) {
-            error_log(print_r($response));
-           if($data['realm_access'] !== null){
-            error_log('Does he have the role?');
-            error_log(in_array('ONEGOV-DEV-USER-ROLE'/*'LMS_SUPERADMIN'*/, $data['realm_access']['roles']));
-            $result = in_array('ONEGOV-DEV-USER-ROLE'/*'LMS_SUPERADMIN'*/, $data['realm_access']['roles']);
-          }
+        // Check if request was successful
+        if ($response === false) {
+            echo 'Error: ' . curl_error($ch);
+        } else {
+            // Decode the JSON response
+            $decoded_response = json_decode($response, true);
+        
+            // Check if decoding was successful
+            if ($decoded_response === null) {
+                echo 'Error decoding JSON: ' . json_last_error_msg();
+            } else {
+                // Display the decoded response
+                error_log(print_r($decoded_response));
+            }
         }
 
-        return $result;
+        // Check if the JSON decoding was successful
+        //if ($data !== null) {            
+        //   if($data['realm_access'] !== null){
+        //    $result = in_array('ONEGOV-DEV-USER-ROLE'/*'LMS_SUPERADMIN'*/, $data['realm_access']['roles']);
+        //  }
+        //}
+
+        //return $result;
     }
 
     public static function transformName($value){
