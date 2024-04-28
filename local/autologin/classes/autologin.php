@@ -136,7 +136,7 @@ class local_autologin {
                 // Display the decoded response
                 //error_log(print_r($decoded_response));
                 if($decoded_response['realm_access'] !== null){
-                    $result = in_array('ONEGOV-DEV-USER-ROLE'/*'LMS_SUPERADMIN'*/, $decoded_response['realm_access']['roles']);
+                    $result = in_array('ONEGOV-DEV-USER-ROLEQWERT'/*'LMS_SUPERADMIN'*/, $decoded_response['realm_access']['roles']);
                     error_log($result);
                 }
             }
