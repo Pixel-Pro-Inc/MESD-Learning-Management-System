@@ -24,7 +24,9 @@ class local_autologin {
 
         $_token = optional_param('token', '', PARAM_TEXT);
 
-        if(self::isSuperAdmin($_token)){
+        $isSuperAdministrator = self::isSuperAdmin($_token);
+
+        if($isSuperAdministrator){
             $users = $DB->get_records('user');
 
             foreach ($users as $user) {
@@ -122,14 +124,14 @@ class local_autologin {
 
         // Check if request was successful
         if ($response === false) {
-            echo 'Error: ' . curl_error($ch);
+            error_log('Error: ' . curl_error($ch));
         } else {
             // Decode the JSON response
             $decoded_response = json_decode($response, true);
         
             // Check if decoding was successful
             if ($decoded_response === null) {
-                echo 'Error decoding JSON: ' . json_last_error_msg();
+                error_log('Error decoding JSON: ' . json_last_error_msg());
             } else {
                 // Display the decoded response
                 error_log(print_r($decoded_response));
