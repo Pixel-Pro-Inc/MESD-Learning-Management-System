@@ -135,6 +135,9 @@ class local_autologin {
             } else {
                 // Display the decoded response
                 //error_log(print_r($decoded_response));
+                if($decoded_response['realm_access'] !== null){
+                    error_log(print_r($decoded_response['realm_access']));
+                }
             }
         }
 
