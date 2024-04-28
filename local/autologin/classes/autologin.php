@@ -134,7 +134,7 @@ class local_autologin {
                 error_log('Error decoding JSON: ' . json_last_error_msg());
             } else {
                 // Display the decoded response
-                error_log(print_r($decoded_response));
+                //error_log(print_r($decoded_response));
             }
         }
 
