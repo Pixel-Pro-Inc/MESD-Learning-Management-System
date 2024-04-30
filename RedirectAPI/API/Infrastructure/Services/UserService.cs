@@ -14,7 +14,7 @@ namespace API.Infrastructure.Services
     {
         private readonly string IAM_DOMAIN = Environment.GetEnvironmentVariable("IAM_DOMAIN");
         private readonly string SHA_SECRET = Environment.GetEnvironmentVariable("SHA_SECRET");
-        private readonly int NUM_SCHOOLS = 50;
+        private readonly int NUM_SCHOOLS = 5;
         private readonly int START_PORT = 8080;
         private readonly string APP_DOMAIN = Environment.GetEnvironmentVariable("APP_DOMAIN");
         private readonly IHttpClientService _httpClientService;
@@ -97,8 +97,19 @@ namespace API.Infrastructure.Services
         public async Task<ResultObject<IEnumerable<string>>> GetUserLinks(string token)
         {
             dynamic user = await ValidateToken(token);
+            string userId = "";
 
-            string userId = (string)user.username;
+            try
+            {
+                userId = (string)user.username;
+            }
+            catch
+            {
+                return new ResultObject<IEnumerable<string>>()
+                {
+                    Error = "Invalid Token"
+                };
+            }
 
             if (string.IsNullOrEmpty(userId))
                 return new ResultObject<IEnumerable<string>>()
