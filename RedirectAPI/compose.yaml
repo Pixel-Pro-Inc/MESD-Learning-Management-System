@@ -16,6 +16,7 @@ services:
       - DB_Connection_String=server=db;port=3306;user=root;password=Password;database=users;
       - IAM_DOMAIN=https://gateway-cus-acc.gov.bw/
       - SHA_SECRET=secret
+      - APP_DOMAIN=http://51.20.250.174
     ports:
       - 5000:80  
   db:
