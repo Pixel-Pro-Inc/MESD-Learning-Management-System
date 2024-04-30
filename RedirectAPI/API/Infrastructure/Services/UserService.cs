@@ -14,6 +14,9 @@ namespace API.Infrastructure.Services
     {
         private readonly string IAM_DOMAIN = Environment.GetEnvironmentVariable("IAM_DOMAIN");
         private readonly string SHA_SECRET = Environment.GetEnvironmentVariable("SHA_SECRET");
+        private readonly int NUM_SCHOOLS = 50;
+        private readonly int START_PORT = 8080;
+        private readonly string APP_DOMAIN = Environment.GetEnvironmentVariable("APP_DOMAIN");
         private readonly IHttpClientService _httpClientService;
         private readonly RedirectDbContext _redirectDbContext;
 
@@ -108,12 +111,12 @@ namespace API.Infrastructure.Services
 
             if (roles.Contains("LMS_SUPERADMIN"))
             {
-                var schools = await _redirectDbContext
-                                .Schools.Select(school => school.Link).ToListAsync();
-
                 List<string> _schools = new List<string>();
 
-                schools.ForEach(school => _schools.Add($"{school}sa&token={token}"));
+                for (int i = 0; i < NUM_SCHOOLS; i++)
+                {
+                    _schools.Add($"{APP_DOMAIN}:{START_PORT + i}/login/index.php?nin=sa&token={token}");
+                }
 
                 //Show all links
                 return new ResultObject<IEnumerable<string>>()
