@@ -14,8 +14,8 @@ namespace API.Infrastructure.Services
     {
         private readonly string IAM_DOMAIN = Environment.GetEnvironmentVariable("IAM_DOMAIN");
         private readonly string SHA_SECRET = Environment.GetEnvironmentVariable("SHA_SECRET");
-        private readonly int NUM_SCHOOLS = 5;
-        private readonly int START_PORT = 8080;
+        private readonly int NUM_SCHOOLS = Int32.Parse(Environment.GetEnvironmentVariable("NUM_SCHOOLS"));
+        private readonly int START_PORT = Int32.Parse(Environment.GetEnvironmentVariable("START_PORT"));
         private readonly string APP_DOMAIN = Environment.GetEnvironmentVariable("APP_DOMAIN");
         private readonly IHttpClientService _httpClientService;
         private readonly RedirectDbContext _redirectDbContext;

@@ -20,7 +20,9 @@
         "DB_Connection_String": "server=127.0.0.1;port=3306;user=root;password=Password;database=users;",
         "IAM_DOMAIN": "https://gateway-cus-acc.gov.bw/",
         "SHA_SECRET": "secret",
-        "APP_DOMAIN": "http://51.20.250.174"
+        "APP_DOMAIN": "http://51.20.250.174",
+        "NUM_SCHOOLS": "5",
+        "START_PORT": "8080"
       }
     },
     "IIS Express": {
