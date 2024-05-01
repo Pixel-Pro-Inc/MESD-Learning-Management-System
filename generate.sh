@@ -29,6 +29,9 @@ cat <<EOF >> docker-compose.yml
       - DB_Connection_String=server=redirectdb;port=3306;user=root;password=Password;database=users;
       - IAM_DOMAIN=https://gateway-cus-acc.gov.bw/
       - SHA_SECRET=secret
+      - APP_DOMAIN=http://51.20.250.174
+      - NUM_SCHOOLS=$NUM_INSTANCES
+      - START_PORT=$START_PORT_WEB
     ports:
       - 5000:80
   redirectdb:
