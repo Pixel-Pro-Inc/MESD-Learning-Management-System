@@ -3,91 +3,139 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MESD Learning Management System</title>
-    <style>
-        * {
-            font-family: "Lato", sans-serif;
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>MESD Learning Management System</title>
+	<style>
+		* {
+			font-family: "Lato", sans-serif;
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
 
-        body {
-            background: #f8f9fa;
-        }
+		body {
+			background: #f8f9fa;
+		}
 
-        .hero-container {
-            background-image: linear-gradient(#65c2eb 0%, #26a9e7 100%);
-            background-repeat: repeat-x;
-            padding: 3rem 2rem;
-            border-radius: 0 0 2rem 0;
-            margin-bottom: 1rem;
-        }
+		.hero-container {
+			background-image: linear-gradient(#65c2eb 0%, #26a9e7 100%);
+			background-repeat: repeat-x;
+			display: flex;
+			align-items: center;
+			gap: 2rem;
+			padding: 3rem 2rem;
+			border-radius: 0 0 2rem 0;
+			margin-bottom: 1rem;
+		}
 
-        h1 {
-            color: #fff;
-        }
+		h1 {
+			color: #fff;
+		}
 
-        article {
-            padding: 1rem;
-            margin: 0 auto;
-            max-width: 90%;
-        }
+		article {
+			padding: 1rem;
+			margin: 0 auto;
+			max-width: 90%;
+		}
 
-        ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
+		ul {
+			list-style: none;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
 
-        li {
-            display: block;
-            background: #fff;
-            box-shadow: 0px 10px 10px 10px rgba(0, 0, 0, 0.0125);
-            border-radius: 1rem;
-            padding: 1rem;
-            cursor: pointer;
-        }
+		li {
+			display: block;
+			background: #fff;
+			box-shadow: 0px 10px 10px 10px rgba(0, 0, 0, 0.0125);
+			border-radius: 1rem;
+			padding: 1rem;
+			cursor: pointer;
+		}
 
-        img {
-            width: 64px;
-        }
+		img {
+			width: 64px;
+		}
 
-        a {
-            display: flex;
-            gap: 2rem;
-        }
+		a {
+			display: flex;
+			align-items: center;
+			gap: 2rem;
+		}
 
-        a {
-            text-decoration: none;
-            color: #26a9e7;
-            font-weight: bold;
-        }
-    </style>
+		a {
+			text-decoration: none;
+			color: #26a9e7;
+			font-weight: bold;
+		}
+
+		input[type="text"] {
+			padding: 1rem;
+			border-radius: .5rem;
+			width: 300px;
+			border: none;
+		}
+
+		.highlight {
+			background-color: yellow;
+		}
+	</style>
 </head>
 <header class="hero-container">
-    <h1>Select an organization</h1>
+	<h1>Select an organization</h1>
+	<div class="search-container">
+		<input type="text" id="search-input" placeholder="Search..." />
+	</div>
 </header>
 <body>
-    <article>
-        <ul>
-            @foreach (var linkPreview in Model)
-            {
-                <li>
-                    <a href="@linkPreview.Url">
-                        @if (linkPreview.Favicons != null && linkPreview.Favicons.Any())
-                        {
-                            <img src="@linkPreview.Favicons.First()" alt="Favicon" style="max-width: 64px; max-height: 64px" />
-                        }
-                        <p>@linkPreview.Title</p>
-                    </a>
-                </li>
-            }
-        </ul>
-    </article>
+	<article>
+		<ul id="link-list">
+			@foreach (var linkPreview in Model)
+			{
+				<li>
+					<a href="@linkPreview.Url">
+						@if (linkPreview.Favicons != null && linkPreview.Favicons.Any())
+						{
+							<img src="@linkPreview.Favicons.First()" alt="Favicon" style="max-width: 64px; max-height: 64px" />
+						}
+						<p>@linkPreview.Title</p>
+					</a>
+				</li>
+			}
+		</ul>
+	</article>
+	<script>
+		document.getElementById('search-input').addEventListener('input', function () {
+			const searchTerm = this.value.toLowerCase();
+			const links = document.querySelectorAll('#link-list li');
+
+			links.forEach(link => {
+				const text = link.querySelector('p').innerText.toLowerCase();
+				const linkText = link.querySelector('p');
+				const originalText = linkText.dataset.original || linkText.innerText;
+
+				if (searchTerm === '') {
+					link.style.display = 'block';
+					linkText.innerHTML = originalText;
+				} else if (text.includes(searchTerm)) {
+					link.style.display = 'block';
+					const startIndex = text.indexOf(searchTerm);
+					const endIndex = startIndex + searchTerm.length;
+					linkText.innerHTML = originalText.substring(0, startIndex) + '<span class="highlight">' + originalText.substring(startIndex, endIndex) + '</span>' + originalText.substring(endIndex);
+				} else {
+					link.style.display = 'none';
+					linkText.innerHTML = originalText;
+				}
+
+				// Store the original text if it's not already stored
+				if (!linkText.dataset.original) {
+					linkText.dataset.original = originalText;
+				}
+			});
+		});
+	</script>
 </body>
 </html>
