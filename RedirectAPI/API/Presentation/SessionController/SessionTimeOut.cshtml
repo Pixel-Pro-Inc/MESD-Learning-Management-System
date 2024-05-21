@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MESD Learning Management System</title>
+    <style>
+        * {
+            font-family: "Lato", sans-serif;
+            color: #444;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f8f9fa;
+        }
+
+        .content-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 4rem 10rem;
+            border-radius: 2rem;
+            display: flex;
+            justify-content: center;
+            box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            display: block;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007ecc;
+            border: none;
+            gap: 0.5rem;
+            text-transform: uppercase;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <article class="content-container">
+        <article class="card">
+            <div>
+                <img src="@Url.Content("~/Images/issueicon.png")" alt="Image" width="500" />
+                <h1>Your session has been timed out!</h1>
+                <p>
+                    Please navigate back to 1Gov to login to the service again.
+                </p>
+                <a class="btn" href="https://1gov.gov.bw/">Back to 1Gov</a>
+            </div>
+        </article>
+    </article>
+</body>
+</html>
