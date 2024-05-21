@@ -1,0 +1,5 @@
+﻿username,firstname,lastname,password,email,profile_field_phonenumber,profile_field_nin,profile_field_gender,profile_field_dateofbirth,profile_field_classname,profile_field_level,profile_field_userrole
+184118920,Yewo,LastName,Password2023*,example2@email.com,26776199359,184118920,Male,12/10/1980,,,Educator
+267910812,Kago,LastName,Password2023*,example3@email.com,26776199359,267910812,Male,12/10/1980,,,Learner
+522015229,Terrence,LastName,Password2023*,example4@email.com,26776199359,522015229,Male,12/10/1980,,,Administrator
+693322009,Onkgopotse,LastName,Password2023*,example5@email.com,26776199359,693322009,Female,12/10/1980,,,Parent
