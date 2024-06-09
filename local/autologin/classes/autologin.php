@@ -50,51 +50,57 @@ class local_autologin {
                 $obfuscatedUserid = self::obfuscate($user->profile_field_nin);
 
                 if ($obfuscatedUserid === $obfuscatedIdnumber) {
-                    //Sync User                    
-                    //Get System Admin Token
-                    $token = self::getSystemAdminToken();
-
-                    if($token !== 'error occured'){
-                        //Lookup user by username
-                        $iamUser = self::getUser($user->profile_field_nin, $token);
-                        $eidUser = self::getEidUser($user->profile_field_nin);
-
-                        //Update First/Last name and phonenumber, email if not null
-                        $user->firstname = $iamUser['firstname'];
-                        $user->lastname = $iamUser['lastname'];
-                        if($iamUser['email'] !== null){
-                            $user->email = $iamUser['email'];
-                        }
-
-                        if($eidUser !== null){
-                            $user->city = self::transformName($eidUser['APPLICATION_PLACE_NME']);
-                        }
-
-                        $DB->update_record('user', $user);
-
-                        //profile field
-                        $user->profile_field_phonenumber = $iamUser['phone_number'];
-
-                        if($eidUser !== null){
-                            //Convert to unix time
-                            $birthDate = $eidUser['BIRTH_DTE'];
-
-                            $unixTime = strtotime($birthDate);
-
-                            $user->profile_field_dateofbirth = $unixTime;
-                        }
-                        
-                        //Set Profile field for one gov access key
-                        $user->profile_field_onegovid = $iamUser['id'];
-
-                        profile_save_data($user);                   
-                    }                    
+                    //Sync User
+                    self::syncUser($user);
 
                     // Log in the user.
                     complete_user_login($user);
                     redirect($CFG->wwwroot);
                 }
             }
+        }
+    }
+
+    public static function syncUser($user){
+        global $DB;
+        //Sync User                    
+        //Get System Admin Token
+        $token = self::getSystemAdminToken();
+
+        if($token !== 'error occured'){
+            //Lookup user by username
+            $iamUser = self::getUser($user->profile_field_nin, $token);
+            $eidUser = self::getEidUser($user->profile_field_nin);
+
+            //Update First/Last name and phonenumber, email if not null
+            $user->firstname = $iamUser['firstname'];
+            $user->lastname = $iamUser['lastname'];
+            if($iamUser['email'] !== null){
+                $user->email = $iamUser['email'];
+            }
+
+            if($eidUser !== null){
+                $user->city = self::transformName($eidUser['APPLICATION_PLACE_NME']);
+            }
+
+            $DB->update_record('user', $user);
+
+            //profile field
+            $user->profile_field_phonenumber = $iamUser['phone_number'];
+
+            if($eidUser !== null){
+                //Convert to unix time
+                $birthDate = $eidUser['BIRTH_DTE'];
+
+                $unixTime = strtotime($birthDate);
+
+                $user->profile_field_dateofbirth = $unixTime;
+            }
+                        
+            //Set Profile field for one gov access key
+            $user->profile_field_onegovid = $iamUser['id'];
+
+            profile_save_data($user);                   
         }
     }
 
