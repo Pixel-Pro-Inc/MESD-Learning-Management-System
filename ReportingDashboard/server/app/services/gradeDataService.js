@@ -14,19 +14,20 @@ class GradeDataService {
         }
 
         // Updated SQL query to exclude grades that are zero or null
-        connection.query(`SELECT * FROM mdl_grade_grades WHERE finalgrade >  0`, (error, results) => {
-          connection.end();
-          if (error) {
-            reject(error);
-            return;
+        connection.query(
+          `SELECT * FROM mdl_grade_grades WHERE finalgrade >  0`,
+          (error, results) => {
+            connection.end();
+            if (error) {
+              reject(error);
+              return;
+            }
+            resolve(results);
           }
-          resolve(results);
-        });
+        );
       });
     });
   }
-
-
 
   // Function to connect to a MySQL database and fetch data
   async getGradeItems(config) {
@@ -173,7 +174,9 @@ class GradeDataService {
           collection.push(aggregatedGrade);
         });
 
-        allGrades.push(collection);
+        if (collection.length > 0) {
+          allGrades.push(collection);
+        }
       } catch (error) {
         console.error(error);
         continue;
