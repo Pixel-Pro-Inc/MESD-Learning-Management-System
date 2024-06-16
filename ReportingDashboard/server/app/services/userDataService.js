@@ -139,8 +139,8 @@ class UserDataService {
           if (
             !allUsers.includes(user) &&
             !user.deleted &&
-            user.id !== "1234567890" &&
-            user.id
+            user.nin !== "1234567890" &&
+            user.nin
           ) {
             allUsers.push(user);
           }
