@@ -124,14 +124,6 @@ class UserDataService {
           return map;
         }, {});
 
-        users = users.filter((user) => {
-          user.id !== "1234567890";
-        });
-
-        users = users.filter((user) => {
-          user.id !== "";
-        });
-
         // Add user info data to each user object
         users.forEach((user) => {
           userInfoData.forEach((info) => {
@@ -144,7 +136,12 @@ class UserDataService {
             }
           });
 
-          if (!allUsers.includes(user) && !user.deleted) {
+          if (
+            !allUsers.includes(user) &&
+            !user.deleted &&
+            user.id !== "1234567890" &&
+            user.id
+          ) {
             allUsers.push(user);
           }
         });
