@@ -9,11 +9,10 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AccountService {
-  constructor(private httpClient: HttpClient, private routerService: Router) { }
+  constructor(private httpClient: HttpClient, private routerService: Router) {}
 
   login(loginDto: LoginDto) {
-    return this.httpClient
-      .post(environment.apiUrl + 'account/login', loginDto);
+    return this.httpClient.post(environment.apiUrl + 'account/login', loginDto);
   }
 
   otp(otpDto) {
@@ -27,8 +26,9 @@ export class AccountService {
   }
 
   sso(token) {
-    return this.httpClient
-      .get(environment.apiUrl + 'account/sso/' + token)
+    return this.httpClient.get(
+      environment.apiUrl + 'account/sso?token=' + token
+    );
   }
 
   logout() {
