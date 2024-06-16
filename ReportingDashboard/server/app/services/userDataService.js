@@ -125,11 +125,11 @@ class UserDataService {
         }, {});
 
         users = users.filter((user) => {
-          user.id != "1234567890";
+          user.id !== "1234567890";
         });
 
         users = users.filter((user) => {
-          user.id != "";
+          user.id !== "";
         });
 
         // Add user info data to each user object
