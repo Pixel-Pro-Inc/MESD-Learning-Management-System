@@ -171,7 +171,10 @@ class GradeDataService {
             aggregatedGrade.totalGrade / aggregatedGrade.count;
           delete aggregatedGrade.totalGrade;
           delete aggregatedGrade.count;
-          collection.push(aggregatedGrade);
+
+          if (aggregatedGrade.level) {
+            collection.push(aggregatedGrade);
+          }
         });
 
         if (collection.length > 0) {
