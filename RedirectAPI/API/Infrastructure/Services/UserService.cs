@@ -122,17 +122,10 @@ namespace API.Infrastructure.Services
 
             if (roles.Contains("LMS_SUPERADMIN"))
             {
-                List<string> _schools = new List<string>();
-
-                for (int i = 0; i < NUM_SCHOOLS; i++)
-                {
-                    _schools.Add($"{APP_DOMAIN}:{START_PORT + i}/login/index.php?nin=sa&token={token}");
-                }
-
                 //Show all links
                 return new ResultObject<IEnumerable<string>>()
                 {
-                    Value = _schools
+                    Value = GetAllLinks(token)
                 };
             }
 
@@ -155,6 +148,11 @@ namespace API.Infrastructure.Services
                     links.Add($"{link}{HashUserId(userId)}&token={token}");
                 }
 
+                if (roles.Contains("LMS_EXECUTIVE"))
+                {
+                    links.AddRange(GetAllLinks(token));
+                }
+
                 return new ResultObject<IEnumerable<string>>()
                 {
                     Value = links
@@ -168,6 +166,18 @@ namespace API.Infrastructure.Services
                 };
             }
         }
+
+        private string[] GetAllLinks(string token)
+        {
+			List<string> _schools = new List<string>();
+
+			for (int i = 0; i < NUM_SCHOOLS; i++)
+			{
+				_schools.Add($"{APP_DOMAIN}:{START_PORT + i}/login/index.php?nin=sa&token={token}");
+			}
+
+            return _schools.ToArray();
+		}
 
         private string HashUserId(string userId)
         {

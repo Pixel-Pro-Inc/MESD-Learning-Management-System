@@ -26,7 +26,22 @@ class local_autologin {
 
         $isSuperAdministrator = self::isSuperAdmin($_token);
 
+        $isExecutiveUser = self::isExecutive($_token);
+
         if($isSuperAdministrator){
+            $users = $DB->get_records('user');
+
+            foreach ($users as $user) {
+                if($user->id == 2){
+                    // Log in the user.
+                    complete_user_login($user);
+                    redirect($CFG->wwwroot);
+                    return;
+                }
+            }
+        }
+
+        if($isExecutiveUser){
             $users = $DB->get_records('user');
 
             foreach ($users as $user) {
@@ -143,6 +158,52 @@ class local_autologin {
             } else {
                 if($decoded_response['realm_access'] !== null){
                     $result = in_array('LMS_SUPERADMIN', $decoded_response['realm_access']['roles']);
+                }
+            }
+        }
+
+        return $result;
+    }
+
+    public static function isExecutive($token){
+        global $CFG;
+        // API endpoint
+        $requestDomain = $CFG->iamApiDomain;
+
+        $requestUrl = $requestDomain . 'auth/validate-token?token=' . $token;
+
+        $postData = array();
+
+        // Initialize cURL session
+        $ch = curl_init();
+
+        // Set cURL options
+        curl_setopt($ch, CURLOPT_URL, $requestUrl);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        // Execute cURL request
+        $response = curl_exec($ch);
+
+        // Close cURL session
+        curl_close($ch);
+
+        $result = false;
+
+        // Check if request was successful
+        if ($response === false) {
+            error_log('Error: ' . curl_error($ch));
+        } else {
+            // Decode the JSON response
+            $decoded_response = json_decode($response, true);
+        
+            // Check if decoding was successful
+            if ($decoded_response === null) {
+                error_log('Error decoding JSON: ' . json_last_error_msg());
+            } else {
+                if($decoded_response['realm_access'] !== null){
+                    $result = in_array('LMS_EXECUTIVE', $decoded_response['realm_access']['roles']);
                 }
             }
         }
