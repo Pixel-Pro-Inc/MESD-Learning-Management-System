@@ -36,7 +36,7 @@ class assignuserrole_observer {
         $roleid = 11;
         break;
       case 'Administrator':
-        $roleid = 12;
+        $roleid = 17;
         break;
       case 'School Head':
         $roleid = 13;
