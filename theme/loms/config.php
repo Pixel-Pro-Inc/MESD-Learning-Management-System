@@ -172,6 +172,9 @@ $THEME->layouts = [
 $THEME->enable_dock = false;
 $THEME->yuicssmodules = array();
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
+$THEME->rendermapping = [
+    'core_course_renderer' => 'theme_loms\output\core\course_renderer'
+];
 $THEME->requiredblocks = '';
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 $THEME->scss = function($theme) {
@@ -187,8 +190,4 @@ $THEME->usescourseindex = true;
 // By default, all boost theme do not need their titles displayed.
 $THEME->activityheaderconfig = [
     'notitle' => true
-];
-$THEME->rendererfactory = 'theme_overridden_renderer_factory';
-$THEME->renderers = [
-    'core_course' => 'theme_loms\output\core\course_renderer'
 ];
