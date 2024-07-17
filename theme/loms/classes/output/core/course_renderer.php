@@ -33,15 +33,24 @@ class course_renderer extends \core_course_renderer {
     public function render_course_card($course) {
         global $DB;
         $coursecontext = \context_course::instance($course->id);
+
+        error_log('This is the course before the custom field');
+        error_log(print_r($course, true));
         
         // Replace 5 with your actual custom field ID
         $customfield = $DB->get_field('customfield_data', 'value', [
             'fieldid' => 5,
             'instanceid' => $course->id
         ]);
+
+        error_log('This is the custom field');
+        error_log(print_r($customfield, true));
         
         // Add the custom field value to the course object
         $course->customfield = $customfield;
+
+        error_log('This is the course after the custom field');
+        error_log(print_r($course, true));
 
         return $this->render_from_template('core_course/coursecard', $course);
     }
