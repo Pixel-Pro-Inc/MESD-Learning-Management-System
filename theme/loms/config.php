@@ -190,5 +190,5 @@ $THEME->activityheaderconfig = [
 ];
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->renderers = [
-    'core_course' => 'theme_mycustomtheme\output\core\course_renderer'
+    'core_course' => 'theme_loms\output\core\course_renderer'
 ];

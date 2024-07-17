@@ -36,15 +36,15 @@
 }}
 <div class="card dashboard-card" role="listitem"
     data-region="course-content"
-    data-course-id="{{{id}}}">
+    data-course-id="{{{id}}}" style="text-transform: uppercase;">
     <a href="{{viewurl}}" tabindex="-1">
         <div class="card-img dashboard-card-img" style='background-image: url("{{{courseimage}}}");'>
             <span class="sr-only">{{fullname}}</span>
         </div>
     </a>
     <div class="card-body pr-1 course-info-container" id="course-info-container-{{id}}-{{uniqid}}">
-        <div class="d-flex align-items-start">
-            <div class="w-100 text-truncate">
+        <div class="d-flex align-items-start" style="text-transform: uppercase;">
+            <div class="w-100 text-truncate" style="text-transform: uppercase;">
                 {{#showshortname}}
                     <div class="text-muted muted d-flex mb-1 flex-wrap">
                         <span class="sr-only">
@@ -55,17 +55,17 @@
                         </div>
                     </div>
                 {{/showshortname}}
-                <a href="{{viewurl}}" class="aalink coursename mr-2 mb-1">
+                <a href="{{viewurl}}" class="aalink coursename mr-2 mb-1" style="text-transform: uppercase;">
                     {{> core_course/favouriteicon }}
                     <span class="sr-only">
                         {{#str}}aria:coursename, core_course{{/str}}
                     </span>
                     {{$coursename}}{{/coursename}}
                 </a>
-                <div class="text-muted muted d-flex flex-wrap">
+                <div class="text-muted muted d-flex flex-wrap" style="text-transform: uppercase;">
                     Level: {{{customfield}}}
                 </div>
-                <div class="text-muted muted d-flex flex-wrap">
+                <div class="text-muted muted d-flex flex-wrap" style="text-transform: uppercase;">
                     {{$coursecategory}}{{/coursecategory}}
                 </div>
                 {{^visible}}
