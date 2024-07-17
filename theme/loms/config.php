@@ -188,3 +188,7 @@ $THEME->usescourseindex = true;
 $THEME->activityheaderconfig = [
     'notitle' => true
 ];
+$THEME->rendererfactory = 'theme_overridden_renderer_factory';
+$THEME->renderers = [
+    'core_course' => 'theme_mycustomtheme\output\core\course_renderer'
+];
