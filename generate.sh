@@ -6,7 +6,7 @@
 # Number of instances you want to create
 NUM_INSTANCES=2
 
-SITE_DOMAIN=http://13.49.225.7
+SITE_DOMAIN=http://localhost
 
 # Initial port number
 START_PORT_WEB=8080
@@ -34,6 +34,7 @@ cat <<EOF >> docker-compose.yml
       - START_PORT=$START_PORT_WEB
     ports:
       - 5000:80
+    restart: always
   redirectdb:
     image: redirect-api-db
     build:
@@ -58,6 +59,7 @@ cat <<EOF >> docker-compose.yml
       - NUM_DBS=$NUM_INSTANCES
     ports:
       - 3000:3000
+    restart: always
 EOF
 
 # Loop to generate services for web and db instances

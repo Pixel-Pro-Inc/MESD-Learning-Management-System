@@ -148,11 +148,6 @@ namespace API.Infrastructure.Services
                     links.Add($"{link}{HashUserId(userId)}&token={token}");
                 }
 
-                if (roles.Contains("LMS_EXECUTIVE"))
-                {
-                    links.AddRange(GetAllLinks(token));
-                }
-
                 return new ResultObject<IEnumerable<string>>()
                 {
                     Value = links

@@ -1,5 +1,0 @@
-username,firstname,lastname,email,profile_field_gender,profile_field_dateofbirth,profile_field_classname,profile_field_level,profile_field_userrole
-student1,Student,One,s1@example.com,Male,,,Standard 1,Learner
-student2,Student,Two,s2@example.com,Female,,,Standard 7,Learner
-student3,Student,Three,s3@example.com,Female,,,Form 1,Learner
-teacher,Teacher,One,t1@example.com,Female,,,None,Educator
