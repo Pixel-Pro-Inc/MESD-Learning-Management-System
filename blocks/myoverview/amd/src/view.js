@@ -492,7 +492,7 @@ const renderCourses = (root, coursesData) => {
             return course;
         });
 
-        foreach(let i = 0; i < coursesData.courses.length; i++){
+        for(let i = 0; i < coursesData.courses.length; i++){
             coursesData.courses[i].courselevel = "An Example";
         }
 
