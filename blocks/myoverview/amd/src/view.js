@@ -491,6 +491,11 @@ const renderCourses = (root, coursesData) => {
             course.showcoursecategory = filters.displaycategories === 'on';
             return course;
         });
+
+        foreach(let i = 0; i < coursesData.courses.length; i++){
+            coursesData.courses[i].courselevel = "An Example";
+        }
+
         if (coursesData.courses.length) {
             return Templates.render(currentTemplate, {
                 courses: coursesData.courses,
