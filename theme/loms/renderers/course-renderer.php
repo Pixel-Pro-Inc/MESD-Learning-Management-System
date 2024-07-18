@@ -31,6 +31,34 @@ require_once($CFG->dirroot . '/theme/loms/inc/course_handler/loms_course_handler
  */
 class theme_loms_core_course_renderer extends core_course_renderer {
     /**
+     * Overrrides the context for the course card renderer
+     * Includes custom course fields
+     */
+    protected function render_course_card($course) {
+        global $DB;
+        $coursecontext = \context_course::instance($course->id);
+
+        error_log('This is the course before the custom field');
+        error_log(print_r($course, true));
+        
+        // Replace 5 with your actual custom field ID
+        $courselevel = $DB->get_field('customfield_data', 'value', [
+            'fieldid' => 5,
+            'instanceid' => $course->id
+        ]);
+
+        error_log('This is the custom field');
+        error_log(print_r($courselevel, true));
+        
+        // Add the custom field value to the course object
+        $course->courselevel = $courselevel;
+
+        error_log('This is the course after the custom field');
+        error_log(print_r($course, true));
+
+        return $this->render_from_template('core_course/coursecard', $course);
+    }
+    /**
      * Returns HTML to display a course category as a part of a tree
      *
      * This is an internal function, to display a particular category and all its contents

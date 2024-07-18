@@ -25,4 +25,3 @@ defined('MOODLE_INTERNAL') || die();
 global $CFG;
 require_once('renderers/blog-renderer.php');
 require_once('renderers/course-renderer.php');
-require_once($CFG->dirroot . '/theme/loms/classes/output/core/course_renderer.php');

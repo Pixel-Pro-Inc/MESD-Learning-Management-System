@@ -172,9 +172,6 @@ $THEME->layouts = [
 $THEME->enable_dock = false;
 $THEME->yuicssmodules = array();
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
-$THEME->rendermapping = [
-    'core_course_renderer' => 'theme_loms\output\core\course_renderer'
-];
 $THEME->requiredblocks = '';
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 $THEME->scss = function($theme) {
