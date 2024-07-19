@@ -136,7 +136,7 @@ if ($ADMIN->fulltree) {
 
         $name = 'theme_loms/hide_banner';
         $title = get_string('hide_banner', 'theme_loms');
-        $default = $CFG->wwwroot . "\n" . $CFG->wwwroot . "/?redirect=0";
+        $default = $CFG->wwwroot . "/" . "\n" . $CFG->wwwroot . "/?redirect=0";
         $description = get_string('hide_banner_desc', 'theme_loms');
         $setting = new admin_setting_configtextarea ($name, $title, $description, $default);
         $setting->set_updatedcallback('theme_reset_all_caches');
