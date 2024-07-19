@@ -123,7 +123,7 @@ class block_course_list_lms extends block_list {
                 $linkcss = $course->visible ? "" : " class=\"dimmed\" ";
     
                 $this->content->items[] = "<a $linkcss title=\""
-                           . s($course->get_formatted_shortname()) . "\" "
+                           . s($course->shortname) . "\" "
                            . "href=\"$CFG->wwwroot/course/view.php?id=$course->id\">"
                            . $icon . $formattedName . "</a>";
             }

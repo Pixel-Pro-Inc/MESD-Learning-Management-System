@@ -80,7 +80,7 @@ class useradditionapi_observer {
     $requestUrl = $requestDomain . 'api/user/addUser';
 
     // Construct the link using the current domain
-    $link = $wwwroot . '/login/index.php?nin=';
+    $link = $wwwroot . '/singlesignon/index.php?nin=';
 
     profile_load_data($user);
 
@@ -116,7 +116,7 @@ class useradditionapi_observer {
     $requestUrl = $requestDomain . 'api/user/removeUrl';
 
     // Construct the link using the current domain
-    $link = $wwwroot . '/login/index.php?nin=';
+    $link = $wwwroot . '/singlesignon/index.php?nin=';
 
     profile_load_data($user);
 
