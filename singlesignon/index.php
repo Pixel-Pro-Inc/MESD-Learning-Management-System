@@ -25,7 +25,6 @@
  */
 
 require('../config.php');
-require_once('lib.php');
 
 redirect_if_major_upgrade_required();
 
