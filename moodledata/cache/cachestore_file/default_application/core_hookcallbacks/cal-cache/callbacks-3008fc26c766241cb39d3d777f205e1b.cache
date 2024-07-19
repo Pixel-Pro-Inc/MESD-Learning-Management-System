@@ -1,1 +1,0 @@
-a:1:{s:31:"local_navmenu\hook\item_classes";a:1:{i:0;a:4:{s:8:"callback";s:51:"enrol_programs\callback\local_navmenu::item_classes";s:9:"component";s:14:"enrol_programs";s:8:"disabled";b:0;s:8:"priority";i:100;}}}
