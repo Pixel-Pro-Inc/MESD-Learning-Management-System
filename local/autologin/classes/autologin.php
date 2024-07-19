@@ -19,6 +19,8 @@ class local_autologin {
     public static function attempt_autologin() {
         global $CFG, $DB;
 
+        error_log('Hello World');
+
         // Check if the request contains the obfuscated ID parameter.
         $obfuscatedIdnumber = optional_param('nin', '', PARAM_TEXT);
 
