@@ -115,7 +115,7 @@ class block_course_list_lms extends block_list {
                 }
     
                 // Append the custom field value (level) to the course name if it exists
-                $formattedName = $course->fullname();
+                $formattedName = $course->fullname;
                 if (!empty($level)) {
                     $formattedName .= ' ' . s($level);
                 }
