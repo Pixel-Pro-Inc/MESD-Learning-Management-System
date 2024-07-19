@@ -216,7 +216,7 @@ class core_renderer extends \core_renderer {
         $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
         $hide_banner            = $CFG->wwwroot . "/?redirect=0". "\n" . $CFG->wwwroot;
-        $hide_global_banner     = get_config('theme_loms', 'hide_global_banner');
+        $hide_global_banner     = 1;//get_config('theme_loms', 'hide_global_banner');
         if($hide_global_banner == 0){
             if($hide_banner){
                 foreach(preg_split("/((\r?\n)|(\r\n?))/", $hide_banner) as $line){
