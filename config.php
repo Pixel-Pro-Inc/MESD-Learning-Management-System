@@ -19,7 +19,8 @@ $CFG->dboptions = array (
 );
 
 $CFG->wwwroot   = getenv('SITE_DOMAIN') . ':' . getenv('SITE_PORT');
-$CFG->alternateloginurl = getenv('SITE_DOMAIN') . ':5000/api/session/timeout';
+$CFG->alternateloginurl = getenv('SITE_DOMAIN') . ':' . getenv('SITE_PORT') . '/singlesignon/index.php';
+$CFG->sessiontimeouturl = getenv('SITE_DOMAIN') . ':5000/api/session/timeout';
 $CFG->dataroot  = '/var/www/html/moodledata';
 $CFG->admin     = 'admin';
 

@@ -1,6 +1,6 @@
 // server.js
 const express = require("express");
-const https = require("https");
+const http = require("http");
 const reportController = require("./controllers/reportController");
 const accountController = require("./controllers/accountController");
 const { credentials, serverConfig } = require("./config");
@@ -9,7 +9,7 @@ const path = require("path");
 const app = express();
 const serverPort = serverConfig.port;
 
-const httpsServer = https.createServer(credentials, app);
+const httpServer = http.createServer(credentials, app);
 
 app.use(express.json());
 
@@ -17,8 +17,8 @@ app.use(express.json());
 app.use("/api/report", reportController);
 app.use("/api/account", accountController);
 
-httpsServer.listen(serverPort, () => {
-  console.log(`Server is running on https://localhost:${serverPort}`);
+httpServer.listen(serverPort, () => {
+  console.log(`Server is running on http://localhost:${serverPort}`);
 });
 
 app.use(express.static(path.join(__dirname, "./wwwroot")));

@@ -34,9 +34,11 @@ class assignuserrole_observer {
         break;
       case 'Super Administrator':
         $roleid = 11;
+        self::addToSiteAdministrators($user);
         break;
       case 'Administrator':
-        $roleid = 12;
+        $roleid = 17;
+        self::addToSiteAdministrators($user);
         break;
       case 'School Head':
         $roleid = 13;
@@ -67,5 +69,23 @@ class assignuserrole_observer {
 
     // Assign the role
     role_assign($roleid, $userid, $systemcontext->id);
+  }
+
+  public static function addToSiteAdministrators($user){
+    global $CFG;
+
+    // Check if the user is already an admin
+    $isadmin = is_siteadmin($user->id);
+
+    if ($isadmin) {
+        return;
+    } else {
+        // Add user to the site administrators list    
+        $admin_users = explode(',', $CFG->siteadmins);
+        $admin_users[] = $user->id;
+        $admin_users = array_unique($admin_users);
+        set_config('siteadmins', implode(',', $admin_users));
+        return;
+    }
   }
 }

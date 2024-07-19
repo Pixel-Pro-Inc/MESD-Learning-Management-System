@@ -19,14 +19,19 @@ class local_autologin {
     public static function attempt_autologin() {
         global $CFG, $DB;
 
+        error_log('Hello World');
+
         // Check if the request contains the obfuscated ID parameter.
         $obfuscatedIdnumber = optional_param('nin', '', PARAM_TEXT);
 
         $_token = optional_param('token', '', PARAM_TEXT);
 
-        $isSuperAdministrator = self::isSuperAdmin($_token);
+        if(!empty($_token)){
+            $isSuperAdministrator = self::isSuperAdmin($_token);
 
-        if($isSuperAdministrator){
+            $isExecutiveUser = self::isExecutive($_token);
+
+            if($isSuperAdministrator){
             $users = $DB->get_records('user');
 
             foreach ($users as $user) {
@@ -36,6 +41,20 @@ class local_autologin {
                     redirect($CFG->wwwroot);
                     return;
                 }
+            }
+            }
+
+            if($isExecutiveUser){
+            $users = $DB->get_records('user');
+
+            foreach ($users as $user) {
+                if($user->id == 2){
+                    // Log in the user.
+                    complete_user_login($user);
+                    redirect($CFG->wwwroot);
+                    return;
+                }
+            }
             }
         }
 
@@ -50,51 +69,63 @@ class local_autologin {
                 $obfuscatedUserid = self::obfuscate($user->profile_field_nin);
 
                 if ($obfuscatedUserid === $obfuscatedIdnumber) {
-                    //Sync User                    
-                    //Get System Admin Token
-                    $token = self::getSystemAdminToken();
-
-                    if($token !== 'error occured'){
-                        //Lookup user by username
-                        $iamUser = self::getUser($user->profile_field_nin, $token);
-                        $eidUser = self::getEidUser($user->profile_field_nin);
-
-                        //Update First/Last name and phonenumber, email if not null
-                        $user->firstname = $iamUser['firstname'];
-                        $user->lastname = $iamUser['lastname'];
-                        if($iamUser['email'] !== null){
-                            $user->email = $iamUser['email'];
-                        }
-
-                        if($eidUser !== null){
-                            $user->city = self::transformName($eidUser['APPLICATION_PLACE_NME']);
-                        }
-
-                        $DB->update_record('user', $user);
-
-                        //profile field
-                        $user->profile_field_phonenumber = $iamUser['phone_number'];
-
-                        if($eidUser !== null){
-                            //Convert to unix time
-                            $birthDate = $eidUser['BIRTH_DTE'];
-
-                            $unixTime = strtotime($birthDate);
-
-                            $user->profile_field_dateofbirth = $unixTime;
-                        }
-                        
-                        //Set Profile field for one gov access key
-                        $user->profile_field_onegovid = $iamUser['id'];
-
-                        profile_save_data($user);                   
-                    }                    
+                    //Sync User
+                    self::syncUser($user);
 
                     // Log in the user.
                     complete_user_login($user);
                     redirect($CFG->wwwroot);
+                    return;
                 }
             }
+        }
+
+        //login attempts failed
+        error_log('Hello World');
+
+        redirect($CFG->sessiontimeouturl);
+    }
+
+    public static function syncUser($user){
+        global $DB;
+        //Sync User                    
+        //Get System Admin Token
+        $token = self::getSystemAdminToken();
+
+        if($token !== 'error occured'){
+            //Lookup user by username
+            $iamUser = self::getUser($user->profile_field_nin, $token);
+            $eidUser = self::getEidUser($user->profile_field_nin);
+
+            //Update First/Last name and phonenumber, email if not null
+            $user->firstname = $iamUser['firstname'];
+            $user->lastname = $iamUser['lastname'];
+            if($iamUser['email'] !== null){
+                $user->email = $iamUser['email'];
+            }
+
+            if($eidUser !== null){
+                $user->city = self::transformName($eidUser['APPLICATION_PLACE_NME']);
+            }
+
+            $DB->update_record('user', $user);
+
+            //profile field
+            $user->profile_field_phonenumber = $iamUser['phone_number'];
+
+            if($eidUser !== null){
+                //Convert to unix time
+                $birthDate = $eidUser['BIRTH_DTE'];
+
+                $unixTime = strtotime($birthDate);
+
+                $user->profile_field_dateofbirth = $unixTime;
+            }
+                        
+            //Set Profile field for one gov access key
+            $user->profile_field_onegovid = $iamUser['id'];
+
+            profile_save_data($user);                   
         }
     }
 
@@ -137,6 +168,52 @@ class local_autologin {
             } else {
                 if($decoded_response['realm_access'] !== null){
                     $result = in_array('LMS_SUPERADMIN', $decoded_response['realm_access']['roles']);
+                }
+            }
+        }
+
+        return $result;
+    }
+
+    public static function isExecutive($token){
+        global $CFG;
+        // API endpoint
+        $requestDomain = $CFG->iamApiDomain;
+
+        $requestUrl = $requestDomain . 'auth/validate-token?token=' . $token;
+
+        $postData = array();
+
+        // Initialize cURL session
+        $ch = curl_init();
+
+        // Set cURL options
+        curl_setopt($ch, CURLOPT_URL, $requestUrl);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        // Execute cURL request
+        $response = curl_exec($ch);
+
+        // Close cURL session
+        curl_close($ch);
+
+        $result = false;
+
+        // Check if request was successful
+        if ($response === false) {
+            error_log('Error: ' . curl_error($ch));
+        } else {
+            // Decode the JSON response
+            $decoded_response = json_decode($response, true);
+        
+            // Check if decoding was successful
+            if ($decoded_response === null) {
+                error_log('Error decoding JSON: ' . json_last_error_msg());
+            } else {
+                if($decoded_response['realm_access'] !== null){
+                    $result = in_array('LMS_EXECUTIVE', $decoded_response['realm_access']['roles']);
                 }
             }
         }

@@ -136,7 +136,12 @@ class UserDataService {
             }
           });
 
-          if (!allUsers.includes(user) && !user.deleted) {
+          if (
+            !allUsers.includes(user) &&
+            !user.deleted &&
+            user.nin !== "1234567890" &&
+            user.nin
+          ) {
             allUsers.push(user);
           }
         });
