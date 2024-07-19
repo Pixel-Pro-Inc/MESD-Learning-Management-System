@@ -168,7 +168,7 @@ namespace API.Infrastructure.Services
 
 			for (int i = 0; i < NUM_SCHOOLS; i++)
 			{
-				_schools.Add($"{APP_DOMAIN}:{START_PORT + i}/login/index.php?nin=sa&token={token}");
+				_schools.Add($"{APP_DOMAIN}:{START_PORT + i}/singlesignon/index.php?nin=sa&token={token}");
 			}
 
             return _schools.ToArray();
