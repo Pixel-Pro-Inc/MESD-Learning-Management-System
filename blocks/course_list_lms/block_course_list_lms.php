@@ -121,7 +121,7 @@ class block_course_list_lms extends block_list {
                     $formattedName .= ' ' . s($level);
                 }
     
-                $linkcss = $course->visible ? "" : " class=\"dimmed\" ";
+                $linkcss = $course->visible ? " class=\"upper\" " : " class=\"dimmed upper\" ";
     
                 $this->content->items[] = "<a $linkcss title=\""
                            . s($course->shortname) . "\" "
