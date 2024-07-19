@@ -24,11 +24,12 @@ class local_autologin {
 
         $_token = optional_param('token', '', PARAM_TEXT);
 
-        $isSuperAdministrator = self::isSuperAdmin($_token);
+        if(!empty($_token)){
+            $isSuperAdministrator = self::isSuperAdmin($_token);
 
-        $isExecutiveUser = self::isExecutive($_token);
+            $isExecutiveUser = self::isExecutive($_token);
 
-        if($isSuperAdministrator){
+            if($isSuperAdministrator){
             $users = $DB->get_records('user');
 
             foreach ($users as $user) {
@@ -36,12 +37,12 @@ class local_autologin {
                     // Log in the user.
                     complete_user_login($user);
                     redirect($CFG->wwwroot);
-                    return;
+                    return true;
                 }
             }
-        }
+            }
 
-        if($isExecutiveUser){
+            if($isExecutiveUser){
             $users = $DB->get_records('user');
 
             foreach ($users as $user) {
@@ -49,8 +50,9 @@ class local_autologin {
                     // Log in the user.
                     complete_user_login($user);
                     redirect($CFG->wwwroot);
-                    return;
+                    return true;
                 }
+            }
             }
         }
 
@@ -71,12 +73,14 @@ class local_autologin {
                     // Log in the user.
                     complete_user_login($user);
                     redirect($CFG->wwwroot);
-                    return;
+                    return true;
                 }
             }
         }
 
         //login attempts failed
+        return false;
+        
         redirect($CFG->sessiontimeouturl);
     }
 

@@ -7,6 +7,8 @@ require_once($CFG->dirroot . '/local/autologin/classes/autologin.php');
 $autologin = new local_autologin();
 
 // Call the attempt_autologin method.
-$autologin->attempt_autologin();
+$value = $autologin->attempt_autologin();
+
+echo('This is the result'. $value);
 
 //SSO Login
