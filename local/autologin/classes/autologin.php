@@ -39,7 +39,7 @@ class local_autologin {
                     // Log in the user.
                     complete_user_login($user);
                     redirect($CFG->wwwroot);
-                    return true;
+                    return;
                 }
             }
             }
@@ -52,7 +52,7 @@ class local_autologin {
                     // Log in the user.
                     complete_user_login($user);
                     redirect($CFG->wwwroot);
-                    return true;
+                    return;
                 }
             }
             }
@@ -75,14 +75,13 @@ class local_autologin {
                     // Log in the user.
                     complete_user_login($user);
                     redirect($CFG->wwwroot);
-                    return true;
+                    return;
                 }
             }
         }
 
         //login attempts failed
         error_log('Hello World');
-        return false;
 
         redirect($CFG->sessiontimeouturl);
     }
