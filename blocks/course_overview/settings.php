@@ -42,7 +42,7 @@ if ($ADMIN->fulltree) {
     // Enable / Disable available layouts.
     $choices = array(BLOCK_COURSE_OVERVIEW_VIEW_CARD => get_string('card', 'block_course_overview'),
             BLOCK_COURSE_OVERVIEW_VIEW_LIST => get_string('list', 'block_course_overview'),
-            BLOCK_COURSE_OVERVIEW_SUMMARY => get_string('summary', 'block_course_overview'));
+            BLOCK_COURSE_OVERVIEW_VIEW_SUMMARY => get_string('summary', 'block_course_overview'));
     $settings->add(new admin_setting_configmulticheckbox(
             'block_course_overview/layouts',
             get_string('layouts', 'block_course_overview'),
