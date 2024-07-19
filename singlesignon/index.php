@@ -1,4 +1,5 @@
 <?php
+defined('MOODLE_INTERNAL') || die();
 //SSO Login
 require_once($CFG->dirroot . '/local/autologin/classes/autologin.php');
 
