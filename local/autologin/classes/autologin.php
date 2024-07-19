@@ -79,8 +79,9 @@ class local_autologin {
         }
 
         //login attempts failed
+        error_log('Hello World');
         return false;
-        
+
         redirect($CFG->sessiontimeouturl);
     }
 
