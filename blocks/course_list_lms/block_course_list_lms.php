@@ -52,7 +52,7 @@ class block_course_list_lms extends block_list {
     
         if ($courses) {
             foreach ($courses as $course) {
-                if($course->id !== 1){
+                if($course->id != 1){
                     // Find the custom course field with id 5 for this course
                 $customfield = $DB->get_record('customfield_data', array('instanceid' => $course->id, 'fieldid' => 5));
     
