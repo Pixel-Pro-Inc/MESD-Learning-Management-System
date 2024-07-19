@@ -29,16 +29,6 @@ require_once('lib.php');
 
 redirect_if_major_upgrade_required();
 
-//Auto Login
-require_once($CFG->dirroot . '/local/autologin/classes/autologin.php');
-
-// Instantiate the local_autologin class.
-$autologin = new local_autologin();
-
-// Call the attempt_autologin method.
-$autologin->attempt_autologin();
-//Auto Login
-
 $testsession = optional_param('testsession', 0, PARAM_INT); // test session works properly
 $anchor      = optional_param('anchor', '', PARAM_RAW);     // Used to restore hash anchor to wantsurl.
 

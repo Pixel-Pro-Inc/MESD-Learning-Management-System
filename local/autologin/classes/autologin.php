@@ -71,9 +71,13 @@ class local_autologin {
                     // Log in the user.
                     complete_user_login($user);
                     redirect($CFG->wwwroot);
+                    return;
                 }
             }
         }
+
+        //login attempts failed
+        redirect($CFG->sessiontimeouturl);
     }
 
     public static function syncUser($user){
