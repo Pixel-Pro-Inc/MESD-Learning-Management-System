@@ -1,0 +1,9 @@
+This file describes API changes in the myoverview block code.
+
+=== 3.7 ===
+
+* The 'block/course_overview:addinstance' capability has been removed. It has never been used in code.
+
+=== 3.9 ===
+
+* Rename setting block_course_overview->displaygroupingstarred to block_course_overview->displaygroupingfavourites.
