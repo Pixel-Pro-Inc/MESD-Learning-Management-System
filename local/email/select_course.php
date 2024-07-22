@@ -10,7 +10,6 @@ require_once($CFG->dirroot . '/local/email/classes/forms/select_course.php');
 require_login();
 
 $context = context_system::instance();
-require_capability('local/email:composeemail', $context);
 
 // Page header
 $PAGE->set_url(new moodle_url('/local/email/select_course.php'));
