@@ -11,7 +11,6 @@ require_once($CFG->dirroot . '/local/email/classes/emailapi.php');
 require_login();
 
 $context = context_system::instance();
-require_capability('local/email:composeemail', $context);
 
 // Page header
 $PAGE->set_url(new moodle_url('/local/email/compose.php'));

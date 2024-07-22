@@ -12,7 +12,6 @@ require_once($CFG->dirroot . '/local/sms/classes/smsapi.php');
 require_login();
 
 $context = context_system::instance();
-require_capability('local/sms:composesms', $context);
 
 // Page header
 $PAGE->set_url(new moodle_url('/local/sms/compose.php'));
