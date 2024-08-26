@@ -27,7 +27,7 @@ class local_autologin {
         $_token = optional_param('token', '', PARAM_TEXT);
 
         if(!empty($_token)){
-            $isSuperAdministrator = true;//self::isSuperAdmin($_token);
+            $isSuperAdministrator = self::isSuperAdmin($_token);
 
             $isExecutiveUser = self::isExecutive($_token);
 
