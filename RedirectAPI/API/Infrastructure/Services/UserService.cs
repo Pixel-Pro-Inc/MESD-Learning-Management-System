@@ -122,10 +122,12 @@ namespace API.Infrastructure.Services
 
             if (roles.Contains("LMS_SUPERADMIN"))
             {
-                //Show all links
-                return new ResultObject<IEnumerable<string>>()
+                //TEMPORARY FIX BECAUSE OF ISSUE
+                var links = GetAllLinks(token);
+				//Show all links
+				return new ResultObject<IEnumerable<string>>()
                 {
-                    Value = GetAllLinks(token)
+                    Value = links.TakeLast(links.Length - 1)
                 };
             }
 
